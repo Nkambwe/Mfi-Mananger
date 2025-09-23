@@ -1,0 +1,22 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "MfiManager.Middleware",
+    "version": "1.0"
+  },
+  "paths": {
+    "/mfi": {
+      "get": {
+        "tags": [
+          "Mfi"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

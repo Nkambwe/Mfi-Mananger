@@ -1,0 +1,6 @@
+@MfiManager.Middleware_HostAddress = http://localhost:5023
+
+GET {{MfiManager.Middleware_HostAddress}}/mfi/
+Accept: application/json
+
+###

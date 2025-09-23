@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiController",
+    "Method": "Welcome",
+    "RelativePath": "mfi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
