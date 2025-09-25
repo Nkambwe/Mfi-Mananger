@@ -3,7 +3,7 @@ using MfiManager.Middleware.Data.Entities;
 using MfiManager.Middleware.Factories;
 using MfiManager.Middleware.Utils;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using System.Collections.Concurrent;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -16,6 +16,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         private static PropertyInfo _cachedIsDeletedProperty;
         private static PropertyInfo _cachedIdProperty;
         private static readonly object _lockObject = new();
+        private static readonly ConcurrentDictionary<Type, bool> _hasIsDeletedCache = new();
         #endregion
 
         protected readonly IServiceLogger Logger;
@@ -23,7 +24,9 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         protected readonly DbSet<T> _dbSet;
         protected readonly MfiManagerDbContext _dbContext; 
 
-        public Repository(IServiceLoggerFactory loggerFactory, IStaticCacheManager cacheManager, MfiManagerDbContext dbContext) {
+        public Repository(IServiceLoggerFactory loggerFactory, 
+                        IStaticCacheManager cacheManager, 
+                        MfiManagerDbContext dbContext) {
             Logger = loggerFactory.CreateLogger();
             Logger.Channel = $"REPO-{DateTime.Now:yyyyMMddHHmmss}";
             _cacheManager = cacheManager;
@@ -31,113 +34,206 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             _dbSet = _dbContext.Set<T>();
         }
 
-        public void Add(T entity) {
-            ArgumentNullException.ThrowIfNull(entity);
+        public int Count() {
             try {
-                _dbSet.Add(entity);
-                InvalidateCache();
+                return _dbSet.Count();
             } catch (Exception ex) {
-                Logger.Log($"Add operation failed: {ex.Message}", "DbAction");
-                Logger.Log("STACKTRACE ::");
-                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                Logger?.Log($"Count operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
             }
-            
         }
 
-        public async Task AddAsync(T entity) {
-            ArgumentNullException.ThrowIfNull(entity);
+        public int Count(Expression<Func<T, bool>> predicate) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
             try {
-                await _dbSet.AddAsync(entity);
-                InvalidateCache();
+                return _dbSet.Count(predicate);
             } catch (Exception ex) {
-                Logger.Log($"Add operation failed: {ex.Message}", "DbAction");
-                Logger.Log("STACKTRACE ::");
-                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                Logger?.Log($"Count with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
             }
-            
         }
 
-        public async Task AddRangeAsync(IEnumerable<T> entities) {
-            ArgumentNullException.ThrowIfNull(entities);
+        public async Task<int> CountAsync(CancellationToken cancellationToken = default) {
             try {
-                await _dbSet.AddRangeAsync(entities);
-                InvalidateCache();
+                return await _dbSet.CountAsync(cancellationToken);
             } catch (Exception ex) {
-                Logger.Log($"AddRange operation failed: {ex.Message}", "DbAction");
-                Logger.Log("STACKTRACE ::");
-                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                Logger?.Log($"CountAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
             }
-             
         }
 
-        public Task<bool> BulkInsertAsync(IEnumerable<T> entities) {
-            throw new NotImplementedException();
+        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                return await _dbSet.CountAsync(predicate, cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"CountAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
+            }
         }
 
-        public Task<bool> BulkUpdateAsync(IEnumerable<T> entities) {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> BulkUpdateAsync(IEnumerable<T> entities, params Expression<Func<T, object>>[] propertySelectors) {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> CountAsync() {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> CountAsync(Expression<Func<T, bool>> where) {
-            throw new NotImplementedException();
-        }
-
-        public bool Exists(Expression<Func<T, bool>> where, bool excludeDeleted = false) {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistsAsync(Expression<Func<T, bool>> where, bool excludeDeleted = false) {
-            throw new NotImplementedException();
-        }
-
-        public T Get(Expression<Func<T, bool>> where, bool includeDeleted = false) {
-            throw new NotImplementedException();
-        }
-
-        public T Get(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<T> GetAll(bool includeDeleted = false) {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> where, bool includeDeleted) {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<T> GetAll(bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
-        }
-
-        public Task<IQueryable<T>> GetAllAsync(bool includeDeleted = false) {
-            throw new NotImplementedException();
-        }
-
-        public Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted) {
-            throw new NotImplementedException();
-        }
-
-        public Task<IQueryable<T>> GetAllAsync(bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
-        }
-
-        public Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
+        public async Task<int> CountAsync(bool excludeDeleted = true, CancellationToken cancellationToken = default) {
+            try {
+                if (excludeDeleted) {
+                    return await _dbSet.CountAsync(e => !EF.Property<bool>(e, "IsDeleted"), cancellationToken);
+                }
+        
+                return await _dbSet.CountAsync(cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"CountAsync with excludeDeleted operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
+            }
         }
         
+        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                if (excludeDeleted) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return await _dbSet.CountAsync(combinedPredicate, cancellationToken);
+                }
+        
+                return await _dbSet.CountAsync(predicate, cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"CountAsync with predicate and excludeDeleted operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0;
+            }
+        }
+        
+        public async Task<long> LongCountAsync(CancellationToken cancellationToken = default) {
+            try {
+                return await _dbSet.LongCountAsync(cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"LongCountAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0L;
+            }
+        }
+
+        public async Task<long> LongCountAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                if (excludeDeleted) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return await _dbSet.LongCountAsync(combinedPredicate, cancellationToken);
+                }
+        
+                return await _dbSet.LongCountAsync(predicate, cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"LongCountAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return 0L;
+            }
+        }
+
+        public bool Exists(Expression<Func<T, bool>> predicate, bool excludeDeleted = true) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = _dbSet.AsQueryable();
+        
+                if (excludeDeleted) {
+                    //..combine predicates for a single database query
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return query.Any(combinedPredicate);
+                }
+        
+                return query.Any(predicate);
+            }
+            catch (Exception ex)
+            {
+                Logger?.Log($"Exists operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return false;
+            }
+        }
+
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = _dbSet.AsQueryable();
+                if (excludeDeleted) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return await query.AnyAsync(combinedPredicate, cancellationToken);
+                }
+        
+                return await query.AnyAsync(predicate, cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"ExistsAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return false;
+            }
+        }
+
+        public async Task<bool> ExistsByIdCachedAsync(long id, bool excludeDeleted = true, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) {
+            return await ExistsCachedAsync(
+                e => EF.Property<long>(e, "Id") == id, 
+                $"id_{id}", 
+                excludeDeleted, 
+                cacheTime, 
+                cancellationToken);
+        }
+
+        public async Task<bool> ExistsCachedAsync(Expression<Func<T, bool>> predicate, string cacheKey, bool excludeDeleted = true, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            if (string.IsNullOrWhiteSpace(cacheKey))
+                throw new ArgumentException("Cache key cannot be null or empty", nameof(cacheKey));
+
+            var fullCacheKey = GetCacheKey($"exists_{cacheKey}");
+    
+            return await _cacheManager.GetAsync(fullCacheKey, 
+                () => ExistsAsync(predicate, excludeDeleted, cancellationToken), 
+                cacheTime ?? TimeSpan.FromMinutes(5));
+        }
+       
+        public async Task<Dictionary<string, bool>> ExistsBatchAsync(Dictionary<string, Expression<Func<T, bool>>> predicates, bool excludeDeleted = true, CancellationToken cancellationToken = default) {
+            if (predicates == null || predicates.Count == 0)
+                return [];
+
+            try {
+                var results = new Dictionary<string, bool>();
+                var query = _dbSet.AsQueryable();
+
+                //..execute all queries in parallel for better performance
+                var tasks = predicates.Select(async kvp => {
+                    var predicate = kvp.Value;
+                    var key = kvp.Key;
+            
+                    if (excludeDeleted) {
+                        var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                        var exists = await query.AnyAsync(combinedPredicate, cancellationToken);
+                        return new KeyValuePair<string, bool>(key, exists);
+                    }
+            
+                    var result = await query.AnyAsync(predicate, cancellationToken);
+                    return new KeyValuePair<string, bool>(key, result);
+                });
+
+                var batchResults = await Task.WhenAll(tasks);
+                foreach (var result in batchResults) {
+                    results[result.Key] = result.Value;
+                }
+
+                return results;
+            } catch (Exception ex) {
+                Logger?.Log($"ExistsBatch operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return [];
+            }
+        }
+
         public T Get(long id, bool includeDeleted = false) {
              T entity = null;
              var entities = _dbSet;
@@ -182,36 +278,387 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             return entity;
         }
 
-        public Task<T> GetAsync(Expression<Func<T, bool>> where, bool includeDeleted = false) {
-            throw new NotImplementedException();
+        public T Get(Expression<Func<T, bool>> where, bool includeDeleted = false) {
+            T entity = null;
+            var entities = _dbSet;
+            try {
+                var query = entities.AsQueryable();
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                entity = query.FirstOrDefault(where);
+
+            } catch (Exception ex) {
+                Logger.Log($"Get operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+            }
+
+            return entity;
         }
 
-        public Task<T> GetAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
+        public async Task<T> GetByIdAsync(long id, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes) {
+            try {
+                var query = GetAll(e => EF.Property<long>(e, "Id") == id, includeDeleted, includes);
+                return await query.FirstOrDefaultAsync(cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"GetByIdAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+        }
+
+        public async Task<T> GetAsync(Expression<Func<T, bool>> where, bool includeDeleted = false) {
+              var entities = _dbSet;
+            try {
+                var query = entities.AsQueryable();
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                return await query.FirstOrDefaultAsync(where);
+            } catch (Exception ex) {
+                Logger.Log($"Get operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+        }
+        
+        public T Get(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
+            T entity = null;
+            var entities = _dbSet;
+            try {
+                var query = entities.AsQueryable();
+                if (includes != null) {
+                    query = includes.Aggregate(query,
+                            (current, next) => current.Include(next));
+                }
+
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                entity = query.FirstOrDefault(where);
+
+            } catch (Exception ex) {
+                Logger.Log($"Get operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+
+            return entity;
+        }
+
+        public async Task<T> GetAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
+            var entities = _dbSet;
+            try {
+                var query = entities.AsQueryable();
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                return await query.FirstOrDefaultAsync(where);
+            } catch (Exception ex) {
+                Logger.Log($"Get operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
         }
 
         public IQueryable<T> GetTop(Expression<Func<T, bool>> where, int top, bool includeDeleted = false) {
+            try {
+                IQueryable<T> query = _dbSet;
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                return query.Where(where).Take(top);
+            } catch (Exception ex) {
+                Logger.Log($"Get Top operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+            
+        }
+        
+        public T GetSingleOrDefault(Expression<Func<T, bool>> where, bool includeDeleted = false) {
+            try {
+                if (!includeDeleted) {
+                    var entry = _dbContext.Entry(where);
+                    var isDeleted = (bool)entry.Property("IsDeleted").CurrentValue;
+                    if (isDeleted) {
+                        Logger.Log("Entity found but is marked as deleted.", "DbAction");
+                        return null;
+                    }
+                }
+
+                return _dbSet.SingleOrDefault(where);
+            } catch (Exception ex) {
+                Logger.Log($"Update operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+        }
+
+        public async Task<T> GetSingleOrDefaultAsync(Expression<Func<T, bool>> where, bool includeDeleted = false) {
+            try {
+                if (!includeDeleted) {
+                    var entry = _dbContext.Entry(where);
+                    var isDeleted = (bool)entry.Property("IsDeleted").CurrentValue;
+                    if (isDeleted) {
+                        Logger.Log("Entity found but is marked as deleted.", "DbAction");
+                        return null;
+                    }
+                }
+
+                return await _dbSet.SingleOrDefaultAsync(where);
+            } catch (Exception ex) {
+                Logger.Log($"Update operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+            
+        }
+
+        public async Task<T> GetSingleOrDefaultAsync(Expression<Func<T, bool>> predicate, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = GetAll(predicate, includeDeleted, includes);
+                return await query.FirstOrDefaultAsync(cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"GetSingleAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+        }
+
+        public IQueryable<T> GetAll(bool includeDeleted = false) {
+            try {
+                var query = _dbSet.AsQueryable();
+        
+                if (!includeDeleted) {
+                    query = query.Where(e => !EF.Property<bool>(e, "IsDeleted"));
+                }
+        
+                return query;
+            } catch (Exception ex) {
+                Logger?.Log($"GetAll operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return Enumerable.Empty<T>().AsQueryable();
+            }
+        }
+
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate, bool includeDeleted = false) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = _dbSet.AsQueryable();
+        
+                if (!includeDeleted ) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return query.Where(combinedPredicate);
+                }
+        
+                return query.Where(predicate);
+            } catch (Exception ex) {
+                Logger?.Log($"GetAll with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return Enumerable.Empty<T>().AsQueryable();
+            }
+        }
+
+        public IQueryable<T> GetAll(bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
+
+            try {
+                var query = _dbSet.AsQueryable();
+                if (includes != null){
+                    query = includes.Aggregate(query, (current, include) => current.Include(include));
+                }
+
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);;
+                }
+        
+                return query;
+            } catch (Exception ex) {
+                Logger?.Log($"GetAll with predicate and includes operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return Enumerable.Empty<T>().AsQueryable();
+            }
+        }
+
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate, bool includeDeleted = false, params Expression<Func<T, object>>[] includes){
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = _dbSet.AsQueryable();
+                if (includes != null){
+                    query = includes.Aggregate(query, (current, include) => current.Include(include));
+                }
+
+                if (!includeDeleted)
+                {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    return query.Where(combinedPredicate);
+                }
+        
+                return query.Where(predicate);
+            } catch (Exception ex) {
+                Logger?.Log($"GetAll with predicate and includes operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return Enumerable.Empty<T>().AsQueryable();
+            }
+        }
+        
+        public async Task<IList<T>> GetTopAsync(Expression<Func<T, bool>> where, int top, bool includeDeleted = false) {
+            try {
+                IQueryable<T> query = _dbSet;
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                return await query.Where(where).Take(top).ToListAsync();
+            } catch (Exception ex) {
+                Logger.Log($"Get Top operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+                return null;
+            }
+        }
+
+        public async Task<IList<T>> GetAllAsync(bool includeDeleted = false, CancellationToken cancellationToken = default) {
+            try {
+                var query = GetAll(includeDeleted);
+                return await query.ToListAsync(cancellationToken);
+            } catch (Exception ex) {
+                Logger?.Log($"GetAllAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return [];
+            }
+        }
+
+        public async Task<IList<T>> GetAllAsync( Expression<Func<T, bool>> predicate, bool includeDeleted = false, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                var query = GetAll(predicate, includeDeleted);
+                return await query.ToListAsync(cancellationToken);
+            } catch (Exception ex){
+                Logger?.Log($"GetAllAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return [];
+            }
+        }
+
+        public async Task<IList<T>> GetAllAsync(bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
+
+            try {
+                IQueryable<T> query = _dbSet;
+
+                if (includes != null && includes.Length != 0) {
+                    foreach (var include in includes) {
+                        query = query.Include(include);
+                    }
+                }
+            
+                if (!includeDeleted) {
+                    query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                }
+
+                return await query.ToListAsync();
+            } catch (Exception ex){
+                Logger?.Log($"GetAllAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return [];
+            }
+        }
+
+        public async Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes) {
+            ArgumentNullException.ThrowIfNull(where);
+
+            try {
+                var query = GetAll(where, includeDeleted,includes);
+                return await query.ToListAsync();
+            } catch (Exception ex){
+                Logger?.Log($"GetAllAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return [];
+            }
+        }
+        
+        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null) {
             throw new NotImplementedException();
         }
 
-        public Task<IQueryable<T>> GetTopAsync(Expression<Func<T, bool>> where, int top, bool includeDeleted = false) {
+        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where) {
             throw new NotImplementedException();
         }
 
-        public Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null) {
-            throw new NotImplementedException();
-        }
-
-        public Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where) {
-            throw new NotImplementedException();
-        }
-
-        public Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null, CancellationToken token = default) {
+        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null, CancellationToken token = default) {
             throw new NotImplementedException();
         }
 
         public Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, CancellationToken token = default, params Expression<Func<T, object>>[] includes) {
             throw new NotImplementedException();
+        }
+
+        public Task<bool> BulkInsertAsync(IEnumerable<T> entities) {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> BulkUpdateAsync(IEnumerable<T> entities) {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> BulkUpdateAsync(IEnumerable<T> entities, params Expression<Func<T, object>>[] propertySelectors) {
+            throw new NotImplementedException();
+        }
+        
+        public void Add(T entity) {
+            ArgumentNullException.ThrowIfNull(entity);
+            try {
+                _dbSet.Add(entity);
+                InvalidateCache();
+            } catch (Exception ex) {
+                Logger.Log($"Add operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+            }
+            
+        }
+
+        public async Task AddAsync(T entity) {
+            ArgumentNullException.ThrowIfNull(entity);
+            try {
+                await _dbSet.AddAsync(entity);
+                InvalidateCache();
+            } catch (Exception ex) {
+                Logger.Log($"Add operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+            }
+            
+        }
+
+        public async Task AddRangeAsync(IEnumerable<T> entities) {
+            ArgumentNullException.ThrowIfNull(entities);
+            try {
+                await _dbSet.AddRangeAsync(entities);
+                InvalidateCache();
+            } catch (Exception ex) {
+                Logger.Log($"AddRange operation failed: {ex.Message}", "DbAction");
+                Logger.Log("STACKTRACE ::");
+                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
+            }
+             
         }
 
         public void Remove(T entity, bool markAsDeleted = false) {
@@ -284,47 +731,6 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             }
         }
 
-        public T SingleOrDefault(Expression<Func<T, bool>> where, bool includeDeleted = false) {
-            try {
-                if (!includeDeleted) {
-                    var entry = _dbContext.Entry(where);
-                    var isDeleted = (bool)entry.Property("IsDeleted").CurrentValue;
-                    if (isDeleted) {
-                        Logger.Log("Entity found but is marked as deleted.", "DbAction");
-                        return null;
-                    }
-                }
-
-                return _dbSet.SingleOrDefault(where);
-            } catch (Exception ex) {
-                Logger.Log($"Update operation failed: {ex.Message}", "DbAction");
-                Logger.Log("STACKTRACE ::");
-                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
-                return null;
-            }
-        }
-
-        public async Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> where, bool includeDeleted = false) {
-            try {
-                if (!includeDeleted) {
-                    var entry = _dbContext.Entry(where);
-                    var isDeleted = (bool)entry.Property("IsDeleted").CurrentValue;
-                    if (isDeleted) {
-                        Logger.Log("Entity found but is marked as deleted.", "DbAction");
-                        return null;
-                    }
-                }
-
-                return await _dbSet.SingleOrDefaultAsync(where);
-            } catch (Exception ex) {
-                Logger.Log($"Update operation failed: {ex.Message}", "DbAction");
-                Logger.Log("STACKTRACE ::");
-                Logger.Log($"{ex.StackTrace}", "DbStacktrace");
-                return null;
-            }
-            
-        }
-
         public void Update(T entity, bool includeDeleted = false) {
             ArgumentNullException.ThrowIfNull(entity);
             try {
@@ -353,13 +759,12 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             }  
         }
         
-        public int GetContextHashCode() {
-            throw new NotImplementedException();
-        }
+        public int GetContextHashCode()
+            => _dbContext.GetType().GetHashCode();
 
         #region Cached Data
         
-        public async Task<IQueryable<T>> FindCachedAsync(Expression<Func<T, bool>> where, string cacheKey, TimeSpan? cacheTime = null) {
+        public async Task<IList<T>> FindCachedAsync(Expression<Func<T, bool>> where, string cacheKey, TimeSpan? cacheTime = null) {
             try {
                 var fullCacheKey = GetCacheKey(cacheKey);
                 return await _cacheManager.GetAsync(fullCacheKey, () => GetAllAsync(where), cacheTime);
@@ -383,7 +788,15 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             }
         }
 
-        public async Task<IQueryable<T>> GetAllCachedAsync(TimeSpan? cacheTime = null) {
+        public async Task<T> GetByIdCachedAsync( long id, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) {
+            var cacheKey = GetCacheKey($"getbyid_{id}");
+    
+            return await _cacheManager.GetAsync(cacheKey, 
+                () => GetByIdAsync(id, includeDeleted, cancellationToken), 
+                cacheTime ?? TimeSpan.FromMinutes(30));
+        }
+
+        public async Task<IList<T>> GetAllCachedAsync(TimeSpan? cacheTime = null) {
             try {
                  var cacheKey = GetAllCacheKey();
                 return await _cacheManager.GetAsync(cacheKey, () => GetAllAsync(), cacheTime);
@@ -394,29 +807,35 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
                 return null;
             }
         }
+        
+        public async Task<IList<T>> GetAllCachedAsync(string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) {
+            if (string.IsNullOrWhiteSpace(cacheKey))
+                throw new ArgumentException("Cache key cannot be null or empty", nameof(cacheKey));
+
+            var fullCacheKey = GetCacheKey($"getall_{cacheKey}");
+    
+            return await _cacheManager.GetAsync(fullCacheKey, 
+                () => GetAllAsync(includeDeleted, cancellationToken), 
+                cacheTime ?? TimeSpan.FromMinutes(10));
+        }
+
+        public async Task<IList<T>> GetAllCachedAsync( Expression<Func<T, bool>> predicate, string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            if (string.IsNullOrWhiteSpace(cacheKey))
+                throw new ArgumentException("Cache key cannot be null or empty", nameof(cacheKey));
+
+            var fullCacheKey = GetCacheKey($"getall_{cacheKey}");
+    
+            return await _cacheManager.GetAsync(fullCacheKey, 
+                () => GetAllAsync(predicate, includeDeleted, cancellationToken), 
+                cacheTime ?? TimeSpan.FromMinutes(10));
+        }
 
         #endregion
 
         #region private Methods
 
-        /// <summary>
-        /// Extract class property name form class property
-        /// </summary>
-        /// <param name="where">Filter Predicate</param>
-        /// <returns>Property name</returns>
-        private static string GetPropertyName(Expression<Func<T, object>> where) {
-            if (where.Body is MemberExpression exMember) {
-                return exMember.Member.Name;
-            } else if (where.Body is UnaryExpression unary) {
-                //..for handling nullable properties
-                if (unary.Operand is MemberExpression operand) {
-                    return operand.Member.Name;
-                }
-            }
-
-            return null;
-        }
-        
         private static PropertyInfo GetIsDeletedProperty() {
             if (_cachedIsDeletedProperty == null) {
                 lock (_lockObject) {
@@ -478,7 +897,35 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
 
             await BulkUpdateAsync(entities, e => e.IsDeleted);
         }
-        
+
+        private static Expression<Func<T, bool>> CombinePredicates(Expression<Func<T, bool>> first, Expression<Func<T, bool>> second) {
+            var parameter = Expression.Parameter(typeof(T), "x");
+    
+            var firstBody = ReplaceParameter(first.Body, first.Parameters[0], parameter);
+            var secondBody = ReplaceParameter(second.Body, second.Parameters[0], parameter);
+    
+            var combinedBody = Expression.AndAlso(firstBody, secondBody);
+    
+            return Expression.Lambda<Func<T, bool>>(combinedBody, parameter);
+        }
+
+        private static Expression ReplaceParameter(Expression expression, ParameterExpression oldParameter, ParameterExpression newParameter)
+            => new ParameterReplacerVisitor(oldParameter, newParameter).Visit(expression);
+
+        /// <summary>
+        /// Parameter replacer visitor class for expression manipulation
+        /// </summary>
+        private class ParameterReplacerVisitor(ParameterExpression oldParameter, ParameterExpression newParameter)
+            : ExpressionVisitor {
+            private readonly ParameterExpression _oldParameter = oldParameter;
+            private readonly ParameterExpression _newParameter = newParameter;
+
+            protected override Expression VisitParameter(ParameterExpression node)
+            {
+                return node == _oldParameter ? _newParameter : base.VisitParameter(node);
+            }
+        }
+
         #endregion
 
         #region Protected Methods

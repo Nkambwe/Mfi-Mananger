@@ -4,7 +4,8 @@ using MfiManager.Middleware.Utils;
 using Microsoft.Extensions.Options;
 
 namespace MfiManager.Middleware.Factories {
-    public class ServiceLoggerFactory(IEnvironmentProvider environmentProvider, IOptions<ServiceLoggingOption> loggingOptions) {
+    public class ServiceLoggerFactory(IEnvironmentProvider environmentProvider, 
+                IOptions<ServiceLoggingOption> loggingOptions):IServiceLoggerFactory {
 
          private readonly IEnvironmentProvider _environmentProvider = environmentProvider;
          private readonly IOptions<ServiceLoggingOption> _loggingOptions = loggingOptions;

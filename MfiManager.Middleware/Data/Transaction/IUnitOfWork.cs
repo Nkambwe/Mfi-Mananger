@@ -1,10 +1,10 @@
-﻿using MfiManager.Middleware.Data.Entities;
+﻿using MfiManager.Middleware.Configuration;
+using MfiManager.Middleware.Data.Entities;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 
 namespace MfiManager.Middleware.Data.Transaction {
 
     public interface IUnitOfWork : IDisposable {
-
         public MfiManagerDbContext Context { get;} 
         public IRepository<T> GetRepository<T>() where T : BaseEntity;
         //public ICompanyRepository CompanyRepository { get; set;}

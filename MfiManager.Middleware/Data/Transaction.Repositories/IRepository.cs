@@ -16,15 +16,24 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="where">Search Predicate</param>
         /// <param name="includeDeleted"></param>
         /// <returns>Single entity that fits predicate or returns default value</returns>
-         T SingleOrDefault(Expression<Func<T, bool>> where, bool includeDeleted = false);
+        T GetSingleOrDefault(Expression<Func<T, bool>> where, bool includeDeleted = false);
 
-         /// <summary>
-         /// Find an entity that fits predicate. Check whether to returned deleted entities <see cref="ISoftDelete"/>
-         /// </summary>
-         /// <param name="where">Search Predicate</param>
-         /// <param name="includeDeleted"></param>
-         /// <returns>Task containg a single entity that fits predicate or returns default value</returns>
-         Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> where, bool includeDeleted = false);
+        /// <summary>
+        /// Find an entity that fits predicate. Check whether to returned deleted entities <see cref="ISoftDelete"/>
+        /// </summary>
+        /// <param name="where">Search Predicate</param>
+        /// <param name="includeDeleted"></param>
+        /// <returns>Task containg a single entity that fits predicate or returns default value</returns>
+        Task<T> GetSingleOrDefaultAsync(Expression<Func<T, bool>> where, bool includeDeleted = false);
+        /// <summary>
+        /// Find an entity that fits predicate. Check whether to returned deleted entities <see cref="ISoftDelete"/>
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="includeDeleted"></param>
+        /// <param name="cancellationToken"></param>
+        /// <param name="includes"></param>
+        /// <returns></returns>
+        Task<T> GetSingleOrDefaultAsync(Expression<Func<T, bool>> predicate, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
         /// Get entity by Id. Check whether to returned deleted entities <see cref="ISoftDelete"/>
@@ -49,7 +58,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="includeDeleted">Flag to check whether to returned deleted entities</param>
         /// <returns>Entity that fits predicate</returns>
         T Get(Expression<Func<T, bool>> where, bool includeDeleted = false);
-
+        
         /// <summary>
         /// Get entity the fits predicate. Check whether to returned deleted entities <see cref="ISoftDelete"/>
         /// </summary>
@@ -90,7 +99,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="includeDeleted">Flag whether to include deleted records in the search</param>
         /// <remarks>Usage var entities = await GetAllAsync(includeDeleted: false);</remarks>
         /// <returns>Task containg a collection of all entities</returns>
-        Task<IQueryable<T>> GetAllAsync(bool includeDeleted = false);
+        Task<IList<T>> GetAllAsync(bool includeDeleted = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a list of all entities that fit search predicate. Option to check if entities can be marked as deleted
@@ -106,7 +115,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="where">Search predicate</param>
         /// <param name="includeDeleted">Flag whether to include deleted records in the search</param>
         /// <returns>Task containg a collection of all entities that fit predicate</returns>
-        Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted);
+        Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get queriable data set 
@@ -122,7 +131,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="includes">Search includes</param>
         /// <remarks>Usage var entity = await GetAsync(e => e.Id == 1, includeDeleted: false, x => x.RelatedEntity, x => x.AnotherEntity);</remarks>
         /// <returns>Task with a list of entitities that fits predicate</returns>
-        Task<IQueryable<T>> GetAllAsync(bool includeDeleted = false, params Expression<Func<T, object>>[] includes);
+        Task<IList<T>> GetAllAsync(bool includeDeleted = false, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
         /// Synchronous search for an entity that fits predicate with related entities. Option to check if it can be marked as deleted
@@ -142,7 +151,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="includes">Search includes</param>
         /// <remarks>Usage var entity = await GetAsync(e => e.Id == 1, includeDeleted: false, x => x.RelatedEntity, x => x.AnotherEntity);</remarks>
         /// <returns>Task with a list of entitities that fits predicate</returns>
-        Task<IQueryable<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes);
+        Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> where, bool includeDeleted = false, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
         /// Get selected top count of a list of objects
@@ -160,7 +169,16 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="top">Top count to select</param>
         /// <param name="includeDeleted">Flag whether to include deleted records in the search</param>
         /// <returns>Task containg a collection of all entities that fit predicate</returns>
-        Task<IQueryable<T>> GetTopAsync(Expression<Func<T, bool>> where, int top, bool includeDeleted = false);
+        Task<IList<T>> GetTopAsync(Expression<Func<T, bool>> where, int top, bool includeDeleted = false);
+        /// <summary>
+        /// Get entity with ID. Check whether to returned deleted entities <see cref="ISoftDelete"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="includeDeleted"></param>
+        /// <param name="cancellationToken"></param>
+        /// <param name="includes"></param>
+        /// <returns></returns>
+        Task<T> GetByIdAsync(long id, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);
 
         /// <summary>
         /// Add new entity to the database
@@ -215,18 +233,90 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="where">Search predicate</param>
         /// <param name="excludeDeleted">Flag to exclude deleted entities in the search</param>
         /// <returns>Task containg search result for entity</returns>
-        Task<bool> ExistsAsync(Expression<Func<T, bool>> where, bool excludeDeleted = false);
-        
+        Task<bool> ExistsAsync(Expression<Func<T, bool>> where, bool excludeDeleted = false, CancellationToken token = default);
+        /// <summary>
+        /// Check exists for constantly checked values
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="excludeDeleted"></param>
+        /// <param name="cacheTime"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<bool> ExistsByIdCachedAsync(long id, bool excludeDeleted = true, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Check exists for constantly checked values
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="cacheKey"></param>
+        /// <param name="excludeDeleted"></param>
+        /// <param name="cacheTime"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<bool> ExistsCachedAsync(Expression<Func<T, bool>> predicate, string cacheKey, bool excludeDeleted = true, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Check for batch existence for multiple conditions
+        /// </summary>
+        /// <param name="predicates"></param>
+        /// <param name="excludeDeleted"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<Dictionary<string, bool>> ExistsBatchAsync(Dictionary<string, Expression<Func<T, bool>>> predicates, bool excludeDeleted = true, CancellationToken cancellationToken = default);
         /// <summary>
         /// Count number of entities in the database
         /// </summary>
         /// <returns>Number of entities found in the database</returns>
-        Task<int> CountAsync();
+        int Count();
+        /// <summary>
+        /// Count number of entities in the database
+        /// </summary>
+        /// <param name="predicate">Count filter</param>
+        /// <returns>Number of entities found in the database</returns>
+        int Count(Expression<Func<T, bool>> predicate);
+        /// <summary>
+        /// Count number of entities in the database
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containg number of entities found in the database</returns>
+        Task<int> CountAsync(CancellationToken cancellationToken = default);
+        
         /// <summary>
         /// Asynchronous count number of entities in the database
         /// </summary>
-        /// <returns>Task containing number of entities found in the database</returns>
-        Task<int> CountAsync(Expression<Func<T, bool>> where);
+        /// <param name="predicate"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containg number of entities found in the database</returns>
+        Task<int> CountAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Asynchronous count number of entities in the database
+        /// </summary>
+        /// <param name="excludeDeleted">Exclude deleted entities</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containg number of entities found in the database</returns>
+        Task<int> CountAsync(bool excludeDeleted = true, CancellationToken cancellationToken = default);
+        
+        /// <summary>
+        /// Asynchronous count number of entities in the database
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="excludeDeleted">Exclude deleted entities</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containg number of entities found in the database</returns>
+        Task<int> CountAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default) ;
+        /// <summary>
+        /// Count large data sets
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<long> LongCountAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Cont large data sets
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="excludeDeleted"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<long> LongCountAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default);
         /// <summary>
         /// Bulk inserts to the database
         /// </summary>
@@ -257,11 +347,20 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <returns>Task containing cached entity</returns>
         Task<T> GetByIdCachedAsync(long id, TimeSpan? cacheTime = null);
         /// <summary>
+        /// Get cached entity by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="includeDeleted"></param>
+        /// <param name="cacheTime"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<T> GetByIdCachedAsync( long id, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get list of cached entitie
         /// </summary>
         /// <param name="cacheTime"></param>
         /// <returns>Task containing list of cached entitities</returns>
-        Task<IQueryable<T>> GetAllCachedAsync(TimeSpan? cacheTime = null);
+        Task<IList<T>> GetAllCachedAsync(TimeSpan? cacheTime = null);
         /// <summary>
         /// Get list of cached entitie
         /// </summary>
@@ -269,8 +368,26 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="cacheKey">Cache key to search for</param>
         /// <param name="cacheTime"></param>
         /// <returns>Task containing list of cached entitities</returns>
-        Task<IQueryable<T>> FindCachedAsync(Expression<Func<T, bool>> where, string cacheKey, TimeSpan? cacheTime = null);
-
+        Task<IList<T>> FindCachedAsync(Expression<Func<T, bool>> where, string cacheKey, TimeSpan? cacheTime = null);
+        /// <summary>
+        /// Get all cached entities
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <param name="cacheKey"></param>
+        /// <param name="includeDeleted"></param>
+        /// <param name="cacheTime"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containing list of cached entitities</returns>
+        Task<IList<T>> GetAllCachedAsync( Expression<Func<T, bool>> predicate, string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get all cached entities
+        /// </summary>
+        /// <param name="cacheKey"></param>
+        /// <param name="includeDeleted"></param>
+        /// <param name="cacheTime"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Task containing list of cached entitities</returns>
+        Task<IList<T>> GetAllCachedAsync(string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
         /// <summary>
         /// Pagenate records that fit predicate
         /// </summary>
@@ -278,9 +395,8 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="size">Page size</param>
         /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
         /// <param name="where">Filter predicate</param>
-        /// <returns></returns>
-        Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null);
-
+       /// <returns>Task containing list of cached entitities</returns>
+        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null);
         /// <summary>
         /// Page all records seleceted
         /// </summary>
@@ -288,9 +404,8 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="size">Number of entities to take</param>
         /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
         /// <param name="where">Search includes</param>
-        /// <returns></returns>
-        Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where);
-        
+        /// <returns>Task containing list of cached entitities</returns>
+        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where);
         /// <summary>
         ///  Pagenate records that fit predicate
         /// </summary>
@@ -299,9 +414,8 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="size">Page size</param>
         /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
         /// <param name="where">Filter predicate</param>
-        /// <returns></returns>
-        Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null,CancellationToken token = default);
-
+        /// <returns>Task containing list of cached entitities</returns>
+        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null,CancellationToken token = default);
         /// <summary>
         /// Page all entities selected in a query
         /// </summary>

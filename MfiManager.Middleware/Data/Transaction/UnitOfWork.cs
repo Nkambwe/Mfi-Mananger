@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities;
+﻿using MfiManager.Middleware.Configuration;
+using MfiManager.Middleware.Data.Entities;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Factories;
 using MfiManager.Middleware.Utils;
@@ -12,6 +13,7 @@ namespace MfiManager.Middleware.Data.Transaction {
         private bool _disposed;
         private readonly IServiceLogger _logger;
         private readonly IServiceLoggerFactory _loggerFactory;
+        private readonly IStaticCacheManager _cacheManager;
         private readonly IDbContextFactory<MfiManagerDbContext> _contextFactory;
         private readonly Dictionary<Type, object> _repositories;
         private readonly IServiceProvider _serviceProvider;
@@ -42,6 +44,7 @@ namespace MfiManager.Middleware.Data.Transaction {
         #endregion
 
         public UnitOfWork(IServiceLoggerFactory loggerFactory,
+                          IStaticCacheManager cacheManager,
                           IDbContextFactory<MfiManagerDbContext> contextFactory,
                           IServiceProvider serviceProvider) {
             _loggerFactory = loggerFactory;
@@ -49,6 +52,7 @@ namespace MfiManager.Middleware.Data.Transaction {
             _logger.Channel = $"UOW-{DateTime.Now:yyyyMMddHHmmss}";
             _contextFactory = contextFactory;
             _serviceProvider = serviceProvider;
+            _cacheManager = cacheManager;
             _repositories = [];
         
             //..db context instance for this unit of work
@@ -82,7 +86,7 @@ namespace MfiManager.Middleware.Data.Transaction {
             }
 
             // Create repository with shared context instead of context factory
-            var repository = new Repository<T>(_loggerFactory, Context);
+            var repository = new Repository<T>(_loggerFactory, _cacheManager, Context);
             _repositories[typeof(T)] = repository;
             return repository;
         }

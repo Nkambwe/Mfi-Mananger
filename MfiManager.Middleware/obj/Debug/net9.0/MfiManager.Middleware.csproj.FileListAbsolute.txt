@@ -191,6 +191,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiM
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.MvcApplicationPartsAssemblyInfo.cs
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\EFCoreSqlServerNetTopologySuite.cs
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.sourcelink.json
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\scopedcss\bundle\MfiManager.Middleware.styles.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets.build.json
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets.development.json

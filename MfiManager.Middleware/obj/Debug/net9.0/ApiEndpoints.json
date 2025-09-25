@@ -1,8 +1,88 @@
 [
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.MfiController",
-    "Method": "Welcome",
-    "RelativePath": "mfi",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiAccountingController",
+    "Method": "AccountingWelcome",
+    "RelativePath": "mfi/accounting/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiFileController",
+    "Method": "FilesWelcome",
+    "RelativePath": "mfi/files/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiKycController",
+    "Method": "KycWelcome",
+    "RelativePath": "mfi/kyc/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiLoansController",
+    "Method": "LoansWelcome",
+    "RelativePath": "mfi/loans/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiReportingController",
+    "Method": "ReportingWelcome",
+    "RelativePath": "mfi/reporting/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiSavingController",
+    "Method": "SavingWelcome",
+    "RelativePath": "mfi/saving/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiConfigurationController",
+    "Method": "SystemWelcome",
+    "RelativePath": "mfi/settings/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiShareController",
+    "Method": "ShareWelcome",
+    "RelativePath": "mfi/shares/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiSystemController",
+    "Method": "SystemWelcome",
+    "RelativePath": "mfi/system/welcome",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

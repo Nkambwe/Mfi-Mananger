@@ -5,10 +5,106 @@
     "version": "1.0"
   },
   "paths": {
-    "/mfi": {
+    "/mfi/accounting/welcome": {
       "get": {
         "tags": [
-          "Mfi"
+          "MfiAccounting"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/settings/welcome": {
+      "get": {
+        "tags": [
+          "MfiConfiguration"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/files/welcome": {
+      "get": {
+        "tags": [
+          "MfiFile"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/kyc/welcome": {
+      "get": {
+        "tags": [
+          "MfiKyc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/loans/welcome": {
+      "get": {
+        "tags": [
+          "MfiLoans"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/reporting/welcome": {
+      "get": {
+        "tags": [
+          "MfiReporting"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/saving/welcome": {
+      "get": {
+        "tags": [
+          "MfiSaving"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/shares/welcome": {
+      "get": {
+        "tags": [
+          "MfiShare"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/system/welcome": {
+      "get": {
+        "tags": [
+          "MfiSystem"
         ],
         "responses": {
           "200": {

@@ -1,6 +1,8 @@
 ﻿using MfiManager.Middleware.Configuration;
 using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Data;
+using MfiManager.Middleware.Data.Transaction;
+using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Factories;
 using MfiManager.Middleware.Helpers;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -125,7 +127,7 @@ namespace MfiManager.Middleware.Extensions {
             });
 
             //..register cache manager as singleton for static caching
-            services.AddSingleton<IStaticCacheManager, MemoryStaticCacheManager>();
+            services.AddTransient<IStaticCacheManager, MemoryStaticCacheManager>();
         }
 
         /// <summary>
@@ -133,7 +135,7 @@ namespace MfiManager.Middleware.Extensions {
         /// </summary>
         /// <param name="services">Service instance</param>
         public static void RegisterRepositories(this IServiceCollection services) { 
-            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             //services.AddScoped<ICompanyRepository, CompanyRepository>();
             //services.AddScoped<IBranchRepository, BranchRepository>();
             //services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -155,8 +157,8 @@ namespace MfiManager.Middleware.Extensions {
         /// </summary>
         /// <param name="services">Service instance</param>
         public static void RegisterUnitOfWork(this IServiceCollection services) {
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
         }
         
         /// <summary>

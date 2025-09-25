@@ -1,5 +1,8 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
+using MfiManager.Middleware.Configurations.Providers;
+using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Extensions;
+using MfiManager.Middleware.Factories;
 using Microsoft.AspNetCore.HttpOverrides;
 
 namespace MfiManager.Middleware {
@@ -17,6 +20,13 @@ namespace MfiManager.Middleware {
             services.Configure<ServiceLoggingOption>(Configuration.GetSection(ServiceLoggingOption.SectionName));
             services.Configure<UrlOptions>(Configuration.GetSection(UrlOptions.SectionName));
             services.Configure<DataConnectionOptions>(Configuration.GetSection(DataConnectionOptions.SectionName));
+
+            //..register appSettings provider
+            services.AddScoped<IEnvironmentProvider, EnvironmentProvider>();
+            services.AddScoped<IServiceLoggerFactory, ServiceLoggerFactory>();
+            services.AddScoped<IDataConnectionProvider, DataConnectionProvider>();
+            services.AddScoped<IUrlProvider, UrlProvider>();
+            services.AddScoped<IObjectCypher, ObjectCypher>();
 
             //..add authentication cookies
             services.AddAuthentication("Cookies").AddCookie("Cookies", options => {
@@ -71,6 +81,7 @@ namespace MfiManager.Middleware {
 
             //..http configurations
             services.AddHttpClient();
+            services.AddSingleton<IServiceProvider, ServiceProvider>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
