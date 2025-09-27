@@ -5,6 +5,66 @@
     "version": "1.0"
   },
   "paths": {
+    "/mfi/info": {
+      "get": {
+        "tags": [
+          "DatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/version": {
+      "get": {
+        "tags": [
+          "DatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/provider": {
+      "get": {
+        "tags": [
+          "DatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/test-approximate-count": {
+      "get": {
+        "tags": [
+          "DatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/pagination-recommendations": {
+      "get": {
+        "tags": [
+          "DatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/mfi/accounting/welcome": {
       "get": {
         "tags": [

@@ -379,6 +379,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="cancellationToken"></param>
         /// <returns>Task containing list of cached entitities</returns>
         Task<IList<T>> GetAllCachedAsync( Expression<Func<T, bool>> predicate, string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        
         /// <summary>
         /// Get all cached entities
         /// </summary>
@@ -388,45 +389,100 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <param name="cancellationToken"></param>
         /// <returns>Task containing list of cached entitities</returns>
         Task<IList<T>> GetAllCachedAsync(string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default);
+        
+        /// <summary>
+        /// Get a list of pagenated records
+        /// </summary>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Pafe size</param>
+        /// <param name="includeDeleted">Flag whether to include deleted entities</param>
+        /// /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing pagenated records</returns>
+        Task<PagedResult<T>> GetAllPagedAsync( int pageNumber = 1, int pageSize = 10, bool includeDeleted = false, CancellationToken cancellationToken = default);
+        
         /// <summary>
         /// Pagenate records that fit predicate
         /// </summary>
-        /// <param name="page">Page number</param>
-        /// <param name="size">Page size</param>
-        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
-        /// <param name="where">Filter predicate</param>
-       /// <returns>Task containing list of cached entitities</returns>
-        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null);
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Pafe size</param>
+        /// <param name="includeDeleted">Flag whether to include deleted entities</param>
+        /// <param name="predicate">Filter predicate</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing list of cached entitities</returns>
+        Task<PagedResult<T>> GetPagedAllAsync(Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, bool includeDeleted, CancellationToken cancellationToken = default);
+        
         /// <summary>
         /// Page all records seleceted
         /// </summary>
-        /// <param name="page">Page number</param>
-        /// <param name="size">Number of entities to take</param>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Number of entities to take</param>
         /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
-        /// <param name="where">Search includes</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <param name="includes">Filter includes</param>
         /// <returns>Task containing list of cached entitities</returns>
-        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where);
-        /// <summary>
-        ///  Pagenate records that fit predicate
-        /// </summary>
-        /// <param name="token"></param>
-        /// <param name="page">Page number</param>
-        /// <param name="size">Page size</param>
-        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
-        /// <param name="where">Filter predicate</param>
-        /// <returns>Task containing list of cached entitities</returns>
-        Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null,CancellationToken token = default);
-        /// <summary>
-        /// Page all entities selected in a query
-        /// </summary>
-        /// <param name="token">Cancellation token</param>
-        /// <param name="page">Page number</param>
-        /// <param name="size">Number of entities to take</param>
-        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
-        /// <param name="includes">Search includes</param>
-        /// <returns></returns>
-        Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, CancellationToken token=default, params Expression<Func<T, object>>[] includes);
+        Task<PagedResult<T>> GetPagedAllAsync(Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, bool includeDeleted, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);
 
+        /// <summary>
+        /// Pagenate selected records with order by
+        /// </summary>
+        /// <typeparam name="TKey">Group by key</typeparam>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Number of entities to take</param>
+        /// <param name="ascending">Order ascending</param>
+        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <param name="includes">Filter includes</param>
+        /// <returns>Task containing list of entitities</returns>
+        Task<PagedResult<T>> GetPagedAllAsync<TKey>( Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> orderBy, int pageNumber, int pageSize, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);
+    
+        /// <summary>
+        ///  Pagenate selected records. Optimized version for large datasets using offset/fetch instead of Skip/Take
+        /// </summary>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Number of entities to take</param>
+        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing list of entitities</returns>
+        Task<PagedResult<T>> GetPagedAllCachedAsync(Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes);
+        
+        /// <summary>
+        ///  Pagenate selected records with selectors
+        /// </summary>
+        /// <typeparam name="TResult">Selector type</typeparam>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Number of entities to take</param>
+        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing list of entitities</returns>
+        Task<PagedResult<TResult>> GetLargePagedAllAsync<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, int pageNumber, int pageSize, bool includeDeleted = false, CancellationToken cancellationToken = default);
+   
+        /// <summary>
+        /// Pagenate records 
+        /// </summary>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Number of entities to take</param>
+        /// <param name="ascending">Order ascending</param>
+        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing list of entitities</returns>
+        Task<PagedResult<T>> GetLargePagedAllAsync(Expression<Func<T, bool>> predicate, Expression<Func<T, object>> orderBy,int pageNumber, int pageSize, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default);
+    
+        /// <summary>
+        /// Pagenate records using Cursor-based pagination for better performance on large datasets
+        /// </summary>
+        /// <param name="predicate">Search includes</param>
+        /// <param name="cursorSelector">Cursor Selector</param>
+        /// <param name="pageSize">Number of entities to take</param>
+        /// <param name="ascending">Order ascending</param>
+        /// <param name="includeDeleted">Flag to include deleted entities in the search</param>
+        /// <param name="cancellationToken">Async cancellation token</param>
+        /// <returns>Task containing list of entitities</returns>
+        Task<CursorPagedResult<T, TCursor>> GetPagedAllCursorAsync<TCursor>(Expression<Func<T, bool>> predicate, Expression<Func<T, TCursor>> cursorSelector, TCursor cursor = default, int pageSize = 10, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default) where TCursor : IComparable<TCursor>;
     }
 
 }

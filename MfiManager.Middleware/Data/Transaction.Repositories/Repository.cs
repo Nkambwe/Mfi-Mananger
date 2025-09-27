@@ -1,9 +1,9 @@
 ﻿using MfiManager.Middleware.Configuration;
 using MfiManager.Middleware.Data.Entities;
+using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Factories;
 using MfiManager.Middleware.Utils;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Concurrent;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -16,7 +16,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         private static PropertyInfo _cachedIsDeletedProperty;
         private static PropertyInfo _cachedIdProperty;
         private static readonly object _lockObject = new();
-        private static readonly ConcurrentDictionary<Type, bool> _hasIsDeletedCache = new();
+        private readonly IPaginationConfigurationService _paginationConfig;
         #endregion
 
         protected readonly IServiceLogger Logger;
@@ -24,14 +24,16 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         protected readonly DbSet<T> _dbSet;
         protected readonly MfiManagerDbContext _dbContext; 
 
-        public Repository(IServiceLoggerFactory loggerFactory, 
-                        IStaticCacheManager cacheManager, 
-                        MfiManagerDbContext dbContext) {
+        public Repository(MfiManagerDbContext dbContext,
+                          IServiceLoggerFactory loggerFactory, 
+                          IStaticCacheManager cacheManager, 
+                        IPaginationConfigurationService paginationConfig) {
             Logger = loggerFactory.CreateLogger();
             Logger.Channel = $"REPO-{DateTime.Now:yyyyMMddHHmmss}";
             _cacheManager = cacheManager;
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<T>();
+            _paginationConfig = paginationConfig;
         }
 
         public int Count() {
@@ -594,20 +596,315 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             }
         }
         
-        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, Expression<Func<T, bool>> where = null) {
-            throw new NotImplementedException();
+        public async Task<PagedResult<T>> GetAllPagedAsync( int pageNumber = 1, int pageSize = 10, bool includeDeleted = false, CancellationToken cancellationToken = default) {
+            try {
+                if (pageNumber < 1) pageNumber = 1;
+                if (pageSize < 1) pageSize = 10;
+                if (pageSize > 1000) pageSize = 1000; 
+
+                var query = GetAll(includeDeleted);
+                var totalCount = await query.CountAsync(cancellationToken);
+                var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                var items = await query
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync(cancellationToken);
+
+                return new PagedResult<T> {
+                    Items = items,
+                    TotalCount = totalCount,
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    TotalPages = totalPages,
+                    HasNextPage = pageNumber < totalPages,
+                    HasPreviousPage = pageNumber > 1
+                };
+            } catch (Exception ex) {
+                Logger?.Log($"GetAllPagedAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return PagedResult<T>.Empty();
+            }
         }
 
-        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted, params Expression<Func<T, object>>[] where) {
-            throw new NotImplementedException();
+        public async Task<PagedResult<T>> GetPagedAllAsync(Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, bool includeDeleted, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try {
+                if (pageNumber < 1) pageNumber = 1;
+                if (pageSize < 1) pageSize = 10;
+                if (pageSize > 1000) pageSize = 1000;
+
+                var query = GetAll(predicate, includeDeleted);
+                var totalCount = await query.CountAsync(cancellationToken);
+                var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                var items = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync(cancellationToken);
+                return new PagedResult<T> {
+                    Items = items,
+                    TotalCount = totalCount,
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    TotalPages = totalPages,
+                    HasNextPage = pageNumber < totalPages,
+                    HasPreviousPage = pageNumber > 1
+                };
+            } catch (Exception ex) {
+                Logger?.Log($"GetAllPagedAsync with predicate operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return PagedResult<T>.Empty();
+            }
         }
 
-        public Task<PagedResult<T>> GetPagedAllAsync(int page, int size, bool includeDeleted = false, Expression<Func<T, bool>> where = null, CancellationToken token = default) {
-            throw new NotImplementedException();
+        public async Task<PagedResult<T>> GetPagedAllAsync( Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, bool includeDeleted = false, CancellationToken cancellationToken = default,  params Expression<Func<T, object>>[] includes) {
+                ArgumentNullException.ThrowIfNull(predicate);
+
+                try {
+                    //..validate and sanitize pagination parameters
+                    pageNumber = Math.Max(1, pageNumber);
+                    pageSize = Math.Clamp(pageSize, 1, 1000); 
+
+                    //..build base query with includes
+                    var query = _dbSet.AsQueryable();
+        
+                    if (includes != null && includes.Length != 0) {
+                        query = includes.Aggregate(query, (current, include) => current.Include(include));
+                    }
+
+                    if (!includeDeleted) {
+                        var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                        query = query.Where(combinedPredicate);
+                    } else {
+                        query = query.Where(predicate);
+                    }
+
+                    //..get total count before applying pagination
+                    var totalCount = await query.CountAsync(cancellationToken);
+
+                    //..calculate pagination metadata
+                    var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                    var hasNextPage = pageNumber < totalPages;
+                    var hasPreviousPage = pageNumber > 1;
+
+                    //..apply pagination and get results
+                    var items = totalCount == 0 ? []: await query
+                            .Skip((pageNumber - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToListAsync(cancellationToken);
+
+                    Logger.Log($"GetPagedAllAsync executed successfully: Page {pageNumber}/{totalPages}, {items.Count} items returned", "DbAction");
+
+                    return new PagedResult<T> {
+                        Items = items,
+                        TotalCount = totalCount,
+                        PageNumber = pageNumber,
+                        PageSize = pageSize,
+                        TotalPages = totalPages,
+                        HasNextPage = hasNextPage,
+                        HasPreviousPage = hasPreviousPage
+                    };
+                } catch (Exception ex) {
+                    Logger?.Log($"GetPagedAllAsync with predicate operation failed: {ex.Message}", "DbAction");
+                    Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                    return PagedResult<T>.Empty();
+                }
         }
 
-        public Task<PagedResult<T>> PageAllAsync(int page, int size, bool includeDeleted, CancellationToken token = default, params Expression<Func<T, object>>[] includes) {
-            throw new NotImplementedException();
+        public async Task<PagedResult<T>> GetPagedAllAsync<TKey>( Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> orderBy, int pageNumber, int pageSize, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes) {
+                ArgumentNullException.ThrowIfNull(predicate);
+                ArgumentNullException.ThrowIfNull(orderBy);
+
+                try {
+                    pageNumber = Math.Max(1, pageNumber);
+                    pageSize = Math.Clamp(pageSize, 1, 1000);
+
+                    var query = _dbSet.AsQueryable();
+                    if (includes != null && includes.Length != 0) {
+                        query = includes.Aggregate(query, (current, include) => current.Include(include));
+                    }
+
+                    if (!includeDeleted) {
+                        var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                        query = query.Where(combinedPredicate);
+                    } else {
+                        query = query.Where(predicate);
+                    }
+
+                    //..apply ordering
+                    query = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+
+                    var totalCount = await query.CountAsync(cancellationToken);
+                    var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                    var items = totalCount == 0 ? [] : await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync(cancellationToken);
+                    return new PagedResult<T> {
+                        Items = items,
+                        TotalCount = totalCount,
+                        PageNumber = pageNumber,
+                        PageSize = pageSize,
+                        TotalPages = totalPages,
+                        HasNextPage = pageNumber < totalPages,
+                        HasPreviousPage = pageNumber > 1
+                    };
+                } catch (Exception ex) {
+                    Logger?.Log($"GetPagedAllAsync with ordering operation failed: {ex.Message}", "DbAction");
+                    Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                    return PagedResult<T>.Empty();
+                }
+        }
+
+        public async Task<PagedResult<T>> GetPagedAllCachedAsync(Expression<Func<T, bool>> predicate, int pageNumber, int pageSize, string cacheKey, bool includeDeleted = false, TimeSpan? cacheTime = null, CancellationToken cancellationToken = default, params Expression<Func<T, object>>[] includes) {
+            if (string.IsNullOrWhiteSpace(cacheKey))
+                throw new ArgumentException("Cache key cannot be null or empty", nameof(cacheKey));
+
+            var fullCacheKey = GetCacheKey($"paged_{cacheKey}_p{pageNumber}_s{pageSize}");
+    
+            return await _cacheManager.GetAsync(fullCacheKey, 
+                () => GetPagedAllAsync(predicate, pageNumber, pageSize, includeDeleted, cancellationToken, includes), 
+                cacheTime ?? TimeSpan.FromMinutes(5));
+        }
+        
+        public async Task<PagedResult<TResult>> GetLargePagedAllAsync<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, int pageNumber, int pageSize, bool includeDeleted = false, CancellationToken cancellationToken = default) {
+            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullException.ThrowIfNull(selector);
+
+            try {
+                pageNumber = Math.Max(1, pageNumber);
+                pageSize = Math.Clamp(pageSize, 1, 1000);
+
+                var query = _dbSet.AsQueryable();
+                if (!includeDeleted) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    query = query.Where(combinedPredicate);
+                } else {
+                    query = query.Where(predicate);
+                }
+
+                var totalCount = await query.CountAsync(cancellationToken);
+                var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+                var items = totalCount == 0 ? [] : await query.Skip((pageNumber - 1) * pageSize).Take(pageSize)
+                        .Select(selector)
+                        .ToListAsync(cancellationToken);
+
+                return new PagedResult<TResult> {
+                    Items = items,
+                    TotalCount = totalCount,
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    TotalPages = totalPages,
+                    HasNextPage = pageNumber < totalPages,
+                    HasPreviousPage = pageNumber > 1
+                };
+            } catch (Exception ex) {
+                Logger?.Log($"GetPagedAllProjectedAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return PagedResult<TResult>.Empty();
+            }
+        }
+
+        public async Task<PagedResult<T>> GetLargePagedAllAsync(Expression<Func<T, bool>> predicate, Expression<Func<T, object>> orderBy,int pageNumber, int pageSize, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default) {
+                ArgumentNullException.ThrowIfNull(predicate);
+                ArgumentNullException.ThrowIfNull(orderBy);
+
+                try {
+                    pageNumber = Math.Max(1, pageNumber);
+                    pageSize = Math.Clamp(pageSize, 1, 1000);
+                    var query = _dbSet.AsQueryable();
+
+                    if (!includeDeleted) {
+                        var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                        query = query.Where(combinedPredicate);
+                    } else {
+                        query = query.Where(predicate);
+                    }
+
+                    //..use more efficient counting for large tables
+                    var totalCountTask = await ShouldUseApproximateCountAsync() && pageNumber == 1 
+                        ? GetApproximateCountAsync(predicate, includeDeleted, cancellationToken)
+                        : query.CountAsync(cancellationToken);
+
+                    //..apply ordering and pagination
+                    var orderedQuery = ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+        
+                    var itemsTask = orderedQuery
+                        .Skip((pageNumber - 1) * pageSize)
+                        .Take(pageSize)
+                        .ToListAsync(cancellationToken);
+
+                    await Task.WhenAll(totalCountTask, itemsTask);
+
+                    var totalCount = await totalCountTask;
+                    var items = await itemsTask;
+                    var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
+                    return new PagedResult<T>
+                    {
+                        Items = items,
+                        TotalCount = totalCount,
+                        PageNumber = pageNumber,
+                        PageSize = pageSize,
+                        TotalPages = totalPages,
+                        HasNextPage = pageNumber < totalPages,
+                        HasPreviousPage = pageNumber > 1
+                    };
+                }
+                catch (Exception ex)
+                {
+                    Logger?.Log($"GetPagedAllOptimizedAsync operation failed: {ex.Message}", "DbAction");
+                    Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                    return PagedResult<T>.Empty();
+                }
+        }
+
+        public async Task<CursorPagedResult<T, TCursor>> GetPagedAllCursorAsync<TCursor>(Expression<Func<T, bool>> predicate,Expression<Func<T, TCursor>> cursorSelector, TCursor cursor = default, int pageSize = 10, bool ascending = true, bool includeDeleted = false, CancellationToken cancellationToken = default) where TCursor : IComparable<TCursor> {
+            ArgumentNullException.ThrowIfNull(predicate);
+            ArgumentNullException.ThrowIfNull(cursorSelector);
+
+            try {
+                pageSize = Math.Clamp(pageSize, 1, 1000);
+
+                var query = _dbSet.AsQueryable();
+                if (!includeDeleted) {
+                    var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                    query = query.Where(combinedPredicate);
+                } else {
+                    query = query.Where(predicate);
+                }
+
+                //..apply cursor filtering
+                if (cursor != null && !cursor.Equals(default(TCursor))) {
+                    var parameter = Expression.Parameter(typeof(T), "x");
+                    var property = ReplaceParameter(cursorSelector.Body, cursorSelector.Parameters[0], parameter);
+                    var cursorConstant = Expression.Constant(cursor);
+            
+                    var comparison = ascending 
+                        ? Expression.GreaterThan(property, cursorConstant)
+                        : Expression.LessThan(property, cursorConstant);
+                
+                    var cursorPredicate = Expression.Lambda<Func<T, bool>>(comparison, parameter);
+                    query = query.Where(cursorPredicate);
+                }
+
+                //..order and take one extra to check if there's a next page
+                query = ascending ? query.OrderBy(cursorSelector) : query.OrderByDescending(cursorSelector);
+                var items = await query.Take(pageSize + 1).ToListAsync(cancellationToken);
+
+                var hasNextPage = items.Count > pageSize;
+                if (hasNextPage) {
+                    //..remove the extra item
+                    items.RemoveAt(items.Count - 1); 
+                }
+
+                var nextCursor = items.Count != 0 ? cursorSelector.Compile()(items.Last()) : default;
+                return new CursorPagedResult<T, TCursor> {
+                    Items = items,
+                    NextCursor = nextCursor,
+                    HasNextPage = hasNextPage,
+                    PageSize = pageSize
+                };
+            } catch (Exception ex) {
+                Logger?.Log($"GetPagedAllCursorAsync operation failed: {ex.Message}", "DbAction");
+                Logger?.Log($"STACKTRACE :: {ex.StackTrace}", "DbStacktrace");
+                return CursorPagedResult<T, TCursor>.Empty();
+            }
         }
 
         public Task<bool> BulkInsertAsync(IEnumerable<T> entities) {
@@ -835,6 +1132,46 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         #endregion
 
         #region private Methods
+        
+        private async Task<int> GetApproximateCountAsync(Expression<Func<T, bool>> predicate,bool includeDeleted, CancellationToken cancellationToken) {
+            //..use approximate count only if configuration allows it
+            if (!await ShouldUseApproximateCountAsync(predicate)) {
+                return await GetExactCountAsync(predicate, includeDeleted, cancellationToken);
+            }
+
+            try {
+                var tableName = _dbContext.Model.FindEntityType(typeof(T))?.GetTableName();
+                if (string.IsNullOrEmpty(tableName))
+                    return await GetExactCountAsync(predicate, includeDeleted, cancellationToken);
+
+                //..SQL Server approximate count
+                var sql = @"
+                    SELECT CAST(SUM(row_count) AS INT)
+                    FROM sys.dm_db_partition_stats 
+                    WHERE object_id = OBJECT_ID({0}) 
+                    AND index_id IN (0,1)";
+
+                var approximateCount = await _dbContext.Database
+                    .SqlQueryRaw<int>(sql, tableName)
+                    .FirstOrDefaultAsync(cancellationToken);
+
+                Logger?.Log($"Using approximate count for {typeof(T).Name}: {approximateCount}", "DbAction");
+                return approximateCount;
+            } catch (Exception ex) {
+                Logger?.Log($"Approximate count failed for {typeof(T).Name}, falling back to exact count: {ex.Message}", "DbAction");
+                return await GetExactCountAsync(predicate, includeDeleted, cancellationToken);
+            }
+        }
+
+         private async Task<int> GetExactCountAsync(Expression<Func<T, bool>> predicate, bool includeDeleted, CancellationToken cancellationToken) {
+            var query = _dbSet.AsQueryable();
+            if (!includeDeleted){
+                var combinedPredicate = CombinePredicates(predicate, e => !EF.Property<bool>(e, "IsDeleted"));
+                return await query.CountAsync(combinedPredicate, cancellationToken);
+            }
+        
+            return await query.CountAsync(predicate, cancellationToken);
+         }
 
         private static PropertyInfo GetIsDeletedProperty() {
             if (_cachedIsDeletedProperty == null) {
@@ -855,6 +1192,9 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
             }
             return _cachedIdProperty;
         }
+        
+        private async Task<bool> ShouldUseApproximateCountAsync(Expression<Func<T, bool>> predicate = null)
+            => await _paginationConfig.ShouldUseApproximateCountAsync<T>(predicate);
 
         private (List<T> toSoftDelete, List<T> toHardDelete) ProcessEntitiesForDeletion(List<T> entities, PropertyInfo isDeletedProperty, PropertyInfo idProperty) {
             var toSoftDelete = new List<T>();
@@ -947,6 +1287,7 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         protected virtual string GetCacheKey(string suffix) => $"{_entityName}_{suffix}";
         protected virtual string GetByIdCacheKey(long id) => GetCacheKey($"id_{id}");
         protected virtual string GetAllCacheKey() => GetCacheKey("all");
+
         #endregion
     }
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace MfiManager.Middleware.Helpers {
+namespace MfiManager.Middleware.Utils {
     public class MappingProfile : Profile {
         public MappingProfile() {
             //CreateMap<Source, Destination>()

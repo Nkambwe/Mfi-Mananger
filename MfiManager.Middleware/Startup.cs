@@ -20,11 +20,14 @@ namespace MfiManager.Middleware {
             services.Configure<ServiceLoggingOption>(Configuration.GetSection(ServiceLoggingOption.SectionName));
             services.Configure<UrlOptions>(Configuration.GetSection(UrlOptions.SectionName));
             services.Configure<DataConnectionOptions>(Configuration.GetSection(DataConnectionOptions.SectionName));
+            services.Configure<DatabaseProviderOptions>(Configuration.GetSection(DatabaseProviderOptions.SectionName));
+            services.Configure<PaginationOptions>(Configuration.GetSection(PaginationOptions.SectionName));
 
             //..register appSettings provider
             services.AddScoped<IEnvironmentProvider, EnvironmentProvider>();
             services.AddScoped<IServiceLoggerFactory, ServiceLoggerFactory>();
             services.AddScoped<IDataConnectionProvider, DataConnectionProvider>();
+            services.AddScoped<IDabaseServiceProvider, DabaseServiceProvider>();
             services.AddScoped<IUrlProvider, UrlProvider>();
             services.AddScoped<IObjectCypher, ObjectCypher>();
 
@@ -62,6 +65,9 @@ namespace MfiManager.Middleware {
 
             //..configure database connection
             services.ConfigureDatabaseConnection(Configuration);
+
+            //..add memory cache (required for caching)
+            services.AddMemoryCache();
 
             //..add caching
             services.Addcaching(settings => {

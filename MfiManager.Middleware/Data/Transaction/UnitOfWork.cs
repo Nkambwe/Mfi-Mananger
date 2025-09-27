@@ -1,5 +1,6 @@
 ﻿using MfiManager.Middleware.Configuration;
 using MfiManager.Middleware.Data.Entities;
+using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Factories;
 using MfiManager.Middleware.Utils;
@@ -16,7 +17,7 @@ namespace MfiManager.Middleware.Data.Transaction {
         private readonly IStaticCacheManager _cacheManager;
         private readonly IDbContextFactory<MfiManagerDbContext> _contextFactory;
         private readonly Dictionary<Type, object> _repositories;
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IPaginationConfigurationService _paginationConfig;
         #endregion
 
         #region Properties
@@ -45,13 +46,13 @@ namespace MfiManager.Middleware.Data.Transaction {
 
         public UnitOfWork(IServiceLoggerFactory loggerFactory,
                           IStaticCacheManager cacheManager,
-                          IDbContextFactory<MfiManagerDbContext> contextFactory,
-                          IServiceProvider serviceProvider) {
+                          IPaginationConfigurationService paginationConfig,
+                          IDbContextFactory<MfiManagerDbContext> contextFactory) {
             _loggerFactory = loggerFactory;
             _logger = _loggerFactory.CreateLogger("middleware_log");
             _logger.Channel = $"UOW-{DateTime.Now:yyyyMMddHHmmss}";
             _contextFactory = contextFactory;
-            _serviceProvider = serviceProvider;
+            _paginationConfig = paginationConfig;
             _cacheManager = cacheManager;
             _repositories = [];
         
@@ -86,7 +87,7 @@ namespace MfiManager.Middleware.Data.Transaction {
             }
 
             // Create repository with shared context instead of context factory
-            var repository = new Repository<T>(_loggerFactory, _cacheManager, Context);
+            var repository = new Repository<T>(Context, _loggerFactory, _cacheManager,_paginationConfig);
             _repositories[typeof(T)] = repository;
             return repository;
         }

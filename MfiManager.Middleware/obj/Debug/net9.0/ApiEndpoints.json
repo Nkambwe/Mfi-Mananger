@@ -20,6 +20,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "Method": "GetDatabaseInfo",
+    "RelativePath": "mfi/info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiKycController",
     "Method": "KycWelcome",
     "RelativePath": "mfi/kyc/welcome",
@@ -33,6 +43,26 @@
     "ContainingType": "MfiManager.Middleware.Controllers.MfiLoansController",
     "Method": "LoansWelcome",
     "RelativePath": "mfi/loans/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "Method": "GetPaginationRecommendations",
+    "RelativePath": "mfi/pagination-recommendations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "Method": "GetDatabaseProvider",
+    "RelativePath": "mfi/provider",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -83,6 +113,26 @@
     "ContainingType": "MfiManager.Middleware.Controllers.MfiSystemController",
     "Method": "SystemWelcome",
     "RelativePath": "mfi/system/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "Method": "TestApproximateCount",
+    "RelativePath": "mfi/test-approximate-count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "Method": "GetDatabaseVersion",
+    "RelativePath": "mfi/version",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

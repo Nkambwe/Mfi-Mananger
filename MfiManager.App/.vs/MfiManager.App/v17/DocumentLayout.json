@@ -3,13 +3,22 @@
   "WorkspaceRootPath": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\transaction.repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\configurations.providers\\dataconnectionprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\transaction.repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data.services\\databaseversioncheckerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\controllers\\mfibasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\configurations.providers\\dabaseserviceprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\configuration.options\\paginationoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,21 +28,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 362,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Transaction.Repositories\\IRepository.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Transaction.Repositories\\IRepository.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Transaction.Repositories\\IRepository.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Transaction.Repositories\\IRepository.cs",
-              "ViewState": "AgIAAF8BAAAAAAAAAAAswJ0BAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T01:16:57.27Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -57,27 +53,100 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MfiBaseController.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Controllers\\MfiBaseController.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Controllers\\MfiBaseController.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Controllers\\MfiBaseController.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Controllers\\MfiBaseController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwBoAAABEAAAAAAAAAA==",
+              "Title": "DabaseServiceProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configurations.Providers\\DabaseServiceProvider.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Configurations.Providers\\DabaseServiceProvider.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configurations.Providers\\DabaseServiceProvider.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Configurations.Providers\\DabaseServiceProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T01:08:21.53Z",
+              "WhenOpened": "2025-09-27T06:03:53.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Transaction.Repositories\\Repository.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Transaction.Repositories\\Repository.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Transaction.Repositories\\Repository.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Transaction.Repositories\\Repository.cs",
-              "ViewState": "AgIAAFoCAAAAAAAAAAAiwLEBAAAuAAAAAAAAAA==",
+              "Title": "DataConnectionProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configurations.Providers\\DataConnectionProvider.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Configurations.Providers\\DataConnectionProvider.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configurations.Providers\\DataConnectionProvider.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Configurations.Providers\\DataConnectionProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T00:38:05.157Z",
+              "WhenOpened": "2025-09-27T05:52:17.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatabaseVersionCheckerService.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data.Services\\DatabaseVersionCheckerService.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data.Services\\DatabaseVersionCheckerService.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data.Services\\DatabaseVersionCheckerService.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Data.Services\\DatabaseVersionCheckerService.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAIwEMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T05:44:17.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\appsettings.json",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\appsettings.json",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\appsettings.json",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-27T05:37:45.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Startup.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Startup.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Startup.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Startup.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA9wB0AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T05:33:48.678Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "66f93c32-893d-48d8-8396-0be15596744e",
+        "Display": 1,
+        "X": 246,
+        "Y": 308,
+        "Width": 700,
+        "Height": 927,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PaginationOptions.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configuration.Options\\PaginationOptions.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Configuration.Options\\PaginationOptions.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Configuration.Options\\PaginationOptions.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Configuration.Options\\PaginationOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T06:01:14.032Z",
               "EditorCaption": ""
             }
           ]

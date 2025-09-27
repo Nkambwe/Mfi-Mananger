@@ -1,10 +1,12 @@
 ﻿using MfiManager.Middleware.Configuration;
+using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Data;
+using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Helpers;
+using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
@@ -167,6 +169,8 @@ namespace MfiManager.Middleware.Extensions {
         /// <param name="services">Service instance</param>
         public static void RegisterServices(this IServiceCollection services) { 
             //..register service
+            services.AddScoped<IPaginationConfigurationService, PaginationConfigurationService>();
+            services.AddScoped<IDatabaseVersionCheckerService, DatabaseVersionCheckerService>();
             //services.AddScoped<IBaseService, BaseService>();
             //services.AddScoped<ICompanyService, CompanyService>();
             //services.AddScoped<IBranchService, BranchService>();
