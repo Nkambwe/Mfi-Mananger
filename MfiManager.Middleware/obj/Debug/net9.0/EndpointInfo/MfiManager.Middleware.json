@@ -5,66 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/mfi/info": {
-      "get": {
-        "tags": [
-          "DatabaseInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/mfi/version": {
-      "get": {
-        "tags": [
-          "DatabaseInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/mfi/provider": {
-      "get": {
-        "tags": [
-          "DatabaseInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/mfi/test-approximate-count": {
-      "get": {
-        "tags": [
-          "DatabaseInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/mfi/pagination-recommendations": {
-      "get": {
-        "tags": [
-          "DatabaseInfo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/mfi/accounting/welcome": {
       "get": {
         "tags": [
@@ -81,6 +21,66 @@
       "get": {
         "tags": [
           "MfiConfiguration"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/info": {
+      "get": {
+        "tags": [
+          "MfiDatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/version": {
+      "get": {
+        "tags": [
+          "MfiDatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/provider": {
+      "get": {
+        "tags": [
+          "MfiDatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/test-approximate-count": {
+      "get": {
+        "tags": [
+          "MfiDatabaseInfo"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/pagination-recommendations": {
+      "get": {
+        "tags": [
+          "MfiDatabaseInfo"
         ],
         "responses": {
           "200": {
@@ -113,11 +113,76 @@
         }
       }
     },
+    "/mfi/kyc/doSomething": {
+      "get": {
+        "tags": [
+          "MfiKyc"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/mfi/loans/welcome": {
       "get": {
         "tags": [
           "MfiLoans"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/logging/welcome": {
+      "get": {
+        "tags": [
+          "MfiLogging"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/logging": {
+      "get": {
+        "tags": [
+          "MfiLogging"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MfiLogging"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Configuration.Options.ServiceLoggingOption"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Configuration.Options.ServiceLoggingOption"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Configuration.Options.ServiceLoggingOption"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -174,5 +239,34 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "MfiManager.Middleware.Configuration.Options.ServiceLoggingOption": {
+        "type": "object",
+        "properties": {
+          "DefaultLogName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LogFolder": {
+            "type": "string",
+            "nullable": true
+          },
+          "MaxFileSizeInMB": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "MaxRollingFiles": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RetentionDays": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

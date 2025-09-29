@@ -1,7 +1,6 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Data.Connection;
-using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
+using MfiManager.Middleware.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;

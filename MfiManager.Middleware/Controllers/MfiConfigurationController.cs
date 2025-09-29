@@ -1,11 +1,11 @@
-﻿using MfiManager.Middleware.Factories;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
 
     [ApiController]
     [Route("mfi/settings")]
-    public class MfiConfigurationController(IServiceLoggerFactory loggerFactory) : MfiBaseController(loggerFactory) {
+    public class MfiConfigurationController( ILogger<MfiConfigurationController> logger) : MfiBaseController{
+        private readonly ILogger<MfiConfigurationController> _logger = logger;
 
         [HttpGet("welcome")]
         public IActionResult SystemWelcome() {

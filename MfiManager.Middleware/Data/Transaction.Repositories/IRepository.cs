@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities;
+﻿using MfiManager.Middleware.Configuration.Options;
+using MfiManager.Middleware.Data.Entities;
 using System.Linq.Expressions;
 
 namespace MfiManager.Middleware.Data.Transaction.Repositories {
@@ -318,27 +319,56 @@ namespace MfiManager.Middleware.Data.Transaction.Repositories {
         /// <returns></returns>
         Task<long> LongCountAsync(Expression<Func<T, bool>> predicate, bool excludeDeleted = true, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Bulk inserts to the database
+        /// High-performance bulk insert with validation and error handling
         /// </summary>
-        /// <param name="entities"></param>
+        /// <param name="entities">List of entities</param>
+        /// <param name="options">Bulk options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
         /// <returns></returns>
-        Task<bool> BulkInsertAsync(IEnumerable<T> entities);
-
+        Task<BulkOperationResult<T>> BulkInsertAsync(IEnumerable<T> entities, BulkInsertOptions options = null, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Bulk updates to the database
+        ///  Bulk insert with automatic batching for very large datasets
         /// </summary>
-        /// <param name="entities"></param>
+        /// <param name="entities">List of entities</param>
+        /// <param name="batchSize">Batch size limit</param>
+        /// <param name="options">Bulk options</param>
+        /// <param name="progress"></param>
+        /// <param name="cancellationToken">Cancellation token</param>
         /// <returns></returns>
-        Task<bool> BulkUpdateAsync(IEnumerable<T> entities);
-
+        Task<BulkOperationResult<T>> BulkInsertBatchedAsync(IEnumerable<T> entities, int batchSize = 10000, BulkInsertOptions? options = null, IProgress<BulkOperationProgress> progress = null,CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update bulk entities for specific properties selected
+        /// Optimized bulk update with property selection support
         /// </summary>
-        /// <param name="entities">Collection of entities to update</param>
-        /// <param name="propertySelectors">List of properyies to update</param>
+        /// <param name="entities">List of entities</param>
+        /// <param name="options">Bulk options</param>
+        /// <param name="cancellationToken">Cancellation token</param>
         /// <returns></returns>
-        Task<bool> BulkUpdateAsync(IEnumerable<T> entities, params Expression<Func<T, object>>[] propertySelectors);
-
+        Task<BulkOperationResult<T>> BulkUpdateAsync(IEnumerable<T> entities, BulkUpdateOptions<T> options = null, CancellationToken cancellationToken = default);
+        /// <summary>
+        ///  Bulk update specific properties only
+        /// </summary>
+        /// <param name="entities">List of entities</param>
+        /// <param name="propertySelectors">Property selector</param>
+        /// <param name="options">Bulk options</param>
+        /// <param name="cancellationToken">Cancellation options</param>
+        /// <returns></returns>
+        Task<BulkOperationResult<T>> BulkUpdateAsync( IEnumerable<T> entities, Expression<Func<T, object>>[] propertySelectors, BulkUpdateOptions<T> options = null,  CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Conditional bulk update using EF Core's ExecuteUpdateAsync
+        /// </summary>
+        Task<BulkOperationResult<T>> BulkUpdateAsync<TProperty>( Expression<Func<T, bool>> whereExpression, Func<T, TProperty> propertySelector, TProperty newValue, bool excludeDeleted = true, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Bulk insert or update operation
+        /// </summary>
+        Task<BulkOperationResult<T>> BulkUpdateOrInsertAsync( IEnumerable<T> entities, Expression<Func<T, object>>[] matchOn = null, CancellationToken cancellationToken = default); 
+        /// <summary>
+        /// Conditional bulk delete using EF Core's ExecuteDeleteAsync (EF Core 7+)
+        /// </summary>
+        Task<BulkOperationResult<T>> BulkDeleteWhereAsync(Expression<Func<T, bool>> whereExpression, bool softDelete = true, bool excludeDeleted = true, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Bulk delete with soft delete support
+        /// </summary>
+        Task<BulkOperationResult<T>> BulkDeleteAsync(IEnumerable<T> entities, bool softDelete = true, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get cached entity by ID
         /// </summary>

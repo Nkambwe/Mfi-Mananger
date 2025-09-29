@@ -1,4 +1,4 @@
-﻿namespace MfiManager.Middleware.Utils {
+﻿namespace MfiManager.Middleware.Logging {
     public interface IServiceLogger {
         string Id { set; get; }
         string Channel { set; get; }

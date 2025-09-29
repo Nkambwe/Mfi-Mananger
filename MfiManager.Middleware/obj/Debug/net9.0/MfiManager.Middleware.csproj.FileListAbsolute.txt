@@ -209,3 +209,4 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\refi
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.pdb
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.genruntimeconfig.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\ref\MfiManager.Middleware.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Newtonsoft.Json.dll

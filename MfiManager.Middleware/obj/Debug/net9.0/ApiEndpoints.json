@@ -20,9 +20,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiDatabaseInfoController",
     "Method": "GetDatabaseInfo",
     "RelativePath": "mfi/info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiKycController",
+    "Method": "DoSomething",
+    "RelativePath": "mfi/kyc/doSomething",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -50,7 +60,43 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiLoggingController",
+    "Method": "GetSettings",
+    "RelativePath": "mfi/logging",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiLoggingController",
+    "Method": "UpdateSettings",
+    "RelativePath": "mfi/logging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "settings",
+        "Type": "MfiManager.Middleware.Configuration.Options.ServiceLoggingOption",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiLoggingController",
+    "Method": "LoggingWelcome",
+    "RelativePath": "mfi/logging/welcome",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiDatabaseInfoController",
     "Method": "GetPaginationRecommendations",
     "RelativePath": "mfi/pagination-recommendations",
     "HttpMethod": "GET",
@@ -60,7 +106,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiDatabaseInfoController",
     "Method": "GetDatabaseProvider",
     "RelativePath": "mfi/provider",
     "HttpMethod": "GET",
@@ -120,7 +166,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiDatabaseInfoController",
     "Method": "TestApproximateCount",
     "RelativePath": "mfi/test-approximate-count",
     "HttpMethod": "GET",
@@ -130,7 +176,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MfiManager.Middleware.Controllers.DatabaseInfoController",
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiDatabaseInfoController",
     "Method": "GetDatabaseVersion",
     "RelativePath": "mfi/version",
     "HttpMethod": "GET",

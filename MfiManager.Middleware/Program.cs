@@ -10,18 +10,18 @@ namespace MfiManager.Middleware {
                 ContentRootPath = AppContext.BaseDirectory,
                 ApplicationName = Process.GetCurrentProcess().ProcessName
             });
-
-            //enable logging
+            
+            //..enable logging
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();
             builder.Logging.AddDebug();
 
             var startup = new Startup(builder.Configuration);
-
-            // calling ConfigureServices method
+            
+            //..calling ConfigureServices method
             startup.ConfigureServices(builder.Services);
 
-            // calling Configure method
+            //..calling Configure method
             var app = builder.Build();
             startup.Configure(app);
 

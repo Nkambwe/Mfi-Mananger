@@ -1,10 +1,5 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
-using MfiManager.Middleware.Data.Connection;
-using MfiManager.Middleware.Data.Transfers;
-using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
+using MfiManager.Middleware.Logging;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using System.Linq.Expressions;

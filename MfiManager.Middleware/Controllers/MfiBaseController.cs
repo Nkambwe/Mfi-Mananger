@@ -1,15 +1,10 @@
-using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
     [ApiController]
     [Route("mfi")]
     public class MfiBaseController : ControllerBase {
-        protected readonly IServiceLogger Logger;
-        public MfiBaseController(IServiceLoggerFactory loggerFactory) {
-            Logger = loggerFactory.CreateLogger();
-            Logger.Channel = $"MFI-MIDDLEWARE-{DateTime.Now:yyyyMMddHHmmss}";
+        public MfiBaseController() {
             // Basic usage
             //bool exists = await ExistsAsync(p => p.Name == "Product1");
 
@@ -96,6 +91,20 @@ namespace MfiManager.Middleware.Controllers {
             //        Console.WriteLine($"Item: {item}");
             //    }
             //}
+
+            // Update all electronics to inactive
+            //await repository.BulkUpdateWhereAsync(p => p.Category == "Electronics",p => p.IsActive,false);
+            //batch update with progress
+            //var progress = new Progress<BulkOperationProgress>(p => Console.WriteLine($"Progress: {p.PercentComplete:F1}%"));
+            //await repository.BulkInsertBatchedAsync(entities, progress: progress);
+            //update with specific property
+            //await repository.BulkUpdateAsync(entities, new[] { p => p.Price, p => p.ModifiedDate });
+
+            // AddRangeAsync() with SaveChangesAsync() //small datasets about 1K record
+            // BulkInsertAsync() //use for batch large inserts
+            // BulkInsertAsync() //use for meduim size about 10K records
+            // ExecuteUpdateAsync() Conditional updates
+            // BulkUpdateAsync() Load complex transformations
         }
     }
 }

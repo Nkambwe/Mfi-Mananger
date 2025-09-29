@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
+﻿using MfiManager.Middleware.Logging;
 
 namespace MfiManager.Middleware.Cyphers {
 

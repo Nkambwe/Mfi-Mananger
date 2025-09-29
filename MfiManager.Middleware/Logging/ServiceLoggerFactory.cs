@@ -1,0 +1,19 @@
+﻿using MfiManager.Middleware.Configuration.Options;
+using MfiManager.Middleware.Configurations.Providers;
+using Microsoft.Extensions.Options;
+
+namespace MfiManager.Middleware.Logging {
+    public class ServiceLoggerFactory(IEnvironmentProvider environmentProvider,
+                                      IOptions<ServiceLoggingOption> loggingOptions)
+                                    : IServiceLoggerFactory {
+
+        private readonly IEnvironmentProvider _environmentProvider = environmentProvider;
+        private readonly IOptions<ServiceLoggingOption> _loggingOptions = loggingOptions;
+
+        public IServiceLogger CreateLogger()
+            => new ServiceLogger(_environmentProvider, _loggingOptions, _loggingOptions.Value.DefaultLogName);
+
+        public IServiceLogger CreateLogger(string name)
+           => new ServiceLogger(_environmentProvider, _loggingOptions, name);
+    }
+}

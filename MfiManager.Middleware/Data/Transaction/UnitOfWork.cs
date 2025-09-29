@@ -1,10 +1,12 @@
 ﻿using MfiManager.Middleware.Configuration;
+using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Data.Entities;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction.Repositories;
-using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
+using MfiManager.Middleware.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace MfiManager.Middleware.Data.Transaction {
 
@@ -12,12 +14,12 @@ namespace MfiManager.Middleware.Data.Transaction {
 
         #region Fields
         private bool _disposed;
-        private readonly IServiceLogger _logger;
-        private readonly IServiceLoggerFactory _loggerFactory;
+        private readonly ILogger<UnitOfWork> _logger;
         private readonly IStaticCacheManager _cacheManager;
         private readonly IDbContextFactory<MfiManagerDbContext> _contextFactory;
         private readonly Dictionary<Type, object> _repositories;
         private readonly IPaginationConfigurationService _paginationConfig;
+        private readonly IOptions<BulkOperationOptions> _bulOptions;
         #endregion
 
         #region Properties
@@ -44,13 +46,12 @@ namespace MfiManager.Middleware.Data.Transaction {
         
         #endregion
 
-        public UnitOfWork(IServiceLoggerFactory loggerFactory,
+        public UnitOfWork(ILogger<UnitOfWork> logger,
                           IStaticCacheManager cacheManager,
                           IPaginationConfigurationService paginationConfig,
-                          IDbContextFactory<MfiManagerDbContext> contextFactory) {
-            _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.CreateLogger("middleware_log");
-            _logger.Channel = $"UOW-{DateTime.Now:yyyyMMddHHmmss}";
+                          IDbContextFactory<MfiManagerDbContext> contextFactory,
+                          IOptions<BulkOperationOptions> bulkOperationOptions) {
+            _logger = logger;
             _contextFactory = contextFactory;
             _paginationConfig = paginationConfig;
             _cacheManager = cacheManager;
@@ -58,6 +59,7 @@ namespace MfiManager.Middleware.Data.Transaction {
         
             //..db context instance for this unit of work
             Context = _contextFactory.CreateDbContext();
+            _bulOptions = bulkOperationOptions;
         
             //..initalize repositories
             //CompanyRepository =  new CompanyRepository(_loggerFactory, Context);
@@ -86,8 +88,8 @@ namespace MfiManager.Middleware.Data.Transaction {
                 return (IRepository<T>)repo;
             }
 
-            // Create repository with shared context instead of context factory
-            var repository = new Repository<T>(Context, _loggerFactory, _cacheManager,_paginationConfig);
+            //..create repository with shared context instead of context factory
+            var repository = new Repository<T>(Context, _logger, _cacheManager,_paginationConfig,_bulOptions);
             _repositories[typeof(T)] = repository;
             return repository;
         }
@@ -101,35 +103,35 @@ namespace MfiManager.Middleware.Data.Transaction {
                 //..validate string lengths before saving
                 var validationErrors = ValidateStringLengths();
                 if (validationErrors.Count != 0) {
-                    _logger.Log("String length validation errors:", "ERROR");
+                    _logger.Log(LogLevel.Error, "String length validation errors:");
                     foreach (var error in validationErrors) {
-                        _logger.Log(error, "ERROR");
+                        _logger.LogError(error);
                     }
                     throw new InvalidOperationException($"String length validation failed: {string.Join("; ", validationErrors)}");
                 }
         
                 //..log tracked entities
                 var trackedEntities = Context.ChangeTracker.Entries().ToList();
-                _logger.Log($"Tracked entities count: {trackedEntities.Count}", "DEBUG");
+                 _logger.LogError("Tracked entities count: {Count}", trackedEntities.Count);
         
                 return await Context.SaveChangesAsync();
             } catch (Exception ex) {
-                _logger.Log($"SaveChangesAsync failed: {ex.Message}", "ERROR");
+                _logger.LogError(ex, "SaveChangesAsync failed: {Message}", ex.Message);
         
                 //..log all inner exceptions
                 var innerEx = ex.InnerException;
                 var level = 1;
                 while (innerEx != null) {
-                    _logger.Log($"Inner Exception (Level {level}): {innerEx.Message}", "ERROR");
-                    _logger.Log($"Inner Exception Type: {innerEx.GetType().Name}", "ERROR");
+                    _logger.LogError("Inner Exception (Level {level}): {Message}",level, innerEx.Message);
+                    _logger.LogError("Inner Exception Type: {Name}", innerEx.GetType().Name);
                     if (innerEx.StackTrace != null) {
-                        _logger.Log($"Inner StackTrace: {innerEx.StackTrace}", "ERROR");
+                        _logger.LogError("Inner StackTrace: {Stacktrace}", innerEx.StackTrace);
                     }
                     innerEx = innerEx.InnerException;
                     level++;
                 }
         
-                _logger.Log($"STACKTRACE: {ex.StackTrace}", "ERROR");
+               _logger.LogError("Inner StackTrace: {Stacktrace}", ex.StackTrace);
                 throw;
             }
         }
@@ -142,35 +144,35 @@ namespace MfiManager.Middleware.Data.Transaction {
             try {
                 var validationErrors = ValidateStringLengths();
                     if (validationErrors.Count != 0) {
-                        _logger.Log("String length validation errors:", "ERROR");
+                        _logger.LogError("String length validation errors:");
                         foreach (var error in validationErrors) {
-                            _logger.Log(error, "ERROR");
+                            _logger.LogError(error);
                         }
                         throw new InvalidOperationException($"String length validation failed: {string.Join("; ", validationErrors)}");
                     }
         
                     // Log tracked entities
                     var trackedEntities = Context.ChangeTracker.Entries().ToList();
-                    _logger.Log($"Tracked entities count: {trackedEntities.Count}", "DEBUG");
+                    _logger.LogError("Tracked entities count: {Count}", trackedEntities.Count);
         
                 return Context.SaveChanges();
             } catch (Exception ex) {
-                _logger.Log($"SaveChangesAsync failed: {ex.Message}", "ERROR");
+                _logger.LogError("SaveChangesAsync failed: {Message}",ex.Message);
         
                 //..log all inner exceptions
                 var innerEx = ex.InnerException;
                 var level = 1;
                 while (innerEx != null) {
-                    _logger.Log($"Inner Exception (Level {level}): {innerEx.Message}", "ERROR");
-                    _logger.Log($"Inner Exception Type: {innerEx.GetType().Name}", "ERROR");
+                    _logger.LogError("Inner Exception (Level {level}): {Message}",level, innerEx.Message);
+                    _logger.LogError("Inner Exception Type: {Name}", innerEx.GetType().Name);
                     if (innerEx.StackTrace != null) {
-                        _logger.Log($"Inner StackTrace: {innerEx.StackTrace}", "ERROR");
+                        _logger.LogError("Inner StackTrace: {Stacktrace}", innerEx.StackTrace);
                     }
                     innerEx = innerEx.InnerException;
                     level++;
                 }
         
-                _logger.Log($"STACKTRACE: {ex.StackTrace}", "ERROR");
+                 _logger.LogError("Inner StackTrace: {Stacktrace}", ex.StackTrace);
                 throw;
             }
         }

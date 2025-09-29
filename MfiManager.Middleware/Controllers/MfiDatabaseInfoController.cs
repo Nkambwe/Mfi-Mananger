@@ -1,13 +1,13 @@
 ﻿using MfiManager.Middleware.Data.Connection;
 using MfiManager.Middleware.Data.Services;
-using MfiManager.Middleware.Factories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
 
-    public class DatabaseInfoController(
-        IDatabaseVersionCheckerService versionChecker,
-        IServiceLoggerFactory loggerFactory) : MfiBaseController(loggerFactory){
+    public class MfiDatabaseInfoController(
+        ILogger<MfiDatabaseInfoController> logger,
+        IDatabaseVersionCheckerService versionChecker) : MfiBaseController{
+        private readonly ILogger<MfiDatabaseInfoController> _logger = logger;
         private readonly IDatabaseVersionCheckerService _versionChecker = versionChecker;
 
         /// <summary>
@@ -50,9 +50,9 @@ namespace MfiManager.Middleware.Controllers {
 
                 return Ok(result);
             } catch (Exception ex) {
-                Logger.Log("Failed to get database information");
-                Logger.Log($"{ex.Message}", "ERROR");
-                Logger.Log($"{ex.StackTrace}", "STACKTRACE");
+                _logger.LogError("Failed to get database information");
+                _logger.LogError("Error Message - {Message}", ex.Message);
+                _logger.LogError("{StackTrace}", ex.StackTrace);
                 return StatusCode(500, new { Error = "Failed to retrieve database information" });
             }
         }
@@ -72,9 +72,9 @@ namespace MfiManager.Middleware.Controllers {
                     versionInfo.CheckedAt
                 });
             } catch (Exception ex) {
-                Logger.Log("Failed to get database version");
-                Logger.Log($"{ex.Message}", "ERROR");
-                Logger.Log($"{ex.StackTrace}", "STACKTRACE");
+                _logger.LogError("Failed to get database version");
+                _logger.LogError("Error Message - {Message}", ex.Message);
+                _logger.LogError("{StackTrace}", ex.StackTrace);
                 return StatusCode(500, new { Error = "Failed to retrieve database version" });
             }
         }
@@ -95,9 +95,9 @@ namespace MfiManager.Middleware.Controllers {
                     providerInfo.ConnectionString
                 });
             } catch (Exception ex) {
-                Logger.Log("Failed to get database provider information");
-                Logger.Log($"{ex.Message}", "ERROR");
-                Logger.Log($"{ex.StackTrace}", "STACKTRACE");
+                _logger.LogError("Failed to get database provider information");
+                _logger.LogError("Error Message - {Message}", ex.Message);
+                _logger.LogError("{StackTrace}", ex.StackTrace);
                 return StatusCode(500, new { Error = "Failed to retrieve database provider information" });
             }
         }
@@ -118,9 +118,9 @@ namespace MfiManager.Middleware.Controllers {
                     OptimalThreshold = GetOptimalThreshold(provider)
                 });
             } catch (Exception ex) {
-                Logger.Log("Failed to test approximate count capability");
-                Logger.Log($"{ex.Message}", "ERROR");
-                Logger.Log($"{ex.StackTrace}", "STACKTRACE");
+                _logger.LogError("Failed to test approximate count capability");
+                _logger.LogError("Error Message - {Message}", ex.Message);
+                _logger.LogError("{StackTrace}", ex.StackTrace);
                 return StatusCode(500, new { Error = "Failed to test approximate count capability" });
             }
         }
@@ -146,9 +146,9 @@ namespace MfiManager.Middleware.Controllers {
 
                 return Ok(recommendations);
             } catch (Exception ex) {
-                Logger.Log("Failed to get pagination recommendations");
-                Logger.Log($"{ex.Message}", "ERROR");
-                Logger.Log($"{ex.StackTrace}", "STACKTRACE");
+                _logger.LogError("Failed to get pagination recommendations");
+                _logger.LogError("Error Message - {Message}", ex.Message);
+                _logger.LogError("{StackTrace}", ex.StackTrace);
                 return StatusCode(500, new { Error = "Failed to retrieve pagination recommendations" });
             }
         }

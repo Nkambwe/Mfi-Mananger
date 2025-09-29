@@ -1,7 +1,6 @@
 ﻿using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Cyphers;
-using MfiManager.Middleware.Factories;
-using MfiManager.Middleware.Utils;
+using MfiManager.Middleware.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 

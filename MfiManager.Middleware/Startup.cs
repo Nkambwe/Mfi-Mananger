@@ -1,8 +1,9 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Cyphers;
+using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Extensions;
-using MfiManager.Middleware.Factories;
+using MfiManager.Middleware.Logging;
 using Microsoft.AspNetCore.HttpOverrides;
 
 namespace MfiManager.Middleware {
@@ -22,10 +23,14 @@ namespace MfiManager.Middleware {
             services.Configure<DataConnectionOptions>(Configuration.GetSection(DataConnectionOptions.SectionName));
             services.Configure<DatabaseProviderOptions>(Configuration.GetSection(DatabaseProviderOptions.SectionName));
             services.Configure<PaginationOptions>(Configuration.GetSection(PaginationOptions.SectionName));
+            services.Configure<BulkOperationOptions>(Configuration.GetSection(BulkOperationOptions.SectionName));
+            services.Configure<BulkMonitorOptions>(Configuration.GetSection(BulkMonitorOptions.SectionName));
+
 
             //..register appSettings provider
             services.AddScoped<IEnvironmentProvider, EnvironmentProvider>();
             services.AddScoped<IServiceLoggerFactory, ServiceLoggerFactory>();
+            services.AddSingleton<ILoggerProvider, ServiceLoggerProvider>();
             services.AddScoped<IDataConnectionProvider, DataConnectionProvider>();
             services.AddScoped<IDabaseServiceProvider, DabaseServiceProvider>();
             services.AddScoped<IUrlProvider, UrlProvider>();
