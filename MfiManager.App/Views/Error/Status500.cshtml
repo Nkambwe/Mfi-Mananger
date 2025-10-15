@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Server Error";
+    var isLive = (bool)ViewBag.IsLive;
+}
+
+<div class="error-container">
+    <h1>500 - Server Error</h1>
+
+    @if (isLive)
+    {
+        <!-- Simple error for production -->
+        <p>Sorry, something went wrong on our end. Please try again later.</p>
+        <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
+    }
+    else
+    {
+        <!-- Detailed error for development -->
+        <div class="alert alert-danger">
+            <h3>Development Mode - Error Details</h3>
+            <p><strong>Error Message:</strong> @ViewBag.ErrorMessage</p>
+            <p><strong>Error Path:</strong> @ViewBag.ErrorPath</p>
+
+            @if (ViewBag.StackTrace != null)
+            {
+                <hr />
+                <h4>Stack Trace:</h4>
+                <pre style="text-align: left; background: #f5f5f5; padding: 15px; overflow-x: auto;">@ViewBag.StackTrace</pre>
+            }
+        </div>
+        <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
+    }
+</div>

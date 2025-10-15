@@ -21,6 +21,23 @@ body {
   margin-bottom: 60px;
 }
 
+.error-container {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+    .error-container h1 {
+        font-size: 48px;
+        color: #dc3545;
+        margin-bottom: 20px;
+    }
+
+.alert {
+    text-align: left;
+}
+
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
@@ -29,3 +46,4 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+

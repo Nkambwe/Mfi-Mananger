@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "MfiManager.App.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\MfiManager.Middleware\\MfiManager.Middleware.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
