@@ -1,0 +1,10 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Unauthorized";
+}
+
+<div class="error-container">
+    <h1 class="display-1">@Model.StatusCode - Forbbiden</h1>
+    <p>@Model.ErrorMessage</p>
+    <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
+</div>

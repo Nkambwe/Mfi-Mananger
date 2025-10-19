@@ -5,4 +5,4 @@ namespace MfiManager.Middleware.Data.Services {
         ServiceLoggingOption GetSettings();
         void UpdateSettings(ServiceLoggingOption settings);
     }
-    }
+}

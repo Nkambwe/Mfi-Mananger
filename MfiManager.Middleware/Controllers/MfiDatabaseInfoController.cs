@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Connection;
+﻿using MfiManager.Middleware.Configurations.Providers;
+using MfiManager.Middleware.Data.Connection;
 using MfiManager.Middleware.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +7,8 @@ namespace MfiManager.Middleware.Controllers {
 
     public class MfiDatabaseInfoController(
         ILogger<MfiDatabaseInfoController> logger,
-        IDatabaseVersionCheckerService versionChecker) : MfiBaseController{
+        IEnvironmentProvider environment,
+        IDatabaseVersionCheckerService versionChecker) : MfiBaseController(logger, environment){
         private readonly ILogger<MfiDatabaseInfoController> _logger = logger;
         private readonly IDatabaseVersionCheckerService _versionChecker = versionChecker;
 

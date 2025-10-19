@@ -24,7 +24,7 @@ namespace MfiManager.App.Infrastructure.Extensions {
         /// Auto Mapper Configurations
         /// </summary>
         /// <param name="services">Service Collection</param>
-        //public static void ObjectMapper(this IServiceCollection services) {
+        public static void ObjectMapper(this IServiceCollection services) {
 
         //    var mappingConfig = new MapperConfiguration(mc => {
         //        mc.AddProfile(new MappingProfile());
@@ -32,6 +32,6 @@ namespace MfiManager.App.Infrastructure.Extensions {
 
         //    IMapper mapper = mappingConfig.CreateMapper();
         //    services.AddSingleton(mapper);
-        //}
+        }
     }
 }

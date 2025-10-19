@@ -1,28 +1,16 @@
 ﻿using MfiManager.Middleware.Configuration;
-using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Data;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Logging;
-using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
 namespace MfiManager.Middleware.Extensions {
 
     public static class ServiceCollectionExtension {
-        /// <summary>
-        /// Configure AutoMapper
-        /// </summary>
-        /// <param name="services">Service instance</param>
-        public static void RegisterAutoMapper(this IServiceCollection services) {
-             services.AddAutoMapper(cfg => {
-                cfg.AddProfile<MappingProfile>();
-             });
-        }
-
         /// <summary>
         /// Configure Cors
         /// </summary>

@@ -2,4 +2,5 @@
     public interface IEnvironmentProvider {
         bool IsLive { get; }
     }
+
 }

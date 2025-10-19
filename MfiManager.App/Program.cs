@@ -13,7 +13,6 @@ namespace MfiManager.App {
         
             //..configure the application pipeline
             startup.Configure(app);
-        
             app.Run();
         }
     }

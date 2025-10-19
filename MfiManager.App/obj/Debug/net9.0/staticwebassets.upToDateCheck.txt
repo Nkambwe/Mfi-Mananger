@@ -19,6 +19,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\j
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
@@ -49,12 +50,15 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery-validatio
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.min.css.map
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery\LICENSE.txt
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.css.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\css\site.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
@@ -62,6 +66,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery\dist\jque
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\js\site.js
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\logo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
@@ -108,6 +113,14 @@ wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 wwwroot\lib\bootstrap\LICENSE
+wwwroot\lib\icons\material-design\css\materialdesignicons.css
+wwwroot\lib\icons\material-design\css\materialdesignicons.css.map
+wwwroot\lib\icons\material-design\css\materialdesignicons.min.css
+wwwroot\lib\icons\material-design\css\materialdesignicons.min.css.map
+wwwroot\lib\icons\material-design\fonts\materialdesignicons-webfont.eot
+wwwroot\lib\icons\material-design\fonts\materialdesignicons-webfont.ttf
+wwwroot\lib\icons\material-design\fonts\materialdesignicons-webfont.woff
+wwwroot\lib\icons\material-design\fonts\materialdesignicons-webfont.woff2
 wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map

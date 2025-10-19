@@ -1,14 +1,14 @@
-﻿@{
+﻿@model ErrorViewModel
+@{
     ViewData["Title"] = "Page Not Found";
-    var isLive = (bool)ViewBag.IsLive;
+    var isLive = Model.IsLive;
 }
 
 <div class="error-container">
-    <h1>404 - Page Not Found</h1>
+    <h1 class="display-1">@Model.StatusCode - Page Not Found</h1>
 
     @if (isLive)
     {
-        <!-- Simple error for production -->
         <p>Sorry, the page you're looking for doesn't exist.</p>
         <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
     }
@@ -16,9 +16,8 @@
     {
         <!-- Detailed error for development -->
         <div class="alert alert-warning">
-            <h3>Development Mode - Error Details</h3>
-            <p><strong>Original Path:</strong> @ViewBag.OriginalPath</p>
-            <p><strong>Query String:</strong> @ViewBag.OriginalQueryString</p>
+            <p><strong>Original Path:</strong> @Model.OriginalPath</p>
+            <p><strong>Query String:</strong> @Model.OriginalQueryString</p>
         </div>
         <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
     }

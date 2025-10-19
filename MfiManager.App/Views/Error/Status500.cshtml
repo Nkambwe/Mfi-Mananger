@@ -1,10 +1,11 @@
-﻿@{
+﻿@model ErrorViewModel
+@{
     ViewData["Title"] = "Server Error";
-    var isLive = (bool)ViewBag.IsLive;
+    var isLive = Model.IsLive;
 }
 
 <div class="error-container">
-    <h1>500 - Server Error</h1>
+    <h1 class="display-1">@Model.StatusCode - Server Error</h1>
 
     @if (isLive)
     {
@@ -17,14 +18,14 @@
         <!-- Detailed error for development -->
         <div class="alert alert-danger">
             <h3>Development Mode - Error Details</h3>
-            <p><strong>Error Message:</strong> @ViewBag.ErrorMessage</p>
-            <p><strong>Error Path:</strong> @ViewBag.ErrorPath</p>
+            <p><strong>Error Message:</strong> @Model.ErrorMessage</p>
+            <p><strong>Error Path:</strong> @Model.ErrorPath</p>
 
-            @if (ViewBag.StackTrace != null)
+            @if (Model.StackTrace != null)
             {
                 <hr />
                 <h4>Stack Trace:</h4>
-                <pre style="text-align: left; background: #f5f5f5; padding: 15px; overflow-x: auto;">@ViewBag.StackTrace</pre>
+                <pre style="text-align: left; background: #f5f5f5; padding: 15px; overflow-x: auto;">@Model.StackTrace</pre>
             }
         </div>
         <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GBVoDmYAXdsPbaUOAVGS0Y3zHuYgr87OvQP6mrxBCzg=",
+  "Hash": "W68NkkN/eS2XPcYjsGYVpu0IntfeNQf6ZCl4mh+FwyA=",
   "Source": "MfiManager.App",
   "BasePath": "_content/MfiManager.App",
   "Mode": "Default",
@@ -458,6 +458,27 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6922w6mfr-nwoblwmiei.gz",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons#[.{fingerprint=nwoblwmiei}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "4mfr47tsr2",
+      "Integrity": "NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css"
+    },
+    {
       "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6lga4qqn8-t2ntgbrlxb.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Computed",
@@ -836,12 +857,12 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-61n19gt1b8.gz",
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-9vh3ejt28x.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MfiManager.App",
-      "RelativePath": "favicon#[.{fingerprint=61n19gt1b8}]?.ico.gz",
+      "RelativePath": "favicon#[.{fingerprint=9vh3ejt28x}]?.ico.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -850,8 +871,8 @@
       "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\favicon.ico",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "lir1p715ud",
-      "Integrity": "jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8=",
+      "Fingerprint": "8ggac2k1rv",
+      "Integrity": "yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\favicon.ico"
@@ -1130,6 +1151,48 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\ujqv04w8k7-vsp1tzx51w.gz",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.min.css#[.{fingerprint=vsp1tzx51w}]?.map.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "krxzywlk9c",
+      "Integrity": "UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\v6m7ku6v0r-uxh432f5u4.gz",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.min#[.{fingerprint=uxh432f5u4}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "15mm5qy7sr",
+      "Integrity": "lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css"
+    },
+    {
       "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\w36t8fvet6-cosvhxvwiu.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
@@ -1254,6 +1317,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\xwgidxnlqi-l72grmsopk.gz",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.css#[.{fingerprint=l72grmsopk}]?.map.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "e6dx5z83zy",
+      "Integrity": "9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map"
     },
     {
       "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\yi6k7q5w6c-aexeepp0ev.gz",
@@ -1438,11 +1522,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "61n19gt1b8",
-      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "Fingerprint": "9vh3ejt28x",
+      "Integrity": "yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo.png",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "images/logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xey4hibh64",
+      "Integrity": "ObCEdWwf4/0qBulfgqyYwhPuzlB/D7fr1DoQRhiVSN4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
       "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\site.js",
@@ -2411,6 +2516,174 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nwoblwmiei",
+      "Integrity": "KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "l72grmsopk",
+      "Integrity": "z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uxh432f5u4",
+      "Integrity": "0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/css/materialdesignicons.min.css#[.{fingerprint}]?.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vsp1tzx51w",
+      "Integrity": "3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/fonts/materialdesignicons-webfont#[.{fingerprint}]?.eot",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fzdtwvzo12",
+      "Integrity": "CxgxBNL8XyYZbnc8d72vLgVQn9QlnS0V7O3Kebh+hPk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/fonts/materialdesignicons-webfont#[.{fingerprint}]?.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "96sr9esf18",
+      "Integrity": "YeirpaTpgf4iz3yOi82+oAR251xiw38Bv37jM2HWhCg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/fonts/materialdesignicons-webfont#[.{fingerprint}]?.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "d25w1gdoq3",
+      "Integrity": "pZKKDVwvYk5G+Y2bFcL2AEU3f3xZTdeKF1kTLqO0Y+s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff"
+    },
+    {
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2",
+      "SourceId": "MfiManager.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\",
+      "BasePath": "_content/MfiManager.App",
+      "RelativePath": "lib/icons/material-design/fonts/materialdesignicons-webfont#[.{fingerprint}]?.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "eu2whqkvhm",
+      "Integrity": "Zi/vqPL4qVwYWI0hd0eJwQfGTnccvmWmmvRikcQxGvw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2"
+    },
+    {
       "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
@@ -3026,13 +3299,13 @@
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-61n19gt1b8.gz",
+      "Route": "favicon.9vh3ejt28x.ico",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-9vh3ejt28x.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000411015208"
+          "Quality": "0.000073583517"
         }
       ],
       "ResponseHeaders": [
@@ -3042,15 +3315,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "13589"
         },
         {
           "Name": "ETag",
-          "Value": "\"jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8=\""
+          "Value": "\"yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3070,13 +3343,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "W/\"yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "9vh3ejt28x"
         },
         {
           "Name": "label",
@@ -3084,12 +3357,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8="
         }
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico",
+      "Route": "favicon.9vh3ejt28x.ico",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3099,7 +3372,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "51478"
         },
         {
           "Name": "Content-Type",
@@ -3107,11 +3380,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3121,7 +3394,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "9vh3ejt28x"
         },
         {
           "Name": "label",
@@ -3129,13 +3402,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8="
         }
       ]
     },
     {
-      "Route": "favicon.61n19gt1b8.ico.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-61n19gt1b8.gz",
+      "Route": "favicon.9vh3ejt28x.ico.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-9vh3ejt28x.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3144,7 +3417,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -3152,11 +3425,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8=\""
+          "Value": "\"yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3174,7 +3447,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "61n19gt1b8"
+          "Value": "9vh3ejt28x"
         },
         {
           "Name": "label",
@@ -3182,18 +3455,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8="
+          "Value": "sha256-yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4="
         }
       ]
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-61n19gt1b8.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-9vh3ejt28x.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000411015208"
+          "Quality": "0.000073583517"
         }
       ],
       "ResponseHeaders": [
@@ -3203,15 +3476,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "13589"
         },
         {
           "Name": "ETag",
-          "Value": "\"jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8=\""
+          "Value": "\"yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3231,13 +3504,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "W/\"yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8="
         }
       ]
     },
@@ -3252,7 +3525,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5430"
+          "Value": "51478"
         },
         {
           "Name": "Content-Type",
@@ -3260,11 +3533,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+          "Value": "\"yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3274,13 +3547,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+          "Value": "sha256-yzivnlZq9fL1LmYcBjlQUCE+DQ14UpSLx6FyV4QoxW8="
         }
       ]
     },
     {
       "Route": "favicon.ico.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-61n19gt1b8.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\l4s7q60mv0-9vh3ejt28x.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3289,7 +3562,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2432"
+          "Value": "13589"
         },
         {
           "Name": "Content-Type",
@@ -3297,11 +3570,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8=\""
+          "Value": "\"yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 17:12:59 GMT"
+          "Value": "Thu, 16 Oct 2025 00:36:32 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3319,7 +3592,89 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8="
+          "Value": "sha256-yMWi1V3uF8t0aZ5n5IABRwdp35NcgFlIn9x8Db3Xtm4="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo.png",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObCEdWwf4/0qBulfgqyYwhPuzlB/D7fr1DoQRhiVSN4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Oct 2025 00:33:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObCEdWwf4/0qBulfgqyYwhPuzlB/D7fr1DoQRhiVSN4="
+        }
+      ]
+    },
+    {
+      "Route": "images/logo.xey4hibh64.png",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ObCEdWwf4/0qBulfgqyYwhPuzlB/D7fr1DoQRhiVSN4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Oct 2025 00:33:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xey4hibh64"
+        },
+        {
+          "Name": "label",
+          "Value": "images/logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ObCEdWwf4/0qBulfgqyYwhPuzlB/D7fr1DoQRhiVSN4="
         }
       ]
     },
@@ -16816,6 +17171,1526 @@
       ]
     },
     {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6922w6mfr-nwoblwmiei.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000016633677"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60118"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "447887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6922w6mfr-nwoblwmiei.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60118"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.l72grmsopk.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\xwgidxnlqi-l72grmsopk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085557837"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11687"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l72grmsopk"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.l72grmsopk.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "454637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l72grmsopk"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.l72grmsopk.map.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\xwgidxnlqi-l72grmsopk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11687"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l72grmsopk"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css.map.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\xwgidxnlqi-l72grmsopk.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000085557837"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11687"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "454637"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z72h/YCP8j+7UdNMOIKYh9X82gYEkkaG12ylItbKfh8="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.css.map.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\xwgidxnlqi-l72grmsopk.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11687"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9pE6DYCS5yAgTh8N+AFKSrii6Xzpe1ctY2MBhDHP/BI="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\v6m7ku6v0r-uxh432f5u4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000018391143"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54373"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "346628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\v6m7ku6v0r-uxh432f5u4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54373"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\ujqv04w8k7-vsp1tzx51w.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000086273833"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11590"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "446779"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.map.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\ujqv04w8k7-vsp1tzx51w.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.vsp1tzx51w.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\ujqv04w8k7-vsp1tzx51w.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000086273833"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11590"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vsp1tzx51w"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.vsp1tzx51w.map",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "446779"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vsp1tzx51w"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3zEmoFPmLuIsbnh8R3EDvwHlwJcRqpxLO4c7A8q2IPc="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.css.vsp1tzx51w.map.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\ujqv04w8k7-vsp1tzx51w.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11590"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vsp1tzx51w"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css.map.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UDhoxvqhbgnwL1jUO1dwDWroFjGIGODbzgaGztEILm4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.uxh432f5u4.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\v6m7ku6v0r-uxh432f5u4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000018391143"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54373"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uxh432f5u4"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.uxh432f5u4.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "346628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uxh432f5u4"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0o7s6SWt2GNqxOjgL14Mvw5h+VErCRXm7CPWgkUpq8Y="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.min.uxh432f5u4.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\v6m7ku6v0r-uxh432f5u4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54373"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uxh432f5u4"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.min.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lcYwhDb+meddzxcBOVuQIHd12gPx7oqSVVP8k7P+x+o="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.nwoblwmiei.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6922w6mfr-nwoblwmiei.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000016633677"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60118"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nwoblwmiei"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.nwoblwmiei.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "447887"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nwoblwmiei"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KRiHSJPqE/e4Y69Hsmjwu/YO7td781Aj/2a/LH0tyn4="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/css/materialdesignicons.nwoblwmiei.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\c6922w6mfr-nwoblwmiei.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60118"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nwoblwmiei"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/css/materialdesignicons.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NKgUuifMs4aSwmrYmouNq9RuhgYb0sOwqzzmKmj96ao="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.96sr9esf18.ttf",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1307660"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YeirpaTpgf4iz3yOi82+oAR251xiw38Bv37jM2HWhCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "96sr9esf18"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/fonts/materialdesignicons-webfont.ttf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YeirpaTpgf4iz3yOi82+oAR251xiw38Bv37jM2HWhCg="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.d25w1gdoq3.woff",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "587984"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pZKKDVwvYk5G+Y2bFcL2AEU3f3xZTdeKF1kTLqO0Y+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d25w1gdoq3"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/fonts/materialdesignicons-webfont.woff"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pZKKDVwvYk5G+Y2bFcL2AEU3f3xZTdeKF1kTLqO0Y+s="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.eot",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1307880"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.ms-fontobject"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CxgxBNL8XyYZbnc8d72vLgVQn9QlnS0V7O3Kebh+hPk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CxgxBNL8XyYZbnc8d72vLgVQn9QlnS0V7O3Kebh+hPk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.eu2whqkvhm.woff2",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "403216"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Zi/vqPL4qVwYWI0hd0eJwQfGTnccvmWmmvRikcQxGvw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eu2whqkvhm"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/fonts/materialdesignicons-webfont.woff2"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Zi/vqPL4qVwYWI0hd0eJwQfGTnccvmWmmvRikcQxGvw="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.fzdtwvzo12.eot",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1307880"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.ms-fontobject"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CxgxBNL8XyYZbnc8d72vLgVQn9QlnS0V7O3Kebh+hPk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fzdtwvzo12"
+        },
+        {
+          "Name": "label",
+          "Value": "lib/icons/material-design/fonts/materialdesignicons-webfont.eot"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CxgxBNL8XyYZbnc8d72vLgVQn9QlnS0V7O3Kebh+hPk="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.ttf",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1307660"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/x-font-ttf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YeirpaTpgf4iz3yOi82+oAR251xiw38Bv37jM2HWhCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YeirpaTpgf4iz3yOi82+oAR251xiw38Bv37jM2HWhCg="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.woff",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "587984"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/font-woff"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pZKKDVwvYk5G+Y2bFcL2AEU3f3xZTdeKF1kTLqO0Y+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pZKKDVwvYk5G+Y2bFcL2AEU3f3xZTdeKF1kTLqO0Y+s="
+        }
+      ]
+    },
+    {
+      "Route": "lib/icons/material-design/fonts/materialdesignicons-webfont.woff2",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "403216"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "font/woff2"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Zi/vqPL4qVwYWI0hd0eJwQfGTnccvmWmmvRikcQxGvw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 20 Sep 2025 03:41:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Zi/vqPL4qVwYWI0hd0eJwQfGTnccvmWmmvRikcQxGvw="
+        }
+      ]
+    },
+    {
       "Route": "lib/jquery/dist/jquery.0i3buxo5is.js",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\kof0c90kjg-0i3buxo5is.gz",
       "Selectors": [
@@ -21310,7 +23185,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21363,7 +23238,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21400,7 +23275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21447,7 +23322,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21500,7 +23375,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21537,7 +23412,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21584,7 +23459,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21645,7 +23520,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21690,7 +23565,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21745,7 +23620,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21806,7 +23681,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21851,7 +23726,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 29 Sep 2025 03:22:58 GMT"
+          "Value": "Sun, 19 Oct 2025 12:27:42 GMT"
         },
         {
           "Name": "Cache-Control",

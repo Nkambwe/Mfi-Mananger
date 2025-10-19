@@ -59,9 +59,6 @@ namespace MfiManager.Middleware {
                 c.CustomSchemaIds(type => type.FullName);
             });
  
-            //..register auto mapper
-            services.RegisterAutoMapper();
-
             //..cross origin configuration
             services.ConfigureCors();
  

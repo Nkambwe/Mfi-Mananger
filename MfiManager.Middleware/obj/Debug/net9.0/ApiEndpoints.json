@@ -1,5 +1,117 @@
 [
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/accounting",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/accounting/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/accounting/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/accounting/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/accounting/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiAccountingController",
     "Method": "AccountingWelcome",
     "RelativePath": "mfi/accounting/welcome",
@@ -7,6 +119,182 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/files",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/files/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/files/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/files/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/files/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -30,6 +318,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/kyc",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiKycController",
     "Method": "DoSomething",
     "RelativePath": "mfi/kyc/doSomething",
@@ -40,6 +376,70 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/kyc/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/kyc/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/kyc/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/kyc/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiKycController",
     "Method": "KycWelcome",
     "RelativePath": "mfi/kyc/welcome",
@@ -47,6 +447,86 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/loans",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/loans/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/loans/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/loans/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/loans/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -86,6 +566,86 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/logging",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/logging/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/logging/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/logging/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/logging/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiLoggingController",
     "Method": "LoggingWelcome",
     "RelativePath": "mfi/logging/welcome",
@@ -116,6 +676,86 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/reporting",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/reporting/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/reporting/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/reporting/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/reporting/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiReportingController",
     "Method": "ReportingWelcome",
     "RelativePath": "mfi/reporting/welcome",
@@ -123,6 +763,86 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/saving",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/saving/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/saving/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/saving/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/saving/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -136,6 +856,86 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/settings",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/settings/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/settings/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/settings/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/settings/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiConfigurationController",
     "Method": "SystemWelcome",
     "RelativePath": "mfi/settings/welcome",
@@ -146,6 +946,86 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/shares",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/shares/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/shares/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/shares/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/shares/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiShareController",
     "Method": "ShareWelcome",
     "RelativePath": "mfi/shares/welcome",
@@ -153,6 +1033,86 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetPagedUsers",
+    "RelativePath": "mfi/system",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetError",
+    "RelativePath": "mfi/system/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpIdRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "GetErrorList",
+    "RelativePath": "mfi/system/errors/error-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "SaveError",
+    "RelativePath": "mfi/system/errors/saveerror",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.AppErrorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MfiManager.Middleware.Controllers.MfiBaseController",
+    "Method": "Install",
+    "RelativePath": "mfi/system/install/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "MfiManager.Middleware.Http.Requests.InstallRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

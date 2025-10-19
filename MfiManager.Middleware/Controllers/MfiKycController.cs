@@ -1,11 +1,15 @@
-﻿using MfiManager.Middleware.Data.Services;
+﻿using MfiManager.Middleware.Configurations.Providers;
+using MfiManager.Middleware.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
 
     [ApiController]
     [Route("mfi/kyc")]
-    public class MfiKycController(ILogger<MfiKycController> logger, ICustomerService customerService) : MfiBaseController {
+    public class MfiKycController(ILogger<MfiKycController> logger, 
+                                  IEnvironmentProvider environment,
+                                  ICustomerService customerService) 
+        : MfiBaseController(logger, environment) {
         private readonly ILogger<MfiKycController> _logger = logger;
         private readonly ICustomerService _customerService = customerService;
         private const string LOG_ID="MFI-KYCCONTROLLER";

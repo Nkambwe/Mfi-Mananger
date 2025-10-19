@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MfiManager.Middleware.Configurations.Providers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
+
     [ApiController]
     [Route("mfi/loans")]
-    public class MfiLoansController(ILogger<MfiLoansController> logger) : MfiBaseController  {
+    public class MfiLoansController(
+        ILogger<MfiLoansController> logger,
+        IEnvironmentProvider environment) 
+        : MfiBaseController(logger, environment)  {
         private readonly ILogger<MfiLoansController> _logger = logger;
         [HttpGet("welcome")]
         public IActionResult LoansWelcome() {

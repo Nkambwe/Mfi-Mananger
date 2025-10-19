@@ -40,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25cUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Error/Status401.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU3RhdHVzNDAxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Error/Status403.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU3RhdHVzNDAzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Error/Status404.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU3RhdHVzNDA0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,8 +56,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU3RhdHVzNTAwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Error/Status503.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcU3RhdHVzNTAzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projects/mfi-manager/Mfi-Mananger/MfiManager.App/Views/Shared/_ValidationScriptsPartial.cshtml]

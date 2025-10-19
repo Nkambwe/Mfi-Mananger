@@ -1,13 +1,16 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
+using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
     [ApiController]
     [Route("mfi/logging")]
-    public class MfiLoggingController(ILogger<MfiLoggingController> logger,
-                                      ILoggingConfigService configService) 
-                                : MfiBaseController {
+    public class MfiLoggingController(
+        ILogger<MfiLoggingController> logger,
+        IEnvironmentProvider environment,
+        ILoggingConfigService configService) 
+        : MfiBaseController (logger, environment){
         private const string LOG_ID="MFI-LOGCONTROLLER";
         private readonly ILogger<MfiLoggingController> _logger = logger;
         private readonly ILoggingConfigService _configService = configService;

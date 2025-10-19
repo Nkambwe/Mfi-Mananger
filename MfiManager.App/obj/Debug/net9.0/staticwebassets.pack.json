@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -195,6 +199,38 @@
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\css\\materialdesignicons.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css.map",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\css\\materialdesignicons.css.map"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\css\\materialdesignicons.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\css\\materialdesignicons.min.css.map"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.eot"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2",
+      "PackagePath": "staticwebassets\\lib\\icons\\material-design\\fonts\\materialdesignicons-webfont.woff2"
     },
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
