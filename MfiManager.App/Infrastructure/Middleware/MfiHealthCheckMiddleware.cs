@@ -30,8 +30,8 @@ namespace MfiManager.App.Infrastructure.Middleware {
                         status, isConnected, hasCompanies);
                 
                     if (!status || !isConnected) {
-                        _logger.LogWarning("Redirecting to /org/noservice - Status: {Status}, Connected: {Connected}", status, isConnected);
-                        context.Response.Redirect("/org/noservice");
+                        _logger.LogWarning("Redirecting to /mfi/error/status-503 - Status: {Status}, Connected: {Connected}", status, isConnected);
+                        context.Response.Redirect("/mfi/error/status-503");
                         return;
                     } 
                 
@@ -46,7 +46,7 @@ namespace MfiManager.App.Infrastructure.Middleware {
                     return;
                 } catch (Exception ex) {
                     _logger.LogError(ex, "Error during health check");
-                    context.Response.Redirect("/org/noservice");
+                    context.Response.Redirect("/mfi/error/status-503");
                     return;
                 }
             }

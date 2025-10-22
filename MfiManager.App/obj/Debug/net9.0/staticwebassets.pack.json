@@ -2,7 +2,15 @@
   "Files": [
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MfiManager.App.bundle.scp.css",
-      "PackagePath": "staticwebassets\\MfiManager.App.t2ntgbrlxb.bundle.scp.css"
+      "PackagePath": "staticwebassets\\MfiManager.App.y69j075fxo.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\color-pallate.css",
+      "PackagePath": "staticwebassets\\css\\color-pallate.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\flat.css",
+      "PackagePath": "staticwebassets\\css\\flat.css"
     },
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\site.css",
@@ -13,8 +21,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo-pink.png",
+      "PackagePath": "staticwebassets\\images\\logo-pink.png"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo-tan.png",
+      "PackagePath": "staticwebassets\\images\\logo-tan.png"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo-white.png",
+      "PackagePath": "staticwebassets\\images\\logo-white.png"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo-yello.png",
+      "PackagePath": "staticwebassets\\images\\logo-yello.png"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\flat.js",
+      "PackagePath": "staticwebassets\\js\\flat.js"
     },
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\site.js",
@@ -201,6 +225,50 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart-4.4.1-min.js",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart-4.4.1-min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.bundle.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.css",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.js",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.min.css",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\chartjs\\Chart.min.js",
+      "PackagePath": "staticwebassets\\lib\\chartjs\\Chart.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\ckeditor5\\ckeditor5.css",
+      "PackagePath": "staticwebassets\\lib\\ckeditor5\\ckeditor5.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\ckeditor5\\ckeditor5.umd.js",
+      "PackagePath": "staticwebassets\\lib\\ckeditor5\\ckeditor5.umd.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\flastpicker\\flatpickr.js",
+      "PackagePath": "staticwebassets\\lib\\flastpicker\\flatpickr.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\flastpicker\\flatpickr.min.css",
+      "PackagePath": "staticwebassets\\lib\\flastpicker\\flatpickr.min.css"
+    },
+    {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.css",
       "PackagePath": "staticwebassets\\lib\\icons\\material-design\\css\\materialdesignicons.css"
     },
@@ -291,6 +359,98 @@
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\css\\select2-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\select2\\css\\select2-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\css\\select2.css",
+      "PackagePath": "staticwebassets\\lib\\select2\\css\\select2.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\lib\\select2\\css\\select2.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\js\\select2.full.js",
+      "PackagePath": "staticwebassets\\lib\\select2\\js\\select2.full.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\lib\\select2\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\js\\select2.js",
+      "PackagePath": "staticwebassets\\lib\\select2\\js\\select2.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\select2\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\lib\\select2\\js\\select2.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\signalr\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\signalr\\signalr.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\signalr\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\signalr\\signalr.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\sweet-alert\\sweetalert2.all.js",
+      "PackagePath": "staticwebassets\\lib\\sweet-alert\\sweetalert2.all.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\sweet-alert\\sweetalert2.all.min.js",
+      "PackagePath": "staticwebassets\\lib\\sweet-alert\\sweetalert2.all.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\sweet-alert\\sweetalert2.css",
+      "PackagePath": "staticwebassets\\lib\\sweet-alert\\sweetalert2.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\css\\tabulator.min.css",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\css\\tabulator.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\css\\tabulator_bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\css\\tabulator_bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\css\\tabulator_materialize.min.css",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\css\\tabulator_materialize.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\css\\tabulator_modern.min.css",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\css\\tabulator_modern.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\css\\tabulator_simple.min.css",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\css\\tabulator_simple.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\tabulator\\js\\tabulator.min.js",
+      "PackagePath": "staticwebassets\\lib\\tabulator\\js\\tabulator.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\toastr\\toastr.css",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\toastr\\toastr.js.map",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\toastr\\toastr.min.css",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.min.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\toastr\\toastr.min.js",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.min.js"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\xlsx\\xlsx.full.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.full.min.js"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MfiManager.App.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

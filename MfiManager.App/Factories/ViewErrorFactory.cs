@@ -67,7 +67,10 @@ namespace MfiManager.App.Factories {
             var exceptionFeature = context.Features.Get<IExceptionHandlerPathFeature>();
             if (exceptionFeature != null) {
                 model.StatusCode = 503;
-                model.ErrorMessage = "Service Unavailable! The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. Please try again later.";
+               model.ErrorMessage = "The server is currently unvailablerver. Please try again later.";
+            } else {
+                model.StatusCode = 503;
+                model.ErrorMessage = "The server is currently unvailablerver. Please try again later.";
             }
 
             return Task.FromResult(model);

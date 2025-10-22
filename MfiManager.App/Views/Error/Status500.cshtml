@@ -1,33 +1,40 @@
 ﻿@model ErrorViewModel
 @{
+    Layout = "_FlatLayout";
     ViewData["Title"] = "Server Error";
     var isLive = Model.IsLive;
 }
 
-<div class="error-container">
-    <h1 class="display-1">@Model.StatusCode - Server Error</h1>
+<div class="mfi-error-container">
 
-    @if (isLive)
-    {
-        <!-- Simple error for production -->
-        <p>Sorry, something went wrong on our end. Please try again later.</p>
-        <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
-    }
-    else
-    {
-        <!-- Detailed error for development -->
-        <div class="alert alert-danger">
-            <h3>Development Mode - Error Details</h3>
-            <p><strong>Error Message:</strong> @Model.ErrorMessage</p>
-            <p><strong>Error Path:</strong> @Model.ErrorPath</p>
-
-            @if (Model.StackTrace != null)
+    <div class="mfi-error-box">
+        <div class="error-page-header">
+            <h1 class="display-1 error-code-danger">@Model.StatusCode</h1>
+            <h4 class="display-1 error-code-text">Sever Error</h4>
+        </div>
+        <div class="error-page-message">
+            @if (isLive)
             {
-                <hr />
-                <h4>Stack Trace:</h4>
-                <pre style="text-align: left; background: #f5f5f5; padding: 15px; overflow-x: auto;">@Model.StackTrace</pre>
+                <p class="error-line">Sorry, something went wrong on our end. Please try again later.</p>
+                <a href="/mfi/application/login" class="btn btn-primary" style="min-width:350px; height:40px">Go to Home</a>
+            }
+            else
+            {
+                <!-- Detailed error for development -->
+                <div class="error-message-box ">
+                    <p class="error-line"><strong>Error Message:</strong> @Model.ErrorMessage</p>
+                    <p class="error-line"><strong>Error Path:</strong> @Model.ErrorPath</p>
+
+                    @if (Model.StackTrace != null)
+                    {
+                        <hr />
+                        <h5>Stack Trace:</h5>
+                        <pre style="text-align: left; background: #f5f5f5; padding: 15px; overflow-x: auto;">@Model.StackTrace</pre>
+                    }
+                </div>
+                <a href="/mfi/application/login" class="btn btn-primary" style="min-width:350px">Go to Home</a>
             }
         </div>
-        <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
-    }
+    </div>
+
 </div>

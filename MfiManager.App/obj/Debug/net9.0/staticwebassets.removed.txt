@@ -1,0 +1,5 @@
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\images\401.png
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\images\403.png
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\images\404.png
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\images\500.png
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\images\503.png

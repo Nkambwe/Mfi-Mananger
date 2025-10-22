@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@await Html.GenerateTitleAsync()</title>
+    @{
+        Html.AddCssFileParts("~/lib/bootstrap/dist/css/bootstrap.min.css");
+        Html.AddCssFileParts("~/lib/sweet-alert/sweetalert2.css");
+        Html.AddCssFileParts("~/lib/select2/css/select2.css");
+        Html.AddCssFileParts("~/lib/toastr/toastr.min.css");
+        Html.AddCssFileParts("~/css/color-pallate.css");
+        Html.AddCssFileParts("~/css/flat.css");
+    }
+
+    @Html.GenerateCssFiles()
+    @Html.GenerateHeadCustom()
+</head>
+<body class="@Html.GeneratePageCssClasses()">
+    <div class="mfi-container">
+        @RenderBody()
+    </div>
+
+    <footer class="mfi-footer">
+        <div class="container">
+            MFI Manager @CommonDefaults.AppVersion &copy; 2024 - @DateTime.Now.Year
+        </div>
+    </footer>
+
+    @{
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/jquery/dist/jquery.min.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/jquery-validation/dist/jquery.validate.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/select2/js/select2.full.min.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/sweet-alert/sweetalert2.all.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/toastr/toastr.min.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/flastpicker/flatpickr.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/lib/bootstrap/dist/js/bootstrap.bundle.min.js");
+        Html.AddScriptParts(ResourceLocation.Footer, "~/js/flat.js");
+    }
+    @Html.GenerateScripts(ResourceLocation.Footer)
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

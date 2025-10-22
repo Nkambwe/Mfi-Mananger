@@ -10,18 +10,37 @@
                 return Task.CompletedTask;
             });
 
-            //..error 500
+            //..error 401
             routeBuilder.MapControllerRoute(
-                name: "500",
-                pattern: "/mfi/error/status-500/",
-                defaults: new { controller = "Error", action = "Status500" }
+                name: "401",
+                pattern: "/mfi/error/status-401",
+                defaults: new { controller = "Error", action = "Status401" }
             );
-
+            //..error 403
+            routeBuilder.MapControllerRoute(
+                name: "403",
+                pattern: "/mfi/error/status-403",
+                defaults: new { controller = "Error", action = "Status403" }
+            );
             //..error 404
             routeBuilder.MapControllerRoute(
                 name: "404",
-                pattern: "/mfi/error/status-404/",
+                pattern: "/mfi/error/status-404",
                 defaults: new { controller = "Error", action = "Status404" }
+            );
+            
+            //..error 500
+            routeBuilder.MapControllerRoute(
+                name: "500",
+                pattern: "/mfi/error/status-500",
+                defaults: new { controller = "Error", action = "Status500" }
+            );
+            
+            //..error 503
+            routeBuilder.MapControllerRoute(
+                name: "503",
+                pattern: "/mfi/error/status-503",
+                defaults: new { controller = "Error", action = "Status503" }
             );
 
             //..areas

@@ -1,11 +1,21 @@
 ﻿@model ErrorViewModel
 @{
-    ViewData["Title"] = "Server Error";
+    Layout = "_FlatLayout";
+    ViewData["Title"] = "Service Unavailable";
     var isLive = Model.IsLive;
 }
 
-<div class="error-container">
-    <h1 class="display-1">@Model.StatusCode - Service Unavailable</h1>
-    <p>@Model.ErrorMessage</p>
-    <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
+<div class="mfi-error-container">
+
+    <div class="mfi-error-box">
+        <div class="error-page-header">
+            <h1 class="display-1 error-code-purple">@Model.StatusCode</h1>
+            <h4 class="display-1 error-code-text-purple">Service Unavailable</h4>
+        </div>
+        <div class="error-page-message">
+            <p class="error-line-purple">@Model.ErrorMessage</p>
+            <a href="/mfi/application/login" class="btn btn-primary" style="min-width:350px; height:40px">Go to Home</a>
+        </div>
+    </div>
+
 </div>

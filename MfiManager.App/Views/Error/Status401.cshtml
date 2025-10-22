@@ -1,10 +1,20 @@
 ﻿@model ErrorViewModel
 @{
+    Layout = "_FlatLayout";
     ViewData["Title"] = "Unauthorized";
 }
 
-<div class="error-container">
-    <h1 class="display-1">@Model.StatusCode - Forbbiden</h1>
-    <p>@Model.ErrorMessage</p>
-    <a href="/mfi/application/login" class="btn btn-primary">Go to Home</a>
+<div class="mfi-error-container">
+
+    <div class="mfi-error-box">
+        <div class="error-page-header">
+            <h1 class="display-1 error-code-blue">@Model.StatusCode</h1>
+            <h4 class="display-1 error-code-text-blue">Forbbiden</h4>
+        </div>
+        <div class="error-page-message">
+            <p class="error-line-blue">@Model.ErrorMessage</p>
+            <a href="/mfi/application/login" class="btn btn-primary" style="min-width:350px; height:40px">Go to Home</a>
+        </div>
+    </div>
+
 </div>
