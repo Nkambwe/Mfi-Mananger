@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="English-US" IsDefault="true" IsRightToLeft="false">
+    <LocaleResource Name="App.Installation.Title">
+        <Value>Installation</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Previous">
+        <Value>Previous</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Next">
+        <Value>Next</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Save">
+        <Value>Save</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Cancel">
+        <Value>Cancel</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Delete">
+        <Value>Delete</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.View">
+        <Value>View</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Confirm">
+        <Value>Confirm</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Okay">
+        <Value>Okay</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Buttons.Submit">
+        <Value>Submit</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Error.General">
+        <Value>Clear all required fields to continue</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company">
+        <Value>Company</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Info">
+        <Value>Company Information</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.Language">
+        <Value>Default Language</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyName">
+        <Value>Company Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyName.Example">
+        <Value>Example. ABC Mfi Limited</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyName.Error">
+        <Value>Company Name is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyAlias">
+        <Value>Short Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyAlias.Example">
+        <Value>Example. ABC</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyAlias.Error">
+        <Value>Company short name is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.RegistrationNumber">
+        <Value>Reg. Number</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.RegistrationNumber.Example">
+        <Value>Example. C003-6754</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.RegistrationNumber.Error">
+        <Value>Company Reg. Number is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner">
+        <Value>Owner</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Info">
+        <Value>Owner Information</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.FirstName">
+        <Value>First Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.FirstName.Example">
+        <Value>Example. John</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.FirstName.Error">
+        <Value>Owner First Name is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.MiddleName">
+        <Value>Middle Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.MiddleName.Example">
+        <Value>Example. Anthony</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.MiddleName.Error">
+        <Value>Owner Middle name is invalid</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.LastName">
+        <Value>Last Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.LastName.Example">
+        <Value>Example. Smith</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.LastName.Error">
+        <Value>Owner Last name is invalid</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Email">
+        <Value>Email Address</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Email.Example">
+        <Value>Example. john.smith@example.com</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Email.Error">
+        <Value>Owner email is invalid</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Contact">
+        <Value>Contact Number</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Contact.Example">
+        <Value>Example. 256772567090</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Contact.Error">
+        <Value>Owner phone number is invalid</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner">
+        <Value>Owner</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Access">
+        <Value>Owner Access</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.UserName">
+        <Value>Username</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.UserName.Example">
+        <Value>Example. jasmith</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.UserName.Error">
+        <Value>Invalid Username</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Password">
+        <Value>Password</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Password.Confirm">
+        <Value>Confirm Password</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database">
+        <Value>Database</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database.Provider">
+        <Value>Database Provider</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database.Fields.Provider.Name">
+        <Value>Provider Name</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database.Fields.Provider.MinimumVersion">
+        <Value>Minimum DB Version</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database.Fields.Provider.VersionCheker">
+        <Value>Version Check Time</Value>
+    </LocaleResource>
+</Language>

@@ -1,0 +1,323 @@
+﻿@model InstallationModel
+@{
+    Layout = "_FlatLayout";
+    Html.AddTitleParts(ILocalize.GetLocalizedLabel("App.Installation.Title"));
+    Html.AddCssFileParts("~/css/setup-styles.css");
+}
+
+<!-- Antiforegry token-->
+<mfi-antiforgery-token as-meta="true"></mfi-antiforgery-token>
+
+<div class="mfi-setup-container">
+    
+    <div class="setup-content">
+        <header class="setp-header">
+            <img src="~/images/logo-white.png" />
+            <div class="header-text">
+                <span>@CommonDefaults.AppFullName @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Title"))</span>
+            </div>
+
+        </header>
+        <div class="setup-body">
+
+            <form id="installationform" class="installation-form" autocomplete="off" method="post" asp-controller="Application" asp-action="Install" novalidate>
+
+                <div class="col-sm-12 mx-auto">
+                    <div id="validation-summary" class="alert alert-danger d-none">
+                        <i class="mdi mdi-alert-circle-outline"></i>
+                        <span>
+                            @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Error.General"))
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Step Navigation -->
+                <div class="form-steps">
+                    <div class="step-nav">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">
+                                <span>1</span>
+                            </div>
+                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Company")</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">
+                                <span>2</span>
+                            </div>
+                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Owner")</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">
+                                <span>3</span>
+                            </div>
+                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Owner")</div>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">
+                                <span>4</span>
+                            </div>
+                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Database")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1 (Company Information) -->
+                <section id="step-1" class="form-step active">
+
+                    <fieldset>
+
+                        <legend class="display-5 setup-legend">
+                            @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Info"))
+                        </legend>
+
+                        <div class="form-group">
+                            <label for="System_Language">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.Language"))
+                            </label>
+                            <select id="System_Language" class="language-select form-control" name="SystemLanguage" asp-for="ApplicationLanguage" required>
+                                <option value="None">Select Language</option>
+                                @foreach (var lang in ILocalize.GetAvailableLanguages()) {
+                                    <option value="@lang.Code">@lang.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="ApplicationLanguage" data-valmsg-for="SystemLanguage" data-valmsg-replace="true" class="field-validation-error"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Company_Name">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName"))
+                            </label>
+                            <input id="Company_Name" type="text" name="CompanyName" asp-for="Company.CompanyName" class="form-control" autocomplete="off" placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Example"))" required>
+                            <span asp-validation-for="Company.CompanyName" data-valmsg-for="CompanyName" data-valmsg-replace="true" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Error"))
+                            </span>
+
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Company_Alias">
+                                @ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias")
+                            </label>
+                            <input id="Company_Alias" type="text" name="Alias" asp-for="Company.Alias" class="form-control"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias.Example"))" autocomplete="off" required>
+                            <span asp-validation-for="Company.Alias" data-valmsg-for="Alias" data-valmsg-replace="true" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias.Error"))
+                            </span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Registration_Number">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber"))
+                            </label>
+                            <input id="Registration_Number" type="text" name="RegistrationNumber" asp-for="Company.RegistrationNumber" class="form-control" autocomplete="off"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber.Example"))">
+                            <span asp-validation-for="Company.RegistrationNumber" data-valmsg-for="RegistrationNumber" data-valmsg-replace="true" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber.Error"))
+                            </span>
+                        </div>
+
+                    </fieldset>
+
+                </section>
+
+                <!-- Step 2 (Admin Details) -->
+                <section id="step-2" class="form-step">
+
+                    <fieldset>
+
+                        <legend class="display-5 setup-legend">
+                            @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Info"))
+                        </legend>
+
+                        <div class="form-group mb-3">
+                            <label for="Owner_FirstName" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.FirstName"))
+                            </label>
+                            <input id="Owner_FirstName" type="text" name="Owner.FirstName" class="form-control" asp-for="Owner.FirstName"
+                                   autocomplete="off" placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.FirstName.Example"))" required>
+                            <span asp-validation-for="Owner.FirstName" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.FirstName.Error"))
+                            </span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Owner_MidlleName" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.MiddleName"))
+                            </label>
+                            <input id="Owner_MidlleName" type="text" name="Owner.MiddleName" asp-for="Owner.MiddleName" autocomplete="off"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.MiddleName.Example"))" class="form-control">
+                            <span asp-validation-for="Owner.MiddleName" class="field-validation-error"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Owner_LastName" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.LastName"))
+                            </label>
+                            <input id="Owner_LastName" type="text" name="Owner.LastName" asp-for="Owner.LastName" class="form-control"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.LastName.Example"))" required>
+                            <span asp-validation-for="Owner.LastName" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.LastName.Error"))
+                            </span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Owner_Email" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Email"))
+                            </label>
+                            <input id="Owner_Email" type="text" name="Owner.EmailAddress" asp-for="Owner.EmailAddress"
+                                   class="form-control" autocomplete="off"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Email.Example"))">
+                            <span asp-validation-for="Owner.EmailAddress" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Email.Error"))
+                            </span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Owner_Phone" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Contact"))
+                            </label>
+                            <input id="Owner_Phone" type="tel" name="Owner.PhoneNumber" asp-for="Owner.ContactNumber" class="form-control" autocomplete="off"
+                                   placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Contact.Example"))">
+                            <span asp-validation-for="Owner.ContactNumber" class="field-validation-error"></span>
+                        </div>
+
+                    </fieldset>
+
+                </section>
+
+                <!-- Step 3 (Login Details) -->
+                <section id="step-3" class="form-step">
+
+                    <fieldset>
+
+                        <legend class="display-5 setup-legend">
+                            @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Access"))
+                        </legend>
+
+                        <div class="form-group mb-3">
+                            <label for="User_UserName" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.UserName"))
+                            </label>
+                            <input id="User_UserName" type="text" name="Owner.UserName" asp-for="Owner.Username" class="form-control"
+                                   placeholder="@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.UserName.Example")" autocomplete="off" required>
+                            <span asp-validation-for="Owner.Username" class="field-validation-error">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.UserName.Error"))
+                            </span>
+                        </div>
+
+                        <div class="form-group mb-3  password-wrapper">
+                            <label for="SystemPassword" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password"))
+                            </label>
+                            <input type="password" class="form-control" id="SystemPassword" name="Owner.Password" asp-for="Owner.Password" autocomplete="off" required>
+                            <span class="password-toggle"><i class="mdi mdi-eye-off"></i></span>
+                            <span asp-validation-for="Owner.Password" class="field-validation-error"></span>
+                        </div>
+
+                        <div class="form-group mb-3  password-wrapper">
+                            <label for="User_ConfirmPassword" class="col-form-label">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Confirm"))
+                            </label>
+                            <input id="User_ConfirmPassword" type="password" class="form-control" name="Owner.ConfirmPassword" asp-for="Owner.ConfirmPassword" autocomplete="off" required>
+                            <span class="password-toggle"><i class="mdi mdi-eye-off"></i></span>
+                            <span asp-validation-for="Owner.ConfirmPassword" class="field-validation-error"></span>
+                        </div>
+
+                    </fieldset>
+
+                </section>
+
+                <!-- Step 4 (Database Provider Details) -->
+                <section id="step-3" class="form-step">
+
+                    <fieldset>
+
+                        <legend class="display-5 setup-legend">
+                            @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Provider"))
+                        </legend>
+
+                        <div class="form-group mb-3">
+                            <label for="database_provider">
+                                @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.Name"))
+                            </label>
+                            <select id="database_provider" class="dbprovider-select form-control" name="databaseProvider" asp-for="DatabaseProvider.DatabaseProvider" required>
+                                <option value="None">Select Provider</option>
+                                @foreach (var provider in ILocalize.GetDatabaseProviders())
+                                {
+                                    <option value="@provider.Code">@provider.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="DatabaseProvider.DatabaseProvider" data-valmsg-for="databaseProvider" data-valmsg-replace="true" class="field-validation-error"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="DatabaseProviderMinimumVersion" class="col-form-label">@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.MinimumVersion"))</label>
+                            <input type="text" class="form-control" id="DatabaseProviderMinimumVersion" name="DatabaseProvider.MinimumVersion" asp-for="DatabaseProvider.MinimumVersion" autocomplete="off" readonly>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="DatabaseProviderVersionCheckTime" class="col-form-label">@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.VersionCheker"))</label>
+                            <input type="text" class="form-control" id="DatabaseProviderVersionCheckTime" name="DatabaseProvider.VersionCheckTime" asp-for="DatabaseProvider.VersionCheckTime" autocomplete="off" readonly>
+                        </div>
+
+                    </fieldset>
+
+                </section>
+
+                <div class="form-navigation col-sm-12 mx-auto">
+                    <button type="button" class="btn btn-mfi-button btn-secondary btn-prev" disabled>
+                        @Html.Raw(ILocalize.GetLocalizedLabel("App.Buttons.Previous"))
+                    </button>
+                    <button type="button" class="btn btn-mfi-button btn-primary btn-next">
+                        @Html.Raw(ILocalize.GetLocalizedLabel("App.Buttons.Next"))
+                    </button>
+                    <button type="submit" class="btn btn-mfi-button btn-primary btn-submit">
+                        @Html.Raw(ILocalize.GetLocalizedLabel("App.Buttons.Save"))
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    window.Localization = {
+        Required: '@ILocalize.GetLocalizedLabel("App.Validation.Required")',
+        ConfirmTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Confirm.Title")',
+        ConfirmMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Confirm.Message")',
+        BtnOk: '@ILocalize.GetLocalizedLabel("App.Buttons.OK")',
+        BtnCancel: '@ILocalize.GetLocalizedLabel("App.Buttons.Cancel")',
+        InvalidTitle: '@ILocalize.GetLocalizedLabel("App.Validation.InvalidData.Title")',
+        InvalidMessage: '@ILocalize.GetLocalizedLabel("App.Validation.InvalidData.Message")',
+        ProcessingTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Processing.Title")',
+        ProcessingMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Processing.Message")',
+        SuccessTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Success.Title")',
+        SuccessMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Success.Message")',
+        SuccessContinue: '@ILocalize.GetLocalizedLabel("App.Installation.Success.Continue")',
+        FailedTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Failed.Title")',
+        FailedMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Failed.Message")',
+        ErrorTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Error.Title")',
+        ErrorMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Error.Message")',
+
+        // Field-specific
+        CompanyNameError: '@ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Error")',
+        CompanyAliasError: '@ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias.Error")',
+        CompanyRegNoError: '@ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber.Error")',
+        OwnerNameError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Name.Error")',
+        OwnerEmailError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Email.Error")',
+        OwnerPhoneError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Contact.Error")',
+        OwnerUserNameError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.UserName.Error")',
+        PasswordError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Error")',
+        PasswordConfirmError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Confirm.Error")',
+        DatabaseProviderError: '@ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.Error")'
+    };
+</script>
+
+@{
+    Html.AddScriptParts(ResourceLocation.Footer, "~/lib/jquery/dist/jquery.js");
+    Html.AddScriptParts(ResourceLocation.Footer, "~/js/app-company-setup.js");
+}
+
+

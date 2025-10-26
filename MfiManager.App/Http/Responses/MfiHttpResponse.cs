@@ -2,7 +2,7 @@
 
 namespace MfiManager.App.Http.Responses {
     /// <summary>
-    /// GRC Class handling responses
+    /// MFI Class handling responses
     /// </summary>
     /// <typeparam name="T">Success Data object type</typeparam>
     /// <remarks>

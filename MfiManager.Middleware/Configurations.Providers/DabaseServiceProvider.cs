@@ -1,5 +1,5 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
-using MfiManager.Middleware.Data.Connection;
+using MfiManager.Middleware.Enums;
 using Microsoft.Extensions.Options;
 
 namespace MfiManager.Middleware.Configurations.Providers {

@@ -12,25 +12,28 @@ namespace MfiManager.App.Http.Responses {
         [JsonPropertyName("id")]
         public long Id { get; set; }
         /// <summary>
-        /// Gets or sets company Id
+        /// Gets or sets branch code
         /// </summary>
-        [JsonPropertyName("companyId")]
-        public long CompanyId { get; set; }
+        [JsonPropertyName("branchCode")]
+        public string BranchCode { get; set; }
         /// <summary>
         /// Gets or sets branch name
         /// </summary>
         [JsonPropertyName("branchName")]
         public string BranchName { get; set; }
-        /// <summary>
-        /// Gets or sets company name
-        /// </summary>
-        [JsonPropertyName("companyName")]
-        public string CompanyName { get; set; }
-        /// <summary>
-        /// Gets or sets branch sol ID
-        /// </summary>
-        [JsonPropertyName("solId")]
-        public string SolId { get; set; }
+        
+        [JsonPropertyName("address")]
+        public string Address { get; set; }
+
+        [JsonPropertyName("city")]
+        public string City  { get; set; }
+
+        [JsonPropertyName("postalAddress")]
+        public string PostalAddress { get; set; }
+
+        [JsonPropertyName("contactNumber")]
+        public string ContactNumber { get; set; }
+
         /// <summary>
         /// Get or set the record as deleted
         /// </summary>

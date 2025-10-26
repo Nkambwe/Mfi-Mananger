@@ -9,6 +9,7 @@
         Html.AddCssFileParts("~/lib/sweet-alert/sweetalert2.css");
         Html.AddCssFileParts("~/lib/select2/css/select2.css");
         Html.AddCssFileParts("~/lib/toastr/toastr.min.css");
+        Html.AddCssFileParts("~/css/mfi-custom.css");
         Html.AddCssFileParts("~/css/color-pallate.css");
         Html.AddCssFileParts("~/css/flat.css");
     }
@@ -23,7 +24,7 @@
 
     <footer class="mfi-footer">
         <div class="container">
-            MFI Manager @CommonDefaults.AppVersion &copy; 2024 - @DateTime.Now.Year
+            @CommonDefaults.AppFullName @CommonDefaults.AppVersion &copy; 2024 - @DateTime.Now.Year
         </div>
     </footer>
 

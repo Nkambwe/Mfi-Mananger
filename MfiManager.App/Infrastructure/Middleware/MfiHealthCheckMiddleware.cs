@@ -37,7 +37,7 @@ namespace MfiManager.App.Infrastructure.Middleware {
                 
                     if (!hasCompanies) {
                         _logger.LogInformation("No companies found, redirecting to /org/register");
-                        context.Response.Redirect("/org/register");
+                        context.Response.Redirect("/mfi/app-setup");
                         return;
                     }
                 

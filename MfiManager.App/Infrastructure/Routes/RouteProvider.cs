@@ -10,6 +10,20 @@
                 return Task.CompletedTask;
             });
 
+            //..setup
+            routeBuilder.MapControllerRoute(
+                name: "application-setup",
+                pattern: "/mfi/app-setup",
+                defaults: new { controller = "Application", action = "Setup" }
+            );
+
+            //..setup
+            routeBuilder.MapControllerRoute(
+                name: "application-setup-install",
+                pattern: "/mfi/app-install",
+                defaults: new { controller = "Application", action = "Install" }
+            );
+
             //..error 401
             routeBuilder.MapControllerRoute(
                 name: "401",

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using System.Text.Encodings.Web;
 using System.Text;
 using MfiManager.App.Enums;
+using MfiManager.App.Defaults;
 
 namespace MfiManager.App.Http.Mvc {
     /// <summary>
@@ -17,17 +18,24 @@ namespace MfiManager.App.Http.Mvc {
     /// The advantage of this class is organized resource management, conditional exclusion of resources, 
     /// automatic rejection of duplicates and separation of concerns
     /// </remarks>
-    public class MfiHtml: IMfiHtml {
+    public class MfiHtml(
+        IActionContextAccessor actionContextAccessor,
+
+        IHtmlHelper htmlHelper,
+        IAntiforgery antiforgery,
+        IUrlHelperFactory urlHelperFactory,
+        IHostEnvironment webHostEnvironment,
+        HtmlEncoder htmlEncoder) : IMfiHtml {
 
         #region Fields
 
-        private readonly IActionContextAccessor _actionContextAccessor;
-        private readonly IHtmlHelper _htmlHelper;
-        private readonly IAntiforgery _antiforgery;
-        private readonly IUrlHelperFactory _urlHelperFactory;
-        private readonly IHostEnvironment _webHostEnvironment;
-        private readonly HtmlEncoder _htmlEncoder;
-        private readonly string _siteTitle;
+        private readonly IActionContextAccessor _actionContextAccessor = actionContextAccessor;
+        private readonly IHtmlHelper _htmlHelper = htmlHelper;
+        private readonly IAntiforgery _antiforgery = antiforgery;
+        private readonly IUrlHelperFactory _urlHelperFactory = urlHelperFactory;
+        private readonly IHostEnvironment _webHostEnvironment = webHostEnvironment;
+        private readonly HtmlEncoder _htmlEncoder = htmlEncoder;
+        private readonly string _siteTitle = $"{CommonDefaults.AppFullName} ";
 
         protected readonly List<string> _titleParts = [];
         protected readonly List<string> _headCustomParts = [];
@@ -37,27 +45,6 @@ namespace MfiManager.App.Http.Mvc {
         protected readonly Dictionary<ResourceLocation, List<string>> _inlineScriptParts = [];
         protected readonly List<CssReferenceMeta> _regularCssParts = [];
         protected readonly List<CssReferenceMeta> _pageSpecificCssParts = [];
-
-        #endregion
-
-        #region Constructor
-
-        public MfiHtml(
-            IActionContextAccessor actionContextAccessor,
-
-            IHtmlHelper htmlHelper, 
-            IAntiforgery antiforgery,
-            IUrlHelperFactory urlHelperFactory,
-            IHostEnvironment webHostEnvironment,
-            HtmlEncoder htmlEncoder) {
-            _actionContextAccessor = actionContextAccessor;
-            _htmlHelper = htmlHelper;
-            _antiforgery = antiforgery;
-            _urlHelperFactory = urlHelperFactory;
-            _webHostEnvironment = webHostEnvironment;
-            _htmlEncoder = htmlEncoder;
-            _siteTitle = "GRC ";
-        }
 
         #endregion
 

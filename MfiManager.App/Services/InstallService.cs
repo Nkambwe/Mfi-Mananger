@@ -1,9 +1,14 @@
 ﻿using MfiManager.App.Factories;
 using MfiManager.App.Http;
+using MfiManager.App.Http.Requests;
+using MfiManager.App.Http.Responses;
 using MfiManager.App.Infrastructure.Settings;
 using MfiManager.App.Infrastructure.Utils;
+using MfiManager.App.Models;
+using System.Text.Json;
 
 namespace MfiManager.App.Services {
+
     public class InstallService(ILogger<InstallService> logger,
                         IHttpHandler<InstallService> httpHandler,
                         IEnvironmentProvider environment,
@@ -11,9 +16,65 @@ namespace MfiManager.App.Services {
                         IMfiErrorService errorService,
                         IMfiErrorFactory errorFactory,
                         IWebHelper webHelper,
-                        SessionManager sessionManager) 
-        : ApplicationBaseService<InstallService>(logger, httpHandler, environment, endpointType, 
+                        SessionManager sessionManager)
+        : ApplicationBaseService<InstallService>(logger, httpHandler, environment, endpointType,
             errorService, errorFactory, webHelper, sessionManager), IInstallService {
+
+        public async Task<MfiHttpResponse<MfiHttpStatusResponse>> RegisterCompanyAsync(InstallationModel model, string ipAddress) {
+            //..validate input
+            if(model == null) {
+                var error = new MfiHttpErrorResponse(
+                    400,
+                    "Request record cannot be empty",
+                    "The company registration model cannot be null"
+                );
+        
+                Logger.LogInformation("BAD REQUEST: {Error}", JsonSerializer.Serialize(error));
+                return new MfiHttpResponse<MfiHttpStatusResponse>(error);
+            }
+
+            try {
+                //..map request
+                Logger.LogInformation("REQUEST MODEL: {Model}", JsonSerializer.Serialize(model));
+                var request = Mapper.ToInstallationRequest(model);
+                request.IPAddress = ipAddress;
+
+                if (request.DatabaseProvider.Equals("Oracle", StringComparison.Ordinal)) {
+                    request.MinimumVersion = "21";
+                } else if (request.DatabaseProvider.Equals("PostgreSQL", StringComparison.Ordinal)) {
+                    request.MinimumVersion = "12";
+                } else { 
+                     request.MinimumVersion = "2012";
+                }
+                
+                //..build endpoint
+                var endpoint = $"{EndpointProvider.Installation.Install}";
+                Logger.LogInformation("Endpoint: {Endpoint}", endpoint);
+        
+                return await HttpHandler.PostAsync<InstallationRequest, MfiHttpStatusResponse>(endpoint, request);
+            } catch (HttpRequestException httpEx) {
+                Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                Logger.LogCritical("{Stacktrace}", httpEx.StackTrace);
+                await ProcessErrorAsync(httpEx.Message,"INSTALL-SERVICE" , httpEx.StackTrace);
+                var error = new MfiHttpErrorResponse(
+                    400,
+                    "Network error occurred",
+                    httpEx.Message
+                );
+                return new MfiHttpResponse<MfiHttpStatusResponse>(error);
+        
+            } catch (Exception ex)  {
+                Logger.LogError("HTTP Request Error: {Message}", ex.Message);
+                Logger.LogCritical("{Stacktrace}", ex.StackTrace);
+                await ProcessErrorAsync(ex.Message,"INSTALL-SERVICE" , ex.StackTrace);
+                var error = new MfiHttpErrorResponse(
+                    500,
+                    "An unexpected error occurred",
+                    "Cannot proceed! An error occurred, please try again later"
+                );
+                return new MfiHttpResponse<MfiHttpStatusResponse>(error);
+            }
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Connection;
+using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Services {
     public interface IDatabaseVersionCheckerService {

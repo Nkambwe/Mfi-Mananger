@@ -86,20 +86,25 @@ namespace MfiManager.App {
 
             //..configure HttpClient middleware client
             var middlewareOptions = _configuration.GetSection("MiddlewareOptions").Get<MiddlewareOptions>();
+            var envOptions = _configuration.GetSection("MFIEnvironment").Get<EnvironmentOptions>();
+
+            // Determine the base URL once at startup
+            string baseUrl = null;
+            if (envOptions?.IsLive ?? false) {
+                //..Configure production environment
+                baseUrl = middlewareOptions?.ProdBaseUrl;
+            } else {
+                //..Configure uat environment
+                baseUrl = middlewareOptions?.BaseUrl;
+            }
+
+            // Validate that we have a base URL
+            if (string.IsNullOrEmpty(baseUrl)) {
+                throw new InvalidOperationException("Middleware BaseUrl is not configured properly in appsettings");
+            }
+
             services.AddHttpClient("MiddlewareClient", client => {
-                var envOptions = _configuration.GetSection("EnvironmentOptions").Get<EnvironmentOptions>();
-                
-                if (!(bool)envOptions?.IsLive) {
-                    //..Configure uat environment
-                    if (!string.IsNullOrEmpty(middlewareOptions?.BaseUrl)) {
-                        client.BaseAddress = new Uri(middlewareOptions.BaseUrl.TrimEnd('/') + '/');
-                    }
-                } else {
-                     //..Configure production environment
-                    if (!string.IsNullOrEmpty(middlewareOptions?.ProdBaseUrl)) {
-                        client.BaseAddress = new Uri(middlewareOptions.ProdBaseUrl.TrimEnd('/') + '/');
-                    }
-                }
+                client.BaseAddress = new Uri(baseUrl.TrimEnd('/') + '/');
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
 
@@ -130,6 +135,11 @@ namespace MfiManager.App {
         /// <param name="app">Application buildr instance</param>
         /// <returns></returns>
         public void Configure(WebApplication app) { 
+              //..debug service registration
+            using (var scope = app.Services.CreateScope()) {
+                ServiceRegistrationDebugger.LogRegisteredServices(scope.ServiceProvider);
+            }
+        
             //..use appSettings environment variable directly
             var envOptions = _configuration.GetSection("MFIEnvironment").Get<MFIEnvironment>();
             if (!(bool)envOptions?.IsLive) {

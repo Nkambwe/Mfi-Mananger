@@ -52,9 +52,7 @@ namespace MfiManager.App.Services {
         protected async Task<MfiHttpResponse<MfiHttpStatusResponse>> ProcessErrorAsync(string message, string source, string stacktrace) {
              using (Logger.BeginScope(new { Channel = "CONTROLLER", Id = LogId })) {
                 var ipAddress = WebHelper.GetCurrentIpAddress();
-                var branch = SessionManager.GetWorkspace()?.Branch;
-                Logger.LogInformation("WORKSPACE BRANCH: {}", JsonSerializer.Serialize(branch));
-                long conpanyId = branch?.OrganizationId ?? 0;
+                var conpanyId = SessionManager.GetWorkspace()?.CompanyId ?? 0;
                 var errModel = await ErrorFactory.PrepareErrorModelAsync(conpanyId, message, source, stacktrace);
                 Logger.LogError("ERROR MODEL: {ErrorModel}", JsonSerializer.Serialize(errModel));
                 var response = await ErrorService.SaveSystemErrorAsync(errModel, ipAddress);

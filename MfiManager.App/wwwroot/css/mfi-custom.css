@@ -1,0 +1,347 @@
+
+/*------------------------------ buttons*/
+.form-group label {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn {
+    border-radius: 4px !important;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: all .5s ease-in-out;
+}
+
+.btn-primary {
+    color: var(--white-base);
+    background-color: var(--teal-light-medium)!important;
+    border-color: var(--teal-light-medium);
+}
+
+    .btn-primary:hover {
+        color: var(--white-base);
+        background-color: var(--teal-light-strong);
+        border-color: var(--teal-light-strong);
+        transition: all .3s ease-in-out;
+    }
+
+    .btn-primary:disabled,
+    .btn-primary.disabled {
+        color: var(--white-base);
+        cursor: not-allowed;
+        background-color: var(--teal-light-slightly);
+        border-color: var(--teal-light-slightly);
+    }
+
+.btn .btn-primary:focus {
+    background-color: var(--teal-trans-70) !important;
+    box-shadow: 0 0 0 .25rem rgba(69, 182, 172, .5) !important;
+}
+
+    .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+        color: var(--bs-btn-active-color);
+        background-color: var(--teal-dark);
+        border-color: var(--teal-dark);
+    }
+
+.btn-secondary {
+    color: var(--white-base);
+    background-color: var(--bs-gray-600);
+    border-color: var(--bs-gray-600);
+    transition: all .5s ease-in-out;
+}
+
+    .btn-secondary:hover {
+        color: var(--white-base);
+        background-color: var(--grey-dark-strong);
+        border-color: var(--grey-dark-strong);
+        transition: all .5s ease-in-out;
+    }
+
+    .btn-secondary:disabled,
+    .btn-secondary.disabled {
+        color: var(--white-base);
+        cursor: not-allowed;
+        background-color: var(--grey);
+        border-color: var(--grey);
+    }
+
+    .btn-secondary:focus {
+        color: var(--white-base);
+        border-color: var(--amber-dark-strong) !important;
+        background-color: var(--amber-dark) !important;
+        box-shadow: 0 0 0 0.25rem rgba(69, 182, 172, 0.25) !important;
+        transition: all .3s ease-in-out;
+    }
+
+input.form-control {
+    border-radius: 0 !important;
+    outline: 0 !important;
+}
+    input.form-control:focus,
+    textarea.form-control:focus,
+    select.form-control:focus {
+        border-color: var(--teal-light-medium) !important;
+        box-shadow: 0 0 0 .25rem rgba(69, 182, 172, .25);
+        outline: 0;
+    }
+
+.form-check-input:checked {
+    background-color: var(--teal-light-medium) !important;
+    border-color: var(--teal-light-medium) !important;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-check:focus + .btn-grc-primary,
+.btn-primary:focus {
+    color: var(--white-base);
+    border-color: var(--teal-light-medium) !important;
+    background-color: var(--teal-trans-70) !important;
+    box-shadow: 0 0 0 .25rem rgba(69, 182, 172, .5) !important;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+    border-color: var(--teal-light-medium) !important;
+    box-shadow: 0 0 0 .25rem rgba(69, 182, 172, .25);
+    outline: 0;
+}
+
+/* Main box when focused */
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default .select2-selection--multiple:focus {
+    border-color: var(--teal-light-medium) !important;
+    box-shadow: 0 0 0 0.25rem rgba(136, 3, 163, 0.25) !important;
+    outline: 0;
+}
+
+/*-------------select-2 customizations-----*/
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--teal-medium-accent) !important;
+    color: white !important;
+}
+
+/*..selected item in dropdown */
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: var(--teal-medium-accent) !important;
+    color: white !important;
+}
+
+/*..remove funny border around dropdown */
+.select2-container--default .select2-results {
+    border: none !important;
+    box-shadow: 0 2px 10px var(--black-trans-20);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px !important;
+    padding-left: 12px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+}
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: #888 transparent transparent transparent !important;
+        border-width: 6px 6px 0 6px !important;
+    }
+
+.select2-container--default .select2-selection--single {
+    height: 40px !important;
+    line-height: 40px !important;
+}
+
+/* When dropdown is open */
+.select2-container--open .select2-selection--single,
+.select2-container--open .select2-selection--multiple {
+    border-color: var(--teal-light-medium) !important;
+}
+
+
+.select2-container--default .select2-results > .select2-results__options {
+    min-height: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.select2-container--default .select2-results__option {
+    padding: 8px 12px !important;
+    line-height: 1.5 !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+    border-color: var(--cyan-light-slightly) !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.25rem var(--cyan-light-extra) !important;
+    color: #212529 !important;
+    background-color: var(--white-base) !important;
+}
+
+.select2-search--dropdown {
+    padding: 8px !important;
+    background-color: var(--white-base) !important;
+}
+
+/* Hovered option */
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #d966e2 !important;
+    color: var(--white-base) !important;
+}
+
+/* Selected option */
+.select2-container--default .select2-results__option[aria-selected="true"] {
+    background-color: var(--teal-light-medium) !important;
+    color: var(--white-base) !important;
+}
+
+/* Tag style for multi-select */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--teal-light-medium) !important;
+    border-color: var(--teal-light-medium) !important;
+    color: var(--white-base) !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 35px !important;
+    border-radius: 0 !important;
+    line-height: 35px !important;
+}
+
+.select2-container .select2-selection__rendered {
+    line-height: 25px !important;
+}
+
+.select2-container .select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid var(--teal-light-medium) !important;
+    border-radius: 0.25rem;
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding-left: 0.75rem;
+        padding-right: 2rem;
+        line-height: calc(1.5em + 0.75rem);
+    }
+
+/*..focus styles for better visibility */
+.select2-container--default.select2-container--focus .select2-selection--single {
+    border-color: var(--teal-light-medium) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Remove black border from search box when focused */
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #ced4da;
+    outline: none;
+}
+
+    .select2-container--default .select2-search--dropdown .select2-search__field:focus {
+        border: 1px solid var(--teal-light-medium) !important;
+        outline: none;
+        box-shadow: none;
+    }
+
+
+.form-control.datepicker {
+    margin-right: 0 !important;
+}
+
+span.input-group-text {
+    border-radius: 0 !Important;
+}
+
+div.input-group.date {
+    display: flex;
+    height: 52px;
+    flex-direction: row;
+}
+
+/* Active/selected day */
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover {
+    background-color: var(--teal-light-medium) !important;
+    border-color: var(--teal-light-medium) !important;
+    color: var(--white-base) !important;
+}
+
+/* Hovered day */
+.datepicker table tr td.day:hover {
+    background-color: #d966e2 !important;
+    color: var(--white-base) !important;
+}
+
+.flatpickr-day.selected, .flatpickr-day.startRange,
+.flatpickr-day.endRange, .flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--purple-dark-slightly);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: var(--white-base);
+    border-color: var(--pearl-purple-dark-60);
+}
+
+.flatpickr-monthDropdown-months:hover {
+    color: var(--purple-dark-slightly) !important;
+}
+
+.form-check-input:focus {
+    border-color: #DCA9FE;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #F9D5FF;
+}
+
+/*button.swal2-close.swal2-styled*/
+button.swal2-confirm.swal2-styled,
+button.swal2-cancel.swal2-styled,
+button.swal2-deny.swal2-styled {
+    width: 150px !important;
+}
+
+/*--------sweet alert customizations------*/
+.swal2-confirm {
+    font-size: 1rem;
+    padding: 0.5em 1.5em;
+    transition: all 0.2s;
+    background-color: var(--teal-light-medium) !important;
+}
+
+.swal2-cancel {
+    color: var(--white-base);
+    cursor: pointer;
+    background-color: var(--pink-tarn-accent);
+    border-color: var(--pink-tarn-accent);
+}
+
+/*..hover effect */
+.swal2-confirm:hover {
+    background-color: var(--teal-light-strong);
+    transform: scale(1.05);
+}
+
+.swal2-cancel:hover {
+    background-color: var(--red-dark);
+    transform: scale(1.05);
+}
+

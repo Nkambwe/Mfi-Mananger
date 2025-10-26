@@ -5,7 +5,7 @@ namespace MfiManager.Middleware.Cyphers {
 
     public static class HashGenerator {
 
-        private static readonly string PASSKEY = "t0R4nGrcD4tAl0ad3RBym4rk";
+        private static readonly string PASSKEY = "mfiD4tAl0ad3RBym4rk";
 
         /// <summary>
         /// Encrypt a given message
@@ -13,27 +13,26 @@ namespace MfiManager.Middleware.Cyphers {
         /// <param name="message">Message to encrypt</param>
         /// <returns></returns>
         public static string EncryptString(string message) {
-            using (Aes aesAlg = Aes.Create()) {
-                aesAlg.Key = SHA256.HashData(Encoding.UTF8.GetBytes(PASSKEY));
-                aesAlg.Mode = CipherMode.CFB;
-                aesAlg.Padding = PaddingMode.PKCS7;
+            using Aes aesAlg = Aes.Create();
+            aesAlg.Key = SHA256.HashData(Encoding.UTF8.GetBytes(PASSKEY));
+            aesAlg.Mode = CipherMode.CFB;
+            aesAlg.Padding = PaddingMode.PKCS7;
 
-                // Generate IV
-                aesAlg.GenerateIV();
+            // Generate IV
+            aesAlg.GenerateIV();
 
-                using ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-                using MemoryStream msEncrypt = new();
-                // Write IV to the stream first
-                msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
+            using ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+            using MemoryStream msEncrypt = new();
+            // Write IV to the stream first
+            msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
 
-                using (CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write))
-                using (StreamWriter swEncrypt = new(csEncrypt)) {
-                    swEncrypt.Write(message);
-                }
-
-                byte[] encryptedBytes = msEncrypt.ToArray();
-                return Convert.ToBase64String(encryptedBytes);
+            using (CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write))
+            using (StreamWriter swEncrypt = new(csEncrypt)) {
+                swEncrypt.Write(message);
             }
+
+            byte[] encryptedBytes = msEncrypt.ToArray();
+            return Convert.ToBase64String(encryptedBytes);
         }
 
         /// <summary>

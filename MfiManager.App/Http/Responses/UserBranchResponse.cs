@@ -26,11 +26,6 @@ namespace MfiManager.App.Http.Responses {
         [JsonPropertyName("branchAlias")]
         public string BranchAlias { get; set; }
         /// <summary>
-        /// Gets or sets company name
-        /// </summary>
-        [JsonPropertyName("companyName")]
-        public string CompanyName { get; set; }
-        /// <summary>
         /// Get or set the record as deleted
         /// </summary>
         [JsonPropertyName("isDeleted")]

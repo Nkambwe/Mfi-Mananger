@@ -1,11 +1,10 @@
-﻿namespace MfiManager.Middleware.Data.Connection {
+﻿namespace MfiManager.Middleware.Enums {
 
     public enum DatabaseProvider {
         SqlServer,
         PostgreSQL,
-        MySQL,
-        SQLite,
         Oracle,
         Unknown
     }
+
 }

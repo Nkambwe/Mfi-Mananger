@@ -11,11 +11,6 @@ namespace MfiManager.App.Http.Requests {
         [JsonPropertyName("userId")]
         public long UserId { get; set; }
         /// <summary>
-        /// Get or Set Intended request action
-        /// </summary>
-        [JsonPropertyName("requestAction")]
-        public string RequestAction { get; set; }
-        /// <summary>
         /// Get or Set User IP Address
         /// </summary>
         [JsonPropertyName("ipAddress")]

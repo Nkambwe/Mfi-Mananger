@@ -17,6 +17,7 @@ namespace MfiManager.App.Services {
         SessionManager sessionManager) 
         : ApplicationBaseService<CompanyBranchService>(logger, httpHandler, environment, endpointType,
             errorService, errorFactory, webHelper, sessionManager), ICompanyBranchService {
+
         public Task<MfiHttpResponse<PagedResponse<BranchResponse>>> GetAllBranchesAsync(MfiHttpListRequest request) {
             throw new NotImplementedException();
         }
@@ -28,5 +29,6 @@ namespace MfiManager.App.Services {
         public Task<MfiHttpResponse<MfiWorkspaceResponse>> GetWorkspaceAsync(long userId, long requestingUserId, string ipAddress) {
             throw new NotImplementedException();
         }
+
     }
 }

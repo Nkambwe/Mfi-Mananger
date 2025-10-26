@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Connection;
+﻿using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Configuration.Options {
 

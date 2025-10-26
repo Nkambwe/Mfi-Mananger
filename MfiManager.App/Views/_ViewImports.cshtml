@@ -7,7 +7,11 @@
 @using MfiManager.App.Defaults
 @using MfiManager.App.Http
 @using MfiManager.App.Http.Mvc
+@using MfiManager.App.Services
 @using Microsoft.AspNetCore.Html
 
+@inject ILocalizationService ILocalize
 @inject IMfiHtml Html
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, MfiManager.App

@@ -4,9 +4,12 @@
         public long BranchId { get; set; }
         public string BranchCode { get; set; }
         public string BranchName { get; set; }
-        public long OrganizationId { get; set; }
-        public string OrganizationName { get; set; }
-        public string OrganizationAlias { get; set; }
+        public string Address { get; set; }
+        public string City  { get; set; }
+        public string PostalAddress { get; set; }
+        public string FaxNumber { get; set; }
+        public string ContactNumber { get; set; }
+        public bool IsActive { get; set; }
     }
 
 }

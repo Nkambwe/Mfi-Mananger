@@ -3,7 +3,7 @@
         /// <summary>
         /// Gets the cookie name prefix
         /// </summary>
-        public static string Prefix => ".Grc";
+        public static string Prefix => ".Mfi";
 
         /// <summary>
         /// Gets a cookie name of the customer

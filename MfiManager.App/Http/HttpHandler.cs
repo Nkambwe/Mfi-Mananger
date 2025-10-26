@@ -5,7 +5,7 @@ using MfiManager.App.Http.Responses;
 namespace MfiManager.App.Http {
 
     public class HttpHandler<T> : IHttpHandler<T> {
-        protected readonly HttpClient GrcHttpClient;
+        protected readonly HttpClient MfiHttpClient;
         public ILogger<T> Logger {get;set;}
         protected readonly JsonSerializerOptions JsonOptions;
         private readonly string LOG_ID = $"RESQUEST{DateTime.Now:yyyyMMddHHmmssfff}";
@@ -17,21 +17,21 @@ namespace MfiManager.App.Http {
             };
 
             //..create client   
-            GrcHttpClient = httpClientFactory.CreateClient("MiddlewareClient");
+            MfiHttpClient = httpClientFactory.CreateClient("MiddlewareClient");
         }
 
         public async Task<MfiHttpResponse<TResponse>> GetAsync<TResponse>(string endpoint) where TResponse : class {
 
             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                      try {
-                        Logger.LogInformation("GRC GET Request to: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI GET Request to: {Endpoint}", endpoint);
                 
                         //..formulate URL
-                        var fullUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                        var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                         Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                         //..send request
-                        var response = await GrcHttpClient.GetAsync(endpoint);
+                        var response = await MfiHttpClient.GetAsync(endpoint);
                         if(response == null) { 
                             var error = new MfiHttpErrorResponse(
                                 502,
@@ -58,8 +58,8 @@ namespace MfiManager.App.Http {
         
                         //..read and deserialize response
                         var responseData = await response.Content.ReadAsStringAsync();
-                        Logger.LogInformation("GRC GET Response received from: {Endpoint}", endpoint);
-                        Logger.LogInformation("GRC Midleware data : {ResponseData}",responseData);
+                        Logger.LogInformation("MFI GET Response received from: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI Midleware data : {ResponseData}",responseData);
 
                         try {
 
@@ -152,17 +152,17 @@ namespace MfiManager.App.Http {
         public async Task<MfiHttpResponse<TResponse>> PatchAsync<TRequest, TResponse>(string endpoint, TRequest data) where TResponse : class{
              using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                        Logger.LogInformation("GRC PATCH Request to: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI PATCH Request to: {Endpoint}", endpoint);
                         Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                         var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                         //..requestUrl URL
-                        var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                        var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                         Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
                         //..send request
-                        var response = await GrcHttpClient.PatchAsync(endpoint, content);
+                        var response = await MfiHttpClient.PatchAsync(endpoint, content);
                         if(response == null) { 
                             var error = new MfiHttpErrorResponse(
                                 502,
@@ -187,7 +187,7 @@ namespace MfiManager.App.Http {
         
                         //..read and deserialize response
                         var responseData = await response.Content.ReadAsStringAsync();
-                        Logger.LogInformation("GRC PATCH Response received from: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI PATCH Response received from: {Endpoint}", endpoint);
                         try {
                             var options = new JsonSerializerOptions { 
                                 PropertyNameCaseInsensitive = true,
@@ -233,7 +233,7 @@ namespace MfiManager.App.Http {
                         }
            
                     } catch (Exception ex) {
-                        Logger.LogError("GRC PATCH Error for endpoint {Endpoint}: {ex.Message}", endpoint, ex.Message);
+                        Logger.LogError("MFI PATCH Error for endpoint {Endpoint}: {ex.Message}", endpoint, ex.Message);
                         Logger.LogCritical("{StackTrace}", ex.StackTrace);
                         throw;
                     }
@@ -245,16 +245,16 @@ namespace MfiManager.App.Http {
         public async Task PatchAsync<TRequest>(string endpoint, TRequest data) {
              using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                     try {
-                        Logger.LogInformation("GRC PATCH Request (no response) to: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI PATCH Request (no response) to: {Endpoint}", endpoint);
                         Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
 
                         var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                        var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                        var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                         Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
-                        var response = await GrcHttpClient.PatchAsync(endpoint, content);
+                        var response = await MfiHttpClient.PatchAsync(endpoint, content);
                         if (response == null) {
                             var error = new MfiHttpErrorResponse(502,
                                 "Bad Gateway or possible timeout",
@@ -277,7 +277,7 @@ namespace MfiManager.App.Http {
                             throw new HttpRequestException(error.ToString());
                         }
 
-                        Logger.LogInformation("GRC PATCH Request completed for: {Endpoint}", endpoint);
+                        Logger.LogInformation("MFI PATCH Request completed for: {Endpoint}", endpoint);
                     } catch (HttpRequestException httpEx) {
                         Logger.LogInformation("HTTP Request Exception: {Message}", httpEx.Message);
                         Logger.LogError("{StackTrace}", httpEx.StackTrace);
@@ -295,15 +295,15 @@ namespace MfiManager.App.Http {
         public async Task<MfiHttpResponse<TResponse>> PostAsync<TRequest, TResponse>(string endpoint, TRequest data) where TResponse : class {
              using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                  try {
-                    Logger.LogInformation("GRC POST Request to: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI POST Request to: {Endpoint}", endpoint);
                     Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             
-                    var fullUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
-                    var response = await GrcHttpClient.PostAsync(endpoint, content);
+                    var response = await MfiHttpClient.PostAsync(endpoint, content);
                     if(response == null) { 
                         var error = new MfiHttpErrorResponse(502,
                             "Bad Gateway or possible timeout",
@@ -329,7 +329,7 @@ namespace MfiManager.App.Http {
         
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("GRC POST Response received from: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI POST Response received from: {Endpoint}", endpoint);
                     Logger.LogInformation("Response Data: {ResponseData}", responseData);
                     try {
                         var options = new JsonSerializerOptions { 
@@ -424,14 +424,14 @@ namespace MfiManager.App.Http {
             
             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("GRC POST Request (no response) to: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI POST Request (no response) to: {Endpoint}", endpoint);
                     Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
-                    var response = await GrcHttpClient.PostAsync(endpoint, content);
+                    var response = await MfiHttpClient.PostAsync(endpoint, content);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(
                             502,
@@ -455,7 +455,7 @@ namespace MfiManager.App.Http {
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("GRC POST Request completed for: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI POST Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
                     Logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
                     Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
@@ -473,16 +473,16 @@ namespace MfiManager.App.Http {
             
             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("GRC PUT Request to: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI PUT Request to: {Endpoint}", endpoint);
                 
                     //..formulate URL
-                    var fullUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             
-                    var response = await GrcHttpClient.PutAsync(endpoint, content);
+                    var response = await MfiHttpClient.PutAsync(endpoint, content);
                     if(response == null) { 
                         var error = new MfiHttpErrorResponse(502,
                             "Bad Gateway or possible timeout",
@@ -509,8 +509,8 @@ namespace MfiManager.App.Http {
 
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("GRC PUT Response received from: {Endpoint}", endpoint);
-                    Logger.LogInformation("GRC Midleware data : {ResponseData}", responseData);
+                    Logger.LogInformation("MFI PUT Response received from: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI Midleware data : {ResponseData}", responseData);
             
                     try {
 
@@ -602,15 +602,15 @@ namespace MfiManager.App.Http {
             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
 
                 try {
-                    Logger.LogInformation("GRC PUT Request (no response) to: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI PUT Request (no response) to: {Endpoint}", endpoint);
                     Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
             
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             
-                    var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogError("REQUEST URL: {RequestUrl}", requestUrl);
-                    var response = await GrcHttpClient.PutAsync(endpoint, content);
+                    var response = await MfiHttpClient.PutAsync(endpoint, content);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(
                             502,
@@ -634,7 +634,7 @@ namespace MfiManager.App.Http {
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("GRC PUT Request completed for: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI PUT Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
                     Logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
                     Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
@@ -654,11 +654,11 @@ namespace MfiManager.App.Http {
                     Logger.LogInformation("DELETE Request to: {Endpoint}", endpoint);
                 
                     //..formulate URL
-                    var fullUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     //..send delete request
-                    var response = await GrcHttpClient.DeleteAsync(endpoint);
+                    var response = await MfiHttpClient.DeleteAsync(endpoint);
                     if(response == null) { 
                         var error = new MfiHttpErrorResponse( 502,
                             "Bad Gateway or possible timeout",
@@ -687,7 +687,7 @@ namespace MfiManager.App.Http {
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
                     Logger.LogInformation("DELETE Response received from: {Endpoint}", endpoint);
-                    Logger.LogInformation("GRC Midleware data : {Data}", responseData);
+                    Logger.LogInformation("MFI Midleware data : {Data}", responseData);
                     try {
 
                         Logger.LogInformation("Starting deserialization...");
@@ -767,12 +767,12 @@ namespace MfiManager.App.Http {
         public async Task DeleteAllAsync(string endpoint) {
             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("GRC DELETE Request (no response) to: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI DELETE Request (no response) to: {Endpoint}", endpoint);
             
-                    var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
-                    var response = await GrcHttpClient.DeleteAsync(endpoint);
+                    var response = await MfiHttpClient.DeleteAsync(endpoint);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(
                             502,
@@ -796,7 +796,7 @@ namespace MfiManager.App.Http {
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("GRC DELETE Request completed for: {Endpoint}", endpoint);
+                    Logger.LogInformation("MFI DELETE Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
                     Logger.LogError("HTTP Request Exception: {Massage}", httpEx.Message);
                     Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
@@ -817,7 +817,7 @@ namespace MfiManager.App.Http {
                     Logger.LogInformation("{Method} Request to: {Endpoint}", method.Method, endpoint);
             
                     //..formulate URL
-                    var fullUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     //..send request
@@ -829,7 +829,7 @@ namespace MfiManager.App.Http {
                     }
             
                      //..send request
-                    var response = await GrcHttpClient.SendAsync(request);
+                    var response = await MfiHttpClient.SendAsync(request);
                     if(response == null) { 
                         var error = new MfiHttpErrorResponse(
                             502,
@@ -858,7 +858,7 @@ namespace MfiManager.App.Http {
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
                     Logger.LogInformation("{Method} Response received from: {Endpoint}", method.Method, endpoint);
-                    Logger.LogInformation("GRC Midleware data : {Data}", responseData);
+                    Logger.LogInformation("MFI Midleware data : {Data}", responseData);
             
                     try {
 
@@ -951,10 +951,10 @@ namespace MfiManager.App.Http {
                         Logger.LogInformation("REQUEST MAP: {RequestBody}", JsonSerializer.Serialize(requestBody));
                     }
 
-                    var requestUrl = $"{GrcHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
+                    var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
                     Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
             
-                    var response = await GrcHttpClient.SendAsync(request);
+                    var response = await MfiHttpClient.SendAsync(request);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(502, "Bad Gateway or possible timeout",
                             "The middleware service did not respond or service timeout occurred"

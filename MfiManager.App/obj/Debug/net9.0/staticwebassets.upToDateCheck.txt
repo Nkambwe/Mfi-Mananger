@@ -15,8 +15,10 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\c
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\signalr\signalr.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\js\app-company-setup.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\css\mfi-custom.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery-validation\dist\additional-methods.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\toastr\toastr.js.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
@@ -86,6 +88,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\c
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.min.css.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\chartjs\Chart.bundle.min.js
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\icons\material-design\css\materialdesignicons.min.css
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\css\setup-styles.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -103,12 +106,15 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\lib\jquery\dist\jque
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\wwwroot\js\site.js
 wwwroot\css\color-pallate.css
 wwwroot\css\flat.css
+wwwroot\css\mfi-custom.css
+wwwroot\css\setup-styles.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\logo-pink.png
 wwwroot\images\logo-tan.png
 wwwroot\images\logo-white.png
 wwwroot\images\logo-yello.png
+wwwroot\js\app-company-setup.js
 wwwroot\js\flat.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

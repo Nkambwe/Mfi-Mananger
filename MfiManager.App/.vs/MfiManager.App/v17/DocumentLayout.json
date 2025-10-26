@@ -3,8 +3,63 @@
   "WorkspaceRootPath": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\views\\error\\status404.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:views\\error\\status404.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\wwwroot\\css\\mfi-custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:wwwroot\\css\\mfi-custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\services\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:services\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\wwwroot\\css\\setup-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:wwwroot\\css\\setup-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\enums\\databaseprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:enums\\databaseprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\views\\application\\setup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:views\\application\\setup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\wwwroot\\js\\app-company-setup.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:wwwroot\\js\\app-company-setup.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\infrastructure\\routes\\routeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:infrastructure\\routes\\routeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\localization\\language.en-en.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:localization\\language.en-en.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\wwwroot\\css\\flat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:wwwroot\\css\\flat.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\models\\installationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:models\\installationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\models\\companyusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:models\\companyusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\infrastructure\\utils\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:infrastructure\\utils\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.app\\services\\companybranchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1586CCA2-9C8C-4122-9E85-397CE4839057}|MfiManager.App.csproj|solutionrelative:services\\companybranchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +69,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 362,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +89,115 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Enums\\DatabaseProvider.cs",
+              "RelativeDocumentMoniker": "Enums\\DatabaseProvider.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Enums\\DatabaseProvider.cs",
+              "RelativeToolTip": "Enums\\DatabaseProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T15:03:31.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RouteProvider.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Infrastructure\\Routes\\RouteProvider.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Routes\\RouteProvider.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Infrastructure\\Routes\\RouteProvider.cs",
+              "RelativeToolTip": "Infrastructure\\Routes\\RouteProvider.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwBcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T13:51:50.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mfi-custom.css",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\mfi-custom.css",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css",
+              "RelativeToolTip": "wwwroot\\css\\mfi-custom.css",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-26T02:53:55.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "flat.css",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\flat.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\flat.css",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\flat.css",
+              "RelativeToolTip": "wwwroot\\css\\flat.css",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAAKUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-26T03:02:29.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\appsettings.json",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\appsettings.json",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\appsettings.json",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-26T02:40:56.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationController.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Controllers\\ApplicationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Controllers\\ApplicationController.cs",
+              "RelativeToolTip": "Controllers\\ApplicationController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T01:35:48.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "setup-styles.css",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\setup-styles.css",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
+              "RelativeToolTip": "wwwroot\\css\\setup-styles.css",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAABwBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-25T23:37:45.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Setup.cshtml",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Views\\Application\\Setup.cshtml",
+              "RelativeDocumentMoniker": "Views\\Application\\Setup.cshtml",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Views\\Application\\Setup.cshtml",
+              "RelativeToolTip": "Views\\Application\\Setup.cshtml",
+              "ViewState": "AgIAAOQAAAAAAAAAAAAkwPcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-25T06:08:06.739Z",
+              "EditorCaption": ""
             }
           ]
         }
@@ -55,20 +218,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Status404.cshtml",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Views\\Error\\Status404.cshtml",
-              "RelativeDocumentMoniker": "Views\\Error\\Status404.cshtml",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Views\\Error\\Status404.cshtml",
-              "RelativeToolTip": "Views\\Error\\Status404.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-22T00:05:37.717Z",
+              "DocumentIndex": 5,
+              "Title": "app-company-setup.js",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\app-company-setup.js",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
+              "RelativeToolTip": "wwwroot\\js\\app-company-setup.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-26T13:45:00.83Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CompanyUserModel.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Models\\CompanyUserModel.cs",
+              "RelativeDocumentMoniker": "Models\\CompanyUserModel.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Models\\CompanyUserModel.cs",
+              "RelativeToolTip": "Models\\CompanyUserModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T01:18:58.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InstallationModel.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Models\\InstallationModel.cs",
+              "RelativeDocumentMoniker": "Models\\InstallationModel.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Models\\InstallationModel.cs",
+              "RelativeToolTip": "Models\\InstallationModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T01:18:18.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocalizationService.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Services\\LocalizationService.cs",
+              "RelativeDocumentMoniker": "Services\\LocalizationService.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Services\\LocalizationService.cs",
+              "RelativeToolTip": "Services\\LocalizationService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T00:16:46.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "language.en-EN.xml",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Localization\\language.en-EN.xml",
+              "RelativeDocumentMoniker": "Localization\\language.en-EN.xml",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Localization\\language.en-EN.xml",
+              "RelativeToolTip": "Localization\\language.en-EN.xml",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAhwJAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-10-26T00:17:25.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CompanyBranchService.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Services\\CompanyBranchService.cs",
+              "RelativeDocumentMoniker": "Services\\CompanyBranchService.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Services\\CompanyBranchService.cs",
+              "RelativeToolTip": "Services\\CompanyBranchService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T05:11:24.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Infrastructure\\Utils\\Mapper.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Utils\\Mapper.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\Infrastructure\\Utils\\Mapper.cs",
+              "RelativeToolTip": "Infrastructure\\Utils\\Mapper.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwCMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T03:49:40.298Z"
             }
           ]
         }

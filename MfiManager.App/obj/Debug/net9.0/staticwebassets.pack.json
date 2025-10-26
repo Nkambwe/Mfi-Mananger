@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\css\\flat.css"
     },
     {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css",
+      "PackagePath": "staticwebassets\\css\\mfi-custom.css"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
+      "PackagePath": "staticwebassets\\css\\setup-styles.css"
+    },
+    {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -35,6 +43,10 @@
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\images\\logo-yello.png",
       "PackagePath": "staticwebassets\\images\\logo-yello.png"
+    },
+    {
+      "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
+      "PackagePath": "staticwebassets\\js\\app-company-setup.js"
     },
     {
       "Id": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\flat.js",

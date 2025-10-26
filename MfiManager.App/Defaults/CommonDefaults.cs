@@ -3,7 +3,11 @@
         /// <summary>
         /// Gets Application Version
         /// </summary>
-        public static string AppVersion => "v1.3";
+        public static string AppVersion => "v1.0";
+        /// <summary>
+        /// Gets Application Version
+        /// </summary>
+        public static string AppFullName => "MFI Manager";
         /// <summary>
         /// Gets a request path to the keep alive URL
         /// </summary>

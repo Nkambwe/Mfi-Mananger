@@ -10,9 +10,11 @@ namespace MfiManager.Middleware.Controllers {
         IEnvironmentProvider environment)
         : MfiBaseController(logger, environment) {
         private readonly ILogger<MfiAccountingController> _logger = logger;
+
         [HttpGet("welcome")]
         public IActionResult AccountingWelcome() {
             return Ok("Accounting says 'Welcome to MFI-Middleware API'");
         }
+
     }
 }

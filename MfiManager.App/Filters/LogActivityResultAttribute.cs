@@ -28,14 +28,14 @@ namespace MfiManager.App.Filters {
                 
                 //..get user info
                 var authService = context.HttpContext.RequestServices.GetRequiredService<ISystemAccesssService>();
-                var grcResponse = await authService.GetCurrentUserAsync(ipAddress);
+                var mfiResponse = await authService.GetCurrentUserAsync(ipAddress);
                 
-                if (grcResponse.HasError) {
-                    logger.Log($"ACTIVITY LOG ERROR: Failed to get current user - {JsonSerializer.Serialize(grcResponse)}");
+                if (mfiResponse.HasError) {
+                    logger.Log($"ACTIVITY LOG ERROR: Failed to get current user - {JsonSerializer.Serialize(mfiResponse)}");
                     return;
                 }
                 
-                var userId = grcResponse.Data.Id;
+                var userId = mfiResponse.Data.Id;
                 var activityService = context.HttpContext.RequestServices.GetRequiredService<ISystemActivityService>();
                 
                 var comment = _comment ?? $"{context.ActionDescriptor.DisplayName} Successfully completed";

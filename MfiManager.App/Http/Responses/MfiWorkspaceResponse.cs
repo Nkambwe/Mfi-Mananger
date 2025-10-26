@@ -4,6 +4,7 @@
     /// User workspace response
     /// </summary>
     public class MfiWorkspaceResponse {
+        public long CompanyId { get; set; }
         public CurrentUserResponse User { get; set; }
         public CurrentRoleResponse Role { get; set; }
         public UserBranchResponse Branch { get; set; }

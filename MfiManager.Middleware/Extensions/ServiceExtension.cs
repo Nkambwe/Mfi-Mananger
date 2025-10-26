@@ -1,9 +1,11 @@
 ﻿using MfiManager.Middleware.Configuration;
+using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Data;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction;
 using MfiManager.Middleware.Data.Transaction.Repositories;
+using MfiManager.Middleware.Enums;
 using MfiManager.Middleware.Logging;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
@@ -50,46 +52,58 @@ namespace MfiManager.Middleware.Extensions {
             //..create logger
             using var provider = services.BuildServiceProvider();
             var loggerFactory = provider.GetRequiredService<IServiceLoggerFactory>();
-            var _logger = loggerFactory.CreateLogger("middleware_log");
+            var _logger = loggerFactory.CreateLogger("middleware");
             _logger.Channel = $"DBCONNECTION-{DateTime.Now:yyyyMMddHHmmss}";
             _logger.Log("Attempting DB Connection...", "Config");
             try {
 
-                //..connection variable name
-                var connectionVar = Configuration.GetValue<string>("ConnectionOptions:DefaultConnection");
-
-                if (!string.IsNullOrWhiteSpace(connectionVar)) {
-                    //..get appSettings environment variable directly
+                     //..get appSettings environment variable directly
                     var isLive = Configuration.GetValue<bool>("EnvironmentOptions:IsLive");
+                    _logger.Log($"ENVIRONMENT ISLIVE >> {isLive}", "Config");
+
+                    //..connection variable name
+                    var connectionVar = Configuration.GetValue<string>("ConnectionOptions:DefaultConnection");
+                    _logger.Log($"ENVIRONMENT VAR >> {connectionVar}", "Config");
+
+                    if (string.IsNullOrWhiteSpace(connectionVar)){ 
+                        string msg = "DB Connection Environment variable name 'MFI_DBCONNECTION_ENV' not found in appSettings";
+                        _logger.Log(msg, "Config");
+                        throw new Exception(msg);
+                    }
+
+                    // connection string
+                    var connectionString = Environment.GetEnvironmentVariable(connectionVar);
+                    if (string.IsNullOrEmpty(connectionString))
+                        throw new Exception($"Environmental variable '{connectionVar}' which holds connection string value not set");
+
+                   var decryptedString = HashGenerator.DecryptString(connectionString);
+                   if (isLive) {
+                        _logger.Log($"CONNECTION URL :: {connectionString}", "Config");
+                   } else {
+                        _logger.Log($"CONNECTION URL :: {decryptedString}", "Config");
+                   }
+
+                    // get provider from config
+                    var dbProviderOptions = Configuration.GetSection(DatabaseProviderOptions.SectionName).Get<DatabaseProviderOptions>();
+                     _logger.Log($"DATABASE PROVIDER >> {dbProviderOptions.Provider}", "Config");
                     services.AddDbContextFactory<MfiManagerDbContext>(options => {
-
-                        //Retrieve the connection string from environment variables
-                        string connectionString = Environment.GetEnvironmentVariable(connectionVar);
-
-                        if (!string.IsNullOrEmpty(connectionString)) {
-                            string decryptedString = HashGenerator.DecryptString(connectionString);
-
-                            if (isLive) {
-                                _logger.Log($"CONNECTION URL :: {connectionString}", "INFO");
-                            } else {
-                                _logger.Log($"CONNECTION URL :: {decryptedString}", "INFO");
-                            }
-
-                            options.UseSqlServer(decryptedString);
-                            _logger.Log("Data Connection Established", "Config");
-                        } else {
-                            string msg = "Environmental variable name 'MFI_DBCONNECTION_ENV' which holds connection string not found";
-                            _logger.Log(msg, "DB_ERROR");
-                            throw new Exception(msg);
+                        switch (dbProviderOptions.Provider) {
+                            case DatabaseProvider.SqlServer:
+                                options.UseSqlServer(decryptedString);
+                                break;
+                            case DatabaseProvider.PostgreSQL:
+                                options.UseNpgsql(decryptedString);
+                                break;
+                            case DatabaseProvider.Oracle:
+                                options.UseOracle(decryptedString);
+                                break;
+                            default:
+                                throw new NotSupportedException($"Unsupported database provider: {dbProviderOptions.Provider}");
                         }
-
                     });
-                    _logger.Log($"DB Connection Established...", "Config");
-                } else {
-                    string msg = "DB Connection Environment variable name 'MFI_DBCONNECTION_ENV' not found in appSettings";
-                    _logger.Log(msg, "Db-Error");
-                    throw new Exception(msg);
-                }
+
+                    _logger.Log($"Database Provider: {dbProviderOptions.Provider}", "Config");
+                    _logger.Log("Data Connection Established", "Config");
 
             } catch (Exception e) {
                 string msg = "Database connection error occurred";

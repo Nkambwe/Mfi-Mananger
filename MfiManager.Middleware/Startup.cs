@@ -1,7 +1,6 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Cyphers;
-using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Extensions;
 using MfiManager.Middleware.Logging;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -98,6 +97,7 @@ namespace MfiManager.Middleware {
         /// </summary>
         /// <param name="app">Web Application instance</param>
         public void Configure(WebApplication app) {
+          
             //..use appSettings environment variable directly
             var isLive = Configuration.GetValue<bool>("EnvironmentOptions:IsLive");
             if (!isLive) {

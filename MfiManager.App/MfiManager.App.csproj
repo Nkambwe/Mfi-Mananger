@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="15.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="9.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageReference Include="Polly" Version="8.6.4" />
@@ -18,10 +17,26 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\BackOffice\Models\" />
-    <Folder Include="Http\Endpoints\" />
     <Folder Include="Infrastructure\Localization\" />
-    <Folder Include="Localization\" />
     <Folder Include="Views\Shared\TagHelpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Localization\language.fr-FR.xml">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Localization\language.en-EN.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\setup-styles.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\css\mfi-custom.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

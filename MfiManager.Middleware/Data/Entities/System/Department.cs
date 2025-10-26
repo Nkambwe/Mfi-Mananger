@@ -1,0 +1,31 @@
+﻿namespace MfiManager.Middleware.Data.Entities.System {
+    public class Department: BaseEntity {
+        public long CompanyId { get; set; }
+        public string DepartmenCode { get; set; }
+        public string DepartmentName { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual ICollection<SystemUser> Users {get; set;}
+        public virtual ICollection<DepartmentUnit> Units { get; set; }
+        public override bool Equals(object obj) {
+
+            if (obj is not Department)
+                return false;
+
+            if (ReferenceEquals(this, obj))
+                return true;
+
+            var item = (Department)obj;
+
+            if (item.IsNew() || IsNew())
+                return false;
+
+            return item.DepartmenCode.Equals(DepartmenCode) && item.DepartmentName.Equals(DepartmentName);
+        }
+
+        public override string ToString() 
+            => $"{DepartmenCode}-{DepartmentName}";
+
+        public override int GetHashCode() 
+            => ToString().GetHashCode() ^ 31;
+    }
+}

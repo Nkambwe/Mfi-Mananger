@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Entities.Configuration\" />
     <Folder Include="Data\Entities.Repositories\" />
   </ItemGroup>
 

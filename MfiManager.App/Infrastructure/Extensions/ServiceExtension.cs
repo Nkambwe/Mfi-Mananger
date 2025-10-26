@@ -15,7 +15,7 @@ namespace MfiManager.App.Infrastructure.Extensions {
 
              //..allow html helpers to acces current action context
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            //services.AddScoped<IGrcHtml, GrcHtml>();
+            //services.AddScoped<IMfiHtml, MfiHtml>();
             //services.AddScoped<IWebHelper, WebHelper>();
             return services;
         }

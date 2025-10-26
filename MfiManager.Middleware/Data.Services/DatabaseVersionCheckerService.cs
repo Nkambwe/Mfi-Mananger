@@ -1,5 +1,6 @@
 ﻿using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Data.Connection;
+using MfiManager.Middleware.Enums;
 using MfiManager.Middleware.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -40,8 +41,6 @@ namespace MfiManager.Middleware.Data.Services {
                     return provider switch {
                         DatabaseProvider.SqlServer => await GetSqlServerVersionAsync(),
                         DatabaseProvider.PostgreSQL => await GetPostgreSQLVersionAsync(),
-                        DatabaseProvider.MySQL => await GetMySQLVersionAsync(),
-                        DatabaseProvider.SQLite => await GetSQLiteVersionAsync(),
                         DatabaseProvider.Oracle => await GetOracleVersionAsync(),
                         _ => new DatabaseVersionInfo { SupportsApproximateCount = false }
                     };
@@ -70,8 +69,6 @@ namespace MfiManager.Middleware.Data.Services {
                 DatabaseProvider.SqlServer => true, 
                 DatabaseProvider.PostgreSQL => true,
                 DatabaseProvider.Oracle => true,
-                DatabaseProvider.MySQL => false,
-                DatabaseProvider.SQLite => false,
                 _ => false
             };
         }
@@ -92,12 +89,6 @@ namespace MfiManager.Middleware.Data.Services {
             if (providerName.Contains("postgresql") || providerName.Contains("npgsql"))
                 return DatabaseProvider.PostgreSQL;
         
-            if (providerName.Contains("mysql") || providerName.Contains("pomelo"))
-                return DatabaseProvider.MySQL;
-        
-            if (providerName.Contains("sqlite"))
-                return DatabaseProvider.SQLite;
-        
             if (providerName.Contains("oracle"))
                 return DatabaseProvider.Oracle;
 
@@ -109,12 +100,6 @@ namespace MfiManager.Middleware.Data.Services {
             if (connectionString.Contains("host=") || connectionString.Contains("server=") && connectionString.Contains("port=5432"))
                 return DatabaseProvider.PostgreSQL;
         
-            if (connectionString.Contains("server=") && connectionString.Contains("port=3306"))
-                return DatabaseProvider.MySQL;
-        
-            if (connectionString.Contains(".db") || connectionString.Contains("data source=") && connectionString.Contains(".sqlite"))
-                return DatabaseProvider.SQLite;
-
             return DatabaseProvider.Unknown;
         }
         
@@ -476,13 +461,6 @@ namespace MfiManager.Middleware.Data.Services {
                     "Window Functions",
                     "Full Text Search"
                 ],
-                DatabaseProvider.MySQL =>
-                [
-                    "Limited Approximate Count (INFORMATION_SCHEMA)",
-                    "Basic Pagination (LIMIT/OFFSET)",
-                    "Compiled Queries",
-                    "Complex Joins"
-                ],
                 DatabaseProvider.Oracle =>
                 [
                     "Approximate Count (USER_TABLES.NUM_ROWS)",
@@ -490,12 +468,6 @@ namespace MfiManager.Middleware.Data.Services {
                     "Compiled Queries",
                     "Complex Joins",
                     "Window Functions"
-                ],
-                DatabaseProvider.SQLite =>
-                [
-                    "Basic Pagination (LIMIT/OFFSET)",
-                    "Simple Queries",
-                    "Compiled Queries"
                 ],
                 _ => ["Unknown Features"]
             };
