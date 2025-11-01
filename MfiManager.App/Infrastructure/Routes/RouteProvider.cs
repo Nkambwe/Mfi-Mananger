@@ -17,11 +17,18 @@
                 defaults: new { controller = "Application", action = "Setup" }
             );
 
-            //..setup
+            //..install
             routeBuilder.MapControllerRoute(
                 name: "application-setup-install",
                 pattern: "/mfi/app-install",
                 defaults: new { controller = "Application", action = "Install" }
+            );
+
+            //..language
+            routeBuilder.MapControllerRoute(
+                name: "application-localize-language",
+                pattern: "mfi/app-localize/language/{language}",
+                defaults: new { controller = "Application", action = "ChangeLanguage" }
             );
 
             //..error 401

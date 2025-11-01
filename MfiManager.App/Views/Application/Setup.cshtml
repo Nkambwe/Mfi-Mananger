@@ -50,7 +50,7 @@
                             <div class="step-number">
                                 <span>3</span>
                             </div>
-                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Owner")</div>
+                            <div class="step-title">@ILocalize.GetLocalizedLabel("App.Installation.Access")</div>
                         </div>
                         <div class="step" data-step="4">
                             <div class="step-number">
@@ -75,9 +75,9 @@
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.Language"))
                             </label>
                             <select id="System_Language" class="language-select form-control" name="SystemLanguage" asp-for="ApplicationLanguage" required>
-                                <option value="None">Select Language</option>
+                                <option value="None">@Html.Raw(ILocalize.GetLocalizedLabel("App.Localization.Languages.Select"))</option>
                                 @foreach (var lang in ILocalize.GetAvailableLanguages()) {
-                                    <option value="@lang.Code">@lang.Name</option>
+                                    <option value="@lang.Code" selected="@(Model.ApplicationLanguage == lang.Code)">@lang.Name</option>
                                 }
                             </select>
                             <span asp-validation-for="ApplicationLanguage" data-valmsg-for="SystemLanguage" data-valmsg-replace="true" class="field-validation-error"></span>
@@ -241,7 +241,7 @@
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.Name"))
                             </label>
                             <select id="database_provider" class="dbprovider-select form-control" name="databaseProvider" asp-for="DatabaseProvider.DatabaseProvider" required>
-                                <option value="None">Select Provider</option>
+                                <option value="None">@Html.Raw(ILocalize.GetLocalizedLabel("App.Localization.Database.Provider.Select"))</option>
                                 @foreach (var provider in ILocalize.GetDatabaseProviders())
                                 {
                                     <option value="@provider.Code">@provider.Name</option>
@@ -252,12 +252,12 @@
 
                         <div class="form-group mb-3">
                             <label for="DatabaseProviderMinimumVersion" class="col-form-label">@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.MinimumVersion"))</label>
-                            <input type="text" class="form-control" id="DatabaseProviderMinimumVersion" name="DatabaseProvider.MinimumVersion" asp-for="DatabaseProvider.MinimumVersion" autocomplete="off" readonly>
+                            <input type="text" class="form-control" id="DatabaseProviderMinimumVersion" name="DatabaseProvider.MinimumVersion" asp-for="DatabaseProvider.MinimumVersion" readonly>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="DatabaseProviderVersionCheckTime" class="col-form-label">@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.VersionCheker"))</label>
-                            <input type="text" class="form-control" id="DatabaseProviderVersionCheckTime" name="DatabaseProvider.VersionCheckTime" asp-for="DatabaseProvider.VersionCheckTime" autocomplete="off" readonly>
+                            <input type="text" class="form-control" id="DatabaseProviderVersionCheckTime" name="DatabaseProvider.VersionCheckTime" asp-for="DatabaseProvider.VersionCheckTime" readonly>
                         </div>
 
                     </fieldset>
@@ -284,13 +284,13 @@
 
 <script>
     window.Localization = {
-        Required: '@ILocalize.GetLocalizedLabel("App.Validation.Required")',
-        ConfirmTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Confirm.Title")',
-        ConfirmMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Confirm.Message")',
+        Required: '@ILocalize.GetLocalizedLabel("App.Validation.Field.Required")',
+        ConfirmTitle: '@ILocalize.GetLocalizedLabel("App.Validation.Installation.Confirm.Title")',
+        ConfirmMessage: '@ILocalize.GetLocalizedLabel("App.Validation.Installation.Confirm.Message")',
         BtnOk: '@ILocalize.GetLocalizedLabel("App.Buttons.OK")',
         BtnCancel: '@ILocalize.GetLocalizedLabel("App.Buttons.Cancel")',
-        InvalidTitle: '@ILocalize.GetLocalizedLabel("App.Validation.InvalidData.Title")',
-        InvalidMessage: '@ILocalize.GetLocalizedLabel("App.Validation.InvalidData.Message")',
+        InvalidTitle: '@ILocalize.GetLocalizedLabel("App.Validation.Invalid-data.Title")',
+        InvalidMessage: '@ILocalize.GetLocalizedLabel("App.Validation.Invalid-data.Message")',
         ProcessingTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Processing.Title")',
         ProcessingMessage: '@ILocalize.GetLocalizedLabel("App.Installation.Processing.Message")',
         SuccessTitle: '@ILocalize.GetLocalizedLabel("App.Installation.Success.Title")',
@@ -311,6 +311,7 @@
         OwnerUserNameError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.UserName.Error")',
         PasswordError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Error")',
         PasswordConfirmError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Confirm.Error")',
+        PasswordMatchError: '@ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Password.Match.Error")',
         DatabaseProviderError: '@ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.Error")'
     };
 </script>

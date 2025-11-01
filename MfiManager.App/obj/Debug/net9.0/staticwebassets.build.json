@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T4TSWa5I6Ig2+/hGcVInYxEB/qs6FJ3+7C9HoKOzE3s=",
+  "Hash": "tTNIaAUcX0tcgCJhW2HEMxPkotr3zJqPoUWsGqJCNbA=",
   "Source": "MfiManager.App",
   "BasePath": "_content/MfiManager.App",
   "Mode": "Default",
@@ -374,12 +374,12 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-2hoabn4ica.gz",
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rpwqumbmx1.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MfiManager.App",
-      "RelativePath": "js/app-company-setup#[.{fingerprint=2hoabn4ica}]?.js.gz",
+      "RelativePath": "js/app-company-setup#[.{fingerprint=rpwqumbmx1}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -388,8 +388,8 @@
       "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "8slch1nu4s",
-      "Integrity": "uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo=",
+      "Fingerprint": "aokddth561",
+      "Integrity": "FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js"
@@ -437,12 +437,12 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-scne7r7w4a.gz",
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-utedl0b9ww.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MfiManager.App",
-      "RelativePath": "css/mfi-custom#[.{fingerprint=scne7r7w4a}]?.css.gz",
+      "RelativePath": "css/mfi-custom#[.{fingerprint=utedl0b9ww}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -451,8 +451,8 @@
       "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "h0wtd1844p",
-      "Integrity": "r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE=",
+      "Fingerprint": "1osv5ufdxc",
+      "Integrity": "H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css"
@@ -1949,12 +1949,12 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\icons\\material-design\\css\\materialdesignicons.min.css"
     },
     {
-      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-8jwjjqjqhk.gz",
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-m9qmo2ecbt.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MfiManager.App",
-      "RelativePath": "css/setup-styles#[.{fingerprint=8jwjjqjqhk}]?.css.gz",
+      "RelativePath": "css/setup-styles#[.{fingerprint=m9qmo2ecbt}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1963,8 +1963,8 @@
       "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "a4olw73lq7",
-      "Integrity": "poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU=",
+      "Fingerprint": "xnjywqi8rl",
+      "Integrity": "DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css"
@@ -2383,8 +2383,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "scne7r7w4a",
-      "Integrity": "vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc=",
+      "Fingerprint": "utedl0b9ww",
+      "Integrity": "UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\mfi-custom.css"
@@ -2404,8 +2404,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8jwjjqjqhk",
-      "Integrity": "dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY=",
+      "Fingerprint": "m9qmo2ecbt",
+      "Integrity": "hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\setup-styles.css"
@@ -2551,8 +2551,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2hoabn4ica",
-      "Integrity": "ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk=",
+      "Fingerprint": "rpwqumbmx1",
+      "Integrity": "4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\app-company-setup.js"
@@ -5341,12 +5341,12 @@
     },
     {
       "Route": "css/mfi-custom.css",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-scne7r7w4a.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-utedl0b9ww.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000510725230"
+          "Quality": "0.000513874615"
         }
       ],
       "ResponseHeaders": [
@@ -5356,15 +5356,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1957"
+          "Value": "1945"
         },
         {
           "Name": "ETag",
-          "Value": "\"r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE=\""
+          "Value": "\"H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5384,13 +5384,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc=\""
+          "Value": "W/\"UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc="
+          "Value": "sha256-UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw="
         }
       ]
     },
@@ -5405,7 +5405,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10234"
+          "Value": "10289"
         },
         {
           "Name": "Content-Type",
@@ -5413,11 +5413,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc=\""
+          "Value": "\"UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5427,13 +5427,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc="
+          "Value": "sha256-UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw="
         }
       ]
     },
     {
       "Route": "css/mfi-custom.css.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-scne7r7w4a.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-utedl0b9ww.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5442,7 +5442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1957"
+          "Value": "1945"
         },
         {
           "Name": "Content-Type",
@@ -5450,11 +5450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE=\""
+          "Value": "\"H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5472,18 +5472,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE="
+          "Value": "sha256-H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc="
         }
       ]
     },
     {
-      "Route": "css/mfi-custom.scne7r7w4a.css",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-scne7r7w4a.gz",
+      "Route": "css/mfi-custom.utedl0b9ww.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-utedl0b9ww.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000510725230"
+          "Quality": "0.000513874615"
         }
       ],
       "ResponseHeaders": [
@@ -5493,15 +5493,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1957"
+          "Value": "1945"
         },
         {
           "Name": "ETag",
-          "Value": "\"r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE=\""
+          "Value": "\"H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5521,13 +5521,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc=\""
+          "Value": "W/\"UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "scne7r7w4a"
+          "Value": "utedl0b9ww"
         },
         {
           "Name": "label",
@@ -5535,12 +5535,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc="
+          "Value": "sha256-UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw="
         }
       ]
     },
     {
-      "Route": "css/mfi-custom.scne7r7w4a.css",
+      "Route": "css/mfi-custom.utedl0b9ww.css",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\mfi-custom.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5550,7 +5550,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10234"
+          "Value": "10289"
         },
         {
           "Name": "Content-Type",
@@ -5558,11 +5558,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc=\""
+          "Value": "\"UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5572,7 +5572,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "scne7r7w4a"
+          "Value": "utedl0b9ww"
         },
         {
           "Name": "label",
@@ -5580,13 +5580,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vJBqLWnCi41MdHLBpvWIrr/GXGukRPoDks/MGR9LzCc="
+          "Value": "sha256-UrGpnA2WPXgsIFfleQ3QXzfSCwzDfcM+Q6oxwOMvLCw="
         }
       ]
     },
     {
-      "Route": "css/mfi-custom.scne7r7w4a.css.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-scne7r7w4a.gz",
+      "Route": "css/mfi-custom.utedl0b9ww.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4yzc0vyu9p-utedl0b9ww.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5595,7 +5595,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1957"
+          "Value": "1945"
         },
         {
           "Name": "Content-Type",
@@ -5603,11 +5603,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE=\""
+          "Value": "\"H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 15:24:11 GMT"
+          "Value": "Sun, 26 Oct 2025 15:34:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5625,7 +5625,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "scne7r7w4a"
+          "Value": "utedl0b9ww"
         },
         {
           "Name": "label",
@@ -5633,13 +5633,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-r2cptYjzK/SczIumCbxNiRwCA4VXKz0nwWy3TmA/DfE="
+          "Value": "sha256-H9DtMX//MzO8bn2ze6d4KhmLCZTtSHXHykw+D7U6qNc="
         }
       ]
     },
     {
-      "Route": "css/setup-styles.8jwjjqjqhk.css",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-8jwjjqjqhk.gz",
+      "Route": "css/setup-styles.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-m9qmo2ecbt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -5658,15 +5658,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU=\""
+          "Value": "\"DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -5682,26 +5682,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY=\""
+          "Value": "W/\"hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "8jwjjqjqhk"
-        },
-        {
-          "Name": "label",
-          "Value": "css/setup-styles.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY="
+          "Value": "sha256-hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk="
         }
       ]
     },
     {
-      "Route": "css/setup-styles.8jwjjqjqhk.css",
+      "Route": "css/setup-styles.css",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5719,35 +5711,27 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY=\""
+          "Value": "\"hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "8jwjjqjqhk"
-        },
-        {
-          "Name": "label",
-          "Value": "css/setup-styles.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY="
+          "Value": "sha256-hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk="
         }
       ]
     },
     {
-      "Route": "css/setup-styles.8jwjjqjqhk.css.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-8jwjjqjqhk.gz",
+      "Route": "css/setup-styles.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-m9qmo2ecbt.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5764,11 +5748,164 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU=\""
+          "Value": "\"DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE="
+        }
+      ]
+    },
+    {
+      "Route": "css/setup-styles.m9qmo2ecbt.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-m9qmo2ecbt.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000514403292"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1943"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m9qmo2ecbt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/setup-styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk="
+        }
+      ]
+    },
+    {
+      "Route": "css/setup-styles.m9qmo2ecbt.css",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8112"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m9qmo2ecbt"
+        },
+        {
+          "Name": "label",
+          "Value": "css/setup-styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hpG2Q7qUqenpFD3IPAcKxaLZjJ3UETNLfN8G0Ts1OTk="
+        }
+      ]
+    },
+    {
+      "Route": "css/setup-styles.m9qmo2ecbt.css.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-m9qmo2ecbt.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1943"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:31:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5786,7 +5923,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8jwjjqjqhk"
+          "Value": "m9qmo2ecbt"
         },
         {
           "Name": "label",
@@ -5794,144 +5931,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU="
-        }
-      ]
-    },
-    {
-      "Route": "css/setup-styles.css",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-8jwjjqjqhk.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000514403292"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1943"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY="
-        }
-      ]
-    },
-    {
-      "Route": "css/setup-styles.css",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\css\\setup-styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8112"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-dHZb18pC/fI6DJg8DV+FpGZMGMSytVGTeLlCr0imGcY="
-        }
-      ]
-    },
-    {
-      "Route": "css/setup-styles.css.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\vdrlksbsoo-8jwjjqjqhk.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1943"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:07:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-poYz8mNXdgGPNSwNx2X6ibU4HRnku2yq4blwMgI+MGU="
+          "Value": "sha256-DYCB2edmhz96NQrOX8FM9GClsfMruYn1FTEbWI/mYfE="
         }
       ]
     },
@@ -6860,13 +6860,13 @@
       ]
     },
     {
-      "Route": "js/app-company-setup.2hoabn4ica.js",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-2hoabn4ica.gz",
+      "Route": "js/app-company-setup.js",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rpwqumbmx1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000378501136"
+          "Quality": "0.000334112930"
         }
       ],
       "ResponseHeaders": [
@@ -6876,19 +6876,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2641"
+          "Value": "2992"
         },
         {
           "Name": "ETag",
-          "Value": "\"uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo=\""
+          "Value": "\"FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -6904,26 +6904,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk=\""
+          "Value": "W/\"4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "2hoabn4ica"
-        },
-        {
-          "Name": "label",
-          "Value": "js/app-company-setup.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk="
+          "Value": "sha256-4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08="
         }
       ]
     },
     {
-      "Route": "js/app-company-setup.2hoabn4ica.js",
+      "Route": "js/app-company-setup.js",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6933,7 +6925,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12854"
+          "Value": "14784"
         },
         {
           "Name": "Content-Type",
@@ -6941,11 +6933,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk=\""
+          "Value": "\"4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08="
+        }
+      ]
+    },
+    {
+      "Route": "js/app-company-setup.js.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rpwqumbmx1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4="
+        }
+      ]
+    },
+    {
+      "Route": "js/app-company-setup.rpwqumbmx1.js",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rpwqumbmx1.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000334112930"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2992"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rpwqumbmx1"
+        },
+        {
+          "Name": "label",
+          "Value": "js/app-company-setup.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08="
+        }
+      ]
+    },
+    {
+      "Route": "js/app-company-setup.rpwqumbmx1.js",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14784"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6955,7 +7092,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2hoabn4ica"
+          "Value": "rpwqumbmx1"
         },
         {
           "Name": "label",
@@ -6963,13 +7100,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk="
+          "Value": "sha256-4bGtRR4QgETPMsRgxIRlFVQJSz5CRIjVwrFh0isyw08="
         }
       ]
     },
     {
-      "Route": "js/app-company-setup.2hoabn4ica.js.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-2hoabn4ica.gz",
+      "Route": "js/app-company-setup.rpwqumbmx1.js.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rpwqumbmx1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6978,7 +7115,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2641"
+          "Value": "2992"
         },
         {
           "Name": "Content-Type",
@@ -6986,11 +7123,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo=\""
+          "Value": "\"FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
+          "Value": "Fri, 31 Oct 2025 23:56:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7008,7 +7145,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2hoabn4ica"
+          "Value": "rpwqumbmx1"
         },
         {
           "Name": "label",
@@ -7016,144 +7153,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo="
-        }
-      ]
-    },
-    {
-      "Route": "js/app-company-setup.js",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-2hoabn4ica.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000378501136"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2641"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk="
-        }
-      ]
-    },
-    {
-      "Route": "js/app-company-setup.js",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12854"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZgGXdvCu0Fk+JuC+khxb4Hl7dvdmS0/yRkKBPUdhpCk="
-        }
-      ]
-    },
-    {
-      "Route": "js/app-company-setup.js.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-2hoabn4ica.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2641"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 26 Oct 2025 14:53:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-uMFu/uVE94Cq21xavVL9EdwxznPQBejLK/d+xvq+OJo="
+          "Value": "sha256-FkXjlbaHoj6TME0PUcMEqSHzjxC+mXzvk39W26e4Ro4="
         }
       ]
     },

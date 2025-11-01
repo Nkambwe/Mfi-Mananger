@@ -343,6 +343,6 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\MfiManager.
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\MfiManager.App.genruntimeconfig.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\ref\MfiManager.App.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\2u68t2crik-p16de6a8hc.gz
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\vdrlksbsoo-8jwjjqjqhk.gz
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4mdzqiyifm-2hoabn4ica.gz
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4yzc0vyu9p-scne7r7w4a.gz
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4yzc0vyu9p-utedl0b9ww.gz
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\vdrlksbsoo-m9qmo2ecbt.gz
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4mdzqiyifm-rpwqumbmx1.gz

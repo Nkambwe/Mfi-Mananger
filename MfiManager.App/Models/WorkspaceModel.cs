@@ -7,8 +7,8 @@
         public long RoleId { get; set; }
         public string RoleName { get; set; } = string.Empty;
         public string RoleGroup { get; set; } = string.Empty;
-        public long CompanyId { get; set; }
-        public long BranchId { get; set; }
+        public long? CompanyId { get; set; }
+        public long? BranchId { get; set; }
         public string BranchCode { get; set; } = string.Empty;
         public string BranchName { get; set; } = string.Empty;
         public bool BranchStatus { get; set; } = false;

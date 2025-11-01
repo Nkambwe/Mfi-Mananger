@@ -24,8 +24,8 @@
     <LocaleResource Name="App.Buttons.Confirm">
         <Value>Confirm</Value>
     </LocaleResource>
-    <LocaleResource Name="App.Buttons.Okay">
-        <Value>Okay</Value>
+    <LocaleResource Name="App.Buttons.OK">
+        <Value>OK</Value>
     </LocaleResource>
     <LocaleResource Name="App.Buttons.Submit">
         <Value>Submit</Value>
@@ -123,6 +123,9 @@
     <LocaleResource Name="App.Installation.Owner">
         <Value>Owner</Value>
     </LocaleResource>
+    <LocaleResource Name="App.Installation.Access">
+        <Value>Access</Value>
+    </LocaleResource>
     <LocaleResource Name="App.Installation.Owner.Access">
         <Value>Owner Access</Value>
     </LocaleResource>
@@ -156,4 +159,89 @@
     <LocaleResource Name="App.Installation.Database.Fields.Provider.VersionCheker">
         <Value>Version Check Time</Value>
     </LocaleResource>
+    <LocaleResource Name="App.Installation.Processing.Title">
+        <Value>Installation</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Processing.Message">
+        <Value>Processing... Please wait</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Success.Title">
+        <Value>Installation Complete</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Success.Message">
+        <Value>You company has been setup successfully</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Success.Continue">
+        <Value>Continue to login</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Failed.Title">
+        <Value>Installation Failed</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Failed.Message">
+        <Value>Unable to complete setup. Something went wrong</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Error.Title">
+        <Value>Installation Errors</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Error.Message">
+        <Value>Installation error details</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Validation.Installation.Confirm.Title">
+        <Value>Company Setup</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Validation.Installation.Confirm.Message">
+        <Value>Press Ok to proceed with setup</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyName.Error">
+        <Value>Company name cannot be empty or contain special characters</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.CompanyAlias.Error">
+        <Value>Company short name cannot be empty or contain special characters</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Company.Fields.RegistrationNumber.Error">
+        <Value>Registration number should be alphanumeric characters</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Name.Error">
+        <Value>Contact name is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Email.Error">
+        <Value>Contact email address is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Contact.Error">
+        <Value>Contact phone number is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.UserName.Error">
+        <Value>Admin username is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Password.Error">
+        <Value>Password should be a minimum of 8 characters and should contain atleast one uppercase, one lowercase and a special character</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Password.Confirm.Error">
+        <Value>Password should be a minimum of 8 characters and should contain atleast one uppercase, one lowercase and a special character</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Fields.Password.Match.Error">
+        <Value>Passwords do not match</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Database.Fields.Provider.Error">
+        <Value>Database provider is required</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="App.Validation.Field.Required">
+        <Value>Field is required</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Validation.Invalid-data.Title">
+        <Value>Invalid Data</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Validation.Invalid-data.Message">
+        <Value>Please clear the following errors to proceed</Value>
+    </LocaleResource>
+    
+    
+    <LocaleResource Name="App.Localization.Languages.Select">
+        <Value>Select Language</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Localization.Database.Provider.Select">
+        <Value>Select Provider</Value>
+    </LocaleResource>
+    
 </Language>

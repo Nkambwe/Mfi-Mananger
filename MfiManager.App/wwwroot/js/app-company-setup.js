@@ -40,7 +40,7 @@
         $('#System_Language').on('change', function () {
             var lang = $(this).val();
             if (lang && lang !== 'None') {
-                window.location.href = '/Application/ChangeLanguage?language=' + lang;
+                window.location.href = '/mfi/app-localize/language/' + lang;
             }
         });
 
@@ -83,11 +83,52 @@
         }
 
         function initializeProviderSelect2() {
+            // Provider configuration data
+            const providerConfig = {
+                'SqlServer': {
+                    minimumVersion: '2012',
+                    versionCheckTime: '00:30:00'
+                },
+                'PostgreSQL': {
+                    minimumVersion: '12',
+                    versionCheckTime: '00:30:00'
+                },
+                'Oracle': {
+                    minimumVersion: '21',
+                    versionCheckTime: '00:30:00'
+                }
+            };
+
+            // Initialize Select2
             $(".dbprovider-select").select2({
                 width: '100%',
                 theme: 'default',
                 dropdownCssClass: 'custom-select2-dropdown'
             });
+
+            // Handle provider selection change
+            $(".dbprovider-select").on('select2:select', function (e) {
+                const selectedProvider = e.params.data.id;
+        
+                if (selectedProvider && selectedProvider !== 'None' && providerConfig[selectedProvider]) {
+                    // Set the minimum version
+                    $('#DatabaseProviderMinimumVersion').val(providerConfig[selectedProvider].minimumVersion);
+            
+                    // Set the version check time
+                    $('#DatabaseProviderVersionCheckTime').val(providerConfig[selectedProvider].versionCheckTime);
+                } else {
+                    // Clear fields if None is selected
+                    $('#DatabaseProviderMinimumVersion').val('');
+                    $('#DatabaseProviderVersionCheckTime').val('');
+                }
+            });
+
+            // Set initial values if a provider is already selected (for page reload scenarios)
+            const currentProvider = $('.dbprovider-select').val();
+            if (currentProvider && currentProvider !== 'None' && providerConfig[currentProvider]) {
+                $('#DatabaseProviderMinimumVersion').val(providerConfig[currentProvider].minimumVersion);
+                $('#DatabaseProviderVersionCheckTime').val(providerConfig[currentProvider].versionCheckTime);
+            }
         }
 
         // ========== Step Navigation ==========
@@ -148,7 +189,7 @@
 
             if ($field.attr('required') && !value) {
                 isValid = false;
-                errorMessage = "@ILocalize.GetLocalizedLabel("App.Validation.Required")";
+                errorMessage = window.Localization.Required;;
             } else if (value) {
                 switch (fieldId) {
                     case 'Company_Name':
@@ -213,7 +254,7 @@
                         var password = $('#SystemPassword').val();
                         if (value !== password) {
                             isValid = false;
-                            errorMessage = window.Localization.PasswordConfirmError;
+                            errorMessage = window.Localization.PasswordMatchError;
                         }
                         break;
 
@@ -264,7 +305,6 @@
                         Swal.fire({
                             title: window.Localization.SuccessTitle,
                             text: response.data.message || window.Localization.SuccessMessage,
-                            icon: "success",
                             confirmButtonText: window.Localization.SuccessContinue,
                         }).then(() => {
                             window.location.href = response.redirectUrl || '/Application/Login';
@@ -273,7 +313,6 @@
                         Swal.fire({
                             title: window.Localization.FailedTitle,
                             text: response.data?.message ||  window.Localization.FailedMessage,
-                            icon: "error",
                             confirmButtonText: "OK"
                         });
                     }
@@ -282,7 +321,6 @@
                     Swal.fire({
                         title:  window.Localization.ErrorTitle,
                         text:  window.Localization.ErrorMessage,
-                        icon: "error",
                         confirmButtonText: "OK"
                     });
                     console.error('Ajax error:', xhr.responseText);

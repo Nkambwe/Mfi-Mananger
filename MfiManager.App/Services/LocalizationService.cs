@@ -179,6 +179,10 @@ namespace MfiManager.App.Services {
             return userLanguages.FirstOrDefault()?.Split(',').FirstOrDefault() ?? CommonDefaults.DefaultLanguageCulture;
         }
 
+        /// <summary>
+        /// Save current language under cookies
+        /// </summary>
+        /// <param name="languageCode">Language code</param>
         public void SaveCurrentLanguage(string languageCode) {
             var httpContext = _httpContextAccessor.HttpContext;
             var cookieOptions = new CookieOptions {

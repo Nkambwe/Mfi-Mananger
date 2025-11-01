@@ -1,6 +1,7 @@
 ﻿using MfiManager.App.Infrastructure.Utils;
 
 namespace MfiManager.App.Services {
+
     public interface ILocalizationService {
         /// <summary>
         /// Get language resource
@@ -14,6 +15,12 @@ namespace MfiManager.App.Services {
         /// </summary>
         /// <returns></returns>
         IList<ApplicationLanguage> GetAvailableLanguages();
+
+        /// <summary>
+        /// Get current selected language
+        /// </summary>
+        /// <returns></returns>
+        ApplicationLanguage GetCurrentLanguage();
         
         /// <summary>
         /// Get a list of available database providers
