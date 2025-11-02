@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\mfimanagerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,7 +13,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 433,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,14 +42,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MfiManagerDbContext.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA2wHkAAAAAAAAAAAAAAA==",
+              "Title": "Branch.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T15:27:14.79Z",
+              "WhenOpened": "2025-11-02T15:44:19.253Z",
               "EditorCaption": ""
             }
           ]

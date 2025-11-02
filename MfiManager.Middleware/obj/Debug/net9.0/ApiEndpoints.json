@@ -191,7 +191,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpListRequest",
         "IsRequired": true
       }
     ],
@@ -239,7 +239,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "MfiManager.Middleware.Http.Responses.HttpListRequest",
+        "Type": "MfiManager.Middleware.Http.Requests.HttpListRequest",
         "IsRequired": true
       }
     ],

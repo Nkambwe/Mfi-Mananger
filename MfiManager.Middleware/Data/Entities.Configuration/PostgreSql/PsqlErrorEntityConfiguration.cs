@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.ToTable("Systemerrors", "public");
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id).HasDefaultValueSql("nextval('Systemerror_seq')").HasColumnName("id");
-            builder.Property(e => e.CompanyId).HasColumnName("company_id").IsRequired(false);
+            builder.Property(e => e.CompanyId).HasColumnName("company_id").IsRequired();
             builder.Property(e => e.Message).HasColumnName("error_message").HasColumnType("TEXT").IsRequired();
             builder.Property(e => e.Source).HasColumnName("error_source").HasColumnType("TEXT").IsRequired();
             builder.Property(e => e.Severity).HasColumnName("error_severity").HasColumnType("VARCHAR(50)").IsRequired();

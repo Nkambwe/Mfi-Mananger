@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasKey(f => f.Id);
 
             builder.Property(f => f.Id).HasColumnName("id");
-            builder.Property(f => f.CompanyId).HasColumnName("company_id").IsRequired(false);
+            builder.Property(f => f.CompanyId).HasColumnName("company_id").IsRequired();
             builder.Property(f => f.Message).HasColumnName("error_message").HasColumnType("NVARCHAR(MAX)").IsRequired();
             builder.Property(f => f.Source).HasColumnName("error_source").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(f => f.Severity).HasColumnName("error_severity").HasColumnType("NVARCHAR(50)").IsRequired();

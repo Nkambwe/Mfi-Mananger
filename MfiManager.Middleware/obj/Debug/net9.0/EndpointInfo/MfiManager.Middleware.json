@@ -290,17 +290,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             }
           }
@@ -383,17 +383,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Responses.HttpListRequest"
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.HttpListRequest"
               }
             }
           }
@@ -514,6 +514,61 @@
         },
         "additionalProperties": false
       },
+      "MfiManager.Middleware.Http.Requests.HttpListRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "action": {
+            "type": "string",
+            "nullable": true
+          },
+          "searchTerm": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "PageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "SortDirection": {
+            "type": "string",
+            "nullable": true
+          },
+          "IncludeDeleted": {
+            "type": "boolean"
+          },
+          "encrypts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "decrypts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MfiManager.Middleware.Http.Requests.InstallRequest": {
         "type": "object",
         "properties": {
@@ -606,61 +661,6 @@
           },
           "modifiedBy": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "MfiManager.Middleware.Http.Responses.HttpListRequest": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "action": {
-            "type": "string",
-            "nullable": true
-          },
-          "searchTerm": {
-            "type": "string",
-            "nullable": true
-          },
-          "ipAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "PageIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "SortBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "SortDirection": {
-            "type": "string",
-            "nullable": true
-          },
-          "IncludeDeleted": {
-            "type": "boolean"
-          },
-          "encrypts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "decrypts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
             "nullable": true
           }
         },

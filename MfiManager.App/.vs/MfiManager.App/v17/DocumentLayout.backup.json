@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities.configuration\\oracle\\oracleuseractivityentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities.configuration\\oracle\\oracleuserentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities.configuration\\oracle\\oracledeptunitentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\mfimanagerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -25,60 +13,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 433,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OracleUserActivityEntityConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserActivityEntityConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserActivityEntityConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserActivityEntityConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserActivityEntityConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T15:22:45.522Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OracleUserEntityConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserEntityConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserEntityConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserEntityConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleUserEntityConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T15:22:44.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OracleDeptUnitEntityConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleDeptUnitEntityConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleDeptUnitEntityConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleDeptUnitEntityConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities.Configuration\\Oracle\\OracleDeptUnitEntityConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T15:22:32.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MfiManagerDbContext.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAswHkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T14:21:05.481Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -105,15 +41,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Branch.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
               "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System\\Branch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T14:18:13.63Z",
+              "WhenOpened": "2025-11-02T15:44:19.253Z",
               "EditorCaption": ""
             }
           ]
