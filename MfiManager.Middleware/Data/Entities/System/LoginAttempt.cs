@@ -3,8 +3,8 @@
    public class LoginAttempt : BaseEntity {
         public long UserId { get; set; }
         public string IpAddress { get; set; }
-        public DateTime AttemptTime { get; set; }
-        public bool IsSuccessful { get; set; }
+        public DateTime LoginDate { get; set; }
+        public bool Successful { get; set; }
         public virtual SystemUser User { get; set; }
         public override bool Equals(object obj) {
 

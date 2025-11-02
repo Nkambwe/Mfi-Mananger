@@ -3,6 +3,9 @@
         public long CompanyId { get; set; }
         public string BranchCode { get; set; }
         public string BranchName { get; set; }
+        public object Address { get; internal set; }
+        public object EmailAddress { get; internal set; }
+        public object PostalAddress { get; internal set; }
         public virtual Company Company { get; set; }
         public virtual ICollection<SystemConfiguration> SystemConfigurations { get; set; }
         public override bool Equals(object obj) {

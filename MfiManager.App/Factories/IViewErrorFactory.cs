@@ -1,4 +1,4 @@
-﻿using MfiManager.App.Models;
+﻿using MfiManager.App.ViewModels;
 
 namespace MfiManager.App.Factories {
 

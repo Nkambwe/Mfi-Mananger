@@ -5,21 +5,10 @@ namespace MfiManager.Middleware.Data.Entities.System {
     public class RoleGroup: BaseEntity {
         public string GroupName { get; set; }
         public string Description { get; set; }
-        /// <summary>
-        /// Get or Set Scope of group
-        /// </summary>
         public GroupScope Scope { get; set; }
-        /// <summary>
-        /// Get or Set Scope of group
-        /// </summary>
         public string Department { get; set; }
-        /// <summary>
-        /// Get or Set Group type
-        /// </summary>
-        public RoleGroup Type { get; set; }
         public bool? IsApproved { get; set; }
         public bool? IsVerified { get; set; }
-
         public virtual ICollection<SystemRole> Roles { get; set; }
         public override bool Equals(object obj) {
 
@@ -34,7 +23,7 @@ namespace MfiManager.Middleware.Data.Entities.System {
             if (item.IsNew() || IsNew())
                 return false;
 
-            return item.GroupName.Equals(GroupName);
+            return item.GroupName.Equals(GroupName) && item.Description.Equals(Description) && item.Scope.Equals(Scope);
         }
 
         public override string ToString()

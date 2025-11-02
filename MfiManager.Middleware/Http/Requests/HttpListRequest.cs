@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MfiManager.Middleware.Http.Responses {
+namespace MfiManager.Middleware.Http.Requests {
 
     /// <summary>
     /// Class used to make a request for a list of entities

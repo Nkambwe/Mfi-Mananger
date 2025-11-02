@@ -7,7 +7,7 @@ namespace MfiManager.Middleware.Data.Entities.System {
         public string Description { get; set; }      
         public bool Enabled { get; set; } = true;
         public ActivityCatrgory Category { get; set; }
-        public bool IsSupportActivity { get; set; }
+        public bool IsAdminActivity { get; set; }
         public virtual ICollection<UserActivityLog> UserActivityLogs { get; set; }
         public override bool Equals(object obj) {
 

@@ -1,4 +1,4 @@
-﻿using MfiManager.App.Models;
+﻿using MfiManager.App.ViewModels;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Reflection;
 
