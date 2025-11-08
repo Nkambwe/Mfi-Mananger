@@ -3,11 +3,11 @@
     "Name": "New Profile",
     "Projects": [
       {
-        "Path": "MfiManager.App.csproj",
+        "Path": "..\\MfiManager.Middleware\\MfiManager.Middleware.csproj",
         "Action": "Start"
       },
       {
-        "Path": "..\\MfiManager.Middleware\\MfiManager.Middleware.csproj",
+        "Path": "MfiManager.App.csproj",
         "Action": "Start"
       }
     ]

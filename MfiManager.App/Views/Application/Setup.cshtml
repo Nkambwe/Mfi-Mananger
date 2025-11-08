@@ -20,7 +20,7 @@
         </header>
         <div class="setup-body">
 
-            <form id="installationform" class="installation-form" autocomplete="off" method="post" asp-controller="Application" asp-action="Install" novalidate>
+            <form id="installationform" class="installation-form" autocomplete="off" method="post" novalidate>
 
                 <div class="col-sm-12 mx-auto">
                     <div id="validation-summary" class="alert alert-danger d-none">
@@ -74,20 +74,20 @@
                             <label for="System_Language">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.Language"))
                             </label>
-                            <select id="System_Language" class="language-select form-control" name="SystemLanguage" asp-for="ApplicationLanguage" required>
+                            <select id="System_Language" class="language-select form-control" name="ApplicationLanguage" asp-for="ApplicationLanguage" required>
                                 <option value="None">@Html.Raw(ILocalize.GetLocalizedLabel("App.Localization.Languages.Select"))</option>
                                 @foreach (var lang in ILocalize.GetAvailableLanguages()) {
                                     <option value="@lang.Code" selected="@(Model.ApplicationLanguage == lang.Code)">@lang.Name</option>
                                 }
                             </select>
-                            <span asp-validation-for="ApplicationLanguage" data-valmsg-for="SystemLanguage" data-valmsg-replace="true" class="field-validation-error"></span>
+                            <span asp-validation-for="ApplicationLanguage" data-valmsg-for="System_Language" data-valmsg-replace="true" class="field-validation-error"></span>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="Company_Name">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName"))
                             </label>
-                            <input id="Company_Name" type="text" name="CompanyName" asp-for="Company.CompanyName" class="form-control" autocomplete="off" placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Example"))" required>
+                            <input id="Company_Name" type="text" name="Company.CompanyName" asp-for="Company.CompanyName" class="form-control" autocomplete="off" placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Example"))" required>
                             <span asp-validation-for="Company.CompanyName" data-valmsg-for="CompanyName" data-valmsg-replace="true" class="field-validation-error">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyName.Error"))
                             </span>
@@ -98,9 +98,9 @@
                             <label for="Company_Alias">
                                 @ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias")
                             </label>
-                            <input id="Company_Alias" type="text" name="Alias" asp-for="Company.Alias" class="form-control"
+                            <input id="Company_Alias" type="text" name="Company.Alias" asp-for="Company.Alias" class="form-control"
                                    placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias.Example"))" autocomplete="off" required>
-                            <span asp-validation-for="Company.Alias" data-valmsg-for="Alias" data-valmsg-replace="true" class="field-validation-error">
+                            <span asp-validation-for="Company.Alias" data-valmsg-for="Company_Alias" data-valmsg-replace="true" class="field-validation-error">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.CompanyAlias.Error"))
                             </span>
                         </div>
@@ -109,9 +109,9 @@
                             <label for="Registration_Number">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber"))
                             </label>
-                            <input id="Registration_Number" type="text" name="RegistrationNumber" asp-for="Company.RegistrationNumber" class="form-control" autocomplete="off"
+                            <input id="Registration_Number" type="text" name="Company.RegistrationNumber" asp-for="Company.RegistrationNumber" class="form-control" autocomplete="off"
                                    placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber.Example"))">
-                            <span asp-validation-for="Company.RegistrationNumber" data-valmsg-for="RegistrationNumber" data-valmsg-replace="true" class="field-validation-error">
+                            <span asp-validation-for="Company.RegistrationNumber" data-valmsg-for="Registration_Number" data-valmsg-replace="true" class="field-validation-error">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Company.Fields.RegistrationNumber.Error"))
                             </span>
                         </div>
@@ -176,7 +176,7 @@
                             <label for="Owner_Phone" class="col-form-label">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Contact"))
                             </label>
-                            <input id="Owner_Phone" type="tel" name="Owner.PhoneNumber" asp-for="Owner.ContactNumber" class="form-control" autocomplete="off"
+                            <input id="Owner_Phone" type="tel" name="Owner.ContactNumber" asp-for="Owner.ContactNumber" class="form-control" autocomplete="off"
                                    placeholder="@Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Owner.Fields.Contact.Example"))">
                             <span asp-validation-for="Owner.ContactNumber" class="field-validation-error"></span>
                         </div>
@@ -240,7 +240,7 @@
                             <label for="database_provider">
                                 @Html.Raw(ILocalize.GetLocalizedLabel("App.Installation.Database.Fields.Provider.Name"))
                             </label>
-                            <select id="database_provider" class="dbprovider-select form-control" name="databaseProvider" asp-for="DatabaseProvider.DatabaseProvider" required>
+                            <select id="database_provider" class="dbprovider-select form-control" name="DatabaseProvider.DatabaseProvider" asp-for="DatabaseProvider.DatabaseProvider" required>
                                 <option value="None">@Html.Raw(ILocalize.GetLocalizedLabel("App.Localization.Database.Provider.Select"))</option>
                                 @foreach (var provider in ILocalize.GetDatabaseProviders())
                                 {

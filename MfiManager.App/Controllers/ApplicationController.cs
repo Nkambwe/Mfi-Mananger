@@ -47,8 +47,9 @@ namespace MfiManager.App.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> Install([FromBody] InstallationModel installation) {
-            return View();
+        public async Task<IActionResult> Install(InstallationModel installation) {
+            var msg = await Task.FromResult(installation);
+            return Ok(new {data = msg});
         }
 
         

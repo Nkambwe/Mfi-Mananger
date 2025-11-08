@@ -52,7 +52,6 @@
                 Swal.fire({
                     title: window.Localization.ConfirmTitle,
                     text: window.Localization.ConfirmMessage,
-                    icon: "question",
                     showCancelButton: true,
                     confirmButtonText: window.Localization.BtnOk,
                     cancelButtonText: window.Localization.BtnCancel
@@ -65,7 +64,6 @@
                 Swal.fire({
                     title: window.Localization.InvalidTitle,
                     text: window.Localization.InvalidMessage,
-                    icon: "error",
                     confirmButtonColor: "#f41369",
                     confirmButtonText: window.Localization.BtnOk,
                 });
@@ -290,7 +288,7 @@
             });
 
             $.ajax({
-                url: $form.attr('action') || '/Application/Install',
+                url: '/mfi/app-install',
                 type: 'POST',
                 data: $form.serialize(),
                 dataType: 'json',
@@ -318,9 +316,16 @@
                     }
                 },
                 error: function (xhr) {
+                     Swal.close();
+
+                    let errorMessage = window.Localization.ErrorMessage;
+                    try {
+                        let response = JSON.parse(xhr.responseText);
+                        if (response.message) errorMessage = response.message;
+                    } catch (e) { }
                     Swal.fire({
                         title:  window.Localization.ErrorTitle,
-                        text:  window.Localization.ErrorMessage,
+                        text:  errorMessage,
                         confirmButtonText: "OK"
                     });
                     console.error('Ajax error:', xhr.responseText);

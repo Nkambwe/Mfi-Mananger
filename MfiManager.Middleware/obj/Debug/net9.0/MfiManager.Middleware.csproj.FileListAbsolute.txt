@@ -10,6 +10,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Auto
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Azure.Core.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Azure.Identity.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\EFCore.BulkExtensions.Core.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\EFCore.BulkExtensions.MySql.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\EFCore.BulkExtensions.Oracle.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\EFCore.BulkExtensions.PostgreSql.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\EFCore.BulkExtensions.Sqlite.dll
@@ -58,6 +59,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Micr
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Microsoft.SqlServer.Types.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\MySqlConnector.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\NetTopologySuite.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\NetTopologySuite.IO.SpatiaLite.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\NetTopologySuite.IO.SqlServerBytes.dll
@@ -66,6 +68,7 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Npgs
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Oracle.EntityFrameworkCore.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Oracle.ManagedDataAccess.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\SQLitePCLRaw.core.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -78,11 +81,13 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\Syst
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Composition.TypedParts.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Diagnostics.PerformanceCounter.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.DirectoryServices.Protocols.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Memory.Data.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Security.Cryptography.Pkcs.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\System.Text.Json.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
@@ -180,10 +185,12 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runt
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win-x64\native\SqlServerSpatial160.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win-x86\native\SqlServerSpatial160.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Diagnostics.PerformanceCounter.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\linux\lib\net8.0\System.DirectoryServices.Protocols.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\osx\lib\net8.0\System.DirectoryServices.Protocols.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Security.Cryptography.Pkcs.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.csproj.AssemblyReference.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.AssemblyInfoInputs.cache
@@ -203,10 +210,10 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\stat
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.MfiManager.Middleware.props
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.MfiManager.Middleware.props
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManag.660FAC0D.Up2Date
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\refint\MfiManager.Middleware.dll
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.pdb
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\MfiManager.Middleware.genruntimeconfig.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\ref\MfiManager.Middleware.dll
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.Middleware\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
