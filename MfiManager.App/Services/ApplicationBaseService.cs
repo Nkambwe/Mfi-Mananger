@@ -17,6 +17,7 @@ namespace MfiManager.App.Services {
         protected readonly IHttpHandler<T> HttpHandler;
         protected readonly IMfiErrorService ErrorService;
         protected readonly IMfiErrorFactory ErrorFactory;
+        protected readonly ILocalizationService LocalizationService;
         protected readonly SessionManager SessionManager;
         protected readonly JsonSerializerOptions JsonOptions;
         
@@ -27,6 +28,7 @@ namespace MfiManager.App.Services {
                               IMfiErrorService errorService,
                               IMfiErrorFactory errorFactory,
                               IWebHelper webHelper,
+                              ILocalizationService localizationService,
                               SessionManager sessionManager) {
             Logger = logger;
             HttpHandler = httpHandler;
@@ -40,6 +42,8 @@ namespace MfiManager.App.Services {
                 PropertyNameCaseInsensitive = true,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
+
+            LocalizationService = localizationService;
         }
         
         /// <summary>

@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System {
+﻿using MfiManager.Middleware.Data.Entities.Operations;
+
+namespace MfiManager.Middleware.Data.Entities.System {
     public class SystemUser: BaseEntity {
         public string Username { get; set; }
         public string FirstName { get; set; }
@@ -25,6 +27,8 @@
         public virtual ICollection<UserQuickAction> QuickActions { get; set; }
         public virtual ICollection<UserPrefference> Prefferences { get; set; }
         public virtual ICollection<UserActivityLog> ActivityLogs { get; set; }
+        public virtual ICollection<Password> Passwords { get; set; }
+        public virtual ICollection<DelegatePermission> Delegates {get;set;}=[];
         public override bool Equals(object obj) {
 
             if (obj is not SystemUser)

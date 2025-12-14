@@ -216,7 +216,7 @@
   {
     "ContainingType": "MfiManager.Middleware.Controllers.MfiSystemController",
     "Method": "Install",
-    "RelativePath": "mfi/system/install/register",
+    "RelativePath": "mfi/system/install/company-setup",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

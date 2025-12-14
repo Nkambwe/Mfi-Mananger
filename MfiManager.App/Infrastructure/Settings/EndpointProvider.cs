@@ -9,7 +9,7 @@ namespace MfiManager.App.Infrastructure.Settings {
 
         public HealthEndpoint Health => _options.Health;
 
-        public InstallationEndpoints Installation =>_options.Registration;
+        public InstallationEndpoints Installation =>_options.Installation;
 
         public OrganizationEndpoints Organization => _options.Organization;
 

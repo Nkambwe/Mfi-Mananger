@@ -4,13 +4,9 @@ using MfiManager.App.Defaults;
 
 namespace MfiManager.App.Infrastructure.Utils {
 
-    public class WebHelper : IWebHelper {
-        private readonly IHttpContextAccessor _httpContext;
+    public class WebHelper(IHttpContextAccessor httpContext) : IWebHelper {
+        private readonly IHttpContextAccessor _httpContext = httpContext;
 
-        public WebHelper(IHttpContextAccessor httpContext) {
-            _httpContext = httpContext;
-        }
-        
         /// <summary>
         /// Gets whether the request is made with AJAX 
         /// </summary>

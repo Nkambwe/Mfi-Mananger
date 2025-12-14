@@ -238,11 +238,30 @@
         }
       }
     },
-    "/mfi/system/welcome": {
-      "get": {
+    "/mfi/system/install/company-setup": {
+      "post": {
         "tags": [
           "MfiSystem"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -343,37 +362,6 @@
         }
       }
     },
-    "/mfi/system/install/register": {
-      "post": {
-        "tags": [
-          "MfiSystem"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/MfiManager.Middleware.Http.Requests.InstallRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/mfi/system/users/users-all": {
       "post": {
         "tags": [
@@ -398,6 +386,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mfi/system/welcome": {
+      "get": {
+        "tags": [
+          "MfiSystem"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -576,7 +576,7 @@
             "type": "string",
             "nullable": true
           },
-          "shortName": {
+          "alias": {
             "type": "string",
             "nullable": true
           },
@@ -584,15 +584,11 @@
             "type": "string",
             "nullable": true
           },
-          "language": {
-            "type": "string",
-            "nullable": true
+          "userId": {
+            "type": "integer",
+            "format": "int64"
           },
           "firstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
             "type": "string",
             "nullable": true
           },
@@ -600,15 +596,15 @@
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "lastName": {
             "type": "string",
             "nullable": true
           },
-          "phone": {
+          "emailAddress": {
             "type": "string",
             "nullable": true
           },
-          "pfNumber": {
+          "contactNumber": {
             "type": "string",
             "nullable": true
           },
@@ -620,47 +616,42 @@
             "type": "string",
             "nullable": true
           },
-          "solId": {
+          "databaseProvider": {
             "type": "string",
             "nullable": true
           },
-          "roleId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "departmentId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "unitCode": {
+          "minimumVersion": {
             "type": "string",
             "nullable": true
           },
-          "isActive": {
-            "type": "boolean"
-          },
-          "isVerified": {
-            "type": "boolean"
-          },
-          "isLogged": {
-            "type": "boolean"
-          },
-          "createdOn": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
+          "versionCheckTime": {
             "type": "string",
             "nullable": true
           },
-          "modifiedOn": {
+          "defaultLanguage": {
             "type": "string",
-            "format": "date-time",
             "nullable": true
           },
-          "modifiedBy": {
+          "action": {
             "type": "string",
+            "nullable": true
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "encrypts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "decrypts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },

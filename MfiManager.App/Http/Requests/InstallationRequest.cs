@@ -12,15 +12,24 @@ namespace MfiManager.App.Http.Requests {
 
         [JsonPropertyName("regNumber")]
         public string RegNumber { get; set; }
-        
-        [JsonPropertyName("username")]
-        public string Username { get; set; } = "Mfiuser";
+
+        [JsonPropertyName("firstName")]
+        public string FirstName { get; set; }
+
+        [JsonPropertyName("middleName")]
+        public string MiddleName { get; set; }
+
+        [JsonPropertyName("lastName")]
+        public string LastName { get; set; }
 
         [JsonPropertyName("emailAddress")]
         public string EmailAddress { get; set; }
 
         [JsonPropertyName("contactNumber")]
         public string ContactNumber { get; set; }
+
+        [JsonPropertyName("username")]
+        public string Username { get; set; } = "Mfiuser";
 
         [JsonPropertyName("password")]
         public string Password { get; set; }
@@ -30,6 +39,13 @@ namespace MfiManager.App.Http.Requests {
 
         [JsonPropertyName("minimumVersion")]
         public string MinimumVersion { get; set; }
+        
+        [JsonPropertyName("versionCheckTime")]
+        public string VersionCheckTime { get; set; }
+
+        [JsonPropertyName("defaultLanguage")]
+        public string DefaultLanguage { get; set; }
+
     }
 
 }

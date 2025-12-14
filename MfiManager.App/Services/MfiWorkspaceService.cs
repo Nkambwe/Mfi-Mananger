@@ -17,8 +17,10 @@ namespace MfiManager.App.Services {
                                 IMfiErrorFactory errorFactory, 
                                 IWebHelper webHelper, 
                                 ICompanyBranchService branchService,
+                                ILocalizationService localizationService,
                                 SessionManager sessionManager)
-                                : base(logger, httpHandler, environment, endpointType, errorService, errorFactory, webHelper, sessionManager) {
+                                : base(logger, httpHandler, environment, endpointType, errorService, 
+                                      errorFactory, webHelper, localizationService, sessionManager) {
             _branchService = branchService;
         }
 

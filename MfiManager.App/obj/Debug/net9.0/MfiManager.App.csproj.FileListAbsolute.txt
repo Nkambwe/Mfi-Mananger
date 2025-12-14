@@ -272,9 +272,11 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\scopedcss\b
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\scopedcss\projectbundle\MfiManager.App.bundle.scp.css
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\nbvbzhymhp-7bj130qqca.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\2u68t2crik-p16de6a8hc.gz
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4yzc0vyu9p-ri39xu0ex1.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\vdrlksbsoo-m9qmo2ecbt.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\yk74f58k7h-j6bjgax5uf.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\l4s7q60mv0-ohqeu73a99.gz
+C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4mdzqiyifm-rulsw7t7mp.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\68i24wn12e-3r8b2a0bt1.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\zjxechtzgi-xtxxf3hu2r.gz
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\wt42fpuf02-bqjiyaj88i.gz
@@ -392,5 +394,3 @@ C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\refint\MfiM
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\MfiManager.App.pdb
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\MfiManager.App.genruntimeconfig.cache
 C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\ref\MfiManager.App.dll
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4yzc0vyu9p-ri39xu0ex1.gz
-C:\Projects\mfi-manager\Mfi-Mananger\MfiManager.App\obj\Debug\net9.0\compressed\4mdzqiyifm-l565ssrfaz.gz

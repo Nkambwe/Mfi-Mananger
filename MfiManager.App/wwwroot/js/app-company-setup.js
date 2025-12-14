@@ -305,36 +305,111 @@
                             text: response.data.message || window.Localization.SuccessMessage,
                             confirmButtonText: window.Localization.SuccessContinue,
                         }).then(() => {
-                            window.location.href = response.redirectUrl || '/Application/Login';
+                            window.location.href = response.redirectUrl || '/mfi/application/login';
                         });
                     } else {
-                        Swal.fire({
-                            title: window.Localization.FailedTitle,
-                            text: response.data?.message ||  window.Localization.FailedMessage,
-                            confirmButtonText: "OK"
-                        });
+
+                        //..handle different types of errors
+                        let errorTitle = window.Localization.FailedTitle;
+                        let errorMessage = response.data?.message ||  window.Localization.FailedMessage;
+
+                        if (response.hasError && response.error) {
+                            //..handle service or system errors 
+                            errorTitle = response.error.message || window.Localization.SystemError;
+                            errorMessage = response.error.description || window.Localization.RegisterErrorMessage;
+            
+                            console.log("SERVICE ERROR:", response.error);
+            
+                            // Show the specific error message from server
+                            Swal.fire({
+                                title: errorTitle,
+                                text: errorMessage,
+                                confirmButtonText: window.Localization.ButtonOk,
+                                customClass: {
+                                    confirmButton: "swal2-confirm",
+                                }
+                            });
+                        } else if (!response.hasError && response.data && response.data.status === false) {
+                            //..handle business logic failures where HasError=false but Status=false
+                            errorTitle = response.error.message;
+                            errorMessage = response.data.message || window.Localization.RegisterFailedMessage;
+            
+                            console.log("BUSINESS ERROR:", response.data);
+                            Swal.fire({
+                                title: errorTitle,
+                                text: errorMessage,
+                                confirmButtonText: window.Localization.ButtonOk,
+                                customClass: {
+                                    confirmButton: "swal2-confirm",
+                                }
+                            });
+                        } else if (response.errors) {
+                            //..handle validation errors
+                            console.log("VALIDATION ERRORS:", response.errors);
+                            handleServerValidationErrors(response.errors);
+                            Swal.fire({
+                                title: errorTitle,
+                                text: errorMessage,
+                                confirmButtonText: window.Localization.ButtonOk,
+                                customClass: {
+                                    confirmButton: "swal2-confirm",
+                                }
+                            });
+                        } else {
+                            //..handle unknown error format
+                            console.log("UNKNOWN ERROR:", response);
+                            Swal.fire({
+                                title: errorTitle,
+                                text: errorMessage,
+                                confirmButtonText: window.Localization.ButtonOk,
+                                customClass: {
+                                    confirmButton: "swal2-confirm",
+                                }
+                            });
+                        }
                     }
                 },
-                error: function (xhr) {
-                     Swal.close();
-
-                    let errorMessage = window.Localization.ErrorMessage;
-                    try {
-                        let response = JSON.parse(xhr.responseText);
-                        if (response.message) errorMessage = response.message;
-                    } catch (e) { }
+                error: function(xhr, status, error) {
+                    //..handle Ajax errors
+                    console.error('Ajax error:', error);
+                    console.log('Server response:', xhr.responseText);
+                    //..add specific handling for CSRF errors
+                    if (xhr.status === 400 && xhr.responseText.includes('antiforgery')) {
+                        Swal.fire({
+                            title: window.Localization.SecurityErrorTitle,
+                            text: window.Localization.SecurityErrorMessage,
+                            confirmButtonText: window.Localization.ButtonOk,
+                            customClass: {
+                                confirmButton: "swal2-confirm",
+                            }
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                        return;
+                    }
+                    
+                    let errorMessage = window.Localization.ServerErrorFallBack;
+                    if (xhr.status === 405) {
+                        errorMessage = window.Localization.ServerError405;
+                    } else if (xhr.status === 404) {
+                        errorMessage = window.Localization.ServerError404;
+                    } else if (xhr.status === 500) {
+                        errorMessage = window.Localization.ServerError500;
+                    }
+                    
                     Swal.fire({
-                        title:  window.Localization.ErrorTitle,
-                        text:  errorMessage,
-                        confirmButtonText: "OK"
+                        title:window.Localization.ServerErrorTiltle,
+                        text: errorMessage,
+                        confirmButtonText: window.Localization.ButtonOk,
+                        customClass: {
+                            confirmButton: "swal2-confirm",
+                        }
                     });
-                    console.error('Ajax error:', xhr.responseText);
                 }
             });
         }
 
         // ========== Helpers ==========
-
         function handleServerValidationErrors(errors) {
             $('.field-validation-error').removeClass('show-error');
             $('.form-control').removeClass('is-invalid');
@@ -352,7 +427,6 @@
 
             $('#validation-summary').removeClass('d-none');
         }
-
         function validateAlphabetic(value) { return /^[a-zA-Z\s]+$/.test(value); }
         function validateAlphanumeric(value) { return /^[a-zA-Z0-9]+$/.test(value); }
         function validateNumeric(value) { return /^\d+$/.test(value); }
@@ -360,11 +434,9 @@
         function validatePassword(value) {
             return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
         }
-
         function getAntiForgeryToken() {
             return $('meta[name="csrf-token"]').attr('content');
         }
-
         function setupRealTimeValidation() {
             $form.find('input[required], select[required]').on('input change', function () {
                 validateField($(this));

@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
 
-    public class MfiDatabaseInfoController(
-        ILogger<MfiDatabaseInfoController> logger,
-        IEnvironmentProvider environment,
-        IDatabaseVersionCheckerService versionChecker) : MfiBaseController(logger, environment){
+    public class MfiDatabaseInfoController(ILogger<MfiDatabaseInfoController> logger,
+                                            IDatabaseVersionCheckerService versionChecker,
+                                            IEnvironmentProvider environment,
+                                            IServiceLocalization localizationService,
+                                            ISystemErrorService errorService,
+                                            ICompanyService companyService)
+                                            : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
         private readonly ILogger<MfiDatabaseInfoController> _logger = logger;
         private readonly IDatabaseVersionCheckerService _versionChecker = versionChecker;
 

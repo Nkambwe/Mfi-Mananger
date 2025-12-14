@@ -7,9 +7,12 @@ namespace MfiManager.Middleware.Controllers {
     [ApiController]
     [Route("mfi/kyc")]
     public class MfiKycController(ILogger<MfiKycController> logger, 
+                                  ICustomerService customerService,
                                   IEnvironmentProvider environment,
-                                  ICustomerService customerService) 
-        : MfiBaseController(logger, environment) {
+                                IServiceLocalization localizationService,
+                                ISystemErrorService errorService,
+                                ICompanyService companyService)
+                                : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
         private readonly ILogger<MfiKycController> _logger = logger;
         private readonly ICustomerService _customerService = customerService;
         private const string LOG_ID="MFI-KYCCONTROLLER";

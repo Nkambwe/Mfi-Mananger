@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="English-US" IsDefault="true" IsRightToLeft="false">
+    <LocaleResource Name="Server.Error.NotFound">
+        <Value>Record not found</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.NotFound.Message">
+        <Value>The resource your looking for does not exist or has been moved</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.Badrequest">
+        <Value>Invalid request object</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.Badrequest.Message">
+        <Value>Your request is not properly formed</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.Network">
+        <Value>Network Error</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.Network.Message">
+        <Value>Sorry! We experience a network issue, or possible timeout</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.IntenalError">
+        <Value>An unexpected error occurred</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.IntenalError.Message">
+        <Value>Sorry we cannot complete your request. An error occurred, please try again later</Value>
+    </LocaleResource>
+    <LocaleResource Name="Server.Error.Critical">
+        <Value>Critical error occurred. Please try again later</Value>
+    </LocaleResource>
+    <LocaleResource Name="System.Error">
+        <Value>System Error!</Value>
+    </LocaleResource>
+    <LocaleResource Name="System.Error.SavedToDatabase">
+        <Value>Error occurred and saved to the database</Value>
+    </LocaleResource>
+    <LocaleResource Name="System.Error.NotSavedToDatabase">
+        <Value>Failed to capture error to the database. System error occurred</Value>
+    </LocaleResource>
+</Language>

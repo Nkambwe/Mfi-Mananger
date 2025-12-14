@@ -6,71 +6,59 @@ namespace MfiManager.Middleware.Http.Requests {
         [JsonPropertyName("companyName")]
         public string CompanyName { get; set; }
 
-        [JsonPropertyName("shortName")]
-        public string Alias { get; set; }
+        [JsonPropertyName("alias")]
+        public string CompanyAlias { get; set; }
 
         [JsonPropertyName("regNumber")]
         public string RegNumber { get; set; }
 
-        [JsonPropertyName("language")]
-        public string Language { get; set; }
+       [JsonPropertyName("userId")]
+        public long UserId { get; set; }
 
         [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
 
-        [JsonPropertyName("lastName")]
-        public string LastName { get; set; }
-
         [JsonPropertyName("middleName")]
         public string MiddleName { get; set; }
 
-        [JsonPropertyName("email")]
-        public string Email { get; set; }
+        [JsonPropertyName("lastName")]
+        public string LastName { get; set; }
 
-        [JsonPropertyName("phone")]
-        public string PhoneNumber { get; set; }
+        [JsonPropertyName("emailAddress")]
+        public string EmailAddress { get; set; }
 
-        [JsonPropertyName("pfNumber")]
-        public string PFNumber { get; set; }
+        [JsonPropertyName("contactNumber")]
+        public string ContactNumber { get; set; }
 
         [JsonPropertyName("username")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         [JsonPropertyName("password")]
         public string Password { get; set; }
 
-        [JsonPropertyName("solId")]
-        public string SolId { get; set; }
+        [JsonPropertyName("databaseProvider")]
+        public string DatabaseProvider {get; set; }
 
-        [JsonPropertyName("roleId")]
-        public long RoleId { get; set; }
+        [JsonPropertyName("minimumVersion")]
+        public string MinimumVersion { get; set; }
+        
+        [JsonPropertyName("versionCheckTime")]
+        public string VersionCheckTime { get; set; }
 
-        [JsonPropertyName("departmentId")]
-        public long DepartmentId { get; set; }
+        [JsonPropertyName("defaultLanguage")]
+        public string DefaultLanguage { get; set; }
 
-        [JsonPropertyName("unitCode")]
-        public string UnitCode { get; set; }
+        [JsonPropertyName("action")]
+        public string Action { get; set; }
 
-        [JsonPropertyName("isActive")]
-        public bool IsActive { get; set; }
+        [JsonPropertyName("ipAddress")]
+        public string IPAddress { get; set; }
 
-        [JsonPropertyName("isVerified")]
-        public bool IsVerified { get; set; }
+        [JsonPropertyName("encrypts")]
+        public List<string> Encrypts { get; set; }
 
-        [JsonPropertyName("isLogged")]
-        public bool IsLogged { get; set; }
-
-        [JsonPropertyName("createdOn")]
-        public DateTime? CreatedOn { get; set; }
-
-        [JsonPropertyName("createdBy")]
-        public string CreatedBy { get; set; }
-
-        [JsonPropertyName("modifiedOn")]
-        public DateTime? ModifiedOn { get; set; }
-
-        [JsonPropertyName("modifiedBy")]
-        public string ModifiedBy { get; set; }
+        [JsonPropertyName("decrypts")]
+        public List<string> Decrypts { get; set; }
     }
 
 }

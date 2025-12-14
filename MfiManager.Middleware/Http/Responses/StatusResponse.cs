@@ -5,5 +5,6 @@ namespace MfiManager.Middleware.Http.Responses {
         
         [JsonPropertyName("status")]
         public bool Status { get; set; }
+        public string Message { get; set; }
     }
 }

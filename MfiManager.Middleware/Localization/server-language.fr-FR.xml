@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="French-FR" IsDefault="false" IsRightToLeft="false">
+    <LocaleResource Name="Server.Installation.Title">
+        <Value>Installation</Value>
+    </LocaleResource>
+</Language>

@@ -120,6 +120,39 @@
     <LocaleResource Name="App.Installation.Owner.Fields.Contact.Error">
         <Value>Owner phone number is invalid</Value>
     </LocaleResource>
+    <LocaleResource Name="App.Installation.Security.Error.Title">
+        <Value>Security Error</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Security.Error.Message">
+        <Value>Security token validation failed. Please refresh the page and try again.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Owner.Server.Error.Title">
+        <Value>System Error</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Server.Error.404">
+        <Value>Registration endpoint not found. Please contact support.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Server.Error.405">
+        <Value>Method not allowed. Please check the server configuration.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Server.Error.500">
+        <Value>Server error occurred. Please try again later.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Installation.Server.Error.Fallback">
+        <Value>An error occurred while processing your request. Please try again.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.System.Error">
+        <Value>System Error</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Unknown">
+        <Value>Unknown error has occurred</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Registration.Error">
+        <Value>An error occurred during registration.</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Registration.Failed">
+        <Value>Registration could not be completed.</Value>
+    </LocaleResource>
     <LocaleResource Name="App.Installation.Owner">
         <Value>Owner</Value>
     </LocaleResource>
@@ -186,6 +219,9 @@
     <LocaleResource Name="App.Installation.Error.Message">
         <Value>Installation error details</Value>
     </LocaleResource>
+    <LocaleResource Name="App.Installation.Error.ClearErrors">
+        <Value>Please clear these errors to complete setup</Value>
+    </LocaleResource>
     <LocaleResource Name="App.Validation.Installation.Confirm.Title">
         <Value>Company Setup</Value>
     </LocaleResource>
@@ -213,6 +249,9 @@
     <LocaleResource Name="App.Installation.Owner.Fields.UserName.Error">
         <Value>Admin username is required</Value>
     </LocaleResource>
+    <LocaleResource Name="App.Installation.Error.InvalidData">
+        <Value>Invalid setup data</Value>
+    </LocaleResource>
     <LocaleResource Name="App.Installation.Owner.Fields.Password.Error">
         <Value>Password should be a minimum of 8 characters and should contain atleast one uppercase, one lowercase and a special character</Value>
     </LocaleResource>
@@ -225,7 +264,6 @@
     <LocaleResource Name="App.Installation.Database.Fields.Provider.Error">
         <Value>Database provider is required</Value>
     </LocaleResource>
-
     <LocaleResource Name="App.Validation.Field.Required">
         <Value>Field is required</Value>
     </LocaleResource>
@@ -235,7 +273,26 @@
     <LocaleResource Name="App.Validation.Invalid-data.Message">
         <Value>Please clear the following errors to proceed</Value>
     </LocaleResource>
-    
+
+    <LocaleResource Name="App.Request.NotFound">
+        <Value>Record not found</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Request.Bad">
+        <Value>Invalid request object</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Network">
+        <Value>Network Error</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Server">
+        <Value>An unexpected error occurred</Value>
+    </LocaleResource>
+    <LocaleResource Name="App.Error.Server.Message">
+        <Value>Cannot proceed! An error occurred, please try again later</Value>
+    </LocaleResource>
+
+    <LocaleResource Name="App.ErrorService.Error.InvalidData">
+        <Value>Invalid error data</Value>
+    </LocaleResource>
     
     <LocaleResource Name="App.Localization.Languages.Select">
         <Value>Select Language</Value>

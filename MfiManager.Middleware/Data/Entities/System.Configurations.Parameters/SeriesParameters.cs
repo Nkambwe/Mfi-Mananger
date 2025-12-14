@@ -1,0 +1,59 @@
+﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+    public class SeriesParameters: IConfigurationParameter {
+        public string BusinessCustomersCode { get; set; }
+        public string BusinessCustomersIdentifier { get; set; }
+        public string IndividualCustomersCode { get; set; }
+        public string IndividualCustomersIdentifier { get; set; }
+        public string GroupCustomersCode { get; set; }
+        public string GroupCustomersIdentifier { get; set; }
+        public string TradeCustomersCode { get; set; }
+        public string TradeCustomersIdentifier { get; set; }
+        public string CustomerRelativesCode { get; set; }
+        public string CustomerRelativesIdentifier { get; set; }
+        public string VendorsCode { get; set; }
+        public string VendorsIdentifier { get; set; }
+        public string PurchaseOrdersCode { get; set; }
+        public string PurchaseOrdersIdentifier { get; set; }
+        public string SalesOrdersCode { get; set; }
+        public string SalesOrdersIdentifier { get; set; }
+        public string PurchaseInvoicesCode { get; set; }
+        public string PurchaseInvoicesIdentifier { get; set; }
+        public string SalesInvoicesCode { get; set; }
+        public string SalesInvoicesIdentifier { get; set; }
+        public string FixedAssetsCode { get; set; }
+        public string FixedAssetsIdentifier { get; set; }
+        public string IntangibleAssetsCode { get; set; }
+        public string IntangibleAssetsIdentifier { get; set; }
+        public string LoansCode { get; set; }
+        public string LoansIdentifier { get; set; }
+        public string VouchersCode { get; set; }
+        public string VouchersIdentifier { get; set; }
+        public string JournalsCode { get; set; }
+        public string JournalsIdentifier { get; set; }
+        public string BusinessPostingsCode { get; set; }
+        public string BusinessPostingsIdentifier { get; set; }
+        public string GeneralPostingsCode { get; set; }
+        public string GeneralPostingsIdentifier { get; set; }
+        public string ChargeGroupsCode { get; set; }
+        public string ChargeGroupsIdentifier { get; set; }
+        public string TaxGroupsCode { get; set; }
+        public string TaxGroupsIdentifier { get; set; }
+        public string ReasonTypeCode { get; set; }
+        public string ReasonTypeIdentifier { get; set; }
+        public string Custom1Code { get; set; }
+        public string Custom1Identifier { get; set; }
+        public string Custom2Code { get; set; }
+        public string Custom2Identifier { get; set; }
+        public string Custom3Code { get; set; }
+        public string Custom3Identifier { get; set; }
+        public string Custom4Code { get; set; }
+        public string Custom4Identifier { get; set; }
+        public string Custom5Code { get; set; }
+        public string Custom5Identifier { get; set; }
+        public string Custom6Code { get; set; }
+        public string Custom6Identifier { get; set; }
+        public string Custom7Code { get; set; }
+        public string Custom7Identifier { get; set; }
+    }
+
+}

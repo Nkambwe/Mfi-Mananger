@@ -12,21 +12,22 @@ namespace MfiManager.App.Services {
     public class InstallService(ILogger<InstallService> logger,
                         IHttpHandler<InstallService> httpHandler,
                         IEnvironmentProvider environment,
+                        ILocalizationService localizationService, 
                         IEndpointProvider endpointType,
                         IMfiErrorService errorService,
                         IMfiErrorFactory errorFactory,
                         IWebHelper webHelper,
                         SessionManager sessionManager)
         : ApplicationBaseService<InstallService>(logger, httpHandler, environment, endpointType,
-            errorService, errorFactory, webHelper, sessionManager), IInstallService {
+            errorService, errorFactory, webHelper, localizationService, sessionManager), IInstallService {
 
         public async Task<MfiHttpResponse<MfiHttpStatusResponse>> RegisterCompanyAsync(InstallationModel model, string ipAddress) {
             //..validate input
             if(model == null) {
                 var error = new MfiHttpErrorResponse(
                     400,
-                    "Request record cannot be empty",
-                    "The company registration model cannot be null"
+                    LocalizationService.GetLocalizedLabel("App.Request.Bad"),
+                    LocalizationService.GetLocalizedLabel("App.Installation.Error.InvalidData")
                 );
         
                 Logger.LogInformation("BAD REQUEST: {Error}", JsonSerializer.Serialize(error));
@@ -57,8 +58,8 @@ namespace MfiManager.App.Services {
                 Logger.LogCritical("{Stacktrace}", httpEx.StackTrace);
                 await ProcessErrorAsync(httpEx.Message,"INSTALL-SERVICE" , httpEx.StackTrace);
                 var error = new MfiHttpErrorResponse(
-                    400,
-                    "Network error occurred",
+                    502,
+                    LocalizationService.GetLocalizedLabel("App.Error.Network"),
                     httpEx.Message
                 );
                 return new MfiHttpResponse<MfiHttpStatusResponse>(error);
@@ -69,8 +70,8 @@ namespace MfiManager.App.Services {
                 await ProcessErrorAsync(ex.Message,"INSTALL-SERVICE" , ex.StackTrace);
                 var error = new MfiHttpErrorResponse(
                     500,
-                    "An unexpected error occurred",
-                    "Cannot proceed! An error occurred, please try again later"
+                    LocalizationService.GetLocalizedLabel("App.Error.Server"),
+                    LocalizationService.GetLocalizedLabel("App.Error.Server.Message")
                 );
                 return new MfiHttpResponse<MfiHttpStatusResponse>(error);
             }

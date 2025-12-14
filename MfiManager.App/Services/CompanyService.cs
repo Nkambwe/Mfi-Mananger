@@ -10,9 +10,11 @@ namespace MfiManager.App.Services {
         IEndpointProvider endpointType,
         IMfiErrorService errorService,
         IMfiErrorFactory errorFactory,
-        IWebHelper webHelper, SessionManager sessionManager) 
+        IWebHelper webHelper,
+        ILocalizationService localizationService, 
+        SessionManager sessionManager) 
         : ApplicationBaseService<CompanyService>(logger, httpHandler, environment, endpointType, 
-              errorService, errorFactory, webHelper, sessionManager), ICompanyService {
+              errorService, errorFactory, webHelper, localizationService, sessionManager), ICompanyService {
     }
 
 }

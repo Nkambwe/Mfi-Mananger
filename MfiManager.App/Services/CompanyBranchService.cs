@@ -14,9 +14,10 @@ namespace MfiManager.App.Services {
         IMfiErrorService errorService,
         IMfiErrorFactory errorFactory,
         IWebHelper webHelper,
+        ILocalizationService localizationService, 
         SessionManager sessionManager) 
         : ApplicationBaseService<CompanyBranchService>(logger, httpHandler, environment, endpointType,
-            errorService, errorFactory, webHelper, sessionManager), ICompanyBranchService {
+            errorService, errorFactory, webHelper, localizationService, sessionManager), ICompanyBranchService {
 
         public Task<MfiHttpResponse<PagedResponse<BranchResponse>>> GetAllBranchesAsync(MfiHttpListRequest request) {
             throw new NotImplementedException();

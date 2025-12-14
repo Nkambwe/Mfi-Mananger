@@ -1,0 +1,22 @@
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+
+namespace MfiManager.Middleware.Data.Entities.Customers {
+    /// <summary>
+    /// Group member position history
+    /// </summary>
+    public class MemberPosition : BaseEntity {
+        public long MemberId { get; set; }
+        public string GroupCode { get; set; }
+        public int PositionId { get; set; }
+        /// <summary>
+        /// Get/Set when the position started
+        /// </summary>
+        public DateTime Started { get; set; }
+        /// <summary>
+        /// Get/Set when the position ended
+        /// </summary>
+        public DateTime? Ended { get; set; }
+        public virtual Member Member { get; set; }
+        public virtual Position Position { get; set; }
+    }
+}

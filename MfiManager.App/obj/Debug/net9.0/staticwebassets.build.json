@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v1zaFKPc51rmy3jYaX6ZcQbg+YY/S5HxEy0P+WtvId8=",
+  "Hash": "RmqVNJpnGcqpcxolEubNPv3gY7Rj8kJH81aqvTUBgcQ=",
   "Source": "MfiManager.App",
   "BasePath": "_content/MfiManager.App",
   "Mode": "Default",
@@ -374,12 +374,12 @@
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-l565ssrfaz.gz",
+      "Identity": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rulsw7t7mp.gz",
       "SourceId": "MfiManager.App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MfiManager.App",
-      "RelativePath": "js/app-company-setup#[.{fingerprint=l565ssrfaz}]?.js.gz",
+      "RelativePath": "js/app-company-setup#[.{fingerprint=rulsw7t7mp}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -388,8 +388,8 @@
       "RelatedAsset": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "f2ng3ecox0",
-      "Integrity": "x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ=",
+      "Fingerprint": "tbqcdje7wv",
+      "Integrity": "SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js"
@@ -2551,8 +2551,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "l565ssrfaz",
-      "Integrity": "l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=",
+      "Fingerprint": "rulsw7t7mp",
+      "Integrity": "XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\app-company-setup.js"
@@ -6861,12 +6861,12 @@
     },
     {
       "Route": "js/app-company-setup.js",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-l565ssrfaz.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rulsw7t7mp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000331564987"
+          "Quality": "0.000282805430"
         }
       ],
       "ResponseHeaders": [
@@ -6876,15 +6876,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3015"
+          "Value": "3535"
         },
         {
           "Name": "ETag",
-          "Value": "\"x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ=\""
+          "Value": "\"SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6904,13 +6904,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=\""
+          "Value": "W/\"XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0="
+          "Value": "sha256-XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg="
         }
       ]
     },
@@ -6925,7 +6925,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14855"
+          "Value": "19161"
         },
         {
           "Name": "Content-Type",
@@ -6933,11 +6933,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=\""
+          "Value": "\"XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6947,13 +6947,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0="
+          "Value": "sha256-XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg="
         }
       ]
     },
     {
       "Route": "js/app-company-setup.js.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-l565ssrfaz.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rulsw7t7mp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6962,7 +6962,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3015"
+          "Value": "3535"
         },
         {
           "Name": "Content-Type",
@@ -6970,11 +6970,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ=\""
+          "Value": "\"SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6992,18 +6992,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ="
+          "Value": "sha256-SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ="
         }
       ]
     },
     {
-      "Route": "js/app-company-setup.l565ssrfaz.js",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-l565ssrfaz.gz",
+      "Route": "js/app-company-setup.rulsw7t7mp.js",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rulsw7t7mp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000331564987"
+          "Quality": "0.000282805430"
         }
       ],
       "ResponseHeaders": [
@@ -7013,15 +7013,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3015"
+          "Value": "3535"
         },
         {
           "Name": "ETag",
-          "Value": "\"x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ=\""
+          "Value": "\"SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7041,13 +7041,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=\""
+          "Value": "W/\"XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l565ssrfaz"
+          "Value": "rulsw7t7mp"
         },
         {
           "Name": "label",
@@ -7055,12 +7055,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0="
+          "Value": "sha256-XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg="
         }
       ]
     },
     {
-      "Route": "js/app-company-setup.l565ssrfaz.js",
+      "Route": "js/app-company-setup.rulsw7t7mp.js",
       "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\wwwroot\\js\\app-company-setup.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7070,7 +7070,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14855"
+          "Value": "19161"
         },
         {
           "Name": "Content-Type",
@@ -7078,11 +7078,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=\""
+          "Value": "\"XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7092,7 +7092,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l565ssrfaz"
+          "Value": "rulsw7t7mp"
         },
         {
           "Name": "label",
@@ -7100,13 +7100,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0="
+          "Value": "sha256-XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg="
         }
       ]
     },
     {
-      "Route": "js/app-company-setup.l565ssrfaz.js.gz",
-      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-l565ssrfaz.gz",
+      "Route": "js/app-company-setup.rulsw7t7mp.js.gz",
+      "AssetFile": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\obj\\Debug\\net9.0\\compressed\\4mdzqiyifm-rulsw7t7mp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7115,7 +7115,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3015"
+          "Value": "3535"
         },
         {
           "Name": "Content-Type",
@@ -7123,11 +7123,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ=\""
+          "Value": "\"SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 22:41:45 GMT"
+          "Value": "Sun, 09 Nov 2025 10:52:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7145,7 +7145,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l565ssrfaz"
+          "Value": "rulsw7t7mp"
         },
         {
           "Name": "label",
@@ -7153,7 +7153,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-x3MZtD2t9NYERNOdhs66padH3+5PkbsLMg7ZjzieNIQ="
+          "Value": "sha256-SQmTRvj2mu0kQjzWsejoNAu5/IObAGITkuNITFg0hCQ="
         }
       ]
     },
@@ -37094,7 +37094,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37147,7 +37147,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37184,7 +37184,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37231,7 +37231,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37284,7 +37284,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37321,7 +37321,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37368,7 +37368,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37429,7 +37429,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37474,7 +37474,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37529,7 +37529,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37590,7 +37590,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37635,7 +37635,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 08 Nov 2025 20:19:50 GMT"
+          "Value": "Sun, 14 Dec 2025 15:01:05 GMT"
         },
         {
           "Name": "Cache-Control",

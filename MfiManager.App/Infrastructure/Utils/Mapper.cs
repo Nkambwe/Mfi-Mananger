@@ -52,13 +52,19 @@ namespace MfiManager.App.Infrastructure.Utils {
                 RegNumber = model.Company.RegistrationNumber,
                 CompanyAlias = model.Company.Alias,
                 UserId = 0,
+                FirstName = model.Owner.FirstName,
+                MiddleName = model.Owner.MiddleName,
+                LastName = model.Owner.LastName,
                 EmailAddress = model.Owner.EmailAddress,
                 ContactNumber = model.Owner.ContactNumber,
+                Username =  model.Owner.Username,
                 Password = model.Owner.Password,
                 DatabaseProvider = model.DatabaseProvider.DatabaseProvider,
+                VersionCheckTime = model.DatabaseProvider.VersionCheckTime,
+                DefaultLanguage = model.ApplicationLanguage,
                 Action = "System Setup",
                 IPAddress = "::1",
-                EncryptFields = ["Password", "EmailAddress"],
+                EncryptFields = ["FirstName", "MiddleName","LastName", "EmailAddress","ContactNumber","Password"],
                 DecryptFields = []
             };
 

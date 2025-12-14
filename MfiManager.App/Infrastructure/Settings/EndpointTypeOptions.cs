@@ -6,7 +6,7 @@ namespace MfiManager.App.Infrastructure.Settings {
         public const string SectionName = "EndpointTypeOptions";
         public SystemAccessEndpoints Sam { get; set; } = new();
         public HealthEndpoint Health { get; set; } = new();
-        public InstallationEndpoints Registration { get; set; } = new();
+        public InstallationEndpoints Installation { get; set; } = new();
         public ErrorEndpoints Errors { get; set; } = new();
         public ActivityLogEndpoints ActivityLog { get; set; } = new();
         public DepartmentEndpoints Departments { get; set; } = new();

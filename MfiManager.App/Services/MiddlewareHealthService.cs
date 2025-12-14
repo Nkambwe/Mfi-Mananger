@@ -5,11 +5,13 @@ using System.Text.Json;
 namespace MfiManager.App.Services {
     public class MiddlewareHealthService(ILogger<MiddlewareHealthService> logger,
                                          IHttpClientFactory httpClientFactory,
-                                         IEndpointProvider endpointProvider)
+                                         IEndpointProvider endpointProvider,
+                                         ILocalizationService localizationService)
                                         :  IMiddlewareHealthService {
         private readonly ILogger<MiddlewareHealthService> _logger = logger;
         private readonly IEndpointProvider _endpointProvider =endpointProvider;
         private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
+        private readonly ILocalizationService _localizationService = localizationService;
 
         public async Task<(bool status, bool isConnected, bool hasCompanie)> CheckMiddlewareStatusAsync() {
             try {

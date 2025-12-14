@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.System;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

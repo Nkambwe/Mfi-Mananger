@@ -7,13 +7,15 @@ using MfiManager.App.Models;
 using System.Text.Json;
 
 namespace MfiManager.App.Services {
+
     public class MfiErrorService(ILogger<MfiErrorService> logger,
                                  IHttpHandler<MfiErrorService> httpHandler,
-                                 IEndpointProvider endpointType) : IMfiErrorService {
+                                 IEndpointProvider endpointType,
+                                 ILocalizationService localizationService) : IMfiErrorService {
         private readonly ILogger<MfiErrorService> _logger = logger;
         private readonly IHttpHandler<MfiErrorService> _httpHandler = httpHandler;
         private readonly IEndpointProvider _endpointType = endpointType;
-
+        private readonly ILocalizationService _localizationService = localizationService;
         public async Task<MfiHttpResponse<SystemErrorResponse>> GetDepartmentById(MfiHttpIdRequest request) {
             _logger.LogInformation($"Get department record");
 
@@ -37,8 +39,8 @@ namespace MfiManager.App.Services {
             if(request == null) {
                 var error = new MfiHttpErrorResponse(
                     400,
-                    "Request record cannot be empty",
-                    "Error object is null and cannot be saved"
+                    _localizationService.GetLocalizedLabel("App.Request.Bad"),
+                    _localizationService.GetLocalizedLabel("App.ErrorService.Error.InvalidData")
                 );
                 _logger.LogError("BAD REQUEST: {Error}", JsonSerializer.Serialize(error));
                 return new MfiHttpResponse<PagedResponse<SystemErrorResponse>>(error);
@@ -50,8 +52,9 @@ namespace MfiManager.App.Services {
             } catch (Exception ex) {
                 _logger.LogError("Error retrieving all activities: {Message}", ex.Message);
                 _logger.LogError("SYSTEMACTIVITY-SERVICE: {StackTrace}" , ex.StackTrace);
-                var error = new MfiHttpErrorResponse(500,
-                    "Error retrieving list of system errors",
+                var error = new MfiHttpErrorResponse(
+                    500,
+                   _localizationService.GetLocalizedLabel("App.Error.Server"),
                     ex.Message
                 );
                  _logger.LogInformation("System Error: {Error}", JsonSerializer.Serialize(error));
@@ -64,8 +67,8 @@ namespace MfiManager.App.Services {
             if(model == null) {
                 var error = new MfiHttpErrorResponse(
                     400,
-                    "Request record cannot be empty",
-                    "Error object is null and cannot be saved"
+                    _localizationService.GetLocalizedLabel("App.Request.Bad"),
+                    _localizationService.GetLocalizedLabel("App.ErrorService.Error.InvalidData")
                 );
                 _logger.LogError("BAD REQUEST: {Error}", JsonSerializer.Serialize(error));
                 return new MfiHttpResponse<MfiHttpStatusResponse>(error);
@@ -87,7 +90,7 @@ namespace MfiManager.App.Services {
                 _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                 var error = new MfiHttpErrorResponse(
                     502,
-                    "Network error occurred",
+                   _localizationService.GetLocalizedLabel("App.Error.Network"),
                     httpEx.Message
                 );
                  _logger.LogInformation("System Error: {Error}", JsonSerializer.Serialize(error));
@@ -98,8 +101,8 @@ namespace MfiManager.App.Services {
                 _logger.LogCritical("{StackTrace}", ex.StackTrace);
                 var error = new MfiHttpErrorResponse(
                     500,
-                    "An unexpected error occurred",
-                    "Cannot proceed! An error occurred, please try again later"
+                    _localizationService.GetLocalizedLabel("App.Error.Server"),
+                    _localizationService.GetLocalizedLabel("App.Error.Server.Message")
                 );
                  _logger.LogInformation("System Error: {Error}", JsonSerializer.Serialize(error));
                 return new MfiHttpResponse<MfiHttpStatusResponse>(error);

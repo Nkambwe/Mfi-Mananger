@@ -8,9 +8,12 @@ namespace MfiManager.Middleware.Controllers {
     [Route("mfi/logging")]
     public class MfiLoggingController(
         ILogger<MfiLoggingController> logger,
+        ILoggingConfigService configService,
         IEnvironmentProvider environment,
-        ILoggingConfigService configService) 
-        : MfiBaseController (logger, environment){
+        IServiceLocalization localizationService,
+        ISystemErrorService errorService,
+        ICompanyService companyService)
+        : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
         private const string LOG_ID="MFI-LOGCONTROLLER";
         private readonly ILogger<MfiLoggingController> _logger = logger;
         private readonly ILoggingConfigService _configService = configService;

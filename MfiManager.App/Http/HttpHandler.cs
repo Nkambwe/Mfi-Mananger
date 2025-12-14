@@ -6,15 +6,16 @@ namespace MfiManager.App.Http {
 
     public class HttpHandler<T> : IHttpHandler<T> {
         protected readonly HttpClient MfiHttpClient;
-        public ILogger<T> Logger {get;set;}
+        private readonly ILogger<T> _logger;
         protected readonly JsonSerializerOptions JsonOptions;
         private readonly string LOG_ID = $"RESQUEST{DateTime.Now:yyyyMMddHHmmssfff}";
-        public HttpHandler(IHttpClientFactory httpClientFactory) {
+        public HttpHandler(ILogger<T> logger, IHttpClientFactory httpClientFactory) {
             JsonOptions = new JsonSerializerOptions {
                 PropertyNameCaseInsensitive = true,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = false
             };
+            _logger = logger;
 
             //..create client   
             MfiHttpClient = httpClientFactory.CreateClient("MiddlewareClient");
@@ -22,13 +23,13 @@ namespace MfiManager.App.Http {
 
         public async Task<MfiHttpResponse<TResponse>> GetAsync<TResponse>(string endpoint) where TResponse : class {
 
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                      try {
-                        Logger.LogInformation("MFI GET Request to: {Endpoint}", endpoint);
+                        _logger.LogInformation("MFI GET Request to: {Endpoint}", endpoint);
                 
                         //..formulate URL
                         var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                        Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
+                        _logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                         //..send request
                         var response = await MfiHttpClient.GetAsync(endpoint);
@@ -38,110 +39,110 @@ namespace MfiManager.App.Http {
                                 "Bad Gateway or possible timeout",
                                 "The middleware service did not respond or service timeout occurred"
                             );
-                            Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         }
 
                         //..we received a response
-                        Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                        _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                         if (!response.IsSuccessStatusCode) {
-                            Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                            _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                             var error = new MfiHttpErrorResponse(
                                 (int)response.StatusCode,
                                 "Could not complete request. An Error occurred",
                                 $"HTTP Status Code: {response.StatusCode}"
                             );
             
-                            Logger.LogInformation($"SERVICE ERROR: {JsonSerializer.Serialize(error)}");
+                            _logger.LogInformation($"SERVICE ERROR: {JsonSerializer.Serialize(error)}");
                             return new MfiHttpResponse<TResponse>(error);
                         }
         
                         //..read and deserialize response
                         var responseData = await response.Content.ReadAsStringAsync();
-                        Logger.LogInformation("MFI GET Response received from: {Endpoint}", endpoint);
-                        Logger.LogInformation("MFI Midleware data : {ResponseData}",responseData);
+                        _logger.LogInformation("MFI GET Response received from: {Endpoint}", endpoint);
+                        _logger.LogInformation("MFI Midleware data : {ResponseData}",responseData);
 
                         try {
 
-                            Logger.LogInformation("Starting deserialization...");
+                            _logger.LogInformation("Starting deserialization...");
                             var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, JsonOptions);
     
                             if (result == null) {
-                                Logger.LogInformation("Deserialization returned null");
+                                _logger.LogInformation("Deserialization returned null");
                                 var error = new MfiHttpErrorResponse(
                                     500,
                                     "System Data Error",
                                     "Deserialization returned null"
                                 );
-                                Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                                _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                                 return new MfiHttpResponse<TResponse>(error);
                             }
     
-                            Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
+                            _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
                             return result;
                         } catch (JsonException jex) {
-                            Logger.LogInformation("Deserialization Failed: {Message}", jex.Message);
+                            _logger.LogInformation("Deserialization Failed: {Message}", jex.Message);
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
                                 $"Failed to deserialize response. An error has occurred"
                             );
-                            Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         } catch (Exception ex) { 
-                            Logger.LogError("Unexpected deserialization error: {Message}", ex.Message);
-                            Logger.LogWarning("Exception Type: {Name}", ex.GetType().Name);
-                            Logger.LogCritical("StackTrace: {StackTrace}", ex.StackTrace);
+                            _logger.LogError("Unexpected deserialization error: {Message}", ex.Message);
+                            _logger.LogWarning("Exception Type: {Name}", ex.GetType().Name);
+                            _logger.LogCritical("StackTrace: {StackTrace}", ex.StackTrace);
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
                                 $"Unexpected deserialization error: {ex.Message}"
                             );
-                            Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         }
                     } catch (HttpRequestException httpEx) {
-                        Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
-                        Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                        _logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                        _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                         var error = new MfiHttpErrorResponse(
                             502,
                             "Network error occurred",
                             httpEx.Message
                         );
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
         
                     } catch (TaskCanceledException timeoutEx) when (timeoutEx.InnerException is TimeoutException) {
-                        Logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);
-                        Logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
+                        _logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);
+                        _logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
                         var error = new MfiHttpErrorResponse(
                             406,
                             "Request timeout",
                             "The request took too long to complete"
                         );
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
         
                     } catch (JsonException jsonEx) {
-                        Logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
-                        Logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
+                        _logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
+                        _logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
                         var error = new MfiHttpErrorResponse(
                             500,
                             "Ooops! Sorry, something went wrong",
                             "Data format error. Could not format data"
                         );
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
         
                     } catch (Exception ex)  {
-                        Logger.LogError("Unexpected Error: {Message}", ex.Message);    
-                        Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                        _logger.LogError("Unexpected Error: {Message}", ex.Message);    
+                        _logger.LogCritical("{StackTrace}", ex.StackTrace);
                         var error = new MfiHttpErrorResponse(
                             500,
                             "An unexpected error occurred",
                             "Cannot proceed! An error occurred, please try again later"
                         );
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
@@ -150,16 +151,16 @@ namespace MfiManager.App.Http {
         }
 
         public async Task<MfiHttpResponse<TResponse>> PatchAsync<TRequest, TResponse>(string endpoint, TRequest data) where TResponse : class{
-             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+             using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                        Logger.LogInformation("MFI PATCH Request to: {Endpoint}", endpoint);
-                        Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
+                        _logger.LogInformation("MFI PATCH Request to: {Endpoint}", endpoint);
+                        _logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                         var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                         //..requestUrl URL
                         var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                        Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
+                        _logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
                         //..send request
                         var response = await MfiHttpClient.PatchAsync(endpoint, content);
@@ -169,72 +170,72 @@ namespace MfiManager.App.Http {
                                 "Bad Gateway or possible timeout",
                                 "The middleware service did not respond or service timeout occurred"
                             );
-                            Logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         }
 
-                        Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                        _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                         if (!response.IsSuccessStatusCode) {
-                            Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                            _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                             var error = new MfiHttpErrorResponse(
                                 (int)response.StatusCode,
                                 "Could not complete registration. An Error occurred",
                                 $"HTTP Status Code: {response.StatusCode}"
                             );
-                            Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         }
         
                         //..read and deserialize response
                         var responseData = await response.Content.ReadAsStringAsync();
-                        Logger.LogInformation("MFI PATCH Response received from: {Endpoint}", endpoint);
+                        _logger.LogInformation("MFI PATCH Response received from: {Endpoint}", endpoint);
                         try {
                             var options = new JsonSerializerOptions { 
                                 PropertyNameCaseInsensitive = true,
                                 WriteIndented = true
                             };
     
-                            Logger.LogInformation("Starting deserialization...");
+                            _logger.LogInformation("Starting deserialization...");
                             var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, options);
                             if (result == null) {
-                                Logger.LogInformation("Deserialization returned null");
+                                _logger.LogInformation("Deserialization returned null");
                                 var error = new MfiHttpErrorResponse(
                                     500,
                                     "System Data Error",
                                     "Deserialization returned null"
                                 );
-                                Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(error, options));
+                                _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(error, options));
                                 return new MfiHttpResponse<TResponse>(error);
                             }
     
-                            Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, options));
+                            _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, options));
                             return result;
                         } catch (JsonException jex) {
-                            Logger.LogError("Deserialization Failed: {Message}", jex.Message);
+                            _logger.LogError("Deserialization Failed: {Message}", jex.Message);
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
                                 $"Failed to deserialize response. An error has occurred"
                             );
-                            Logger.LogInformation("SERVICE RESULT: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogInformation("SERVICE RESULT: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         } catch (Exception ex) { 
-                            Logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
-                            Logger.LogError("Exception Type: {Name}", ex.GetType().Name);
-                            Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                            _logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
+                            _logger.LogError("Exception Type: {Name}", ex.GetType().Name);
+                            _logger.LogCritical("{StackTrace}", ex.StackTrace);
     
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
                                 $"Unexpected deserialization error: {ex.Message}"
                             );
-                            Logger.LogInformation("SERVICE RESULT: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogInformation("SERVICE RESULT: {Error}", JsonSerializer.Serialize(error));
                             return new MfiHttpResponse<TResponse>(error);
                         }
            
                     } catch (Exception ex) {
-                        Logger.LogError("MFI PATCH Error for endpoint {Endpoint}: {ex.Message}", endpoint, ex.Message);
-                        Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                        _logger.LogError("MFI PATCH Error for endpoint {Endpoint}: {ex.Message}", endpoint, ex.Message);
+                        _logger.LogCritical("{StackTrace}", ex.StackTrace);
                         throw;
                     }
 
@@ -243,16 +244,16 @@ namespace MfiManager.App.Http {
         }
 
         public async Task PatchAsync<TRequest>(string endpoint, TRequest data) {
-             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+             using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                     try {
-                        Logger.LogInformation("MFI PATCH Request (no response) to: {Endpoint}", endpoint);
-                        Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
+                        _logger.LogInformation("MFI PATCH Request (no response) to: {Endpoint}", endpoint);
+                        _logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
 
                         var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                         var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                         var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                        Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
+                        _logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
                         var response = await MfiHttpClient.PatchAsync(endpoint, content);
                         if (response == null) {
@@ -260,31 +261,31 @@ namespace MfiManager.App.Http {
                                 "Bad Gateway or possible timeout",
                                 "The middleware service did not respond or service timeout occurred"
                             );
-                            Logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                             throw new HttpRequestException(error.ToString());
                         }
 
-                        Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                        _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                         if (!response.IsSuccessStatusCode) {
-                            Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                            _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                             var error = new MfiHttpErrorResponse(
                                 (int)response.StatusCode,
                                 "Could not complete PATCH request. An error occurred",
                                 $"HTTP Status Code: {response.StatusCode}"
                             );
 
-                            Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                            _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                             throw new HttpRequestException(error.ToString());
                         }
 
-                        Logger.LogInformation("MFI PATCH Request completed for: {Endpoint}", endpoint);
+                        _logger.LogInformation("MFI PATCH Request completed for: {Endpoint}", endpoint);
                     } catch (HttpRequestException httpEx) {
-                        Logger.LogInformation("HTTP Request Exception: {Message}", httpEx.Message);
-                        Logger.LogError("{StackTrace}", httpEx.StackTrace);
+                        _logger.LogInformation("HTTP Request Exception: {Message}", httpEx.Message);
+                        _logger.LogError("{StackTrace}", httpEx.StackTrace);
                         throw;
                     } catch (Exception ex) {
-                        Logger.LogError("Unhandled Exception during PATCH to {Endpoint}: {Message}", endpoint, ex.Message);
-                        Logger.LogInformation("{StackTrace}", ex.StackTrace);
+                        _logger.LogError("Unhandled Exception during PATCH to {Endpoint}: {Message}", endpoint, ex.Message);
+                        _logger.LogInformation("{StackTrace}", ex.StackTrace);
                         throw;
                     }
 
@@ -293,15 +294,15 @@ namespace MfiManager.App.Http {
         }
 
         public async Task<MfiHttpResponse<TResponse>> PostAsync<TRequest, TResponse>(string endpoint, TRequest data) where TResponse : class {
-             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+             using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                  try {
-                    Logger.LogInformation("MFI POST Request to: {Endpoint}", endpoint);
-                    Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
+                    _logger.LogInformation("MFI POST Request to: {Endpoint}", endpoint);
+                    _logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             
                     var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
+                    _logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     var response = await MfiHttpClient.PostAsync(endpoint, content);
                     if(response == null) { 
@@ -310,51 +311,51 @@ namespace MfiManager.App.Http {
                             "The middleware service did not respond or service timeout occurred"
                         );
             
-                        Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
                             "Could not complete registration. An Error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
             
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
         
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("MFI POST Response received from: {Endpoint}", endpoint);
-                    Logger.LogInformation("Response Data: {ResponseData}", responseData);
+                    _logger.LogInformation("MFI POST Response received from: {Endpoint}", endpoint);
+                    _logger.LogInformation("Response Data: {ResponseData}", responseData);
                     try {
                         var options = new JsonSerializerOptions { 
                             PropertyNameCaseInsensitive = true,
                             WriteIndented = true
                         };
     
-                        Logger.LogInformation("Starting deserialization...");
+                        _logger.LogInformation("Starting deserialization...");
                         var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, options);
     
                         if (result == null) {
-                            Logger.LogInformation("Deserialization returned null");
+                            _logger.LogInformation("Deserialization returned null");
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
                                 "Deserialization returned null"
                             );
-                            Logger.LogError("{Result}", JsonSerializer.Serialize(result, options));
+                            _logger.LogError("{Result}", JsonSerializer.Serialize(result, options));
                             return new MfiHttpResponse<TResponse>(error);
                         }
     
-                        Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, options));
+                        _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, options));
                         return result;
                     } catch (JsonException jex) {
-                        Logger.LogError("Deserialization Failed: {Message}", jex.Message);
+                        _logger.LogError("Deserialization Failed: {Message}", jex.Message);
                         var error = new MfiHttpErrorResponse(
                             500,
                             "System Data Error",
@@ -362,9 +363,9 @@ namespace MfiManager.App.Http {
                         );
                         return new MfiHttpResponse<TResponse>(error);
                     } catch (Exception ex) { 
-                        Logger.LogError("Unexpected deserialization error: {Message}", ex.Message);
-                        Logger.LogWarning("Exception Type: {Name}", ex.GetType().Name);
-                        Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                        _logger.LogError("Unexpected deserialization error: {Message}", ex.Message);
+                        _logger.LogWarning("Exception Type: {Name}", ex.GetType().Name);
+                        _logger.LogCritical("{StackTrace}", ex.StackTrace);
 
                         var error = new MfiHttpErrorResponse(
                             500,
@@ -374,8 +375,8 @@ namespace MfiManager.App.Http {
                         return new MfiHttpResponse<TResponse>(error);
                     }
                  } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                     var error = new MfiHttpErrorResponse(
                         502,
                         "Network error occurred",
@@ -384,8 +385,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                  } catch (TaskCanceledException timeoutEx) when (timeoutEx.InnerException is TimeoutException) {
-                    Logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);
-                    Logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
+                    _logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);
+                    _logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         406,
@@ -395,8 +396,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                  } catch (JsonException jsonEx) {
-                    Logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
-                    Logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
+                    _logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
+                    _logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         500,
@@ -406,8 +407,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                  } catch (Exception ex)  {
-                    Logger.LogError("Unexpected Error: {Message}", ex.Message);    
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unexpected Error: {Message}", ex.Message);    
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         500,
@@ -422,14 +423,14 @@ namespace MfiManager.App.Http {
 
         public async Task PostAsync<TRequest>(string endpoint, TRequest data) {
             
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("MFI POST Request (no response) to: {Endpoint}", endpoint);
-                    Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
+                    _logger.LogInformation("MFI POST Request (no response) to: {Endpoint}", endpoint);
+                    _logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                     var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
+                    _logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
                     var response = await MfiHttpClient.PostAsync(endpoint, content);
                     if (response == null) {
@@ -438,31 +439,31 @@ namespace MfiManager.App.Http {
                             "Bad Gateway or possible timeout",
                             "The middleware service did not respond or service timeout occurred"
                         );
-                        Logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
                 
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogError("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogError("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
                             "Could not complete PATCH request. An error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("MFI POST Request completed for: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI POST Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                     throw;
                 } catch (Exception ex) {
-                    Logger.LogError("Unhandled Exception during PATCH to {endpoint}: {Message}", endpoint, ex.Message);
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unhandled Exception during PATCH to {endpoint}: {Message}", endpoint, ex.Message);
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
                     throw;
                 }
 
@@ -471,13 +472,13 @@ namespace MfiManager.App.Http {
 
         public async Task<MfiHttpResponse<TResponse>> PutAsync<TRequest, TResponse>(string endpoint, TRequest data) where TResponse : class {
             
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("MFI PUT Request to: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI PUT Request to: {Endpoint}", endpoint);
                 
                     //..formulate URL
                     var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
+                    _logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
@@ -489,36 +490,36 @@ namespace MfiManager.App.Http {
                             "The middleware service did not respond or service timeout occurred"
                         );
 
-                        Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
                     //..we received a response
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogWarning("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogWarning("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
                             "Could not complete request. An Error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("MFI PUT Response received from: {Endpoint}", endpoint);
-                    Logger.LogInformation("MFI Midleware data : {ResponseData}", responseData);
+                    _logger.LogInformation("MFI PUT Response received from: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI Midleware data : {ResponseData}", responseData);
             
                     try {
 
-                        Logger.LogInformation("Starting deserialization...");
+                        _logger.LogInformation("Starting deserialization...");
                         var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, JsonOptions);
     
                         if (result == null) {
-                            Logger.LogInformation("Deserialization returned null");
+                            _logger.LogInformation("Deserialization returned null");
                             var error = new MfiHttpErrorResponse(
                                 500,
                                 "System Data Error",
@@ -527,11 +528,11 @@ namespace MfiManager.App.Http {
                             return new MfiHttpResponse<TResponse>(error);
                         }
     
-                        Logger.LogError("Deserialization successful. HasError: {HasError}", result.HasError);
-                        Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
+                        _logger.LogError("Deserialization successful. HasError: {HasError}", result.HasError);
+                        _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
                         return result;
                     } catch (JsonException jex) {
-                        Logger.LogError("Deserialization Failed: {Message}", jex.Message);
+                        _logger.LogError("Deserialization Failed: {Message}", jex.Message);
                         var error = new MfiHttpErrorResponse(
                             500,
                             "System Data Error",
@@ -539,9 +540,9 @@ namespace MfiManager.App.Http {
                         );
                         return new MfiHttpResponse<TResponse>(error);
                     } catch (Exception ex) { 
-                        Logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
-                        Logger.LogError("Exception Type: {Name}", ex.GetType().Name);
-                        Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                        _logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
+                        _logger.LogError("Exception Type: {Name}", ex.GetType().Name);
+                        _logger.LogCritical("{StackTrace}", ex.StackTrace);
     
                         var error = new MfiHttpErrorResponse(
                             500,
@@ -551,8 +552,8 @@ namespace MfiManager.App.Http {
                         return new MfiHttpResponse<TResponse>(error);
                     }
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         502,
@@ -562,8 +563,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (TaskCanceledException timeoutEx) when (timeoutEx.InnerException is TimeoutException) {
-                    Logger.LogError("Request timeout: {Message}", timeoutEx.InnerException?.Message);
-                    Logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
+                    _logger.LogError("Request timeout: {Message}", timeoutEx.InnerException?.Message);
+                    _logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         406,
@@ -573,8 +574,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (JsonException jsonEx) {
-                    Logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
-                    Logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
+                    _logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
+                    _logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         500,
@@ -584,8 +585,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (Exception ex)  {
-                    Logger.LogError("Unexpected Error: {Message}", ex.Message);    
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unexpected Error: {Message}", ex.Message);    
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         500,
@@ -599,17 +600,17 @@ namespace MfiManager.App.Http {
         }
          
         public async Task PutAsync<TRequest>(string endpoint, TRequest data) {              
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
 
                 try {
-                    Logger.LogInformation("MFI PUT Request (no response) to: {Endpoint}", endpoint);
-                    Logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
+                    _logger.LogInformation("MFI PUT Request (no response) to: {Endpoint}", endpoint);
+                    _logger.LogInformation("REQUEST MAP: {Data}", JsonSerializer.Serialize(data));
             
                     var jsonContent = JsonSerializer.Serialize(data, JsonOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             
                     var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogError("REQUEST URL: {RequestUrl}", requestUrl);
+                    _logger.LogError("REQUEST URL: {RequestUrl}", requestUrl);
                     var response = await MfiHttpClient.PutAsync(endpoint, content);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(
@@ -617,45 +618,45 @@ namespace MfiManager.App.Http {
                             "Bad Gateway or possible timeout",
                             "The middleware service did not respond or service timeout occurred"
                         );
-                        Logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
 
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
                             "Could not complete PATCH request. An error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("MFI PUT Request completed for: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI PUT Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                     throw;
                 } catch (Exception ex) {
-                    Logger.LogError("Unhandled Exception during PATCH to {endpoint}: {Message}", endpoint, ex.Message);
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unhandled Exception during PATCH to {endpoint}: {Message}", endpoint, ex.Message);
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
                     throw;
                 }
             }
         }
         
         public async Task<MfiHttpResponse<TResponse>> DeleteAsync<TResponse>(string endpoint) where TResponse : class {
-             using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+             using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
 
                 try {
-                    Logger.LogInformation("DELETE Request to: {Endpoint}", endpoint);
+                    _logger.LogInformation("DELETE Request to: {Endpoint}", endpoint);
                 
                     //..formulate URL
                     var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
+                    _logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     //..send delete request
                     var response = await MfiHttpClient.DeleteAsync(endpoint);
@@ -665,14 +666,14 @@ namespace MfiManager.App.Http {
                             "The middleware service did not respond or service timeout occurred"
                         );
 
-                        Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
                     //..we received a response
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
 
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
@@ -680,21 +681,21 @@ namespace MfiManager.App.Http {
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
         
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("DELETE Response received from: {Endpoint}", endpoint);
-                    Logger.LogInformation("MFI Midleware data : {Data}", responseData);
+                    _logger.LogInformation("DELETE Response received from: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI Midleware data : {Data}", responseData);
                     try {
 
-                        Logger.LogInformation("Starting deserialization...");
+                        _logger.LogInformation("Starting deserialization...");
                         var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, JsonOptions);
     
                         if (result == null) {
-                            Logger.LogInformation("Deserialization returned null");
+                            _logger.LogInformation("Deserialization returned null");
                             var error = new MfiHttpErrorResponse( 500,
                                 "System Data Error",
                                 "Deserialization returned null"
@@ -702,20 +703,20 @@ namespace MfiManager.App.Http {
                             return new MfiHttpResponse<TResponse>(error);
                         }
     
-                        Logger.LogInformation("Deserialization successful. HasError: {HasError}", result.HasError);
-                        Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
+                        _logger.LogInformation("Deserialization successful. HasError: {HasError}", result.HasError);
+                        _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
                         return result;
                     } catch (JsonException jex) {
-                        Logger.LogError("Deserialization Failed: {Message}", jex.Message);
+                        _logger.LogError("Deserialization Failed: {Message}", jex.Message);
                         var error = new MfiHttpErrorResponse(500,
                             "System Data Error",
                             $"Failed to deserialize response. An error has occurred"
                         );
                         return new MfiHttpResponse<TResponse>(error);
                     } catch (Exception ex) { 
-                        Logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
-                        Logger.LogError("Exception Type: {Name}", ex.GetType().Name);
-                        Logger.LogCritical("StackTrace: {StackTrace}", ex.StackTrace);
+                        _logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
+                        _logger.LogError("Exception Type: {Name}", ex.GetType().Name);
+                        _logger.LogCritical("StackTrace: {StackTrace}", ex.StackTrace);
     
                         var error = new MfiHttpErrorResponse(
                             500,
@@ -725,8 +726,8 @@ namespace MfiManager.App.Http {
                         return new MfiHttpResponse<TResponse>(error);
                     }
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                     var error = new MfiHttpErrorResponse(
                         502,
                         "Network error occurred",
@@ -735,8 +736,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (TaskCanceledException timeoutEx) when (timeoutEx.InnerException is TimeoutException) {
-                    Logger.LogError("Request timeout");
-                    Logger.LogError("{StackTrace}", timeoutEx.StackTrace);
+                    _logger.LogError("Request timeout");
+                    _logger.LogError("{StackTrace}", timeoutEx.StackTrace);
                     var error = new MfiHttpErrorResponse(406,
                         "Request timeout",
                         "The request took too long to complete"
@@ -744,8 +745,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (JsonException jsonEx) {
-                    Logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
-                    Logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
+                    _logger.LogError("JSON Deserialization Error: {Message}", jsonEx.Message);
+                    _logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
                     var error = new MfiHttpErrorResponse(500,
                         "Ooops! Sorry, something went wrong",
                         "Data format error. Could not format data"
@@ -753,8 +754,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (Exception ex)  {
-                    Logger.LogError("Unexpected Error: {Message}", ex.Message);    
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unexpected Error: {Message}", ex.Message);    
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
                     var error = new MfiHttpErrorResponse( 500,
                         "An unexpected error occurred",
                         "Cannot proceed! An error occurred, please try again later"
@@ -765,12 +766,12 @@ namespace MfiManager.App.Http {
         }
 
         public async Task DeleteAllAsync(string endpoint) {
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
                 try {
-                    Logger.LogInformation("MFI DELETE Request (no response) to: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI DELETE Request (no response) to: {Endpoint}", endpoint);
             
                     var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
+                    _logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
 
                     var response = await MfiHttpClient.DeleteAsync(endpoint);
                     if (response == null) {
@@ -779,31 +780,31 @@ namespace MfiManager.App.Http {
                             "Bad Gateway or possible timeout",
                             "The middleware service did not respond or service timeout occurred"
                         );
-                        Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
 
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogInformation("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
                         var error = new MfiHttpErrorResponse(
                             (int)response.StatusCode,
                             "Could not complete PATCH request. An error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("MFI DELETE Request completed for: {Endpoint}", endpoint);
+                    _logger.LogInformation("MFI DELETE Request completed for: {Endpoint}", endpoint);
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Exception: {Massage}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Exception: {Massage}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
                     throw;
                 } catch (Exception ex) {
-                    Logger.LogError("Unhandled Exception during DELETEALL to {Endpoint}: {Message}", endpoint, ex.Message);
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unhandled Exception during DELETEALL to {Endpoint}: {Message}", endpoint, ex.Message);
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
                     throw;
                 }
             }
@@ -811,21 +812,21 @@ namespace MfiManager.App.Http {
 
         public async Task<MfiHttpResponse<TResponse>> SendAsync<TResponse>(HttpMethod method, string endpoint, object requestBody = null) where TResponse: class {
             
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
 
                 try  {
-                    Logger.LogInformation("{Method} Request to: {Endpoint}", method.Method, endpoint);
+                    _logger.LogInformation("{Method} Request to: {Endpoint}", method.Method, endpoint);
             
                     //..formulate URL
                     var fullUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
+                    _logger.LogInformation("MIDDLEWARE URL: {FullUrl}", fullUrl);
 
                     //..send request
                     var request = new HttpRequestMessage(method, endpoint);
                     if (requestBody != null) {
                         var jsonContent = JsonSerializer.Serialize(requestBody, JsonOptions);
                         request.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                        Logger.LogInformation("REQUEST MAP: {RequestBody}", JsonSerializer.Serialize(requestBody));
+                        _logger.LogInformation("REQUEST MAP: {RequestBody}", JsonSerializer.Serialize(requestBody));
                     }
             
                      //..send request
@@ -837,36 +838,36 @@ namespace MfiManager.App.Http {
                             "The middleware service did not respond or service timeout occurred"
                         );
 
-                        Logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
 
                     //..we received a response
-                    Logger.LogInformation("Response Status: {StatusCode}",response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}",response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogInformation("Middleware call failed with status: {Status}", (int)response.StatusCode);
+                        _logger.LogInformation("Middleware call failed with status: {Status}", (int)response.StatusCode);
 
                         var error = new MfiHttpErrorResponse((int)response.StatusCode,
                             "Could not complete request. An Error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogInformation("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         return new MfiHttpResponse<TResponse>(error);
                     }
         
                     //..read and deserialize response
                     var responseData = await response.Content.ReadAsStringAsync();
-                    Logger.LogInformation("{Method} Response received from: {Endpoint}", method.Method, endpoint);
-                    Logger.LogInformation("MFI Midleware data : {Data}", responseData);
+                    _logger.LogInformation("{Method} Response received from: {Endpoint}", method.Method, endpoint);
+                    _logger.LogInformation("MFI Midleware data : {Data}", responseData);
             
                     try {
 
-                        Logger.LogInformation("Starting deserialization...");
+                        _logger.LogInformation("Starting deserialization...");
                         var result = JsonSerializer.Deserialize<MfiHttpResponse<TResponse>>(responseData, JsonOptions);
     
                         if (result == null) {
-                            Logger.LogInformation("Deserialization returned null");
+                            _logger.LogInformation("Deserialization returned null");
                             var error = new MfiHttpErrorResponse( 504,
                                 "Failed Dependency",
                                 "Deserialization returned null"
@@ -874,20 +875,20 @@ namespace MfiManager.App.Http {
                             return new MfiHttpResponse<TResponse>(error);
                         }
     
-                        Logger.LogInformation("Deserialization successful. HasError: {HasError}", result.HasError);
-                        Logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
+                        _logger.LogInformation("Deserialization successful. HasError: {HasError}", result.HasError);
+                        _logger.LogInformation("SERVICE RESULT: {Result}", JsonSerializer.Serialize(result, JsonOptions));
                         return result;
                     } catch (JsonException jex) {
-                        Logger.LogError("Deserialization Failed: {Message}", jex.Message);
+                        _logger.LogError("Deserialization Failed: {Message}", jex.Message);
                         var error = new MfiHttpErrorResponse(417,
                             "System Data Error",
                             $"Failed to deserialize response. An error has occurred"
                         );
                         return new MfiHttpResponse<TResponse>(error);
                     } catch (Exception ex) { 
-                        Logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
-                        Logger.LogError("Exception Type: {Name}", ex.GetType().Name);
-                        Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                        _logger.LogInformation("Unexpected deserialization error: {Message}", ex.Message);
+                        _logger.LogError("Exception Type: {Name}", ex.GetType().Name);
+                        _logger.LogCritical("{StackTrace}", ex.StackTrace);
     
                         var error = new MfiHttpErrorResponse(
                             424, "Failed Depedency",
@@ -896,8 +897,8 @@ namespace MfiManager.App.Http {
                         return new MfiHttpResponse<TResponse>(error);
                     }
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
-                    Logger.LogCritical("{StackTrace}", httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Error: {Message}", httpEx.Message);
+                    _logger.LogCritical("{StackTrace}", httpEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(
                         504,
@@ -907,8 +908,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (TaskCanceledException timeoutEx) when (timeoutEx.InnerException is TimeoutException) {
-                    Logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);  
-                    Logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
+                    _logger.LogError("Request timeout: {Message}", timeoutEx.InnerException.Message);  
+                    _logger.LogCritical("{StackTrace}", timeoutEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(406,
                         "Request timeout", "The request took too long to complete"
@@ -916,8 +917,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (JsonException jsonEx) {
-                    Logger.LogError("Json Error: {Message}", jsonEx.Message);  
-                    Logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
+                    _logger.LogError("Json Error: {Message}", jsonEx.Message);  
+                    _logger.LogCritical("{StackTrace}", jsonEx.StackTrace);
         
                     var error = new MfiHttpErrorResponse(417,
                         "Expectation Failed", "Data format error. Could not format data"
@@ -925,8 +926,8 @@ namespace MfiManager.App.Http {
                     return new MfiHttpResponse<TResponse>(error);
         
                 } catch (Exception ex)  {
-                    Logger.LogError("Unexpected Error: {Message}", ex.Message);    
-                    Logger.LogCritical("{StackTrace}", ex.StackTrace);
+                    _logger.LogError("Unexpected Error: {Message}", ex.Message);    
+                    _logger.LogCritical("{StackTrace}", ex.StackTrace);
         
                     var error = new MfiHttpErrorResponse(500,
                         "An unexpected error occurred",
@@ -939,51 +940,51 @@ namespace MfiManager.App.Http {
         }
 
         public async Task SendAsync(HttpMethod method, string endpoint, object requestBody = null) {
-            using (Logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
+            using (_logger.BeginScope(new { Channel = "HTTP-HANDLER", Id = LOG_ID })) {
 
                 try  {
-                    Logger.LogInformation("{Method} Request (no response) to: {Endpoint}", method.Method, endpoint);
+                    _logger.LogInformation("{Method} Request (no response) to: {Endpoint}", method.Method, endpoint);
                 
                     var request = new HttpRequestMessage(method, endpoint);
                     if (requestBody != null) {
                         var jsonContent = JsonSerializer.Serialize(requestBody, JsonOptions);
                         request.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                        Logger.LogInformation("REQUEST MAP: {RequestBody}", JsonSerializer.Serialize(requestBody));
+                        _logger.LogInformation("REQUEST MAP: {RequestBody}", JsonSerializer.Serialize(requestBody));
                     }
 
                     var requestUrl = $"{MfiHttpClient.BaseAddress?.ToString().TrimEnd('/')}/{endpoint.TrimStart('/')}";
-                    Logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
+                    _logger.LogInformation("REQUEST URL: {RequestUrl}", requestUrl);
             
                     var response = await MfiHttpClient.SendAsync(request);
                     if (response == null) {
                         var error = new MfiHttpErrorResponse(502, "Bad Gateway or possible timeout",
                             "The middleware service did not respond or service timeout occurred"
                         );
-                        Logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogError("BAD GATEWAY: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
 
-                    Logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
+                    _logger.LogInformation("Response Status: {StatusCode}", response.StatusCode);
                     if (!response.IsSuccessStatusCode) {
-                        Logger.LogError("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
+                        _logger.LogError("Middleware call failed with status: {StatusCode}", (int)response.StatusCode);
 
                         var error = new MfiHttpErrorResponse((int)response.StatusCode,
                             "Could not complete PATCH request. An error occurred",
                             $"HTTP Status Code: {response.StatusCode}"
                         );
 
-                        Logger.LogCritical("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
+                        _logger.LogCritical("SERVICE ERROR: {Error}", JsonSerializer.Serialize(error));
                         throw new HttpRequestException(error.ToString());
                     }
             
-                    Logger.LogInformation("{Method} Request completed for: {endpoint}", method.Method, endpoint);
+                    _logger.LogInformation("{Method} Request completed for: {endpoint}", method.Method, endpoint);
                 } catch (HttpRequestException httpEx) {
-                    Logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
-                    Logger.LogCritical( "{StackTrace}",httpEx.StackTrace);
+                    _logger.LogError("HTTP Request Exception: {Message}", httpEx.Message);
+                    _logger.LogCritical( "{StackTrace}",httpEx.StackTrace);
                     throw;
                 } catch (Exception ex)  {
-                    Logger.LogError("HTTP Request Exception: {Message}", ex.Message);
-                    Logger.LogCritical( "{StackTrace}",ex.StackTrace);
+                    _logger.LogError("HTTP Request Exception: {Message}", ex.Message);
+                    _logger.LogCritical( "{StackTrace}",ex.StackTrace);
                     throw;
                 }
             }

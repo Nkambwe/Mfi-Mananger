@@ -1,0 +1,53 @@
+﻿using MfiManager.Middleware.Data.Entities.Operations.Saving;
+
+namespace MfiManager.Middleware.Data.Entities.Operations.Products {
+    /// <summary>
+    /// Savings product record
+    /// </summary>
+    public class SavingProduct : BaseEntity {
+        /// <summary>
+        /// Get/Set whether product has a limit on the number of withdraws in a month
+        /// </summary>
+        public bool LimitWithdraw {get;set; }
+        /// <summary>
+        /// Get/Set the maximum number of withdraws allowed in a month
+        /// </summary>
+        public int MaximumWithdraws {get;set; }
+        /// <summary>
+        /// Get/Set penalty charged due to exceeding maximum withdraws
+        /// </summary>
+        public decimal WithdrawPenalty {get;set; }
+        /// <summary>
+        /// Get/Set whether savings product adds a charge on withdraws
+        /// </summary>
+        public bool ChargeWithdraws {get;set; }
+        /// <summary>
+        /// Get/Set whether savings product allows overdraft loans on savings accounts
+        /// </summary>
+        public bool AllowOverdraft {get;set; }
+        /// <summary>
+        /// Get/Set interest charged on overdraft
+        /// </summary>
+        public decimal OverdraftInterest {get;set; }
+        /// <summary>
+        /// Get/Set required minimum balance on savings account for this product
+        /// </summary>
+        public decimal MinimumBalance {get;set; }
+        /// <summary>
+        /// Get/Set whether savings product offers interest on client savings
+        /// </summary>
+        public bool OfferInterest {get;set; }
+        /// <summary>
+        /// Get/Set annual interest rate offered on a loan
+        /// </summary>
+        public decimal InterestRate {get;set; }
+        /// <summary>
+        /// Get/Set the minimum interest amount that can be offered
+        /// </summary>
+        public decimal MinimumInterestOffered {get;set; }
+        public long ProductId {get;set; }
+        public virtual Product Product {get;set;}
+        public virtual ICollection<WithdrawClass> WithdrawClasses {get;set;}
+        public virtual ICollection<SavingAccount> Accounts {get;set;}
+    }
+}

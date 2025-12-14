@@ -1,7 +1,10 @@
 ﻿using MfiManager.Middleware.Configurations.Providers;
+using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Http.Requests;
 using MfiManager.Middleware.Http.Responses;
+using MfiManager.Middleware.Installation;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace MfiManager.Middleware.Controllers {
 
@@ -9,17 +12,46 @@ namespace MfiManager.Middleware.Controllers {
     [Route("mfi/system")]
     public class MfiSystemController(
         ILogger<MfiSystemController> logger,
-        IEnvironmentProvider environment)
-        : MfiBaseController(logger, environment) {
+        IEnvironmentProvider environment,
+        IServiceLocalization localizationService,
+        ISystemErrorService errorService,
+        ICompanyService companyService,
+        IInstallationService installationService)
+        : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
         private readonly ILogger<MfiSystemController> _logger = logger;
+        private readonly IInstallationService _installationService = installationService;
 
+        #region Installation
+        [HttpPost("install/company-setup")]
+        public async Task<IActionResult> Install([FromBody] InstallRequest request) {
+            try {
+                Logger.LogInformation("Action >> {Action}", request.Action);
+                if (request == null) {
+                    var error = new HttpErrorResponse(
+                    400,
+                       message:LocalizationService.GetLocalizedLabel("Server.Error.Badrequest"),
+                       description:$"Intallation - {LocalizationService.GetLocalizedLabel("Server.Error.Badrequest.Message")}"
+                    );
+                    Logger.LogInformation("BAD REQUEST: {Error}", JsonSerializer.Serialize(error));
+                    return Ok(new HttpResponse<StatusResponse>(error));
+                }
 
-         [HttpGet("welcome")]
-        public IActionResult SystemWelcome() {
-            return Ok("Support says 'Welcome to MFI-Middleware API'");
+                Logger.LogInformation("Request >> {Request} from IP Address {IPAddress}", JsonSerializer.Serialize(request), request.IPAddress);
+
+                //..proceed to setup company
+                return Ok(await _installationService.SetupCompanyAsync(request));
+            }
+            catch (Exception ex)
+            {
+                var error = await HandleErrorAsync(ex);
+                return Ok(new HttpResponse<StatusResponse>(error));
+            }
         }
+        #endregion
 
-         [HttpPost("errors/error")] 
+        #region System Errors
+        
+        [HttpPost("errors/error")] 
         public async Task<IActionResult> GetError([FromBody] HttpIdRequest request) {
             return Ok(request);
         }
@@ -35,11 +67,9 @@ namespace MfiManager.Middleware.Controllers {
             return Ok(request);
         }
 
-        [HttpPost("install/register")]
-        public async Task<IActionResult> Install([FromBody] InstallRequest request) {
-                return Ok(request);
-        }
+        #endregion
 
+        #region System users
         [HttpPost("users/users-all")]
         public async Task<IActionResult> GetPagedUsers([FromBody] HttpListRequest request) {
                     var users = new List<UserResponse>
@@ -284,5 +314,14 @@ namespace MfiManager.Middleware.Controllers {
             });
 
         }
+         #endregion
+        
+        #region Others
+        [HttpGet("welcome")]
+        public IActionResult SystemWelcome() {
+            return Ok("Support says 'Welcome to MFI-Middleware API'");
+        }
+         #endregion
+        
     }
 }

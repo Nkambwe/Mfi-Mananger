@@ -49,6 +49,13 @@ namespace MfiManager.App.Http.Mvc {
             }
         
             try {
+                var endpointOptions = serviceProvider.GetRequiredService<IOptions<EndpointTypeOptions>>();
+                Console.WriteLine($"EndpointType registered - Health.Status: {endpointOptions.Value.Installation.Install}");
+            } catch (Exception ex) {
+                Console.WriteLine($"EndpointType not registered: {ex.Message}");
+            }
+        
+            try {
                 var environmentProvider = serviceProvider.GetRequiredService<IEnvironmentProvider>();
                 Console.WriteLine($"IEnvironmentProvider registered - IsLive: {environmentProvider.IsLive}");
             } catch (Exception ex) {

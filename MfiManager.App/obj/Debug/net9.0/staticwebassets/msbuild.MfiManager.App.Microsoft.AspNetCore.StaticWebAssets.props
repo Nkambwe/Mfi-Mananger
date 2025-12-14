@@ -192,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>l565ssrfaz</Fingerprint>
-      <Integrity>l1WCtc45UaP5r39ufG/NSB3whozSX59UoEUHO4+iEL0=</Integrity>
+      <Fingerprint>rulsw7t7mp</Fingerprint>
+      <Integrity>XXYasUqzdYa+xxWeW2eaFfa7hnlPJKElpb/gFL9pAgg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\app-company-setup.js'))</OriginalItemSpec>

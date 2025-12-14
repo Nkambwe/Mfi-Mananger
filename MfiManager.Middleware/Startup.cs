@@ -4,6 +4,7 @@ using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Extensions;
 using MfiManager.Middleware.Logging;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace MfiManager.Middleware {
     public class Startup(IConfiguration configuration) {
@@ -24,7 +25,6 @@ namespace MfiManager.Middleware {
             services.Configure<PaginationOptions>(Configuration.GetSection(PaginationOptions.SectionName));
             services.Configure<BulkOperationOptions>(Configuration.GetSection(BulkOperationOptions.SectionName));
             services.Configure<BulkMonitorOptions>(Configuration.GetSection(BulkMonitorOptions.SectionName));
-
 
             //..register appSettings provider
             services.AddScoped<IEnvironmentProvider, EnvironmentProvider>();
@@ -90,6 +90,7 @@ namespace MfiManager.Middleware {
             services.AddHttpClient();
             services.AddSingleton<IServiceProvider, ServiceProvider>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
         }
 
         /// <summary>

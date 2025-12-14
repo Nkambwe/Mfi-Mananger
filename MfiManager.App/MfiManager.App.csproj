@@ -22,7 +22,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\BackOffice\Models\" />
-    <Folder Include="Infrastructure\Localization\" />
     <Folder Include="Views\Shared\TagHelpers\" />
   </ItemGroup>
 

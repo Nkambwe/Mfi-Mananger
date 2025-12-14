@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using MfiManager.App.Http.Responses;
-using System.Diagnostics;
 using MfiManager.App.Http.Requests;
 using System.Text.Json;
 using MfiManager.App.Enums;
@@ -21,9 +20,11 @@ namespace MfiManager.App.Services {
         IMfiErrorService errorService, 
         IMfiErrorFactory errorFactory, 
         IHttpContextAccessor httpContextAccessor,           
-        IWebHelper webHelper, SessionManager sessionManager) :
+        IWebHelper webHelper, 
+        ILocalizationService localizationService,
+        SessionManager sessionManager) :
         ApplicationBaseService<SystemAccesssService>(logger, httpHandler, environment, 
-            endpointType, errorService, errorFactory, webHelper, sessionManager), 
+            endpointType, errorService, errorFactory, webHelper, localizationService, sessionManager), 
         ISystemAccesssService {
 
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;

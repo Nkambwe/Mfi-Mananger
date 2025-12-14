@@ -6,7 +6,9 @@ using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Enums;
+using MfiManager.Middleware.Installation;
 using MfiManager.Middleware.Logging;
+using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
@@ -171,19 +173,25 @@ namespace MfiManager.Middleware.Extensions {
         /// <param name="services">Service instance</param>
         public static void RegisterServices(this IServiceCollection services) { 
             //..register service
+            services.AddScoped<IServerFileProvider, ServerFileProvider>();
             services.AddScoped<IPaginationConfigurationService, PaginationConfigurationService>();
             services.AddScoped<IDatabaseVersionCheckerService, DatabaseVersionCheckerService>();
             services.AddScoped<ILoggingConfigService, LoggingConfigService>();
-            //services.AddScoped<ICompanyService, CompanyService>();
-            //services.AddScoped<IBranchService, BranchService>();
-            //services.AddScoped<ISystemAccessService, SystemAccessService>();
+            services.AddScoped<IServiceLocalization, ServiceLocalization>();
+            services.AddScoped<IServerWebHelper, ServerWebHelper>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IInstallationService, InstallationService>();
+            services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IBranchService, BranchService>();
+            services.AddScoped<ISystemErrorService, SystemErrorService>();
             //services.AddScoped<IActivityLogService, ActivityLogService>();
             //services.AddScoped<IActivityTypeService, ActivityTypeService>();
             //services.AddScoped<IActivityLogSettingService, ActivityLogSettingService>();
             //services.AddScoped<IDepartmentsService, DepartmentsService>();
             //services.AddScoped<IDepartmentUnitService, DepartmentUnitService>();
             //services.AddScoped<IQuickActionService, QuickActionService>();
-            services.AddScoped<ICustomerService, CustomerService>();
+            
+            
         }
 
     }
