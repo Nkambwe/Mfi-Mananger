@@ -3,7 +3,6 @@
     /// Credit assessment for a client
     /// </summary>
     public class CreditAssessment : BaseEntity {
-        public long CustomerId { get; set; }
         public bool IsWorthy { get; set; }
         public decimal CreditLimit { get; set; }
         public decimal MaximumAllowed { get; set; }
@@ -14,7 +13,8 @@
         /// </summary>
         public DateTime? ReviewOn { get; set; }
         public string ConfirmedBy { get; set; }
-        public virtual Individual Customer { get; set; }
+        public long PersonId { get; set; }
+        public virtual Individual Individual { get; set; }
 
     }
 }

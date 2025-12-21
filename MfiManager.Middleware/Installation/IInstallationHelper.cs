@@ -58,7 +58,7 @@ namespace MfiManager.Middleware.Installation {
         IReadOnlyList<GroupFilter2> GetGroupFilter2();
         IReadOnlyList<BusinessFilter1> GetBusinessFilter1();
         IReadOnlyList<BusinessFilter2> GetBusinessFilter2();
-        IReadOnlyList<SeriesNumbers> GetSeries(long branchId);
+        IReadOnlyList<SeriesNumber> GetSeries(long branchId);
         IReadOnlyList<AccountReference> GetDefaultReferences();
         IReadOnlyList<SystemConfiguration> GetStatisticsParameters(StatisticParameters parameter);
         IReadOnlyList<SystemConfiguration> GetClientParameters(long? branchId = null);

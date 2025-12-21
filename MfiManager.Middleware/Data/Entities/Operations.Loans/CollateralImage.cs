@@ -3,8 +3,9 @@
     /// Collateral image file
     /// </summary>
     public class CollateralImage : BaseEntity {
+        public string FileName { get; set; }
         public long CollateralId { get; set; }
-        public string File { get; set; }
+        public string Notes { get; set; }
         public virtual Collateral Collateral { get; set; }
     }
 }

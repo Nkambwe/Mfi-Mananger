@@ -5,8 +5,8 @@ using MfiManager.Middleware.Data.Entities.Operations.Vendors;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
+
     public class BankAccount : BaseEntity, IEntityAccessSupported {
-        public long BankBranchId   {get;set;}
         /// <summary>
         /// Get/Set client or supplier code
         /// </summary>
@@ -37,6 +37,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         public bool Active   {get;set;}
         public decimal CreditLimit  {get;set;}
         public bool ExcludeBranches  {get;set;}
+        public long BankBranchId   {get;set;}
         public virtual BankBranch BankBranch { get; set; }
         public virtual LedgerAccount LedgerAccount { get; set; }
         public virtual ICollection<ChequeBook> Books  {get;set;}=[];
@@ -49,4 +50,5 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         public virtual ICollection<PaymentDefault> DefaultVendorPayments {get;set;}=[];
 
     }
+
 }

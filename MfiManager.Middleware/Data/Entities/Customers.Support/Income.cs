@@ -3,6 +3,6 @@
         public string Code { get; set; }
         public string Name { get; set; }
         public string Notes { get; set; }
-        public virtual ICollection<IncomeHistory> Histories { get; set; } = [];
+        public virtual ICollection<IncomeHistory> IncomeHistories { get; set; } = [];
     }
 }

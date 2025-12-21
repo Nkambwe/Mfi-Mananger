@@ -1,4 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Vendors;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
@@ -10,6 +11,8 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
         public long? GroupId { get; set; }
         public long? DeliverTermsId { get; set; }
         public long? DeliveryModeId { get; set; }
+        public long? ReasonId { get; set; }
+        public virtual Reason Reason { get; set; }
         public virtual TraderGroup Group { get; set; }
         public virtual DeliveryTerms DeliverTerms { get; set; }
         public DeliveryMode DeliveryMode { get; set; }

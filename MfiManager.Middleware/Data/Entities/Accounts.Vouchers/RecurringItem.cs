@@ -2,6 +2,7 @@
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
+
     public class RecurringItem : BaseEntity {
         public string Code {get;set;}
         public string Name {get;set;}
@@ -17,11 +18,11 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         /// Get Or Set whether transaction is posted automatically
         /// </summary>
         public bool Auto  {get;set;}
-        public string Ledger {get;set;}
+        public string PostingLedger {get;set;}
         /// <summary>
         /// Get or Set ledger account to post against
         /// </summary>
-        public string Against  {get;set;}
+        public string AgainstLedger  {get;set;}
         public long? BranchId {get;set;}
 
         public virtual Branch Branch { get; set; }

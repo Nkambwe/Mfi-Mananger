@@ -5,7 +5,7 @@
     public class Education : BaseEntity {
         public string Code { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Individual> People { get; set; } = [];
+        public virtual ICollection<Individual> Individuals { get; set; } = [];
         public virtual ICollection<Member> Members { get; set; } = [];
     }
 }

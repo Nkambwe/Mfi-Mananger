@@ -11,8 +11,6 @@ namespace MfiManager.Middleware.Enums {
         [Description("Groups")]
         Group = 3,
         [Description("Group Members")]
-        Member = 4,
-        [Description("Sub Groups")]
-        Cluster = 5
+        Member = 4
     }
 }

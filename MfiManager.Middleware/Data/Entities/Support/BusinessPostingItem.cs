@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.Support {
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Vouchers;
+
+namespace MfiManager.Middleware.Data.Entities.Support {
     /// <summary>
     /// Business group type item
     /// </summary>
@@ -16,7 +18,9 @@
         /// <summary>
         /// Get / Set business group type Id
         /// </summary>
-        public long TypeId {get;set;}
-        public virtual BusinessPosting Group { get; set; }
+        public long BusinessPostingId {get;set;}
+        public virtual BusinessPostingType BusinessPostingType { get; set; }
+        public virtual ICollection<JournalType> Journals {get;set;} = [];
+        public virtual ICollection<VoucherType> Vouchers {get;set;} = [];
     }
 }

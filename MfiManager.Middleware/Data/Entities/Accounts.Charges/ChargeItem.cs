@@ -3,6 +3,7 @@ using MfiManager.Middleware.Data.Entities.Accounts.Taxes;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Charges {
+
     public class ChargeItem : BaseEntity {
         public string Code {get;set; }
         public int ChargeOn {get;set; }
@@ -19,6 +20,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Charges {
         public virtual ICollection<ChargeItemCharge> Charges { get; set; }
         public virtual ICollection<ChargeStage> ChargeStages {get;set;}=[];
         public virtual ICollection<ChargeLedger> ChargeTransactions {get;set;}=[];
+        public virtual ICollection<RegistrationLedger> ChargeTransactionsTransactions {get;set;}=[];
 
     }
 

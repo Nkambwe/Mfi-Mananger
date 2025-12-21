@@ -30,9 +30,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Timedeposit {
         public string RegisteredBy {get;set;}
         public virtual TimedepositProduct Product { get; set; }
         public virtual Branch Branch { get; set; }
-        public virtual Individual IndividualClient { get; set; }
+        public virtual Individual Individual { get; set; }
         public virtual Group GroupClient { get; set; }
-        public virtual Member GroupMember { get; set; }
+        public virtual Member Member { get; set; }
         public virtual ICollection<ModifiedTimedepositAccount> Modifications { get; set; } = [];
     }
 }

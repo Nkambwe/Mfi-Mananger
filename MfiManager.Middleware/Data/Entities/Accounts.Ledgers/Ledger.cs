@@ -2,18 +2,10 @@
 using MfiManager.Middleware.Data.Entities.Accounts.Vouchers;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
-    public class Ledger : Transaction, ICloneable {
-        public long LedgerId {get;set;}
-
-        public object Clone() {
-            var clone = (Ledger)MemberwiseClone();
-            clone.LedgerAccount = null;
-            clone.Folio = null;
-            clone.CardTransactions = null;
-            clone.VoucherTransactions = null;
-            return clone;
-        }
-
+    public class Ledger : Transaction {
+        public long LedgerAccountId {get;set;}
+        public long? MonthlyClosureId {get;set;}
+        public virtual MonthlyClosure MonthlyClosure { get; set; }
         public virtual LedgerAccount LedgerAccount { get; set; }
         public virtual ICollection<CardLedger> CardTransactions  {get;set;}=[];
         public virtual ICollection<Voucher> VoucherTransactions  {get;set;}=[];

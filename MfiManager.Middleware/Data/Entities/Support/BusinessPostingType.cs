@@ -4,7 +4,7 @@ namespace MfiManager.Middleware.Data.Entities.Support {
     /// <summary>
     /// Transactions posted based on nature of business such as Sale of services, Sale of products, Payment, Reimbursement, Returns
     /// </summary>
-    public class BusinessPosting : BaseEntity {
+    public class BusinessPostingType : BaseEntity {
         /// <summary>
         /// Get Or Set reason type
         /// </summary>
@@ -18,7 +18,6 @@ namespace MfiManager.Middleware.Data.Entities.Support {
         public string Description {get;set;}
         public string Notes {get;set;}
         public virtual ICollection<BusinessPostingItem> BusinessItems {get;set;} = [];
-        public virtual ICollection<JournalType> Journals {get;set;} = [];
-        public virtual ICollection<VoucherType> Vouchers {get;set;} = [];
+        
     }
 }

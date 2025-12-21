@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MfiManager.Middleware")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e505b6d1b3ae6f170bb92b634ea2e6f449468a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51c67860a96634656a46f95316c0c57207f1d122")]
 [assembly: System.Reflection.AssemblyProductAttribute("MfiManager.Middleware")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MfiManager.Middleware")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

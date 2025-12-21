@@ -49,7 +49,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public virtual ICollection<Frozen> Freezes { get; set; } = [];
         public ICollection<ModifiedLoan> Modifications { get; set; } = [];
         public virtual ICollection<ApplicationNotes> Notes { get; set; } = [];
-        public virtual ICollection<Guarantor> Guarantors { get; set; } = [];
+        public virtual ICollection<LoanGuarantor> Guarantors { get; set; } = [];
         public virtual ICollection<DeclassifiedLoan> DeclassifiedLoans { get; set; } = [];
         public virtual ICollection<LossProvision> Provisions { get; set; } = [];
         public virtual ICollection<DefferedLoan> DefferedLoans { get; set; } = [];

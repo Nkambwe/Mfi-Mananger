@@ -4,7 +4,7 @@ using MfiManager.Middleware.Enums;
 namespace MfiManager.Middleware.Data.Entities.Accounts.Fees {
 
     public class SavingFeeLedger : BaseEntity {
-          public long TransactionId {get;set; }
+          public long GeneralLedgerTransactionId {get;set; }
           public string TransactionCode {get;set; }
           public DateTime PostedOn {get;set; }
           public string Particulars {get;set; }
@@ -14,7 +14,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Fees {
           public string Cashier {get;set;}
           public long FeeId {get;set; }
           public virtual ChargeableFee Fee { get; set; }
-          public virtual Ledger LedgerTransaction { get; set; }
+          public virtual Ledger GeneralLedgerTransaction { get; set; }
     }
 
 }

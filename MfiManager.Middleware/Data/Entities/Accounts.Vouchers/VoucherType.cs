@@ -1,16 +1,15 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
+
     public class VoucherType : BaseEntity {
         public string Code   { get; set; }
         public string PostingSeries  { get; set; }
         public string VoucherName   { get; set; }
         public string LedgerNumber  { get; set; }
         public PostingType Posting { get; set; }
-        public long? GeneralPostingId  { get; set; }
-        public long? BusinessPostingId  { get; set; }
         /// <summary>
         /// Check whether it is system defined or user defined voucher
         /// </summary>
@@ -28,10 +27,12 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         /// Get/Set reason for creating this journal eg. Salaries, Reimbursement etc.
         /// </summary>
         public long? ReasonId  { get; set; }
-        public virtual ReasonCategory Reason { get; set; }
-        public virtual GeneralPosting GeneralPosting { get; set; }
-        public virtual BusinessPosting BusinessPosting { get; set; }
-        public virtual ICollection<Cashier> Cashiers {get;set;} = [];
-
+        public long? GeneralPostingId  { get; set; }
+        public long? BusinessPostingId  { get; set; }
+        public virtual Reason Reason { get; set; }
+        public virtual GeneralPostingItem GeneralPostingItem { get; set; }
+        public virtual BusinessPostingItem BusinessPostingItem { get; set; }
+        public virtual ICollection<CashierVoucher> CashierVouchers {get;set;} = [];
     }
+
 }

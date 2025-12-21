@@ -7,7 +7,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Fees {
     /// Loan fees transaction record for a given loan
     /// </summary>
     public class LoanFeeLedger : BaseEntity {
-          public long TransactionId {get;set; }
+          public long GeneralLedgerTransactionId {get;set; }
           public string TransactionCode {get;set; }
           public DateTime PostedOn {get;set; }
           public string Particulars {get;set; }
@@ -20,6 +20,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Fees {
           public long? LoanFeePaymentLevelId {get;set; } 
           public virtual ChargeableFee Fee { get; set; }
           public virtual LoanFeePaymentLevel LoanFeePaymentLevel { get; set; }
-          public virtual Ledger LedgerTransaction { get; set; }
+          public virtual Ledger GeneralLedgerTransaction { get; set; }
     }
 }

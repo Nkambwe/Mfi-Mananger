@@ -4,7 +4,7 @@
     /// </summary>
     public class Iban : BaseEntity {
         public string Code {get; set; }
-        public string Notes  {get; set; }
+        public string Naration  {get; set; }
         public virtual ICollection<Bank> Banks  {get; set; } = [];
     }
 }

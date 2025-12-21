@@ -1,28 +1,26 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations;
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Archieves {
     public class MemberArchive : BaseEntity {
         public long MemberId { get; set; }
-        public string Group { get; set; }
-        public long BranchId { get; set; }
-        public string Code { get; set; }
+        public long GroupId { get; set; }
+        public string ClientCode { get; set; }
         public string MemberNumber { get; set; }
         public string Statistic { get; set; }
         public string Reference { get; set; }
-        public string Cluster { get; set; }
-        public DateTime RegisteredOn { get; set; }
         public long? TitleId { get; set; }
+        public DateTime RegisteredOn { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; }
-        public string Area { get; set; }
+        public long? VillageId { get; set; }
         public string Signature { get; set; }
         public string Photo { get; set; }
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
         public bool HoldShares { get; set; }
-        public bool Deleted { get; set; }
         public long? ProfessionId { get; set; }
         public long? EducationId { get; set; }
         public long? NationalityId { get; set; }
@@ -57,10 +55,14 @@ namespace MfiManager.Middleware.Data.Entities.Archieves {
         public long? Filter5Id { get; set; }
         public bool Approved { get; set; }
         public string ApprovedBy { get; set; }
-        public bool Exited { get; set; }
         public DateTime? ApprovedOn { get; set; }
+        public bool Exited { get; set; }
         public string Notes { get; set; }
         public DateTime ArchivedOn { get; set; }
-        public virtual Company Company { get; set; }
+        public virtual Title Title {get;set;}
+        public virtual Village Village {get;set;}
+        public virtual Profession Profession {get;set;}
+        public virtual Nationality Nationality {get;set;}
+        public virtual GroupArchive Group { get; set; }
     }
 }

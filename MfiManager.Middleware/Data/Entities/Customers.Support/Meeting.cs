@@ -5,7 +5,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers.Support {
     /// Group meeting info
     /// </summary>
     public class Meeting : BaseEntity {
-        public long GroupId { get; set; }
+        
         public string MeetingDays { get; set; }
         public string MeetingTime { get; set; }
         /// <summary>
@@ -13,6 +13,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers.Support {
         /// </summary>
         public int MeetingsHeld { get; set; }
         public Interval Frequency { get; set; }
+        public long GroupId { get; set; }
         public virtual Group Group { get; set; }
     }
 }

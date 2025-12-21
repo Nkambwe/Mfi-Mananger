@@ -2,6 +2,7 @@
 using MfiManager.Middleware.Data.Entities.System;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
+
     public class Cashier : BaseEntity {
         /// <summary>
         /// Get Or Set Cashier code
@@ -11,10 +12,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         /// Get Or Set Cashier name
         /// </summary>
         public string Name {get; set; }
-        /// <summary>
-        /// Cashier user record ID
-        /// </summary>
-        public long? UserId {get; set; }
         /// <summary>
         /// Current cashier branch
         /// </summary>
@@ -35,9 +32,14 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         /// List of company branches that can be accessed by this cashier at the same time
         /// </summary>
         public string AccessibleBranches  {get; set; }
+        /// <summary>
+        /// Cashier user record ID
+        /// </summary>
+        public long UserId {get; set; }
         public virtual SystemUser User { get; set; }
-        public virtual ICollection<CashAccount> CashAccounts  {get; set; } =[];
-        public virtual ICollection<JournalType> RestrictedJournals  {get; set; }
-        public virtual ICollection<VoucherType> Vouchers {get; set; } = [];
+        public virtual ICollection<CashierCashAccount> CashAccounts  {get; set; } =[];
+        public virtual ICollection<CashierJournal> CashierJournals {get;set;}=[];
+        public virtual ICollection<CashierVoucher> CashierVouchers {get;set;} = [];
     }
+
 }

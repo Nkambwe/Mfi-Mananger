@@ -1,19 +1,16 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Archieves {
     public class BusinessArchive : BaseEntity {
         public long BusinessId { get; set; }
-        public long BranchId { get; set; }
-        public string Code { get; set; }
+        public string ClientCode { get; set; }
         public string Statistic { get; set; }
         public string Reference { get; set; }
         public DateTime RegisteredOn { get; set; }
         public string LegalName { get; set; }
-        public string Area { get; set; }
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
         public bool HoldShares { get; set; }
-        public bool Deleted { get; set; }
         public bool Approved { get; set; }
         public string ApprovedBy { get; set; }
         public bool Exited { get; set; }
@@ -30,15 +27,15 @@ namespace MfiManager.Middleware.Data.Entities.Archieves {
         public string Facebook { get; set; }
         public string Instagram { get; set; }
         public string Twitter { get; set; }
-        public long? NationalityId { get; set; }
         public long? Filter1Id { get; set; }
         public long? Filter2Id { get; set; }
         public long? Filter3Id { get; set; }
-        public long? Filter4Id { get; set; }
-        public long? Filter5Id { get; set; }
+        public long? BusinessFilter1Id { get; set; }
+        public long? BusinessFilter2Id { get; set; }
         public DateTime? ApprovedOn { get; set; }
         public string Notes { get; set; }
         public DateTime ArchivedOn { get; set; }
-        public virtual Company Company { get; set; }
+        public long BranchId { get; set; }
+        public virtual Branch Branch { get; set; }
     }
 }

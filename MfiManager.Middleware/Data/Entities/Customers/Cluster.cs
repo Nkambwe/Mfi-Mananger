@@ -1,16 +1,13 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
-using MfiManager.Middleware.Enums;
-
+﻿
 namespace MfiManager.Middleware.Data.Entities.Customers {
+
     public class Cluster : BaseEntity {
         public string Code {get;set; }
-        public long BranchId {get;set; }
-        public string Group {get;set; }
-        public string RegisteredName {get;set; }
-        public DateTime RegisteredOn {get;set; }
+        public string ClusterName {get;set; }
+        public DateTime AddedOn {get;set; }
+        public bool ClosedOn {get;set; }
         public string Area {get;set; }
-        public ClientType Type {get;set; }
-        public bool Closed {get;set; }
+        
         /// <summary>
         /// Get/Set flag to check if cluster was dissolved into another cluster
         /// </summary>
@@ -20,11 +17,11 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         /// </summary>
         public string MergedTo {get;set; }
         public bool Active {get;set; }
-        public bool MarkAsDeleted {get;set; }
         public string CreditOfficer {get;set; }
         public string Notes {get;set; }
-        public virtual Branch Branch { get; set; }
+        public long GroupId {get;set; }
+        public virtual Group Group {get;set;}
         public virtual ICollection<ClusterMember> Members {get;set;}
-
     }
+
 }

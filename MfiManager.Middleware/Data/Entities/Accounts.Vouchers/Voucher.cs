@@ -2,20 +2,20 @@
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
+
     /// <summary>
     /// Voucher or journal voucher object. Capture transactions that are not part of the day-today transactions
     /// such as prepayments, depreciation, sale of access, fx revaluation, recurring transactions
     /// </summary>
     public class Voucher  : BaseEntity {
         /// <summary>
-        /// Get/Set transaction Id
+        /// Get/Set transaction code
         /// </summary>
-        public string TransactionId { get; set; }
+        public string TransactionCode { get; set; }
         /// <summary>
         /// Get/Set transaction date
         /// </summary>
-        public DateTime PostedOn{ get; set; }
-        public string Series{ get; set; }
+        public DateTime PostedOn { get; set; }
         /// <summary>
         /// Get/Set details for the transactions
         /// </summary>
@@ -31,11 +31,11 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         /// <summary>
         /// Get/Set customer or supplier code 
         /// </summary>
-        public string RelatesTo{ get; set; }
+        public string RelatesTo { get; set; }
         /// <summary>
         /// Cash voucher transaction type reference
         /// </summary>
-        public CashLedgerFolio Ref { get; set; }
+        public CashLedgerFolio CashRef { get; set; }
         /// <summary>
         /// Get/Set method of payment
         /// </summary>
@@ -43,29 +43,33 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         /// <summary>
         /// Get/Set clearance status
         /// </summary>
-        public PaymentStatus Clearance{ get; set; }
+        public PaymentStatus PaymentStatus { get; set; }
+        /// <summary>
+        /// Get/Set debit
+        /// </summary>
         public decimal Debit { get; set; }
+        /// <summary>
+        /// Get/Set credit
+        /// </summary>
         public decimal Credit{ get; set; }
         /// <summary>
         /// Get/Set amount to be credited as discount received
         /// </summary>
         public decimal Discount { get; set; }
-        public long TransactionDocumentTypeId{ get; set; }
-        public long TransactionDocumentId{ get; set; }
         /// <summary>
         /// Get/Set name of person authorizing payment
         /// </summary>
         public string Authorized { get; set; }
-
         /// <summary>
         /// Get/Set code for cashier
         /// </summary>
         public string Cashier { get; set; }
-        public long? GeneralJournalId{ get; set; }
-        public long? GeneralLedgerId{ get; set; }
-        public virtual TransactionDocumentType DocumentType { get; set; }
-        public virtual TransactionDocument Document { get; set; }
-        public virtual Journal GeneralJournal { get; set; }
-        public virtual Ledger GeneralLedger { get; set; }
+        public long TransactionDocumentId { get; set; }
+        public long? GeneralJournalTransactionId { get; set; }
+        public long? GeneralLedgerTransactionId { get; set; }
+        public virtual Journal GeneralJournalTransaction { get; set; }
+        public virtual Ledger GeneralLedgerTransaction { get; set; }
+        public virtual TransactionDocument TransactionDocument { get; set; }
     }
+
 }

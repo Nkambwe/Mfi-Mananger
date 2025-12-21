@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations;
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+using MfiManager.Middleware.Data.Entities.Operations;
 
 namespace MfiManager.Middleware.Data.Entities.System {
     public class SystemUser: BaseEntity {
@@ -23,6 +24,7 @@ namespace MfiManager.Middleware.Data.Entities.System {
         public long RoleId { get; set; }
         public virtual Department Department { get; set; }
         public virtual SystemRole Role { get; set; }
+        public virtual ICollection<Cashier> Cashiers { get; set; }
         public virtual ICollection<LoginAttempt> Attempts { get; set; }
         public virtual ICollection<UserQuickAction> QuickActions { get; set; }
         public virtual ICollection<UserPrefference> Prefferences { get; set; }

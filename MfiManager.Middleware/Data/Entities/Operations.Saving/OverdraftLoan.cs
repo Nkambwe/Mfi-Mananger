@@ -22,9 +22,8 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         public DateTime? ApprovedOn { get; set; }
         public string ApprovedBy { get; set; }
         public DateTime EntryDate { get; set; }
-        public virtual SavingAccount Account { get; set; }
+        public virtual SavingAccount SavingAccount { get; set; }
         public OverdraftStatus Status { get; set; }
-        private ICollection<OverdraftGuarantee> _guarantees;
         public virtual ICollection<OverdraftGuarantee> Guarantees { get; set; }
         public virtual ICollection<ModifiedOverdraftLoan> Modifications { get; set; }
     }

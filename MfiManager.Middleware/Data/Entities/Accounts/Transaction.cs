@@ -1,6 +1,7 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.Accounts {
+
     public abstract class Transaction : BaseEntity {
-        public string TransactionId {get;set;}
+        public string TransactionCode {get;set;}
         public DateTime PostedOn {get;set;}
         public string Particulars {get;set;}
         public string Folio {get;set;}
@@ -21,12 +22,13 @@
         public string Reference5 {get;set;}
         public string Reference6 {get;set;}
         public string TaxCode {get;set;}
-        public decimal Tax  {get;set;}
-        public decimal Tax2 {get;set;}
+        public decimal TaxCharge1  {get;set;}
+        public decimal TaxCharge2 {get;set;}
         public bool Closed  {get;set;}
         public DateTime? ClosedOn  {get;set;}
         public string Comment {get;set;}
         public string Cashier {get;set;}
 
     }
+
 }

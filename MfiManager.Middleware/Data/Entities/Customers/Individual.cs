@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Fees;
-using MfiManager.Middleware.Data.Entities.Customer.Filters;
+﻿using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Insurance;
@@ -7,20 +6,19 @@ using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
 
     public class Individual : BaseEntity, IClient {
+        public string ClientCode { get; set; }
+        public string Statistic { get; set; }
+        public string Reference { get; set; }
         public string FirstName {get;set; }
         public string LastName {get;set; }
         public string MiddleName {get;set; }
         public Gender Gender { get; set; }
         public string Photo {get;set; }
         public string Signature { get;set; }
-        /// <summary>
-        /// Get Or Set City of location
-        /// </summary>
         public string City  { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BirthPlace { get; set; }
@@ -33,9 +31,6 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public string Mother  { get; set; }
         public string Father { get; set; }
         public bool Literate  { get; set; }
-        public string Code { get; set; }
-        public string Statistic { get; set; }
-        public string Reference { get; set; }
         public string PermanentAddress { get; set; }
         public string MailAddress { get; set; }
         public string PrimaryLine { get; set; }
@@ -45,8 +40,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public string Email { get; set; }
         public string Town { get; set; }
         public DateTime RegisteredOn { get; set; }
-        public string Area { get; set; }
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
         public bool HoldShares { get; set; }
         public bool Active { get; set; }
         public bool Exited { get; set; }
@@ -75,11 +69,11 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual Profession Profession {get;set;}
         public long? EducationId {get; set;}
         public virtual Education Education {get;set;}
-        public long VillageId {get; set;}
+        public long? VillageId {get; set;}
         public virtual Village Village {get;set;}
-        public virtual ICollection<IncomeHistory> Incomes {get;set;} = [];
+        public virtual ICollection<IncomeHistory> IncomeHistories {get;set;} = [];
         public virtual ICollection<ClientApproval> Approvals {get;set;} = [];
-        public virtual ICollection<Language> Languages  {get;set;} = [];
+        public virtual ICollection<IndividualLanguage> Languages  {get;set;} = [];
         public virtual ICollection<CreditAssessment> CreditAssessments { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
         public virtual ICollection<ShareAccount> ShareAccounts {get;set;} = [];
@@ -141,6 +135,6 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         /// Override to string method of client object
         /// </summary>
         /// <returns></returns>
-        public override string ToString() => $"{FirstName}, {LastName}, {Code},{DateOfBirth}{BirthPlace}{Father}{Mother}";
+        public override string ToString() => $"{FirstName}, {LastName}, {ClientCode},{DateOfBirth}{BirthPlace}{Father}{Mother}";
     }
 }

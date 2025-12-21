@@ -1,4 +1,7 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Saving;
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
+using MfiManager.Middleware.Data.Entities.Support;
+using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// <summary>
@@ -6,20 +9,35 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// </summary>
     public class Guarantor : BaseEntity {
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string Reference { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public Gender Gender { get; set; }
         public bool IsClient { get; set; }
-        public string ClientCode { get; set; }
         public string Photo { get; set; }
         public string Signature { get; set; }
-        public string Address { get; set; }
+        public string PermanentAddress { get; set; }
         public string Telephone { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
+        public string City { get; set; }
+        public string Town { get; set; }
+        public string Notes { get; set; }
+        public long? TitleId { get; set; }
+        public long? NationalityId {get;set; }
+        public long? VillageId {get; set;}
+        public long? ProfessionId {get;set; }
+        public virtual Title Title {get;set;}
+        public virtual Nationality Nationality {get;set;}
+        public virtual Village Village {get;set;}
+        public virtual Profession Profession {get;set;}
         public ICollection<Collateral> Collateral { get; set; } = [];
         public ICollection<OverdraftGuarantee> Overdrafts { get; set; } = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<LoanGuarantor> Loans { get; set; } = [];
+        public virtual ICollection<GuarantorLanguage> Languages  {get;set;} = [];
 
-        public override string ToString() => $"{(string.IsNullOrEmpty(Code) ? "000000" : Code.Trim())}:{(string.IsNullOrEmpty(Name) ? "" : Name.Trim())}";
+        public override string ToString() => $"{(string.IsNullOrEmpty(Code) ? "000000" : Code.Trim())}:{(string.IsNullOrEmpty(FirstName) ? "" : FirstName.Trim())}:{(string.IsNullOrEmpty(LastName) ? "" : LastName.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
 
         /// <summary>
@@ -36,7 +54,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
             if (ReferenceEquals(this, otherGuarantor)) return true;
 
             var guarantor = otherGuarantor as Guarantor;
-            return guarantor != null && guarantor.Code.Trim().Equals(Code.Trim(), StringComparison.CurrentCultureIgnoreCase) && guarantor.Name.Trim().Equals(Name.Trim(), StringComparison.CurrentCultureIgnoreCase);
+            return guarantor != null && guarantor.Code.Trim().Equals(Code.Trim(), StringComparison.CurrentCultureIgnoreCase) &&
+                guarantor.FirstName.Trim().Equals(FirstName.Trim(), StringComparison.CurrentCultureIgnoreCase) && 
+                guarantor.LastName.Trim().Equals(LastName.Trim(), StringComparison.CurrentCultureIgnoreCase);
         }
 
         /// <summary>
@@ -61,4 +81,5 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public static bool operator !=(Guarantor thisGuarantor, Guarantor thatGuarantor)
             => !(thatGuarantor == thisGuarantor);
     }
+
 }

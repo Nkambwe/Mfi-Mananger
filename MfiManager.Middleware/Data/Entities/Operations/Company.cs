@@ -1,9 +1,7 @@
-﻿using MfiManager.Middleware.Data.Entities.Archieves;
-using MfiManager.Middleware.Data.Entities.Operations.Branches;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
 using MfiManager.Middleware.Data.Entities.System;
 using MfiManager.Middleware.Data.Entities.System.Configurations;
-using MfiManager.Middleware.Data.Entities.System.Configurations.Parameters;
 
 namespace MfiManager.Middleware.Data.Entities.Operations {
 
@@ -18,12 +16,6 @@ namespace MfiManager.Middleware.Data.Entities.Operations {
         public virtual ICollection<Department> Departments { get; set; }
         public virtual ICollection<SystemError> SystemErrors { get; set; }
         public virtual ICollection<SystemConfiguration> SystemConfigurations { get; set; }
-        public virtual ICollection<BusinessArchive> BusinessArchives { get; set; }
-        public virtual ICollection<DeletedLedger> DeletedLedgers { get; set; }
-        public virtual ICollection<GroupArchive> GroupArchives { get; set; }
-        public virtual ICollection<IndividualArchive> IndividualArchives { get; set; }
-        public virtual ICollection<MemberArchive> MemberArchives { get; set; }
-
         public override string ToString() => $"{CompanyName}";
         public override bool Equals(object obj) {
 

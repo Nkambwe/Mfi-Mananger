@@ -18,11 +18,11 @@ namespace MfiManager.Middleware.Data.Entities.Accounts {
         /// <summary>
         /// First month of financial year
         /// </summary>
-        public string Starts { get; set; }
+        public string StartDate { get; set; }
         /// <summary>
         /// First month of financial year
         /// </summary>
-        public string Ends { get; set; }
+        public string EndDate { get; set; }
         /// <summary>
         /// Financial year is closed
         /// </summary>
@@ -32,6 +32,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts {
         /// </summary>
         public long? BranchId { get; set; }
         public virtual Branch Branch { get; set; }
-        public virtual ICollection<MonthlyClosure> Closures {get;set;}=[];
+        public virtual ICollection<MonthlyClosure> MonthlyClosures {get;set;}=[];
     }
 }

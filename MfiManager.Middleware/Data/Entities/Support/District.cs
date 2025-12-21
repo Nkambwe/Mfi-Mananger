@@ -2,6 +2,6 @@
     public class District: BaseEntity {
         public string Code {get;set; }
         public string Name {get;set; }
-        public virtual Parish Parishes {get;set; }
+        public virtual ICollection<Parish> Parishes {get;set; }
     }
 }

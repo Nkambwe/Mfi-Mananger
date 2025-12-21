@@ -1,9 +1,10 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
+
     public class CashLedger: BaseEntity {
-        public string TransactionId {get; set;}
-        public string Account {get; set;}
+        public string TransactionCode {get; set;}
+        public string LedgerAccount {get; set;}
         public DateTime PostedOn {get; set;}
         public string Description {get; set;}
         /// <summary>
@@ -27,7 +28,10 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
         /// Get/Set account balance
         /// </summary>
         public decimal Balance {get; set;}
-        public virtual ICollection<CashAccount> CashAccounts {get; set;}=[];
+
+        public long CashAccountId { get; set;}
+
+        public virtual CashAccount CashAccount { get; set; }
 
     }
 }

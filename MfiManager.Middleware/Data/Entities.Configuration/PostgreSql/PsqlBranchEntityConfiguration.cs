@@ -28,7 +28,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.HasMany(b => b.Holidays).WithOne(h => h.Branch).HasForeignKey(h => h.BranchId);
             builder.HasMany(b => b.LockedFiles).WithOne(l => l.Branch).HasForeignKey(l => l.BranchId);
             builder.HasMany(b => b.Configurations).WithOne(c => c.Branch).HasForeignKey(c => c.BranchId);
-            builder.HasMany(b => b.Series).WithOne(s => s.Branch).HasForeignKey(s => s.BranchId);
+            builder.HasMany(b => b.SeriesNumbers).WithOne(s => s.Branch).HasForeignKey(s => s.BranchId);
             builder.HasMany(b => b.RecurringItems).WithOne(r => r.Branch).HasForeignKey(r => r.BranchId);
             builder.HasMany(b => b.Entities).WithOne(e => e.Branch).HasForeignKey(e => e.BranchId);
             builder.HasMany(b => b.CostCenters).WithOne(c => c.Branch).HasForeignKey(c => c.BranchId);

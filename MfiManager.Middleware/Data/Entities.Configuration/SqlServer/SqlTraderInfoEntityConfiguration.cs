@@ -20,6 +20,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.GroupId).HasColumnName("category_id").IsRequired(false);
             builder.Property(p => p.DeliverTermsId).HasColumnName("terms_id").IsRequired(false);
             builder.Property(p => p.DeliveryModeId).HasColumnName("mode_id").IsRequired(false);
+            builder.Property(p => p.ReasonId).HasColumnName("reason_id").IsRequired(false);
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();

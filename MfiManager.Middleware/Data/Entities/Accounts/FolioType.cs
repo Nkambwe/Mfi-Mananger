@@ -7,7 +7,8 @@
         /// <summary>
         /// Folio type description
         /// </summary>
-        public string Description{get;set;}
+        public string TypeName{get;set;}
+
         public virtual ICollection<Folio> Folios {get;set;}=[];
     }
 }

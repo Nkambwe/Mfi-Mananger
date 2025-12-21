@@ -16,7 +16,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
         public long? MemberId {get;set; }
         public virtual Branch Branch { get; set; }
         public virtual ShareProduct Product { get; set; }
-        public virtual Individual IndividualClient { get; set; }
+        public virtual Individual Individual { get; set; }
         public virtual Member Member { get; set; }
         public virtual ICollection<ShareTransactionLedger> ShareTransactions {get;set;}=[];
         public virtual ICollection<DividendTransactionLedger> DividendTransactions {get;set;}=[];

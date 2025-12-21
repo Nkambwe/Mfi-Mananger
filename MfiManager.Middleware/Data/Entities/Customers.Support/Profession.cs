@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Loans;
+﻿using MfiManager.Middleware.Data.Entities.Archieves;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 
 namespace MfiManager.Middleware.Data.Entities.Customers.Support {
     /// <summary>
@@ -10,6 +11,8 @@ namespace MfiManager.Middleware.Data.Entities.Customers.Support {
         public virtual ICollection<Individual> Individuals { get; set; } = [];
         public virtual ICollection<Member> Members { get; set; } = [];
         public virtual ICollection<Guarantor> Guarantors { get; set; } = [];
+        public virtual ICollection<IndividualArchive> IndividualArchives { get; set; } = [];
+        public virtual ICollection<MemberArchive> MemberArchive { get; set; }
 
     }
 }

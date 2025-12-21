@@ -1,9 +1,8 @@
 ﻿using MfiManager.Middleware.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
     public interface IClient {
-        public string Code {get; set; }
+        public string ClientCode {get; set; }
         public string Statistic  {get; set; }
         public string Reference  {get; set; }
          /// <summary>
@@ -39,8 +38,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         /// </summary>
         public string Town  { get; set; }
         public DateTime RegisteredOn  {get; set; }
-        public string Area {get; set; }
-        public ClientType Type  {get; set; }
+        public ClientType ClientType  {get; set; }
         public bool HoldShares {get; set; }
         public bool Active  {get; set; }
         public bool Exited {get; set; }
