@@ -8,6 +8,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
         public static void Configure(EntityTypeBuilder<CollateralImage> builder) {
             builder.ToTable("TBL_MFI_COLLATERAL_IMAGE");
             builder.HasKey(p => p.Id);
+            builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.FileName).HasColumnName("file_name").HasColumnType("NVARCHAR(MAX)").IsRequired();
             builder.Property(p => p.CollateralId).HasColumnName("collateral_id");
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");

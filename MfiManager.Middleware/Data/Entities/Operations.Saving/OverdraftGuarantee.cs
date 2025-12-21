@@ -16,7 +16,6 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         public decimal CollateralValue { get; set; }
         public string CollateralDescription { get; set; }
         public string Notes { get; set; }
-        
         public long? GuarantorId { get; set; }
         public virtual Guarantor Guarantor { get; set; }
         public long OverdraftId { get; set; }

@@ -33,6 +33,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Timedeposit {
         public virtual Individual Individual { get; set; }
         public virtual Group GroupClient { get; set; }
         public virtual Member Member { get; set; }
-        public virtual ICollection<ModifiedTimedepositAccount> Modifications { get; set; } = [];
+        public virtual ICollection<TimedepositLedger> TimedepositTransactions { get; set; } = [];
+        public virtual ICollection<ModifiedTimedepositAccount> ModifiedTimedepositAccounts { get; set; } = [];
     }
 }

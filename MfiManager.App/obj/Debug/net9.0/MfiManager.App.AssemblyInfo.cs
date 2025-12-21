@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MfiManager.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e505b6d1b3ae6f170bb92b634ea2e6f449468a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+422a7bbb37f1c80e3bfc51fba43143b9496986d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("MfiManager.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MfiManager.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

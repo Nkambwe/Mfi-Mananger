@@ -38,12 +38,15 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Cashier).HasColumnName("cashier").HasColumnType("NVARCHAR(10)");
             builder.Property(p => p.Comment).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.DeletedBy).HasColumnName("deleted_by").HasColumnType("NVARCHAR(10)").IsRequired();
+            builder.Property(p => p.ReasonId).HasColumnName("reason_id");
+            builder.Property(p => p.BranchId).HasColumnName("branch_id");
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.HasOne(m => m.Branch).WithMany(o => o.DeletedLedgers).HasForeignKey(mp => mp.BranchId);
+            builder.HasOne(p => p.Reason).WithMany(e => e.DeletedTransactions).HasForeignKey(e => e.ReasonId);
         }
     }
 

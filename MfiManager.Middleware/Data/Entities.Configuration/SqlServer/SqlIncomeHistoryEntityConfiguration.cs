@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlIncomeHistoryEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<IncomeHistory> builder) {
-            builder.ToTable("TBL_MFI_INCOMEHISTORY");
+            builder.ToTable("TBL_MFI_CUSTOMER_EARNING");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Employer).HasColumnName("employer").HasColumnType("NVARCHAR(250)").IsRequired();

@@ -24,7 +24,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual Company Company { get; set; }
         public virtual AccountsChart AccountsChart { get; set; }
         public virtual ICollection<Holiday> Holidays { get; set; } = [];
-        public virtual ICollection<UnSealedCustomerFile> LockedFiles { get; set; } = [];
+        public virtual ICollection<UnLockedCustomer> LockedFiles { get; set; } = [];
         public virtual ICollection<SystemConfiguration> Configurations { get; set; } = [];
         public virtual ICollection<SeriesNumber> SeriesNumbers { get; set; } = [];
         public virtual ICollection<RecurringItem> RecurringItems { get; set; } = [];

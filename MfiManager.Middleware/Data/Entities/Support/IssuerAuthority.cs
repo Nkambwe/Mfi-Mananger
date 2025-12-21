@@ -12,7 +12,8 @@ namespace MfiManager.Middleware.Data.Entities.Support {
         /// <summary>
         /// Get/Set name for authority issuing document
         /// </summary>
-        public string Name { get; set; }
+        public string AuthorityName { get; set; }
+        public string Notes { get; set; }
         public virtual ICollection<Identification> Identifications { get; set; } = [];
     }
 }

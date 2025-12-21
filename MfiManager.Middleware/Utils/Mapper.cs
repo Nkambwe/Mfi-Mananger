@@ -29,20 +29,20 @@ namespace MfiManager.Middleware.Utils {
             };
 
         public static ImageResponse Map(this ImageFile source) {
-            long? attachmentId = null;
-            if (source.Attachment != null)
-                attachmentId = source.Attachment.Id;
+            long? FileId = null;
+            if (source.File != null)
+                FileId = source.File.Id;
 
             if (source.Identification != null)
-                attachmentId = source.Identification.Id;
+                FileId = source.Identification.Id;
 
-            if (source.Title != null)
-                attachmentId = source.Title.Id;
-
+            if (source.TitleDeed != null)
+                FileId = source.TitleDeed.Id;
+            
             return new ImageResponse {
-                AttachmentId = attachmentId,
-                FileDate = source.AddedOn.Date,
-                FileImage = !string.IsNullOrEmpty(source.File ?? string.Empty) ? (source.File ?? string.Empty).Trim() : string.Empty,
+                FileId = FileId,
+                FileDate = source.CreatedOn.Date,
+                FileImage = !string.IsNullOrEmpty(source.FileUrl ?? string.Empty) ? (source.FileUrl ?? string.Empty).Trim() : string.Empty,
                 FileAddedBy = !string.IsNullOrEmpty(source.CreatedBy ?? string.Empty) ? (source.CreatedBy ?? string.Empty).Trim() : string.Empty
             };
         }
@@ -50,20 +50,22 @@ namespace MfiManager.Middleware.Utils {
         public static ImageFile Map(this ImageResponse source, Identification identification = null, TitleDeed deed = null, OtherFile other = null)
             => new() {
                 IdentificationId = identification?.Id,
-                TitleId = deed?.Id,
-                OtherFileId = other?.Id,
-                AddedOn = source.FileDate.Date,
-                File = !string.IsNullOrEmpty(source.FileImage ?? string.Empty) ? (source.FileImage ?? string.Empty).Trim() : string.Empty,
-                CreatedBy = !string.IsNullOrEmpty(source.FileAddedBy ?? string.Empty) ? (source.FileAddedBy ?? string.Empty).Trim() : string.Empty
+                TitleDeedId = deed?.Id,
+                FileId = other?.Id,
+                IsDeleted =(identification?.IsDeleted ?? false) || (deed?.IsDeleted ?? false) ||(other?.IsDeleted ?? false),
+                CreatedOn = source.FileDate.Date,
+                FileUrl = !string.IsNullOrWhiteSpace(source.FileImage) ? source.FileImage.Trim() : string.Empty,
+                CreatedBy = !string.IsNullOrWhiteSpace(source.FileAddedBy) ? source.FileAddedBy.Trim() : string.Empty
             };
 
         public static ImageFile Update(this ImageFile record, ImageResponse source, Identification identification = null, TitleDeed deed = null, OtherFile other = null) {
             record.IdentificationId = identification?.Id;
-            record.TitleId = deed?.Id;
-            record.OtherFileId = other?.Id;
-            record.AddedOn = source.FileDate.Date;
-            record.File = !string.IsNullOrEmpty(source.FileImage ?? string.Empty) ? (source.FileImage ?? string.Empty).Trim() : string.Empty;
-            record.CreatedBy = !string.IsNullOrEmpty(source.FileAddedBy ?? string.Empty) ? (source.FileAddedBy ?? string.Empty).Trim() : string.Empty;
+            record.TitleDeedId = deed?.Id;
+            record.FileId = other?.Id;
+            record.IsDeleted = (identification?.IsDeleted ?? false) || (deed?.IsDeleted ?? false) ||(other?.IsDeleted ?? false);
+            record.CreatedOn = source.FileDate.Date;
+            record.FileUrl = !string.IsNullOrWhiteSpace(source.FileImage) ? source.FileImage.Trim() : string.Empty;
+            record.CreatedBy = !string.IsNullOrWhiteSpace(source.FileAddedBy) ? source.FileAddedBy.Trim() : string.Empty;
             return record;
         }
     }

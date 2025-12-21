@@ -75,7 +75,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(p => p.Nationality).WithMany(e => e.Individuals).HasForeignKey(e => e.NationalityId);
             builder.HasOne(p => p.Education).WithMany(e => e.Individuals).HasForeignKey(e => e.EducationId);
             builder.HasMany(p => p.IncomeHistories).WithOne(e => e.Individual).HasForeignKey(e => e.PersonId);
-            builder.HasMany(p => p.Approvals).WithOne(e => e.Individual).HasForeignKey(e => e.PersonId);
+            builder.HasMany(p => p.CustomerApprovals).WithOne(e => e.Individual).HasForeignKey(e => e.PersonId);
             builder.HasMany(p => p.Languages).WithOne(e => e.Individual).HasForeignKey(e => e.IndividualId);
             builder.HasMany(p => p.CreditAssessments).WithOne(e => e.Individual).HasForeignKey(e => e.PersonId);
             builder.HasMany(p => p.TimedepositAccounts).WithOne(e => e.Individual).HasForeignKey(e => e.IndividualId);
@@ -83,5 +83,4 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.Policies).WithOne(e => e.Individual).HasForeignKey(e => e.IndividualId);
         }
     }
-
 }

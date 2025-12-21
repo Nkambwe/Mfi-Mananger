@@ -1,4 +1,6 @@
 ﻿
+using MfiManager.Middleware.Data.Entities.Customer.Files;
+
 namespace MfiManager.Middleware.Data.Entities.Customers.Support {
     /// <summary>
     /// Signatory on business client transactions
@@ -25,5 +27,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers.Support {
         public string Notes { get; set; }
         public long BusinessId { get; set; }
         public virtual Business Business { get; set; }
+        public virtual ICollection<OtherFile> Files {get;set;} = [];
+        public virtual ICollection<Identification> Identifications { get; set; } = [];
     }
 }

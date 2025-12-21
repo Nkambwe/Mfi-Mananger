@@ -8,7 +8,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
     public class ShareTransactionLedger : BaseEntity {
         public long ShareAccountId {get;set; }
         public long ShareValueId {get;set; }
-        public string Reference {get;set; }
+        public string TransactionCode {get;set; }
         public DateTime TransactionDate {get;set; }
         public Payment Payment {get;set; }
         public ShareTransactionType ShareTransactionType {get;set; }
@@ -17,7 +17,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
         public string Notes {get;set; }
         public virtual ShareAccount ShareAccount { get; set; }
         public virtual ShareValue ShareValue { get; set; }
-        public virtual ICollection<ModifiedShareTransactionLedger> Modifications {get;set;}=[];
+        public virtual ICollection<ModifiedShareLedgerTransaction> Modifications {get;set;}=[];
 
     }
 }

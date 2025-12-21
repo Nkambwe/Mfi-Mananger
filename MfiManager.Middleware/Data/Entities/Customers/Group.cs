@@ -1,4 +1,6 @@
-﻿using MfiManager.Middleware.Data.Entities.Customer.Filters;
+﻿using MfiManager.Middleware.Data.Entities.Audits;
+using MfiManager.Middleware.Data.Entities.Customer.Files;
+using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
@@ -46,11 +48,19 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual GroupFilter1 GroupFilter1 { get; set; }
         public long? GroupFilter2Id {get;set; }
         public virtual GroupFilter2 GroupFilter2 { get; set; }
+        public virtual CustomerExit CustomerExit {get; set;}
         public virtual ICollection<Member> Members { get; set; } =[];
         public virtual ICollection<Cluster> Clusters { get; set; } =[];
         public virtual ICollection<Meeting> Meetings {get;set;}
-        public virtual ICollection<ClientApproval> Approvals {get;set;}
+        public virtual ICollection<CustomerApproval> CustomerApprovals {get;set;}
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
+        public virtual ICollection<TitleDeed> TitleDeeds {get;set;} = [];
+        public virtual ICollection<OtherFile> Files {get;set;} = [];
+        public virtual ICollection<CustomerContract> CustomerContracts {get;set;} = [];
+        public virtual ICollection<CustomerAgreement> CustomerAgreements {get;set;} = [];
+        public virtual ICollection<CustomerBlackList> BlackLists {get;set;} = [];
+        public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
+        public virtual ICollection<ModifiedGroup> ModifiedGroups {get;set;} = [];
         public override string ToString() => $"{(string.IsNullOrEmpty(ClientCode) ? "000000" : ClientCode.Trim())}-{(string.IsNullOrEmpty(RegisteredName) ? "Group Name" : RegisteredName.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
 

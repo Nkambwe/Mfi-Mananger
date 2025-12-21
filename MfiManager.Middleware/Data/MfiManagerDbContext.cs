@@ -11,6 +11,7 @@ using MfiManager.Middleware.Data.Entities.Audits;
 using MfiManager.Middleware.Data.Entities.Configuration.Oracle;
 using MfiManager.Middleware.Data.Entities.Configuration.PostgreSql;
 using MfiManager.Middleware.Data.Entities.Configuration.SqlServer;
+using MfiManager.Middleware.Data.Entities.Customer.Files;
 using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
@@ -30,6 +31,7 @@ using MfiManager.Middleware.Data.Entities.System.Configurations;
 using MfiManager.Middleware.Data.Entities.System.Configurations.Parameters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using static MfiManager.Middleware.Data.Entities.Configuration.SqlServer.SqlMemberEntityConfiguration;
 
 namespace MfiManager.Middleware.Data {
 
@@ -237,8 +239,11 @@ namespace MfiManager.Middleware.Data {
             SqlDonorEntityConfiguration.Configure(modelBuilder.Entity<Donor>());
             SqlBranchRevolvingFundEntityConfiguration.Configure(modelBuilder.Entity<BranchRevolvingFund>());
             SqlChargeableFeeEntityConfiguration.Configure(modelBuilder.Entity<ChargeableFee>());
+            SqlSavingLedgerEntityConfiguration.Configure(modelBuilder.Entity<SavingLedger>());
             SqlSavingFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<SavingFeeLedger>());
+            SqlMemberSavingLedgerEntityConfiguration.Configure(modelBuilder.Entity<MemberSavingLedger>());
             SqlLoanFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<LoanFeeLedger>());
+            SqlTimedepositLedgerEntityConfiguration.Configure(modelBuilder.Entity<TimedepositLedger>());
             SqlInsuranceFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<InsuranceFeeLedger>());
             SqlShareFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<ShareFeeLedger>());
             SqlRegistrationFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<RegistrationFeeLedger>());
@@ -256,7 +261,6 @@ namespace MfiManager.Middleware.Data {
             SqlShareAccountEntityConfiguration.Configure(modelBuilder.Entity<ShareAccount>());
             SqlShareLedgerEntityConfiguration.Configure(modelBuilder.Entity<ShareTransactionLedger>());
             SqlDividendLedgerEntityConfiguration.Configure(modelBuilder.Entity<DividendTransactionLedger>());
-            SqlModifiedShareLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedShareTransactionLedger>());
             SqlInsuranceProductEntityConfiguration.Configure(modelBuilder.Entity<InsuranceProduct>());
             SqlInsuranceProductProviderEntityConfiguration.Configure(modelBuilder.Entity<InsuranceProductProvider>());
             SqlInsuranceProviderEntityConfiguration.Configure(modelBuilder.Entity<Provider>());
@@ -273,17 +277,26 @@ namespace MfiManager.Middleware.Data {
             SqlTimedepositProductEntityConfiguration.Configure(modelBuilder.Entity<TimedepositProduct>());
             SqlTimedepositRateEntityConfiguration.Configure(modelBuilder.Entity<TimedepositRate>());
             SqlTimedepositAccountEntityConfiguration.Configure(modelBuilder.Entity<TimedepositAccount>());
-            SqlModifiedTimedepositAccountEntityConfiguration.Configure(modelBuilder.Entity<ModifiedTimedepositAccount>());
             SqlNationalityEntityConfiguration.Configure(modelBuilder.Entity<Nationality>());
             SqlProfessionEntityConfiguration.Configure(modelBuilder.Entity<Profession>());
             SqlVillageEntityConfiguration.Configure(modelBuilder.Entity<Village>());
             SqlParishEntityConfiguration.Configure(modelBuilder.Entity<Parish>());
             SqlDistricthEntityConfiguration.Configure(modelBuilder.Entity<District>());
             SqlTitleEntityConfiguration.Configure(modelBuilder.Entity<Title>());
-
-            SqlDeletedLedgerEntityConfiguration.Configure(modelBuilder.Entity<DeletedLedger>());
-
-            SqlClientApprovalEntityConfiguration.Configure(modelBuilder.Entity<ClientApproval>());
+            SqlTitleDeedEntityConfiguration.Configure(modelBuilder.Entity<TitleDeed>());
+            SqlOtherFileEntityConfiguration.Configure(modelBuilder.Entity<OtherFile>());
+            SqlImageFileEntityConfiguration.Configure(modelBuilder.Entity<ImageFile>());
+            SqlIssuerAuthorityEntityConfiguration.Configure(modelBuilder.Entity<IssuerAuthority>());
+            SqlIdentificationTypeEntityConfiguration.Configure(modelBuilder.Entity<IdentificationType>());
+            SqlIdentificationEntityConfiguration.Configure(modelBuilder.Entity<Identification>());
+            SqlUnLockedCustomerEntityConfiguration.Configure(modelBuilder.Entity<UnLockedCustomer>());
+            SqlCustomerExitEntityConfiguration.Configure(modelBuilder.Entity<CustomerExit>());
+            SqlCustomerContractEntityConfiguration.Configure(modelBuilder.Entity<CustomerContract>());
+            SqlCustomerAgreementEntityConfiguration.Configure(modelBuilder.Entity<CustomerAgreement>());
+            SqlCustomerContactEntityConfiguration.Configure(modelBuilder.Entity<CustomerContact>());
+            SqlCustomerBlackListEntityConfiguration.Configure(modelBuilder.Entity<CustomerBlackList>());
+            SqlCustomerApprovalEntityConfiguration.Configure(modelBuilder.Entity<CustomerApproval>());
+            SqlEmploymentHistoryEntityConfiguration.Configure(modelBuilder.Entity<EmploymentHistory>());
             SqlEducationEntityConfiguration.Configure(modelBuilder.Entity<Education>());
             SqlLanguageEntityConfiguration.Configure(modelBuilder.Entity<Language>());
             SqlIncomeHistoryEntityConfiguration.Configure(modelBuilder.Entity<IncomeHistory>());
@@ -308,17 +321,34 @@ namespace MfiManager.Middleware.Data {
             SqlClusterMemberEntityConfiguration.Configure(modelBuilder.Entity<ClusterMember>());
             SqlMemberArchiveEntityConfiguration.Configure(modelBuilder.Entity<MemberArchive>());
             SqlMemberEntityConfiguration.Configure(modelBuilder.Entity<Member>());
+            SqlMemberPositionEntityConfiguration.Configure(modelBuilder.Entity<MemberPosition>());
+            SqlPositionEntityConfiguration.Configure(modelBuilder.Entity<Position>());
+            SqlMemberTransferEntityConfiguration.Configure(modelBuilder.Entity<MemberTransfer>());
             SqlMemberLanguageEntityConfiguration.Configure(modelBuilder.Entity<MemberLanguage>());
             SqlIndividualEntityConfiguration.Configure(modelBuilder.Entity<Individual>());
             SqlIndividualArchiveEntityConfiguration.Configure(modelBuilder.Entity<IndividualArchive>());
             SqlIndividualLanguageEntityConfiguration.Configure(modelBuilder.Entity<IndividualLanguage>());
 
+            SqlSavingPartnerEntityConfiguration.Configure(modelBuilder.Entity<SavingPartner>());
+            
             SqlGuarantorEntityConfiguration.Configure(modelBuilder.Entity<Guarantor>());
             SqlGuarantorLanguageEntityConfiguration.Configure(modelBuilder.Entity<GuarantorLanguage>());
 
             SqlLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<LoanGuarantor>());
             SqlCollateralImageEntityConfiguration.Configure(modelBuilder.Entity<CollateralImage>());
             SqlCollateralEntityConfiguration.Configure(modelBuilder.Entity<Collateral>());
+
+            SqlModifiedLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedLedger>());
+            SqlDeletedLedgerEntityConfiguration.Configure(modelBuilder.Entity<DeletedLedger>());
+            SqlModifiedTimedepositLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedTimedepositLedger>());
+            SqlModifiedTimedepositAccountEntityConfiguration.Configure(modelBuilder.Entity<ModifiedTimedepositAccount>());
+            SqlModifiedShareLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedShareLedgerTransaction>());
+            SqlModifiedSavingLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedSavingLedger>());
+            SqlModifiedCashLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedCashLedger>());
+            SqlModifiedBusinessEntityConfiguration.Configure(modelBuilder.Entity<ModifiedBusiness>());
+            SqlModifiedGroupEntityConfiguration.Configure(modelBuilder.Entity<ModifiedGroup>());
+            SqlModifiedMemberEntityConfiguration.Configure(modelBuilder.Entity<ModifiedMember>());
+            SqlModifiedIndividualEntityConfiguration.Configure(modelBuilder.Entity<ModifiedIndividual>());
         }
     }
 

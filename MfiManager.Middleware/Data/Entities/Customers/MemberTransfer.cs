@@ -1,13 +1,22 @@
-﻿namespace MfiManager.Middleware.Data.Entities.Customers {
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+
+namespace MfiManager.Middleware.Data.Entities.Customers {
     public class MemberTransfer : BaseEntity {
-        public long MemberId { get; set; }
+        /// <summary>
+        /// If true, enable GroupCode else disable it and FromMemberCode and ToMemberCode
+        /// </summary>
         public bool ClusterTransfer { get; set; }
-        public string OldGroup { get; set; }
-        public string OldMemberCode { get; set; }
-        public string NewGroup { get; set; }
-        public string NewMemberCode { get; set; }
-        public DateTime TransferredOn { get; set; }
-        public string Reason { get; set; }
+        public string GroupCode { get; set; }
+        public string TransferFrom { get; set; }
+        public string FromMemberCode { get; set; }
+        public string TransferTo { get; set; }
+        public string ToMemberCode { get; set; }
+        public DateTime TransferDate { get; set; }
+        public bool Approved { get; set; }
+        public long ReasonId { get; set; }
+        public Reason Reason { get; set; }
+        public long MemberId { get; set; }
         public virtual Member Member { get; set; }
+        public string Notes { get; set; }
     }
 }

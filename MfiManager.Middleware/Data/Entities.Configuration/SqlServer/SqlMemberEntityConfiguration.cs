@@ -76,11 +76,12 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.IncomeHistories).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
             builder.HasMany(p => p.Languages).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
             builder.HasMany(p => p.Positions).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
-            builder.HasMany(p => p.Transfers).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
-            builder.HasMany(p => p.Approvals).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
+            builder.HasMany(p => p.MemberTransfers).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
+            builder.HasMany(p => p.CustomerApprovals).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
             builder.HasMany(p => p.ShareAccounts).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
             builder.HasMany(p => p.TimedepositAccounts).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
             builder.HasMany(p => p.Policies).WithOne(e => e.Member).HasForeignKey(e => e.MemberId);
         }
+
     }
 }

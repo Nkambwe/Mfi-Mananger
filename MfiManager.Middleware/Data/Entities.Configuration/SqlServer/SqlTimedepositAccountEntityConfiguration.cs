@@ -33,7 +33,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(m => m.Individual).WithMany(o => o.TimedepositAccounts).HasForeignKey(mp => mp.ProductId);
             builder.HasOne(m => m.GroupClient).WithMany(o => o.TimedepositAccounts).HasForeignKey(mp => mp.ProductId);
             builder.HasOne(m => m.Member).WithMany(o => o.TimedepositAccounts).HasForeignKey(mp => mp.ProductId);
-            builder.HasMany(m => m.Modifications).WithOne(o => o.TimedepositAccount).HasForeignKey(mp => mp.ProductId);
+            builder.HasMany(m => m.ModifiedTimedepositAccounts).WithOne(o => o.TimedepositAccount).HasForeignKey(mp => mp.ProductId);
         }
      }
 

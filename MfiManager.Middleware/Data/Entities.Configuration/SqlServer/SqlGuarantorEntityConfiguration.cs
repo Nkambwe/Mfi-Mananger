@@ -9,6 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
         public static void Configure(EntityTypeBuilder<Guarantor> builder) {
             builder.ToTable("TBL_MFI_GUARANTOR");
             builder.HasKey(p => p.Id);
+            builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Code).HasColumnName("guarantor_code").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.Reference).HasColumnName("member_ref").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.FirstName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();

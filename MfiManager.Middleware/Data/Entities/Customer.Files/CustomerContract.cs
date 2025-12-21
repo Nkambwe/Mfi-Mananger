@@ -5,15 +5,13 @@ namespace MfiManager.Middleware.Data.Entities.Customer.Files {
     /// Contract attached to the client record
     /// </summary>
     public class CustomerContract : FileAttachment {
-        public long? IndividualId {get;set;}
-        public long? BusinessId {get;set; }
-        public long? GroupId {get;set; }
-        public long? MemberId {get;set; }
-        public string DocumentNumber { get; set; }
-        public string File { get; set; }
+        public long? PersonId {get;set;}
         public virtual Individual Individual { get; set; }
+        public long? BusinessId {get;set; }
         public virtual Business Business { get; set; }
+        public long? GroupId {get;set; }
         public virtual Group Group { get; set; }
+        public long? MemberId {get;set; }
         public virtual Member Member { get; set; }
     }
 }

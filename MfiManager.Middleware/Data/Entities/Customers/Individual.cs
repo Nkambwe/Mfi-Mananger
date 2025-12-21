@@ -1,7 +1,10 @@
-﻿using MfiManager.Middleware.Data.Entities.Customer.Filters;
+﻿using MfiManager.Middleware.Data.Entities.Audits;
+using MfiManager.Middleware.Data.Entities.Customer.Files;
+using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Insurance;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Data.Entities.Support;
@@ -71,14 +74,25 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual Education Education {get;set;}
         public long? VillageId {get; set;}
         public virtual Village Village {get;set;}
+        public virtual CustomerExit CustomerExit {get; set;}
         public virtual ICollection<IncomeHistory> IncomeHistories {get;set;} = [];
-        public virtual ICollection<ClientApproval> Approvals {get;set;} = [];
         public virtual ICollection<IndividualLanguage> Languages  {get;set;} = [];
         public virtual ICollection<CreditAssessment> CreditAssessments { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
         public virtual ICollection<ShareAccount> ShareAccounts {get;set;} = [];
         public virtual ICollection<Policy> Policies {get;set;}=[];
-
+        public virtual ICollection<CustomerApproval> CustomerApprovals {get;set;} = [];
+        public virtual ICollection<CustomerContact> CustomerContacts {get;set;} = [];
+        public virtual ICollection<CustomerContract> CustomerContracts {get;set;} = [];
+        public virtual ICollection<CustomerAgreement> CustomerAgreements {get;set;} = [];
+        public virtual ICollection<CustomerBlackList> BlackLists {get;set;} = [];
+        public virtual ICollection<TitleDeed> TitleDeeds {get;set;} = [];
+        public virtual ICollection<OtherFile> Files {get;set;} = [];
+        public virtual ICollection<Identification> Identifications { get; set; } = [];
+        public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
+        public virtual ICollection<EmploymentHistory> EmploymentHistories { get; set; } = [];
+        public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
+        public virtual ICollection<ModifiedIndividual> ModifiedRecords {get;set;} = [];
         public override bool Equals(object otherIndividual) {
 
             if (otherIndividual == null || otherIndividual.GetType() != typeof(Individual)) return false;

@@ -1,5 +1,6 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Fees;
 using MfiManager.Middleware.Data.Entities.Accounts.Vouchers;
+using MfiManager.Middleware.Data.Entities.Audits;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
     public class Ledger : Transaction {
@@ -15,6 +16,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
         public virtual ICollection<SavingFeeLedger> SavingnFeeTransactions { get; set; } = [];
         public virtual ICollection<LoanFeeLedger> LoanFeeTransactions {get;set; } = [];
         public virtual ICollection<TimedepositFeeLedger> TimedepositFeeTransactions {get;set; } = [];
-
+        public virtual ICollection<ModifiedLedger> ModifiedLedgerTransactions {get;set; } = [];
     }
 }

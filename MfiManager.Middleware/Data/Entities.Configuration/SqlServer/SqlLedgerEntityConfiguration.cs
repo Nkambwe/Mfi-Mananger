@@ -10,12 +10,13 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_GENERAL_LEDGER");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
+            builder.Property(p => p.LedgerAccountId).HasColumnName("ledger_account_id");
             builder.Property(p => p.TransactionCode).HasColumnName("trans_code").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.PostedOn).HasColumnName("posted_on").IsRequired();
-            builder.Property(p => p.Particulars).HasColumnName("particulars").HasColumnType("NVARCHAR(MAX)").IsRequired();
+            builder.Property(p => p.Particulars).HasColumnName("particulars").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.Folio).HasColumnName("folio").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(p => p.LedgerNumber).HasColumnName("ledger_number").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(p => p.PostingSeries).HasColumnName("posting_series").HasColumnType("NVARCHAR(10)").IsRequired();
+            builder.Property(p => p.LedgerNumber).HasColumnName("ledger_number").HasColumnType("NVARCHAR(10)").IsRequired(false);
+            builder.Property(p => p.PostingSeries).HasColumnName("posting_series").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.Voucher).HasColumnName("voucher").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.Debit).HasColumnName("debit").HasPrecision(9,2);
             builder.Property(p => p.Credit).HasColumnName("credit").HasPrecision(9,2);
@@ -54,7 +55,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(m => m.SavingnFeeTransactions).WithOne(o => o.GeneralLedgerTransaction).HasForeignKey(mp => mp.GeneralLedgerTransactionId);
             builder.HasMany(m => m.TimedepositFeeTransactions).WithOne(o => o.GeneralLedgerTransaction).HasForeignKey(mp => mp.GeneralLedgerTransactionId);
         }
-
     }
 
 }

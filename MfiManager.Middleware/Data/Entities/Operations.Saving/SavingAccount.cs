@@ -30,10 +30,10 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         /// <summary>
         /// Get/Set co-holders for joint account holders
         /// </summary>
-        public virtual ICollection<PartnerHolder> PartnerHolder { get; set; } = [];
+        public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
         public virtual ICollection<FrozenAccount> Freezes { get; set; } = [];
         public virtual ICollection<SavingAccountSignatory> Signatories { get; set; } = [];
-        public virtual ICollection<SavingTransaction> Transactions { get; set; } = [];
+        public virtual ICollection<SavingLedger> SavingTransactions { get; set; } = [];
         public virtual ICollection<SavingAccountInterest> Interests { get; set; } = [];
         public virtual ICollection<StandingOrder> StandingOrders { get; set; } = [];
         public virtual ICollection<OverdraftLoan> Overdrafts { get; set; } = [];

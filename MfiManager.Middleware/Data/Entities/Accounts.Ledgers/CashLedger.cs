@@ -1,4 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+using MfiManager.Middleware.Data.Entities.Audits;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
 
@@ -32,6 +33,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
         public long CashAccountId { get; set;}
 
         public virtual CashAccount CashAccount { get; set; }
+        public virtual ICollection<ModifiedCashLedger> ModifiedCashLedgers {get; set;}=[];
 
     }
 }

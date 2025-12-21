@@ -18,7 +18,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
              builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
              builder.HasOne(m => m.ReasonCategory).WithMany(o => o.Reasons).HasForeignKey(mp => mp.ReasonCategoryId);
              builder.HasMany(m => m.Traders).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);
-             builder.HasMany(m => m.ExitedClients).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);
+             builder.HasMany(m => m.CustomerExits).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);
              builder.HasMany(m => m.HeldContracts).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);
              builder.HasMany(m => m.Journals).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);
              builder.HasMany(m => m.Vouchers).WithOne(o => o.Reason).HasForeignKey(mp => mp.ReasonId);

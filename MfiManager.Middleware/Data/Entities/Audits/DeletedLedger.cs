@@ -1,4 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations.Branches;
 
 namespace MfiManager.Middleware.Data.Entities.Audits {
 
@@ -35,6 +36,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public string DeletedBy { get; set; }
         public long BranchId { get; set; }
         public virtual Branch Branch { get; set; }
+        public long ReasonId {get;set;}
+        public virtual Reason Reason { get; set; }
     }
-
 }

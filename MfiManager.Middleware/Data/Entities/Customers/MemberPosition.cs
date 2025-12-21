@@ -5,9 +5,6 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
     /// Group member position history
     /// </summary>
     public class MemberPosition : BaseEntity {
-        public long MemberId { get; set; }
-        public string GroupCode { get; set; }
-        public int PositionId { get; set; }
         /// <summary>
         /// Get/Set when the position started
         /// </summary>
@@ -16,7 +13,10 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         /// Get/Set when the position ended
         /// </summary>
         public DateTime? Ended { get; set; }
+        public long MemberId { get; set; }
         public virtual Member Member { get; set; }
+        public long PositionId { get; set; }
         public virtual Position Position { get; set; }
+        public string Notes { get; set; }
     }
 }

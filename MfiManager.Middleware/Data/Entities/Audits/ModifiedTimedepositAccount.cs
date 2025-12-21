@@ -1,11 +1,12 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
+﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 
 namespace MfiManager.Middleware.Data.Entities.Audits {
     /// <summary>
     /// Modified timedeposit account record
     /// </summary>
     public class ModifiedTimedepositAccount: BaseEntity  {
-        public long RecordId { get; set; }
+        public long TransactionId { get; set; }
         public long ProductId { get; set; }
         public long BranchId { get; set; }
         public long CustomerId { get; set; }
@@ -28,5 +29,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public bool ModifiedHoldInterest { get; set; }
         public bool ModfiedRenewed { get; set; }
         public virtual TimedepositAccount TimedepositAccount { get; set; }
+        public long ReasonId {get;set;}
+        public virtual Reason Reason { get; set; }
     }
 }
