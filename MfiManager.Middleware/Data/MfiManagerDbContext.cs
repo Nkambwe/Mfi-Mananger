@@ -131,7 +131,13 @@ namespace MfiManager.Middleware.Data {
         private static void ConfigureSqlServer(ModelBuilder modelBuilder) {
             modelBuilder.HasDefaultSchema("dbo");
             SqlCompanyEntityConfiguration.Configure(modelBuilder.Entity<Company>());
+            SqlRevenueCenterEntityConfiguration.Configure(modelBuilder.Entity<RevenueCenter>());
+            SqlCostCenterEntityConfiguration.Configure(modelBuilder.Entity<CostCenter>());
             SqlBranchEntityConfiguration.Configure(modelBuilder.Entity<Branch>());
+            SqlBranchLedgerAccountEntityConfiguration.Configure(modelBuilder.Entity<BranchLedgerAccount>());
+            SqlBranchCostCenterEntityConfiguration.Configure(modelBuilder.Entity<BranchCostCenter>());
+            SqlBranchRevenueCenterEntityConfiguration.Configure(modelBuilder.Entity<BranchRevenueCenter>());
+            SqlBranchDepartmentEntityConfiguration.Configure(modelBuilder.Entity<BranchDepartment>());
             SqlDepartmentEntityConfiguration.Configure(modelBuilder.Entity<Department>());
             SqlDeptUnitEntityConfiguration.Configure(modelBuilder.Entity<DepartmentUnit>());
             SqlUserEntityConfiguration.Configure(modelBuilder.Entity<SystemUser>());
@@ -266,6 +272,8 @@ namespace MfiManager.Middleware.Data {
             SqlInsuranceProviderEntityConfiguration.Configure(modelBuilder.Entity<Provider>());
             SqlInsurancePolicyEntityConfiguration.Configure(modelBuilder.Entity<Policy>());
             SqlInsuranceClaimEntityConfiguration.Configure(modelBuilder.Entity<InsuranceClaim>());
+            SqlEventntityConfiguration.Configure(modelBuilder.Entity<Event>());
+            SqlEventFileEntityConfiguration.Configure(modelBuilder.Entity<EventFile>());
             SqlClaimantEntityConfiguration.Configure(modelBuilder.Entity<Claimant>());
             SqlClaimReceiptEntityConfiguration.Configure(modelBuilder.Entity<ClaimReceipt>());
             SqlPremiumPaymentLedgerEntityConfiguration.Configure(modelBuilder.Entity<PremiumPaymentLedger>());
@@ -337,6 +345,7 @@ namespace MfiManager.Middleware.Data {
             SqlLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<LoanGuarantor>());
             SqlCollateralImageEntityConfiguration.Configure(modelBuilder.Entity<CollateralImage>());
             SqlCollateralEntityConfiguration.Configure(modelBuilder.Entity<Collateral>());
+            SqlLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<LoanCollateral>());
 
             SqlModifiedLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedLedger>());
             SqlDeletedLedgerEntityConfiguration.Configure(modelBuilder.Entity<DeletedLedger>());

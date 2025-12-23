@@ -14,7 +14,6 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public decimal TransAmount { get; set; }
         public decimal AccountBalance { get; set; }
         public DateTime EntryDate { get; set; }
-        public string EnteredBy { get; set; }
         public string Notes { get; set; }
         public long TransactionId { get; set; }
         public virtual SavingLedger SavingTransaction { get; set; }

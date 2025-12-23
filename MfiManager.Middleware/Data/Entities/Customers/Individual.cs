@@ -4,6 +4,7 @@ using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Insurance;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
@@ -93,6 +94,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<EmploymentHistory> EmploymentHistories { get; set; } = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedIndividual> ModifiedRecords {get;set;} = [];
+        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
         public override bool Equals(object otherIndividual) {
 
             if (otherIndividual == null || otherIndividual.GetType() != typeof(Individual)) return false;

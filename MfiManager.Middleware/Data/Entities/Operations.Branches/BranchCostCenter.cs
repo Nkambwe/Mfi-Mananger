@@ -4,11 +4,11 @@
     /// This cost center superseds the company cost center on the same ledeger oe subledegr
     /// </summary>
     public class BranchCostCenter : BaseEntity {
-        public string Code { get; set; }
-        public string Center { get; set; }
+        public string Series { get; set; }
+        public string Name { get; set; }
         public bool Suspend { get; set; }
-        public DateTime? Start { get; set; }
-        public DateTime? End { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
         public long BranchId { get; set; }
         public virtual Branch Branch { get; set; }
     }

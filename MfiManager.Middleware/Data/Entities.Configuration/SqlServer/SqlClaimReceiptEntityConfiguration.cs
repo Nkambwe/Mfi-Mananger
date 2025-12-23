@@ -25,5 +25,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.HasOne(m => m.Claimant).WithMany(o => o.Receipts).HasForeignKey(mp => mp.ClaimantId);
         }
-     }
+    }
+
 }

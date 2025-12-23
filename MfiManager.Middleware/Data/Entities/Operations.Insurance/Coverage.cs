@@ -29,6 +29,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Insurance {
         /// Get/Set the maximum amount the insurance can cover in case of an insurance lose
         /// </summary>
         public decimal MaximumCoverageAmount { get; set; }
+        public string Notes { get; set; }
         public virtual ICollection<InsuranceProduct> InsuranceProducts {get;set; }=[];
         public virtual ICollection<CoverageItem> CoveredItems {get;set;}=[];
     }

@@ -47,7 +47,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual ICollection<Business> Businesses { get; set; } = [];
         public virtual ICollection<BusinessArchive> BusinessArchives { get; set; } = [];
         public virtual ICollection<DeletedLedger> DeletedLedgers { get; set; } = [];
-
+        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
         public override bool Equals(object obj) {
 
             if (obj is not Branch)

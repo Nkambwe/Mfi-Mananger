@@ -20,6 +20,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Insurance {
         public virtual Member Member { get; set; }
         public virtual Provider Provider { get; set; }
         public virtual InsuranceProduct InsuranceProduct { get; set; }
+        public virtual ICollection<Event> Events {get;set;}=[];
         public virtual ICollection<PremiumPaymentLedger> PremiumPayments {get;set;}=[];
         public virtual ICollection<PolicyInsuranceBeneficiary> Beneficiaries {get;set;}=[];
         public virtual ICollection<InsuranceClaim> Claims {get;set;}=[];

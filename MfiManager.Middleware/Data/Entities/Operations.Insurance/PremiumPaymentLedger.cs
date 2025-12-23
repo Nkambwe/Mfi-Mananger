@@ -1,6 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
-using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
-using MfiManager.Middleware.Enums;
+﻿using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Insurance {
     /// <summary>

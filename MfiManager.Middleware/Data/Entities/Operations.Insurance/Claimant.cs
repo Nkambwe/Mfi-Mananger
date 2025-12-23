@@ -9,6 +9,7 @@
         public string Telephone { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
+        public string Notes { get; set; }
         public virtual ICollection<InsuranceClaim> Claims {get;set; }=[];
         public virtual ICollection<ClaimReceipt> Receipts {get;set; }=[];
     }

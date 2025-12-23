@@ -1,5 +1,5 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
-    public class LoanCustomeProperty4 : LoanCustomeProperty {
+    public class LoanCustomeFilter4 : LoanFilterProperty {
         public string Account { get; set; }
         public string Label { get; set; }
         public string Activity { get; set; }

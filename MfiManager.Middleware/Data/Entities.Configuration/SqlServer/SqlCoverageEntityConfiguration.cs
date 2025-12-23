@@ -19,6 +19,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
+            builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.HasMany(m => m.InsuranceProducts).WithOne(o => o.Coverage).HasForeignKey(mp => mp.CoverageId);
             builder.HasMany(m => m.CoveredItems).WithOne(o => o.Coverage).HasForeignKey(mp => mp.CoverageId);
         }

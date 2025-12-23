@@ -3,6 +3,7 @@ using MfiManager.Middleware.Data.Entities.Customer.Files;
 using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
@@ -61,6 +62,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<OtherFile> Files {get;set;} = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedBusiness> ModfiedRecords {get;set;} = [];
+        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
         public override string ToString() => $"{(string.IsNullOrEmpty(ClientCode) ? "000000" : ClientCode.Trim())}-{(string.IsNullOrEmpty(LegalName) ? "Business" : LegalName.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
 

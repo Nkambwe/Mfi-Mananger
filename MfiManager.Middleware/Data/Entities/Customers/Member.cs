@@ -3,6 +3,7 @@ using MfiManager.Middleware.Data.Entities.Customer.Files;
 using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Insurance;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
@@ -90,6 +91,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<SavingAccount> SavingAccounts {get;set;} = [];
         public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
+        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
         public virtual ICollection<Policy> Policies {get;set;}=[];
         public virtual ICollection<CustomerContact> CustomerContacts {get;set;} = [];
         public virtual ICollection<CustomerContract> CustomerContracts {get;set;} = [];

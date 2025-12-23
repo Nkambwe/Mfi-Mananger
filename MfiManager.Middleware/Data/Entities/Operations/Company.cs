@@ -11,6 +11,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations {
         public string RegistrationNumber { get; set; }
         public string SystemLanguage { get; set; }
         public virtual ICollection<CostCenter> CostCenters { get; set; }
+        public virtual ICollection<RevenueCenter> RevenueCenters { get; set; }
         public virtual ICollection<ProductType> ProductTypes { get; set; }
         public virtual ICollection<Branch> Branches { get; set; }
         public virtual ICollection<Department> Departments { get; set; }

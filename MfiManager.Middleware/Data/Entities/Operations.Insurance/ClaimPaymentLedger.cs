@@ -1,12 +1,11 @@
-﻿using MfiManager.Middleware.Enums;
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
+using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Insurance {
     /// <summary>
     /// Insurance claim payment transaction record
     /// </summary>
     public class ClaimPaymentLedger: BaseEntity {
-        public long ClaimId { get; set; }
-        public long TransactionId {get;set;}
         public string TransactionCode { get; set; }
         public DateTime PaidOn { get; set; }
         public string Particulars { get; set; }
@@ -16,6 +15,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Insurance {
         public decimal TotalPaid { get; set; }
         public decimal ClaimAmount { get; set; }
         public string Cashier { get; set; }
+        public long ClaimId { get; set; }
         public virtual InsuranceClaim Claim { get; set; }
+        public long TransactionId {get;set;}
+        public virtual Ledger GeneralLedgerTransaction { get; set; }
     }
 }

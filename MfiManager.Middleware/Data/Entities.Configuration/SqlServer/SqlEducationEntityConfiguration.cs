@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
+
     public class SqlEducationEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<Education> builder) {
@@ -20,4 +21,5 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(m => m.Members).WithOne(o => o.Education).HasForeignKey(mp => mp.EducationId);
         }
     }
+    
 }

@@ -14,6 +14,7 @@
         /// Get/Set the amount the person pays for themselves in case of an insurance lose
         /// </summary>
         public decimal FixedDeductableAmount { get; set; }
+        public string Notes{get;set;}
         public virtual Coverage Coverage { get; set; }
     }
 }

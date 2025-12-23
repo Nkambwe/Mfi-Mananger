@@ -1,7 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Loans;
-
-namespace MfiManager.Middleware.Data.Entities.Customers.Support {
-    public class WittenOffLoan: BaseEntity {
+﻿namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
+    public class WittenOffLoan : BaseEntity {
         public DateTime WrittenOffOn { get; set; }
         public decimal Amount { get; set; }
         public string WittenOffBy { get; set; }

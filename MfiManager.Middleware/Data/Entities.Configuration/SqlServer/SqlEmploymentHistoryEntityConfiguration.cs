@@ -12,9 +12,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Employer).HasColumnName("employer_name").HasColumnType("NVARCHAR(MAX)");
             builder.Property(p => p.Position).HasColumnName("employer_name").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Earning).HasColumnName("earning").HasPrecision(9,2);
-            builder.Property(p => p.Started).HasColumnName("started_on");
+            builder.Property(p => p.FromDate).HasColumnName("from_date");
             builder.Property(p => p.WorkHere).HasColumnName("work_here");
-            builder.Property(p => p.Ended).HasColumnName("ended_on").IsRequired(false);
+            builder.Property(p => p.ToDate).HasColumnName("to_date").IsRequired(false);
             builder.Property(p => p.PersonId).HasColumnName("person_id").IsRequired(false);
             builder.Property(p => p.MemberId).HasColumnName("member_id").IsRequired(false);
             builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);

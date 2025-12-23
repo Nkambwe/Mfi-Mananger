@@ -5,7 +5,6 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// Loan collateral record
     /// </summary>
     public class Collateral : BaseEntity {
-        public string LoanNumber { get; set; }
         public string OverdraftNumber { get; set; }
         public CollateralType CollateralType { get; set; }
         public string Description { get; set; }
@@ -14,5 +13,6 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public long GuarantorId { get; set; }
         public virtual Guarantor Guarantor { get; set; }
         public ICollection<CollateralImage> Images { get; set; }
+        public virtual ICollection<LoanCollateral> Loans { get; set; } = [];
     }
 }

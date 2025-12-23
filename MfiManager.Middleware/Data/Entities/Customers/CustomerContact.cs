@@ -1,6 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
-using MfiManager.Middleware.Data.Entities.Operations.Loans;
-
+﻿
 namespace MfiManager.Middleware.Data.Entities.Customers {
     /// <summary>
     /// Person next of kin records and contact information
