@@ -9,24 +9,23 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// Client loan record
     /// </summary>
     public class LoanRecord : BaseEntity {
-        public string Membership { get; set; }
         public string LoanNumber { get; set; }
-        public DateTime AppliedOn { get; set; }
-        /// <summary>
-        /// Get/Set loan assessment date
-        /// </summary>
-        public DateTime? AssessedOn { get; set; }
-        public DateTime? ExpiresOn { get; set; }
-        public decimal Rate { get; set; }
+        public decimal InterestRate { get; set; }
         public int Installments { get; set; }
         public decimal Principal { get; set; }
         public decimal Interest { get; set; }
+        public DateTime ApplicationDate { get; set; }
+        /// <summary>
+        /// Get/Set loan assessment date
+        /// </summary>
+        public DateTime? AssesementDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         /// <summary>
         /// Get/Set approval state. ClientApproval state can be Nap, First, Second, Approved
         /// </summary>
-        public ApprovalState Approval { get; set; }
-        public bool Rescheduled { get; set; }
-        public LoanStatus Status { get; set; }
+        public ApprovalLevel ApprovalLevel { get; set; }
+        public bool IsRescheduled { get; set; }
+        public LoanStatus LoanStatus { get; set; }
         public bool IsFrozeen { get; set; }
         public long ProductId { get; set; }
         public virtual LoanProduct Product { get; set; }
@@ -45,37 +44,38 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public long? CycleId { get; set; }
         public virtual LoanCycle Cycle { get; set; }
         public long? Filter1Id { get; set; }
-        public virtual LoanCustomeFilter1 Filter1 { get; set; }
+        public virtual LoanFilter1 Filter1 { get; set; }
         public long? Filter2Id { get; set; }
-        public virtual LoanCustomeFilter2 Filter2 { get; set; }
+        public virtual LoanFilter2 Filter2 { get; set; }
         public long? Filter3Id { get; set; }
-        public virtual LoanCustomeFilter3 Filter3 { get; set; }
+        public virtual LoanFilter3 Filter3 { get; set; }
         public long? Filter4Id { get; set; }
-        public virtual LoanCustomeFilter4 Filter4 { get; set; }
+        public virtual LoanFilter4 Filter4 { get; set; }
         public long? PurposeId { get; set; }
         public virtual Purpose Purpose { get; set; }
         public long? FundId { get; set; }
         public virtual RevolvingFund RevolvingFund { get; set; }
         public virtual ICollection<AmortizedDue> Amortization { get; set; } = [];
         public virtual ICollection<ApprovedAmount> ApprovedAmounts { get; set; } = [];
-        public virtual ICollection<ApplicationNotes> Notes { get; set; } = [];
+        public virtual ICollection<ApplicationNotes> ApprovalNotes { get; set; } = [];
         public virtual ICollection<Disbursement> Disbursements { get; set; } = [];
         public virtual ICollection<DefferedLoan> DefferedLoans { get; set; } = [];
-        public virtual ICollection<DeclassifiedLoan> DeclassifiedLoans { get; set; } = [];
+        public virtual ICollection<LoanDeclassified> DeclassifiedLoans { get; set; } = [];
         public virtual ICollection<ExpectedDisbursement> ExpectedDisbursements { get; set; } = [];
-        public virtual ICollection<Frozen> Freezes { get; set; } = [];
-        public virtual ICollection<LoanApproval> Approvals { get; set; } = [];
-        public virtual ICollection<LoanBreakdown> Breakdowns { get; set; } = [];
+        public virtual ICollection<LoanFreez> LoanFreez { get; set; } = [];
+        public virtual ICollection<LoanApproval> LoanApprovals { get; set; } = [];
+        public virtual ICollection<GroupLoanBreakdown> GroupLoanBreakdowns { get; set; } = [];
         public virtual ICollection<LoanCollateral> Collaterals { get; set; } = [];
-        public virtual ICollection<LoanDue> Dues { get; set; } = [];
+        public virtual ICollection<LoanDue> LoanDues { get; set; } = [];
         public virtual ICollection<LoanGuarantor> Guarantors { get; set; } = [];
-        public virtual ICollection<LossProvision> Provisions { get; set; } = [];
-        public virtual ICollection<RepaymentTransaction> Repayments { get; set; } = [];
+        public virtual ICollection<LoanLossProvision> LossProvisions { get; set; } = [];
+        public virtual ICollection<RepaymentLedger> RepaymentTransactions { get; set; } = [];
+        public ICollection<RejectedLoan> RejectedLoans { get; set; } = [];
         public virtual ICollection<LoanTransfer> Transfers { get; set; } = [];
         public ICollection<ModifiedLoan> Modifications { get; set; } = [];
+        public ICollection<WittenOffLoan> WittenOffLoans { get; set; } = [];
         public override string ToString() => $"{(string.IsNullOrEmpty(LoanNumber) ? "000000" : LoanNumber.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
-
         /// <summary>
         /// Override equals method
         /// </summary>

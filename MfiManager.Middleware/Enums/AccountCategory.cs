@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 
 namespace MfiManager.Middleware.Enums {
+
     public enum AccountCategory {
         /// <summary>
         /// Top level ledger label

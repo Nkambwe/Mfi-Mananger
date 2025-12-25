@@ -1,7 +1,9 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
 using MfiManager.Middleware.Data.Entities.Accounts.Currecies;
 using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
+using MfiManager.Middleware.Data.Entities.Operations;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts {
@@ -50,6 +52,9 @@ namespace MfiManager.Middleware.Data.Entities.Accounts {
         public virtual ICollection<BankAccount> BankAccounts { get; set; } =[];
         public virtual ICollection<Ledger> GeneralLedgerTransactions {get;set;}=[];
         public virtual ICollection<BranchLedgerAccount> BranchLedgerAccounts { get; set; } = [];
+        public virtual ICollection<LoanFilter4> LoanFilter4s { get; set; } = [];
+        public virtual ICollection<Teller> Tellers { get; set; } = [];
+        public virtual ICollection<LoanOfficer> LoanOfficers { get; set; } = [];
     }
 
 }

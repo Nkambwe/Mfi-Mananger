@@ -1,6 +1,8 @@
-﻿using MfiManager.Middleware.Data.Entities.System;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
+using MfiManager.Middleware.Data.Entities.System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
 
@@ -32,10 +34,12 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(u => u.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(u => u.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(u => u.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(u => u.Department).WithMany(d => d.Users).HasForeignKey(u => u.DepartmentId);
+            builder.HasOne(u => u.Department).WithMany(d => d.SystemUsers).HasForeignKey(u => u.DepartmentId);
             builder.HasOne(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId);
             builder.HasMany(u => u.QuickActions).WithOne(q => q.User).HasForeignKey(q => q.UserId);
             builder.HasMany(u => u.ActivityLogs).WithOne(a => a.User).HasForeignKey(a => a.UserId);
+            builder.HasOne(u => u.LoanOfficer).WithOne(l => l.SystemUser).HasForeignKey<LoanOfficer>(l => l.UserId).IsRequired();
+            builder.HasOne(u => u.Teller).WithOne(l => l.SystemUser).HasForeignKey<LoanOfficer>(l => l.UserId).IsRequired();
         }
     }
 }

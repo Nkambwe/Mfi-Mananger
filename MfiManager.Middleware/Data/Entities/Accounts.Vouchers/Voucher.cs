@@ -1,4 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
+using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {

@@ -3,8 +3,8 @@
     /// Track loan disbursement date from approval date
     /// </summary>
     public class ExpectedDisbursement : BaseEntity {
-        public long? LoanId { get; set; }
-        public DateTime DisburseOn { get; set; }
+        public DateTime DisbursementDate { get; set; }
+        public long LoanId { get; set; }
         public virtual LoanRecord Loan { get; set; }
     }
 }

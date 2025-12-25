@@ -1,9 +1,9 @@
 ﻿namespace MfiManager.Middleware.Enums {
     public enum Classification {
         /// <summary>
-        /// Classified loan category unknown
+        /// Standard loan protected by borrower's current worth, capacity to pay or collateral
         /// </summary>
-        Undefined = 0,
+        Standard = 0,
         /// <summary>
         /// Not adequately protected loan by the the borrower's current worth, capacity to pay or collateral
         /// </summary>

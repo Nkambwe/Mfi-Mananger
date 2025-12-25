@@ -3,6 +3,6 @@
     /// Reason for deferment of a loan
     /// </summary>
     public class DefferReason : ReasonBase {
-        public virtual ICollection<DefferedLoan> Loan { get; set; }
+        public virtual ICollection<DefferedLoan> DefferedLoans { get; set; }
     }
 }

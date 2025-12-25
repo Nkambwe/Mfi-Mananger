@@ -1,4 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
@@ -36,5 +37,8 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         public virtual BusinessPostingItem BusinessPostingItem { get; set; }
         public virtual ICollection<CashierJournal> CashierJournals {get;set;} = [];
         public virtual ICollection<JournalTypeTaxGroup> JournalTraxGroup { get; set; } = [];
+        public virtual ICollection<TellerJournalType> TellerJournals { get; set; } = [];
+        public virtual ICollection<BranchJournalType> BranchJournals { get; set; } = [];
+        public virtual ICollection<LoanOfficerJournalType> LoanOfficerJournals { get; set; } = [];
     }
 }

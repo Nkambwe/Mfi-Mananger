@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
-    public class PsqlUserEntityConfiguration {
 
+    public class PsqlUserEntityConfiguration {
          public static void Configure(EntityTypeBuilder<SystemUser> builder) {
             builder.ToTable("systemusers", "public");
             builder.HasKey(e => e.Id);
@@ -26,14 +26,12 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.Property(e => e.IsLoggedIn).HasColumnName("is_loggedin");
             builder.Property(e => e.DepartmentId).HasColumnName("dept_id");
             builder.Property(e => e.RoleId).HasColumnName("role_id");
-
             builder.Property(e => e.IsDeleted).HasColumnName("is_deleted");
             builder.Property(e => e.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(e => e.CreatedBy).HasColumnName("created_by").HasColumnType("VARCHAR(10)").IsRequired();
             builder.Property(e => e.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(e => e.ModifiedBy).HasColumnName("modified_by").HasColumnType("VARCHAR(10)").IsRequired(false);
-            
-            builder.HasOne(u => u.Department).WithMany(d => d.Users).HasForeignKey(u => u.DepartmentId);
+            builder.HasOne(u => u.Department).WithMany(d => d.SystemUsers).HasForeignKey(u => u.DepartmentId);
             builder.HasOne(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId);
             builder.HasMany(u => u.QuickActions).WithOne(q => q.User).HasForeignKey(a => a.UserId);
             builder.HasMany(u => u.Prefferences).WithOne(p => p.User).HasForeignKey(a => a.UserId);

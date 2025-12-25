@@ -1,18 +1,16 @@
-﻿namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
+﻿using MfiManager.Middleware.Enums;
+
+namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
+
     public class LoanApproval : BaseEntity {
-        public long? LoanId { get; set; }
-        public bool First { get; set; }
-        public DateTime? FirstApproval { get; set; }
-        public string FirstOfficer { get; set; }
-        public string FirstApprovalNotes { get; set; }
-        public bool Second { get; set; }
-        public DateTime? SecondtApproval { get; set; }
-        public string SecondOfficer { get; set; }
-        public string SecondApprovalNotes { get; set; }
-        public bool Third { get; set; }
-        public DateTime? ThirdApproval { get; set; }
-        public string ThirdOfficer { get; set; }
-        public string ThirdApprovalNotes { get; set; }
+        public ApprovalStage ApprovalStage { get; set; }
+        public DateTime ApprovalDate { get; set; }
+        public decimal ApproveAmount { get; set; }
+        public string Notes { get; set; }
+        public long LoanId { get; set; }
         public virtual LoanRecord Loan { get; set; }
+        public long ApproverId { get; set; }
+        public virtual LoanOfficer Approver { get; set; }
     }
+
 }

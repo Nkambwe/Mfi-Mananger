@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,13 +9,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_CASHIER");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.Code).HasColumnName("cashier_code").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(p => p.Name).HasColumnName("cashier_name").HasColumnType("NVARCHAR(200)").IsRequired();
-            builder.Property(p => p.CurrentBranch).HasColumnName("current_branch").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.DefaultAccount).HasColumnName("defualt_cash_acc").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(p => p.LowerLimit).HasColumnName("lower_limit").HasPrecision(9,2);
-            builder.Property(p => p.UpperLimit).HasColumnName("upper_limit").HasPrecision(9,2);
-            builder.Property(p => p.AccessibleBranches).HasColumnName("accessible_branches").HasColumnType("NVARCHAR(MAX)").IsRequired();
+            builder.Property(p => p.MaximumLimit).HasColumnName("maximum_limit").HasPrecision(9,2);
             builder.Property(p => p.UserId).HasColumnName("user_id");
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();

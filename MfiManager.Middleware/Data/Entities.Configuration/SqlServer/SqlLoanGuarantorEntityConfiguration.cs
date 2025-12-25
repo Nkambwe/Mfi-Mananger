@@ -14,4 +14,5 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(bc => bc.Loan).WithMany(g => g.Guarantors).HasForeignKey(bc => bc.GuarantorId).OnDelete(DeleteBehavior.Cascade);
         }
     }
+    
 }

@@ -9,7 +9,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_COLLATERAL");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.LoanNumber).HasColumnName("loan_number").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.OverdraftNumber).HasColumnName("overdraft").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.CollateralType).HasColumnName("collateral_type");
             builder.Property(p => p.Description).HasColumnName("description").HasColumnType("NVARCHAR(MAX)").IsRequired(false);

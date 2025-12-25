@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
     public class CashierJournal {

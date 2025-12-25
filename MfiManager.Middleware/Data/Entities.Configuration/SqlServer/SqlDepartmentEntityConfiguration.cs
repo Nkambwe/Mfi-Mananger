@@ -17,9 +17,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(d => d.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(d => d.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(d => d.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-
             builder.HasOne(d => d.Company).WithMany(c => c.Departments).HasForeignKey(d => d.CompanyId);
-            builder.HasMany(d => d.Users).WithOne(u => u.Department).HasForeignKey(u => u.DepartmentId);
+            builder.HasMany(d => d.SystemUsers).WithOne(u => u.Department).HasForeignKey(u => u.DepartmentId);
             builder.HasMany(d => d.Units).WithOne(u => u.Department).HasForeignKey(u => u.DepartmentId);
         }
     }

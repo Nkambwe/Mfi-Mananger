@@ -14,6 +14,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         public virtual BusinessSector Sector { get; set; }
         public virtual RevolvingFund Fund { get; set; }
         public virtual Product Product {get;set;}
+        public virtual ICollection<ProductLoanApprovalStage> ApprovalStages {get;set; }=[];
         public virtual ICollection<VariableRate> AdjustedRates {get;set; }=[];
         public virtual ICollection<LoanFeePaymentLevel> FeesPaymentLevels {get;set; }=[];
         public virtual ICollection<LoanRecord> Loans {get;set; }=[];

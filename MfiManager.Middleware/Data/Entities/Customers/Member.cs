@@ -92,6 +92,8 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
         public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<GroupLoanBreakdown> GroupLoanBreakdowns { get; set; } = [];
+        public virtual ICollection<GroupRepaymentBreakdown> GroupRepaymentBreakdowns { get; set; } = [];
         public virtual ICollection<Policy> Policies {get;set;}=[];
         public virtual ICollection<CustomerContact> CustomerContacts {get;set;} = [];
         public virtual ICollection<CustomerContract> CustomerContracts {get;set;} = [];

@@ -3,7 +3,7 @@
     /// Base class for reason classes
     /// </summary>
     public abstract class ReasonBase : BaseEntity {
-        public string Code {get;set;}
+        public string Series {get;set;}
         public string Reason {get;set;}
     }
 }

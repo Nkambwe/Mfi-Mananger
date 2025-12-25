@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Cashflows;
-using MfiManager.Middleware.Data.Entities.Operations;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
 
 namespace MfiManager.Middleware.Data.Entities.System {
     public class SystemUser: BaseEntity {
@@ -20,10 +19,12 @@ namespace MfiManager.Middleware.Data.Entities.System {
         public bool IsLoggedIn { get; set; } 
         public DateTime? LastLoginDate { get; set; }
         public DateTime? LastPasswordChange { get; set; }
-        public long DepartmentId { get; set; }
         public long RoleId { get; set; }
-        public virtual Department Department { get; set; }
         public virtual SystemRole Role { get; set; }
+        public long DepartmentId { get; set; }
+        public virtual Department Department { get; set; }
+        public LoanOfficer LoanOfficer { get; set; } = null!;
+        public Teller Teller { get; set; } = null!;
         public virtual ICollection<Cashier> Cashiers { get; set; }
         public virtual ICollection<LoginAttempt> Attempts { get; set; }
         public virtual ICollection<UserQuickAction> QuickActions { get; set; }

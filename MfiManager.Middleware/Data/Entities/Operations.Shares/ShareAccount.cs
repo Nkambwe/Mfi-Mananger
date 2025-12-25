@@ -1,6 +1,7 @@
 ﻿using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
+using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
 
@@ -8,6 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
         public string AccountNumber {get;set; }
         public DateTime OpenedOn {get;set; }
         public int Shares {get;set; }
+        public ShareClass ShareClass {get;set; }
         public decimal TotalValue {get;set; }
         public DateTime? ClosedOn {get;set;}
         public long BranchId {get;set; }

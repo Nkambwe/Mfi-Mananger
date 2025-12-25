@@ -1,6 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Currecies;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
-using MfiManager.Middleware.Data.Entities.Operations.Insurance;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Loans {

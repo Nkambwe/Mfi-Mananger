@@ -2,7 +2,7 @@
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// <summary>
-    /// Adjustable interest rate for a loan product
+    /// Adjustable interest rate/Effective Interest rate for a loan product
     /// </summary>
     public class VariableRate : BaseEntity {
         public long ProductId { get; set; }

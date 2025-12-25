@@ -1,5 +1,6 @@
 ﻿using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
 using MfiManager.Middleware.Enums;
 
@@ -37,6 +38,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         public virtual ICollection<SavingAccountInterest> Interests { get; set; } = [];
         public virtual ICollection<StandingOrder> StandingOrders { get; set; } = [];
         public virtual ICollection<OverdraftLoan> Overdrafts { get; set; } = [];
-
+        public virtual ICollection<GroupRepaymentBreakdown> GroupRepaymentTransactions { get; set; } = [];
+        public virtual ICollection<RepaymentLedger> RepaymentTransactions { get; set; } = [];
     }
 }

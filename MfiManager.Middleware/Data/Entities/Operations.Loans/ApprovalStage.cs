@@ -5,10 +5,10 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// <summary>
     /// Loan approval stages for a given loan product
     /// </summary>
-    public class ApprovalStage : BaseEntity {
-        public long? ProductId { get; set; }
-        public string StageName { get; set; }
-        public OfficerLevel ApproveLevel { get; set; }
-        public virtual ICollection<LoanProduct> Products { get; set; }
+    public class LoanApprovalStage : BaseEntity {
+        public long ProductId { get; set; }
+        public ApprovalStage ApprovalStage { get; set; }
+        public OfficerPositionCode ApproverPositionCode { get; set; }
+        public virtual ICollection<ProductLoanApprovalStage> Products { get; set; }
     }
 }

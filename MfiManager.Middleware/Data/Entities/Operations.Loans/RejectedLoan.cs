@@ -4,7 +4,7 @@
     /// </summary>
     public class RejectedLoan : BaseEntity {
         public DateTime PostedOn { get; set; }
-        public int ReasonId { get; set; }
+        public long ReasonId { get; set; }
         public string Notes { get; set; }
         public virtual RejectReason Reason { get; set; }
     }
