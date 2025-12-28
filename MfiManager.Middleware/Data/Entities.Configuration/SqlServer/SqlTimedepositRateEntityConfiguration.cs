@@ -12,13 +12,13 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.PercentageRate).HasColumnName("rate");
             builder.Property(p => p.Started).HasColumnName("start_date");
             builder.Property(p => p.Ended).HasColumnName("end_date").IsRequired(false);
-            builder.Property(p => p.ProductId).HasColumnName("product_id");
+            builder.Property(p => p.TimedepositProductId).HasColumnName("product_id");
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(m => m.Product).WithMany(o => o.InterestRates).HasForeignKey(mp => mp.ProductId);
+            builder.HasOne(m => m.TimedepositProduct).WithMany(o => o.InterestRates).HasForeignKey(mp => mp.TimedepositProductId);
         }
     }
 

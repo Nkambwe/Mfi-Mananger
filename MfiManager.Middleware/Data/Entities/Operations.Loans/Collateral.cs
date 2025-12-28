@@ -13,6 +13,8 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public long GuarantorId { get; set; }
         public virtual Guarantor Guarantor { get; set; }
         public ICollection<CollateralImage> Images { get; set; }
-        public virtual ICollection<LoanCollateral> Loans { get; set; } = [];
+        public virtual ICollection<IndividualLoanCollateral> IndividualLoans { get; set; } = [];
+        public virtual ICollection<BusinessLoanCollateral> BusinessLoans { get; set; } = [];
+        public virtual ICollection<GroupLoanCollateral> GroupLoans { get; set; } = [];
     }
 }

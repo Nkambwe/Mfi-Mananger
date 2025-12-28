@@ -5,13 +5,13 @@ namespace MfiManager.Middleware.Enums {
     /// Loan approval stage
     /// </summary>
     public enum ApprovalStage { 
-        [Description("First Stage Approval")]
+        [Description("First Stage")]
         FirstStage = 1,
-        [Description("Second Stage Approval")]
+        [Description("Second Stage")]
         SecondStage = 2,
-        [Description("Third Stage Approval")]
+        [Description("Third Stage")]
         ThirdStage= 3,
-        [Description("Fourth Stage Approval")]
+        [Description("Fourth Stage")]
         FourthStage = 4
     }
 }

@@ -15,6 +15,6 @@
         public bool CapitalizeFees { get; set; }
         public bool CapitalizePenalty { get; set; }
         public string Notes { get; set; }
-        public virtual LoanRecord Loan { get; set; }
+        public virtual LoanBase Loan { get; set; }
     }
 }

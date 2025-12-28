@@ -1,11 +1,11 @@
-﻿using MfiManager.Middleware.Data.Entities.System.Configurations.Parameters;
+﻿using MfiManager.Middleware.Data.Entities.System.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlConfigurationParameterEntityConfiguration {
-        public static void Configure(EntityTypeBuilder<ConfigurationParameter> builder) {
-            builder.ToTable("TBL_MFI_CONFIG_PARAM");
+        public static void Configure(EntityTypeBuilder<BranchParam> builder) {
+            builder.ToTable("TBL_MFI_BRANCH_CONFIG");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.ParameterName).HasColumnName("param_name").HasColumnType("NVARCHAR(250)").IsRequired();

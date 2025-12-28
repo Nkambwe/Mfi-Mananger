@@ -1,14 +1,17 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
-using MfiManager.Middleware.Data.Entities.Operations;
+﻿using MfiManager.Middleware.Data.Entities.Operations;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
 
     public class JournalType : BaseEntity {
-        public string Code{ get; set; }
+        public string SerieIdentifier{ get; set; }
+        public string SeriePrefix {get;set; }
+        public long StartNumber  { get; set; }
+        public int LastSeries { get; set; }
+        public bool Active { get; set; }
         public string JournalName{ get; set; }
-        public string PostingSeries{ get; set; }
         public string LedgerNumber { get; set; }
         public JournalTransactionType PostingType{ get; set; }
         public bool AllowTaxDifference{ get; set; }
@@ -24,7 +27,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         /// Check whether it is system defined or user defined journal
         /// </summary>
         public bool System { get; set; }
-        public bool Active { get; set; }
         /// <summary>
         /// Get/Set notes for creating this journal eg. Salaries, Reimbursement etc.
         /// </summary>
@@ -32,7 +34,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Vouchers {
         public long? GeneralPostingId { get; set; }
         public long? BusinessPostingId{ get; set; }
         public long? ReasonId { get; set; }
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
         public virtual GeneralPostingItem GeneralPostingItem { get; set; }
         public virtual BusinessPostingItem BusinessPostingItem { get; set; }
         public virtual ICollection<CashierJournal> CashierJournals {get;set;} = [];

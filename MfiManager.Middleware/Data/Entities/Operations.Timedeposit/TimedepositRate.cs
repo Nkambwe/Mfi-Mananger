@@ -5,10 +5,10 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Timedeposit {
     /// Interest rate for timedeposit product
     /// </summary>
     public class TimedepositRate : BaseEntity {
-        public long ProductId {get;set; }
+        public long TimedepositProductId {get;set; }
         public decimal PercentageRate {get;set; }
         public DateTime Started {get;set; }
         public DateTime? Ended {get;set;}
-        public virtual TimedepositProduct Product { get; set; }
+        public virtual TimedepositProduct TimedepositProduct { get; set; }
     }
 }

@@ -9,7 +9,6 @@ using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Data.Entities.System;
 using MfiManager.Middleware.Data.Entities.System.Configurations;
-using MfiManager.Middleware.Data.Entities.System.Configurations.Parameters;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
 
@@ -25,7 +24,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual AccountsChart AccountsChart { get; set; }
         public virtual ICollection<Holiday> Holidays { get; set; } = [];
         public virtual ICollection<UnLockedCustomer> LockedFiles { get; set; } = [];
-        public virtual ICollection<SystemConfiguration> Configurations { get; set; } = [];
+        public virtual ICollection<SystemParam> Configurations { get; set; } = [];
         public virtual ICollection<SeriesNumber> SeriesNumbers { get; set; } = [];
         public virtual ICollection<RecurringItem> RecurringItems { get; set; } = [];
         public virtual ICollection<EntityAccess> Entities { get; set; } = [];
@@ -35,7 +34,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual ICollection<BranchReference> References { get; set; } = [];
         public virtual ICollection<BranchRevenueCenter> BranchRevenueCenters { get; set; } = [];
         public virtual ICollection<LabelFormat> LabelFormats { get; set; } = [];
-        public virtual ICollection<ConfigurationParameter> ConfigurationParameters { get; set; } = [];
+        public virtual ICollection<BranchParam> ConfigurationParameters { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
         public virtual ICollection<ShareAccount> ShareAccounts {get;set;} = [];
         public virtual ICollection<BranchRevolvingFund> RevolvingFunds {get;set;} = [];
@@ -47,7 +46,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual ICollection<Business> Businesses { get; set; } = [];
         public virtual ICollection<BusinessArchive> BusinessArchives { get; set; } = [];
         public virtual ICollection<DeletedLedger> DeletedLedgers { get; set; } = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<IndividualLoan> IndividualLoans {get;set; }=[];
+        public virtual ICollection<GroupLoan> GroupLoans {get;set; }=[];
+        public virtual ICollection<BusinessLoan> BusinessLoans {get;set; }=[];
         public virtual ICollection<LoanOfficer> LoanOfficers { get; set; } = [];
         public virtual ICollection<BranchJournalType> BranchJournals { get; set; } = [];
         public virtual ICollection<BranchVoucherType> BranchVouchers { get; set; } = [];

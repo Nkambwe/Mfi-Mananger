@@ -10,8 +10,12 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public decimal DisbursedAmount { get; set; }
         public DisbursementType DisbursementType { get; set; }
         public string DisbursedBy { get; set; }
-        public long LoanId { get; set; }
-        public virtual LoanRecord Loan { get; set; }
+        public long? IndividualLoanId { get; set; }
+        public virtual IndividualLoan IndividualLoan {get;set; }
+        public long? GroupLoanId { get; set; }
+        public virtual GroupLoan GroupLoan {get;set; }
+        public long? BusinessLoanId { get; set; }
+        public virtual BusinessLoan BusinessLoan {get;set; }
         public long TransactionId { get; set; }
         public virtual Ledger Transaction { get; set; }
     }

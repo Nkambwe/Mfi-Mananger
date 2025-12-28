@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Enums;
 
@@ -23,6 +23,6 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public long TransactionId { get; set; }
         public virtual SavingLedger SavingTransaction { get; set; }
         public long ReasonId {get;set;}
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
     }
 }

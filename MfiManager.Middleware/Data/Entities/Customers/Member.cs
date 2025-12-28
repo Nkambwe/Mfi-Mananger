@@ -59,6 +59,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public string Twitter { get; set; }
         public DateTime JoinedOn {get;set; }
         public DateTime? ExitedOn {get;set; }
+        public virtual MemberLoanAccount LoanAccount {get; set;}
         public long GroupId {get;set; }
         public virtual Group Group { get; set; }
         public long? TitleId {get;set; }
@@ -82,6 +83,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public long? ProfessionId {get;set; }
         public virtual Profession Profession { get; set; }
         public virtual CustomerExit CustomerExit {get; set;}
+        public virtual ICollection<RejectedCustomer> Rejects { get; set; } = [];
         public virtual ICollection<IncomeHistory> IncomeHistories {get;set;} = [];
         public virtual ICollection<MemberLanguage> Languages {get;set; } = [];
         public virtual ICollection<MemberPosition> Positions {get;set; } = [];
@@ -91,7 +93,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<SavingAccount> SavingAccounts {get;set;} = [];
         public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<LoanBase> Loans { get; set; } = [];
         public virtual ICollection<GroupLoanBreakdown> GroupLoanBreakdowns { get; set; } = [];
         public virtual ICollection<GroupRepaymentBreakdown> GroupRepaymentBreakdowns { get; set; } = [];
         public virtual ICollection<Policy> Policies {get;set;}=[];

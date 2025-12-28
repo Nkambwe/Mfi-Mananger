@@ -1,10 +1,10 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
-    public class GroupConfigurationParameter : CustomerConfigurationParameter,IConfigurationParameter  {
+    public class GroupConfigurationParameter {
         
         /// <summary>
         /// Get/Set whether to treat group members as individuals not as a group when transacting
         /// </summary>
-        public bool GroupMembersAsIndividuals { get; set; } = false;
+        public bool TreatGroupMembersAsIndividualClients { get; set; } = false;
 
         /// <summary>
         /// Get/Set custom group filter name 1
@@ -58,11 +58,11 @@
         /// </summary>
         public int MaximumClusterMembers { get; set; } = 10;
 
-        public string GroupClientMailMerge { get; set; }
+        public string GroupMailMergeUrl { get; set; }
 
-        public string GroupMemberMailMerge { get; set; }
+        public string GroupmemberMailMergeUrl { get; set; }
 
-        public int GroupMembersMaximum { get; set; } = 10;
+        public int MaximumNumberOfGroupMembers { get; set; } = 10;
 
     }
 }

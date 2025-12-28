@@ -1,5 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
-using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 
 namespace MfiManager.Middleware.Data.Entities.Audits {
     public class ModifiedCashLedger : BaseEntity {
@@ -16,6 +16,6 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public long CashAccountId { get; set; }
         public CashLedger Transaction { get; set; }
         public long ReasonId {get;set;}
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
     }
 }

@@ -5,8 +5,12 @@
     public class LoanTransfer : BaseEntity {
         public string FormerOfficer { get; set; }
         public string CurrentOfficer { get; set; }
-        public long LoanId { get; set; }
         public DateTime TranferDate { get; set; }
-        public virtual LoanRecord Loan { get; set; }
+        public long? IndividualLoanId { get; set; }
+        public virtual IndividualLoan IndividualLoan {get;set; }
+        public long? GroupLoanId { get; set; }
+        public virtual GroupLoan GroupLoan {get;set; }
+        public long? BusinessLoanId { get; set; }
+        public virtual BusinessLoan BusinessLoan {get;set; }
     }
 }

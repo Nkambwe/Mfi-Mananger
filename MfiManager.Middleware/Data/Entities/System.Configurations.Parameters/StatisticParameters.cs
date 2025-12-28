@@ -9,7 +9,6 @@
         public int ExternalHolders { get; set; }
         public int SavingAccounts { get; set; }
         public int TimedepositAccounts { get; set; }
-        public int TontineAccounts { get; set; }
         public int ShareAccounts { get; set; }
         public int Policies { get; set; }
         public int Loans { get; set; }

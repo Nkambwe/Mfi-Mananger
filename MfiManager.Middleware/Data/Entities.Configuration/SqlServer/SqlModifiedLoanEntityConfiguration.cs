@@ -29,7 +29,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.MemberId).HasColumnName("member_id").IsRequired(false);
             builder.Property(p => p.GroupId).HasColumnName("group_id").IsRequired(false);
             builder.Property(p => p.CycleId).HasColumnName("cycle_id").IsRequired();
-            builder.Property(p => p.LoanId).HasColumnName("loan_id").IsRequired();
+            builder.Property(p => p.IndividualLoanId).HasColumnName("individual_lnr_id").IsRequired(false);
+            builder.Property(p => p.BusinessLoanId).HasColumnName("business_lnr_id").IsRequired(false);
+            builder.Property(p => p.GroupLoanId).HasColumnName("group_lnr_id").IsRequired(false);
             builder.Property(p => p.PurposeId).HasColumnName("purpose_id").IsRequired(false);
             builder.Property(p => p.FundId).HasColumnName("fund_id").IsRequired(false);
             builder.Property(p => p.Filter1Id).HasColumnName("filter_1_id").IsRequired(false);
@@ -41,7 +43,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(bc => bc.Loan).WithMany(g => g.Modifications).HasForeignKey(bc => bc.LoanId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(bc => bc.IndividualLoan).WithMany(g => g.Modifications).HasForeignKey(bc => bc.IndividualLoanId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(bc => bc.BusinessLoan).WithMany(g => g.Modifications).HasForeignKey(bc => bc.BusinessLoanId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(bc => bc.GroupLoan).WithMany(g => g.Modifications).HasForeignKey(bc => bc.GroupLoanId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

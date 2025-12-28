@@ -1,5 +1,5 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
-using MfiManager.Middleware.Data.Entities.Operations.Branches;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
     /// <summary>
@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public DateTime ListedOn  {get; set; }
         public DateTime? UnListedOn  {get; set; }
         public long ReasonId {get; set; }
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
         public long? PersonId  {get; set; }
         public virtual Individual Individual { get; set; }
         public long? MemberId  {get; set; }

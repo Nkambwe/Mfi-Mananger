@@ -1,10 +1,13 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Insurance;
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Charges;
+using MfiManager.Middleware.Data.Entities.Accounts.Taxes;
+using MfiManager.Middleware.Data.Entities.Operations.Insurance;
+using MfiManager.Middleware.Data.Entities.System.Configurations;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Products {
     /// <summary>
     /// Insurance product
     /// </summary>
-    public class InsuranceProduct : BaseEntity {
+    public class InsuranceProduct : ProductBase {
         public long CoverageId {get;set; }
         public int Period {get;set; }
         public bool AllowPremiumModification {get;set; }
@@ -34,10 +37,17 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         public int MaximumInsuredAge {get;set; }
         public decimal Fees {get;set; }
         public string FeesLedgerAccount {get;set; }
-        public long ProductId {get;set; }
-        public virtual Product Product {get;set;}
+        public long ProductTypeId { get; set; }
+        public long? ChargeGroupId { get; set; } 
         public virtual Coverage Coverage { get; set; }
+        public virtual ProductType ProductType { get; set; }
+        public virtual ChargeGroup ChargeGroup { get; set; }
         public virtual ICollection<Policy> Policies {get;set; }
         public virtual ICollection<InsuranceProductProvider> Providers {get;set;}
+        public virtual ICollection<ChargeStage>  ChargeStages {get;set;}
+        public virtual ICollection<InsuranceProductTaxGroup> TaxGroups { get; set; }
+        public virtual ICollection<TaxableItem> TaxableItems { get; set; } = [];
+        public virtual ICollection<ChargeItem> ChargedItems { get; set; } = [];
+        public virtual ICollection<InsurancetProductParam> ProductParams { get; set; } = [];
     }
 }

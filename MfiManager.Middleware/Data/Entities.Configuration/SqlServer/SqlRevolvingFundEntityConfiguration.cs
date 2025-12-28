@@ -26,7 +26,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(m => m.Donor).WithMany(o => o.RevolvingFunds).HasForeignKey(mp => mp.DonorId);
             builder.HasMany(m => m.LoanProducts).WithOne(o => o.Fund).HasForeignKey(mp => mp.FundId);
             builder.HasMany(m => m.Branches).WithOne(o => o.RevolvingFund).HasForeignKey(mp => mp.FundId);
-            builder.HasMany(m => m.Loans).WithOne(o => o.RevolvingFund).HasForeignKey(mp => mp.FundId);
+            builder.HasMany(m => m.IndividualLoans).WithOne(o => o.RevolvingFund).HasForeignKey(mp => mp.FundId);
+            builder.HasMany(m => m.BusinessLoans).WithOne(o => o.RevolvingFund).HasForeignKey(mp => mp.FundId);
+            builder.HasMany(m => m.GroupLoans).WithOne(o => o.RevolvingFund).HasForeignKey(mp => mp.FundId);
         }
     }
 

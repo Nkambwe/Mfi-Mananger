@@ -1,4 +1,5 @@
-﻿namespace MfiManager.Middleware.Enums {
+﻿
+namespace MfiManager.Middleware.Enums {
     /// <summary>
     /// Insurance claim status
     /// </summary>

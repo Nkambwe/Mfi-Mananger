@@ -8,6 +8,7 @@ using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Data.Entities.System;
 using MfiManager.Middleware.Data.Entities.System.Configurations;
@@ -18,14 +19,20 @@ namespace MfiManager.Middleware.Installation {
 
     public interface IInstallationHelper {
 
-        #region Sample data
-
-        Company GetSampleCompany();
-        Branch GetMainBranch(long companyId);
+        #region System
         SystemUser GenerateDefaultUser(long branchId);
-
         #endregion
 
+        #region Company
+         Company GetSampleCompany();
+        IReadOnlyList<SystemParam> GetCompanyParameters();
+        #endregion
+
+        #region Branch
+        Branch GetMainBranch(long companyId);
+        IReadOnlyList<BranchParam> GetBrancharameters();
+        #endregion
+        
         #region Default Data
 
         IReadOnlyList<FolioType> GetSystemFolios();
@@ -47,7 +54,7 @@ namespace MfiManager.Middleware.Installation {
         IReadOnlyList<IssuerAuthority> GetDefaultAuthorities();
         IReadOnlyList<IdentificationType> GetDefaultIdentificationTypes();
         IReadOnlyList<Income> GetDefaultIncomes();
-        IReadOnlyList<ReasonCategory> GetDefaultReasons();
+        IReadOnlyList<ReasonGroup> GetDefaultReasons();
         IEnumerable<ClientFilter1> GetClientFilter1();
         IReadOnlyList<ClientFilter2> GetClientFilter2();
         IReadOnlyList<ClientFilter3> GetClientFilter3();
@@ -60,17 +67,21 @@ namespace MfiManager.Middleware.Installation {
         IReadOnlyList<BusinessFilter2> GetBusinessFilter2();
         IReadOnlyList<SeriesNumber> GetSeries(long branchId);
         IReadOnlyList<AccountReference> GetDefaultReferences();
-        IReadOnlyList<SystemConfiguration> GetStatisticsParameters(StatisticParameters parameter);
-        IReadOnlyList<SystemConfiguration> GetClientParameters(long? branchId = null);
-        IReadOnlyList<SystemConfiguration> GetAccountingParameters(bool multiBranch = false, ChartType chartType = ChartType.UsUk, long? branchId = null);
+        IReadOnlyList<SystemParam> GetStatisticsParameters(StatisticParameters parameter);
+        IReadOnlyList<SystemParam> GetClientParameters(long? branchId = null);
+        IReadOnlyList<SystemParam> GetAccountingParameters(bool multiBranch = false, ChartType chartType = ChartType.UsUk, long? branchId = null);
         (List<LedgerAccountHeader>, AccountsChart) GetChartOfAccounts(ChartTemplate template = ChartTemplate.Default);
 
         #endregion
 
         #region Products Configurations
         IReadOnlyList<ProductType> GetProductTypes();
-        IReadOnlyList<Product> GetProducts(long type, string series);
-        IReadOnlyList<ProductConfiguration> GetSavingParameters(long productId);
+        IReadOnlyList<InsuranceProduct> GetInsuranceProducts();
+        IReadOnlyList<SavingProduct> GetSavingProducts();
+        IReadOnlyList<ShareProduct> GetShareProductts();
+        IReadOnlyList<TimedepositProduct> GetTimedepositProducts();
+        IReadOnlyList<LoanProduct> GetLoanProducts();
+        IReadOnlyList<LoanProductParam> GetSavingParameters(long productId);
 
         #endregion
 

@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Enums;
 
@@ -17,7 +17,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public string Notes {get;set;}
         public DateTime EntryDate {get;set; }
         public long ReasonId {get;set; }
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
         public long TimedepositAccountId {get;set; }
         public virtual TimedepositLedger TimedepositTransaction { get; set; }
         

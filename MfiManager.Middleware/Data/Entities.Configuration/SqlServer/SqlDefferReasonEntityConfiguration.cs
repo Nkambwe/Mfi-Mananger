@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Loans;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,7 +10,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasKey(p => p.Id );
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Series).HasColumnName("series").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(p => p.Reason).HasColumnName("reason").HasColumnType("NVARCHAR(MAX)").IsRequired();
+            builder.Property(p => p.Description).HasColumnName("description").HasColumnType("NVARCHAR(MAX)").IsRequired();
+            builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();

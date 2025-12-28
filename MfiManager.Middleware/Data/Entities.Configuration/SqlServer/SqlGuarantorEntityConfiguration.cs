@@ -42,7 +42,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.Languages).WithOne(e => e.Guarantor).HasForeignKey(e => e.GuarantorId);
             builder.HasMany(p => p.Collateral).WithOne(e => e.Guarantor).HasForeignKey(e => e.GuarantorId);
             builder.HasMany(p => p.Overdrafts).WithOne(e => e.Guarantor).HasForeignKey(e => e.OverdraftId);
-            builder.HasMany(p => p.Loans).WithOne(e => e.Guarantor).HasForeignKey(e => e.LoanId);
+            builder.HasMany(p => p.IndividualLoanGuarantors).WithOne(e => e.Guarantor).HasForeignKey(e => e.GuarantorId);
             builder.HasMany(p => p.Languages).WithOne(e => e.Guarantor).HasForeignKey(e => e.GuarantorId);
         }
     }

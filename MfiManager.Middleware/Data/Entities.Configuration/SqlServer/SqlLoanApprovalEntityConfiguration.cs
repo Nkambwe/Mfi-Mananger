@@ -18,10 +18,14 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.Property(p => p.LoanId).HasColumnName("loan_id");
-            builder.HasOne(bc => bc.Loan).WithMany(p => p.LoanApprovals).HasForeignKey(bc => bc.LoanId).OnDelete(DeleteBehavior.Cascade);
             builder.Property(p => p.ApproverId).HasColumnName("loan_approver_id");
             builder.HasOne(bc => bc.Approver).WithMany(p => p.LoanApprovals).HasForeignKey(bc => bc.ApproverId).OnDelete(DeleteBehavior.Cascade);
+            builder.Property(p => p.IndividualLoanId).HasColumnName("individual_lnr_id").IsRequired(false);
+            builder.HasOne(bc => bc.IndividualLoan).WithMany(p => p.LoanApprovals).HasForeignKey(bc => bc.IndividualLoanId).OnDelete(DeleteBehavior.Cascade);
+            builder.Property(p => p.BusinessLoanId).HasColumnName("business_lnr_id").IsRequired(false);
+            builder.HasOne(bc => bc.BusinessLoan).WithMany(p => p.LoanApprovals).HasForeignKey(bc => bc.BusinessLoanId).OnDelete(DeleteBehavior.Cascade);
+            builder.Property(p => p.GroupLoanId).HasColumnName("group_lnr_id").IsRequired(false);
+            builder.HasOne(bc => bc.GroupLoan).WithMany(p => p.LoanApprovals).HasForeignKey(bc => bc.GroupLoanId).OnDelete(DeleteBehavior.Cascade);
         }
     }
     

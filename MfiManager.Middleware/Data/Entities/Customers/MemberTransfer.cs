@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
     public class MemberTransfer : BaseEntity {
@@ -14,7 +14,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public DateTime TransferDate { get; set; }
         public bool Approved { get; set; }
         public long ReasonId { get; set; }
-        public Reason Reason { get; set; }
+        public GeneralReason Reason { get; set; }
         public long MemberId { get; set; }
         public virtual Member Member { get; set; }
         public string Notes { get; set; }

@@ -5,13 +5,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlJournalTypeEntityConfiguration {
         public static void Configure(EntityTypeBuilder<JournalType> builder) {
-             builder.ToTable("TBL_MFI_JOURNSL_TYPE");
+             builder.ToTable("TBL_MFI_JOURNAL_TYPE");
              builder.HasKey(p => p.Id);
              builder.Property(p => p.Id).HasColumnName("id");
-             builder.Property(p => p.Code).HasColumnName("voucher_number").HasColumnType("NVARCHAR(10)").IsRequired();
+             builder.Property(p => p.SerieIdentifier).HasColumnName("series_id").HasColumnType("NVARCHAR(10)").IsRequired();
+             builder.Property(p => p.SeriePrefix).HasColumnName("series_prefix").HasColumnType("NVARCHAR(10)").IsRequired(false);
+             builder.Property(p => p.StartNumber).HasColumnName("start_number");
+             builder.Property(p => p.LastSeries).HasColumnName("last_series");
+             builder.Property(p => p.Active).HasColumnName("is_active");
              builder.Property(p => p.JournalName).HasColumnName("journal_name").HasColumnType("NVARCHAR(MAX)").IsRequired();
              builder.Property(p => p.LedgerNumber).HasColumnName("ledger_number").HasColumnType("NVARCHAR(10)").IsRequired();
-             builder.Property(p => p.PostingSeries).HasColumnName("posting_series");
              builder.Property(p => p.PostingType).HasColumnName("posting_type");
              builder.Property(p => p.AllowTaxDifference).HasColumnName("allow_tax_diff");
              builder.Property(p => p.RequireVoucher).HasColumnName("use_voucher");
@@ -23,7 +26,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
              builder.Property(p => p.Reference5).HasColumnName("reference_5");
              builder.Property(p => p.Reference6).HasColumnName("reference_6");
              builder.Property(p => p.System).HasColumnName("is_system");
-             builder.Property(p => p.Active).HasColumnName("is_active");
              builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired();
              builder.Property(p => p.GeneralPostingId).HasColumnName("general_posting_id").IsRequired(false);
              builder.Property(p => p.BusinessPostingId).HasColumnName("business_posting_id").IsRequired(false);

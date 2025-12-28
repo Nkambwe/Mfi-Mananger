@@ -24,5 +24,4 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.Images).WithOne(e => e.Collateral).HasForeignKey(e => e.CollateralId);
         }
     }
-
 }

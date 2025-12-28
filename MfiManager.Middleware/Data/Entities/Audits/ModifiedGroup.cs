@@ -1,5 +1,5 @@
 ﻿using MfiManager.Middleware.Data.Entities.Customers;
-using MfiManager.Middleware.Data.Entities.Customers.Support;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Audits {
@@ -42,7 +42,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public long? AreaId { get; set; }
         public long? ExitId { get; set; }
         public long ReasonId {get;set;}
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
         public virtual Group Group { get; set; }
     }
 }

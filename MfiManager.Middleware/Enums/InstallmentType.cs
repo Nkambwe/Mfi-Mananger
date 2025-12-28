@@ -1,5 +1,6 @@
 ﻿namespace MfiManager.Middleware.Enums {
     public enum InstallmentType {
+        Undefined = 0,
         Daily        = 1,
         Weekly       = 2,
         BiWeekly     = 3,

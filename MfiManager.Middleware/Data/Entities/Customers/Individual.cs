@@ -76,6 +76,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public long? VillageId {get; set;}
         public virtual Village Village {get;set;}
         public virtual CustomerExit CustomerExit {get; set;}
+        public virtual IndividualLoanAccount LoanAccount {get; set;}
         public virtual ICollection<IncomeHistory> IncomeHistories {get;set;} = [];
         public virtual ICollection<IndividualLanguage> Languages  {get;set;} = [];
         public virtual ICollection<CreditAssessment> CreditAssessments { get; set; } = [];
@@ -94,7 +95,8 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<EmploymentHistory> EmploymentHistories { get; set; } = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedIndividual> ModifiedRecords {get;set;} = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<LoanBase> Loans { get; set; } = [];
+        public virtual ICollection<RejectedCustomer> Rejects { get; set; } = [];
         public override bool Equals(object otherIndividual) {
 
             if (otherIndividual == null || otherIndividual.GetType() != typeof(Individual)) return false;

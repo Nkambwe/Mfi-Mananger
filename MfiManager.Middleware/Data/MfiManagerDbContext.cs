@@ -20,6 +20,7 @@ using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Insurance;
 using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
+using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
@@ -28,7 +29,6 @@ using MfiManager.Middleware.Data.Entities.Operations.Vendors;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Data.Entities.System;
 using MfiManager.Middleware.Data.Entities.System.Configurations;
-using MfiManager.Middleware.Data.Entities.System.Configurations.Parameters;
 using Microsoft.EntityFrameworkCore;
 
 namespace MfiManager.Middleware.Data {
@@ -47,7 +47,7 @@ namespace MfiManager.Middleware.Data {
         public DbSet<UserActivityLog> ActivityLogs { get; set; }
         public DbSet<UserQuickAction> QuickActions { get; set; }
         public DbSet<MfiEntity> SystemEntities { get; set; }
-        public DbSet<SystemConfiguration> SystemConfigurations { get; set; }
+        public DbSet<SystemParam> SystemConfigurations { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
@@ -87,7 +87,7 @@ namespace MfiManager.Middleware.Data {
             OracleQuickActionEntityConfiguration.Configure(modelBuilder.Entity<UserQuickAction>());
             OracleRoleEntityConfiguration.Configure(modelBuilder.Entity<SystemRole>());
             OracleRoleGroupEntityConfiguration.Configure(modelBuilder.Entity<RoleGroup>());
-            OracleSystemConfigEntityConfiguration.Configure(modelBuilder.Entity<SystemConfiguration>());
+            OracleSystemConfigEntityConfiguration.Configure(modelBuilder.Entity<SystemParam>());
             OracleUserActivityEntityConfiguration.Configure(modelBuilder.Entity<UserActivity>());
             OracleUserEntityConfiguration.Configure(modelBuilder.Entity<SystemUser>());
         }
@@ -120,7 +120,7 @@ namespace MfiManager.Middleware.Data {
             PsqlQuickActionEntityConfiguration.Configure(modelBuilder.Entity<UserQuickAction>());
             PsqlRoleEntityConfiguration.Configure(modelBuilder.Entity<SystemRole>());
             PsqlRoleGroupEntityConfiguration.Configure(modelBuilder.Entity<RoleGroup>());
-            PsqlSystemConfigEntityConfiguration.Configure(modelBuilder.Entity<SystemConfiguration>());
+            PsqlSystemConfigEntityConfiguration.Configure(modelBuilder.Entity<SystemParam>());
             PsqlUserActivityEntityConfiguration.Configure(modelBuilder.Entity<UserActivity>());
             PsqlUserEntityConfiguration.Configure(modelBuilder.Entity<SystemUser>());
 
@@ -150,7 +150,8 @@ namespace MfiManager.Middleware.Data {
             SqlUserActivityEntityConfiguration.Configure(modelBuilder.Entity<UserActivity>());
             SqlActivityLogEntityConfiguration.Configure(modelBuilder.Entity<UserActivityLog>());
             SqlEntityEntityConfiguration.Configure(modelBuilder.Entity<MfiEntity>());
-            SqlSystemConfigEntityConfiguration.Configure(modelBuilder.Entity<SystemConfiguration>());
+            SqlCompanyParamEntityConfiguration.Configure(modelBuilder.Entity<SystemParam>());
+            SqlSeriesParamEntityConfiguration.Configure(modelBuilder.Entity<SeriesParam>());
             SqlErrorEntityConfiguration.Configure(modelBuilder.Entity<SystemError>());
             SqlPaymentTermEntityConfiguration.Configure(modelBuilder.Entity<PaymentTerm>());
             SqlPaymentDefaultEntityConfiguration.Configure(modelBuilder.Entity<PaymentDefault>());
@@ -168,7 +169,6 @@ namespace MfiManager.Middleware.Data {
             SqlTraderInfoEntityConfiguration.Configure(modelBuilder.Entity<Trader>());
             SqlAccountReferenceEntityConfiguration.Configure(modelBuilder.Entity<AccountReference>());
             SqlAccountReferenceValueEntityConfiguration.Configure(modelBuilder.Entity<AccountReferenceValue>());
-            
             SqlTraderReferenceEntityConfiguration.Configure(modelBuilder.Entity<TraderReference>());
             SqlSupplierReferenceEntityConfiguration.Configure(modelBuilder.Entity<SupplierReference>());
             SqlLedgerReferencesEntityConfiguration.Configure(modelBuilder.Entity<LedgerReferences>());
@@ -192,10 +192,17 @@ namespace MfiManager.Middleware.Data {
             SqlTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<TaxGroup>());
             SqlTraderTaxEntityConfiguration.Configure(modelBuilder.Entity<TraderTax>());
             SqlSupplierTaxEntityConfiguration.Configure(modelBuilder.Entity<SupplierTax>());
-            SqlProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<ProductTaxGroup>());
-            SqlProductEntityConfiguration.Configure(modelBuilder.Entity<Product>());
+            SqlTimedepositProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<TimedepositProductTaxGroup>());
+            SqlSavingProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<SavingProductTaxGroup>());
+            SqlShareProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<ShareProductTaxGroup>());
+            SqlLoanProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<LoanProductTaxGroup>());
+            SqlInsuranceProductTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<InsuranceProductTaxGroup>());
             SqlProductTypeEntityConfiguration.Configure(modelBuilder.Entity<ProductType>());
-            SqlProductConfigurationEntityConfiguration.Configure(modelBuilder.Entity<ProductConfiguration>());
+            SqlLoanProductParamEntityConfiguration.Configure(modelBuilder.Entity<LoanProductParam>());
+            SqlSavingProductParamEntityConfiguration.Configure(modelBuilder.Entity<SavingProductParam>());
+            SqlShareProductParamEntityConfiguration.Configure(modelBuilder.Entity<ShareProductParam>());
+            SqlTimedepositProductParamEntityConfiguration.Configure(modelBuilder.Entity<TimedepositProductParam>());
+            SqlInsurancetProductParamEntityConfiguration.Configure(modelBuilder.Entity<InsurancetProductParam>());
             SqlMonthlyClosureEntityConfiguration.Configure(modelBuilder.Entity<MonthlyClosure>());
             SqlFinancialYearEntityConfiguration.Configure(modelBuilder.Entity<FinancialYear>());
             SqlAccountsChartEntityConfiguration.Configure(modelBuilder.Entity<AccountsChart>());
@@ -213,12 +220,12 @@ namespace MfiManager.Middleware.Data {
             SqlBankEntityConfiguration.Configure(modelBuilder.Entity<Bank>());
             SqlBankBranchEntityConfiguration.Configure(modelBuilder.Entity<BankBranch>());
             SqlRecurringItemEntityConfiguration.Configure(modelBuilder.Entity<RecurringItem>());
-           
-            SqlReasonCategoryEntityConfiguration.Configure(modelBuilder.Entity<ReasonCategory>());
-            SqlReasonEntityConfiguration.Configure(modelBuilder.Entity<Reason>());
+            SqlReasonCategoryEntityConfiguration.Configure(modelBuilder.Entity<ReasonGroup>());
+            SqlReasonEntityConfiguration.Configure(modelBuilder.Entity<GeneralReason>());
             SqlDefferReasonEntityConfiguration.Configure(modelBuilder.Entity<DefferReason>());
             SqlFreeReasonEntityConfiguration.Configure(modelBuilder.Entity<FreeReason>());
-            
+            SqlWriteOffReasonEntityConfiguration.Configure(modelBuilder.Entity<WriteOffReason>());
+            SqlRejectReasonEntityConfiguration.Configure(modelBuilder.Entity<RejectReason>());
             SqlChargeLedgerEntityConfiguration.Configure(modelBuilder.Entity<ChargeLedger>());
             SqlBankLedgerEntityConfiguration.Configure(modelBuilder.Entity<BankLedger>());
             SqlChequeLedgerEntityConfiguration.Configure(modelBuilder.Entity<ChequeLedger>());
@@ -246,10 +253,9 @@ namespace MfiManager.Middleware.Data {
             SqlChargeGroupItemEntityConfiguration.Configure(modelBuilder.Entity<ChargeGroupItem>());
             SqlCardEntityConfiguration.Configure(modelBuilder.Entity<Card>());
             SqlCardLedgerEntityConfiguration.Configure(modelBuilder.Entity<CardLedger>());
-            SqlConfigurationParameterEntityConfiguration.Configure(modelBuilder.Entity<ConfigurationParameter>());
+            SqlConfigurationParameterEntityConfiguration.Configure(modelBuilder.Entity<BranchParam>());
             SqlBusinessSectorEntityConfiguration.Configure(modelBuilder.Entity<BusinessSector>());
             SqlDonorEntityConfiguration.Configure(modelBuilder.Entity<Donor>());
-            
             SqlChargeableFeeEntityConfiguration.Configure(modelBuilder.Entity<ChargeableFee>());
             SqlSavingLedgerEntityConfiguration.Configure(modelBuilder.Entity<SavingLedger>());
             SqlSavingFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<SavingFeeLedger>());
@@ -261,7 +267,7 @@ namespace MfiManager.Middleware.Data {
             SqlRegistrationFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<RegistrationFeeLedger>());
             SqlTimedepositFeeLedgerEntityConfiguration.Configure(modelBuilder.Entity<TimedepositFeeLedger>());
             SqlLoanProductEntityConfiguration.Configure(modelBuilder.Entity<LoanProduct>());
-            SqlProductLoanApprovalStageEntityConfiguration.Configure(modelBuilder.Entity<ProductLoanApprovalStage>());
+            SqlProductLoanApprovalStageEntityConfiguration.Configure(modelBuilder.Entity<LoanProductApprovalStage>());
             SqlVariableRateEntityConfiguration.Configure(modelBuilder.Entity<VariableRate>());
             SqlRevolvingFundEntityConfiguration.Configure(modelBuilder.Entity<RevolvingFund>());
             SqlLoanPenaltyEntityConfiguration.Configure(modelBuilder.Entity<LoanPenalty>()); 
@@ -305,6 +311,7 @@ namespace MfiManager.Middleware.Data {
             SqlIdentificationTypeEntityConfiguration.Configure(modelBuilder.Entity<IdentificationType>());
             SqlIdentificationEntityConfiguration.Configure(modelBuilder.Entity<Identification>());
             SqlUnLockedCustomerEntityConfiguration.Configure(modelBuilder.Entity<UnLockedCustomer>());
+            SqlRejectedCustomerEntityConfiguration.Configure(modelBuilder.Entity<RejectedCustomer>());
             SqlCustomerExitEntityConfiguration.Configure(modelBuilder.Entity<CustomerExit>());
             SqlCustomerContractEntityConfiguration.Configure(modelBuilder.Entity<CustomerContract>());
             SqlCustomerAgreementEntityConfiguration.Configure(modelBuilder.Entity<CustomerAgreement>());
@@ -343,26 +350,33 @@ namespace MfiManager.Middleware.Data {
             SqlIndividualEntityConfiguration.Configure(modelBuilder.Entity<Individual>());
             SqlIndividualArchiveEntityConfiguration.Configure(modelBuilder.Entity<IndividualArchive>());
             SqlIndividualLanguageEntityConfiguration.Configure(modelBuilder.Entity<IndividualLanguage>());
-
             SqlTellerEntityConfiguration.Configure(modelBuilder.Entity<Teller>());
             SqlTellerJournalTypeEntityConfiguration.Configure(modelBuilder.Entity<TellerJournalType>());
             SqlTellerVoucherTypeEntityConfiguration.Configure(modelBuilder.Entity<TellerVoucherType>());
-            SqlSavingPartnerEntityConfiguration.Configure(modelBuilder.Entity<SavingPartner>());
-            
+            SqlSavingPartnerEntityConfiguration.Configure(modelBuilder.Entity<SavingPartner>());    
             SqlGuarantorEntityConfiguration.Configure(modelBuilder.Entity<Guarantor>());
             SqlGuarantorLanguageEntityConfiguration.Configure(modelBuilder.Entity<GuarantorLanguage>());
-
-            SqlLoanRecordEntityConfiguration.Configure(modelBuilder.Entity<LoanRecord>());
+            SqlIndividualLoanEntityConfiguration.Configure(modelBuilder.Entity<IndividualLoan>());
+            SqlBusinessLoanEntityConfiguration.Configure(modelBuilder.Entity<BusinessLoan>());
+            SqlGroupLoanEntityConfiguration.Configure(modelBuilder.Entity<GroupLoan>());
             SqlRepaymentTransactionEntityConfiguration.Configure(modelBuilder.Entity<RepaymentLedger>());
             SqlGroupRepaymentBreakdownEntityConfiguration.Configure(modelBuilder.Entity<GroupRepaymentBreakdown>());
-            SqlLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<LoanGuarantor>());
+            SqlIndividualLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<IndividualLoanGuarantor>());
+            SqlBusinessLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<BusinessLoanGuarantor>());
+            SqlGroupLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanGuarantor>());
             SqlCollateralImageEntityConfiguration.Configure(modelBuilder.Entity<CollateralImage>());
             SqlCollateralEntityConfiguration.Configure(modelBuilder.Entity<Collateral>());
-            SqlLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<LoanCollateral>());
+            SqlIndividualLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<IndividualLoanCollateral>());
+            SqlBusinessLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<BusinessLoanCollateral>());
+            SqlGroupLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanCollateral>());
             SqlLoanTransferEntityConfiguration.Configure(modelBuilder.Entity<LoanTransfer>());
             SqlAmortizedDueEntityConfiguration.Configure(modelBuilder.Entity<AmortizedDue>());
-            SqlLoanDueEntityConfiguration.Configure(modelBuilder.Entity<LoanDue>());
-            SqlApprovedAmountEntityConfiguration.Configure(modelBuilder.Entity<ApprovedAmount>());
+            SqlLoanDueEntityConfiguration.Configure(modelBuilder.Entity<LoanDue>());           
+            SqlIndividualLoanAccountEntityConfiguration.Configure(modelBuilder.Entity<IndividualLoanAccount>());
+            SqlBusinessLoanAccountEntityConfiguration.Configure(modelBuilder.Entity<BusinessLoanAccount>());
+            SqlGroupLoanAccountEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanAccount>());
+            SqlMemberLoanAccountEntityConfiguration.Configure(modelBuilder.Entity<MemberLoanAccount>());
+            SqlMemberAccountBreakdownsEntityConfiguration.Configure(modelBuilder.Entity<MemberAccountBreakdown>());
             SqlApplicationNotesEntityConfiguration.Configure(modelBuilder.Entity<ApplicationNotes>());
             SqlDisbursementEntityConfiguration.Configure(modelBuilder.Entity<Disbursement>());
             SqlLoanLossProvisionEntityConfiguration.Configure(modelBuilder.Entity<LoanLossProvision>());
@@ -378,6 +392,14 @@ namespace MfiManager.Middleware.Data {
             SqlLoanFilter2EntityConfiguration.Configure(modelBuilder.Entity<LoanFilter2>());
             SqlLoanFilter3EntityConfiguration.Configure(modelBuilder.Entity<LoanFilter3>());
             SqlLoanFilter4EntityConfiguration.Configure(modelBuilder.Entity<LoanFilter4>());
+            SqlRejectedLoanEntityConfiguration.Configure(modelBuilder.Entity<RejectedLoan>());
+            SqlWittenOffLoanEntityConfiguration.Configure(modelBuilder.Entity<WittenOffLoan>());
+            SqlLoanPurposeEntityConfiguration.Configure(modelBuilder.Entity<LoanPurpose>());
+            SqlLoanCycleEntityConfiguration.Configure(modelBuilder.Entity<LoanCycle>());
+            SqlLoanAmountClassEntityConfiguration.Configure(modelBuilder.Entity<LoanAmountClass>());
+            SqlLoanAmountRangeEntityConfiguration.Configure(modelBuilder.Entity<LoanAmountClassRange>());
+            SqlLoanApprovalStageEntityConfiguration.Configure(modelBuilder.Entity<LoanApprovalStage>());
+            SqlLoanApprovedAmountEntityConfiguration.Configure(modelBuilder.Entity<LoanApprovedAmount>());
             SqlLoanBreakdownFilter1EntityConfiguration.Configure(modelBuilder.Entity<LoanBreakdownFilter1>());
             SqlLoanBreakdownFilter2EntityConfiguration.Configure(modelBuilder.Entity<LoanBreakdownFilter2>());
             SqlGroupLoanBreakdownEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanBreakdown>());

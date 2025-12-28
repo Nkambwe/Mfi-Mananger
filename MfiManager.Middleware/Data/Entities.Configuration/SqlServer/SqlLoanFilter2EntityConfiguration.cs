@@ -17,7 +17,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasMany(bc => bc.Loans).WithOne(p => p.Filter2).HasForeignKey(bc => bc.Filter2Id).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.IndividualLoans).WithOne(p => p.Filter2).HasForeignKey(bc => bc.Filter1Id).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.BusinessLoans).WithOne(p => p.Filter2).HasForeignKey(bc => bc.Filter1Id).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.GroupLoans).WithOne(p => p.Filter2).HasForeignKey(bc => bc.Filter1Id).OnDelete(DeleteBehavior.Cascade);
         }
     }
     

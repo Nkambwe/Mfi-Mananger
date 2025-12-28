@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 
 namespace MfiManager.Middleware.Data.Entities.Audits {
@@ -30,6 +30,6 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public bool ModfiedRenewed { get; set; }
         public virtual TimedepositAccount TimedepositAccount { get; set; }
         public long ReasonId {get;set;}
-        public virtual Reason Reason { get; set; }
+        public virtual GeneralReason Reason { get; set; }
     }
 }

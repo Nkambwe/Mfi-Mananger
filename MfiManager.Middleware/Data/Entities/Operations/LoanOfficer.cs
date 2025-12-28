@@ -22,7 +22,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations {
         public virtual SystemUser SystemUser { get; set; } = null!;
         public long BranchId { get; set; }
         public virtual Branch Branch { get; set; }
-        public virtual ICollection<LoanRecord> Loans { get; set; }
+        public virtual ICollection<IndividualLoan> IndividualLoans {get;set; }=[];
+        public virtual ICollection<GroupLoan> GroupLoans {get;set; }=[];
+        public virtual ICollection<BusinessLoan> BusinessLoans {get;set; }=[];
         public virtual ICollection<LoanApproval> LoanApprovals { get; set; } = [];
         public long? LedgerAccountId {get;set;}
         public virtual LedgerAccount LedgerAccount { get; set; }

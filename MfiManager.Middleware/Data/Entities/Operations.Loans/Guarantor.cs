@@ -34,7 +34,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public virtual Profession Profession {get;set;}
         public ICollection<Collateral> Collateral { get; set; } = [];
         public ICollection<OverdraftGuarantee> Overdrafts { get; set; } = [];
-        public virtual ICollection<LoanGuarantor> Loans { get; set; } = [];
+        public virtual ICollection<IndividualLoanGuarantor> IndividualLoanGuarantors { get; set; } = [];
+        public virtual ICollection<BusinessLoanGuarantor> BusinessLoanGuarantors { get; set; } = [];
+        public virtual ICollection<GroupLoanGuarantor> GroupLoanGuarantors { get; set; } = [];
         public virtual ICollection<GuarantorLanguage> Languages  {get;set;} = [];
 
         public override string ToString() => $"{(string.IsNullOrEmpty(Code) ? "000000" : Code.Trim())}:{(string.IsNullOrEmpty(FirstName) ? "" : FirstName.Trim())}:{(string.IsNullOrEmpty(LastName) ? "" : LastName.Trim())}";

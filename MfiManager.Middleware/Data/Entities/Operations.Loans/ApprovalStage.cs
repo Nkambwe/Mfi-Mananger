@@ -6,9 +6,9 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// Loan approval stages for a given loan product
     /// </summary>
     public class LoanApprovalStage : BaseEntity {
-        public long ProductId { get; set; }
         public ApprovalStage ApprovalStage { get; set; }
         public OfficerPositionCode ApproverPositionCode { get; set; }
-        public virtual ICollection<ProductLoanApprovalStage> Products { get; set; }
+        public string Notes {get;set; }
+        public virtual ICollection<LoanProductApprovalStage> Products { get; set; }
     }
 }

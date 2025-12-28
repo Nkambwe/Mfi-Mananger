@@ -55,6 +55,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(p => p.BusinessFilter2).WithMany(e => e.Businesses).HasForeignKey(e => e.BusinessFilter2Id);
             builder.HasMany(p => p.CustomerApprovals).WithOne(e => e.Business).HasForeignKey(e => e.BusinessId);
             builder.HasMany(p => p.Signatories).WithOne(e => e.Business).HasForeignKey(e => e.BusinessId);
+            builder.HasMany(p => p.Rejects).WithOne(e => e.Business).HasForeignKey(e => e.BusinessId);
         }
     }
 }

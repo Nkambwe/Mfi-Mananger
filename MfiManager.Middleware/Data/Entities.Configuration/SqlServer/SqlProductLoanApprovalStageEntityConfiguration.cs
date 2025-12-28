@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlProductLoanApprovalStageEntityConfiguration {
         
-        public static void Configure(EntityTypeBuilder<ProductLoanApprovalStage> builder) {
+        public static void Configure(EntityTypeBuilder<LoanProductApprovalStage> builder) {
             builder.ToTable("TBL_MFI_LOAN_PRODUCT_APPROVALSTAGE");
             builder.HasKey(bc => new { bc.ProductId, bc.ApprovalStageId });
             builder.Property(bc => bc.ProductId).HasColumnName("product_id").IsRequired();

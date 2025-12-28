@@ -1,10 +1,13 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Saving;
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Charges;
+using MfiManager.Middleware.Data.Entities.Accounts.Taxes;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
+using MfiManager.Middleware.Data.Entities.System.Configurations;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Products {
     /// <summary>
     /// Savings product record
     /// </summary>
-    public class SavingProduct : BaseEntity {
+    public class SavingProduct : ProductBase {
         /// <summary>
         /// Get/Set whether product has a limit on the number of withdraws in a month
         /// </summary>
@@ -45,8 +48,15 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         /// Get/Set the minimum interest amount that can be offered
         /// </summary>
         public decimal MinimumInterestOffered {get;set; }
-        public long ProductId {get;set; }
-        public virtual Product Product {get;set;}
+        public long ProductTypeId { get; set; }
+        public virtual ProductType ProductType { get; set; }
+        public long? ChargeGroupId { get; set; } 
+        public virtual ChargeGroup ChargeGroup { get; set; }
+        public virtual ICollection<SavingProductTaxGroup>  TaxGroups {get;set;}
+        public virtual ICollection<ChargeStage>  ChargeStages {get;set;}
+        public virtual ICollection<TaxableItem> TaxableItems { get; set; } = [];
+        public virtual ICollection<ChargeItem> ChargedItems { get; set; } = [];
+        public virtual ICollection<SavingProductParam> ProductParams { get; set; } = [];
         public virtual ICollection<WithdrawClass> WithdrawClasses {get;set;}
         public virtual ICollection<SavingAccount> Accounts {get;set;}
     }

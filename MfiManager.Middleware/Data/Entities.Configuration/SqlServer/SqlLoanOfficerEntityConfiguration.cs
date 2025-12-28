@@ -24,7 +24,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(bc => bc.LedgerAccount).WithMany(p => p.LoanOfficers).HasForeignKey(bc => bc.LedgerAccountId).OnDelete(DeleteBehavior.Cascade);
             builder.Property(p => p.BranchId).HasColumnName("branch_id");
             builder.HasOne(bc => bc.Branch).WithMany(p => p.LoanOfficers).HasForeignKey(bc => bc.BranchId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasMany(bc => bc.Loans).WithOne(p => p.CreditOfficer).HasForeignKey(bc => bc.CreditOfficerId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.IndividualLoans).WithOne(p => p.CreditOfficer).HasForeignKey(bc => bc.CreditOfficerId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.BusinessLoans).WithOne(p => p.CreditOfficer).HasForeignKey(bc => bc.CreditOfficerId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(bc => bc.GroupLoans).WithOne(p => p.CreditOfficer).HasForeignKey(bc => bc.CreditOfficerId).OnDelete(DeleteBehavior.Cascade);
             builder.HasMany(bc => bc.LoanApprovals).WithOne(p => p.Approver).HasForeignKey(bc => bc.ApproverId).OnDelete(DeleteBehavior.Cascade);
         }
     }

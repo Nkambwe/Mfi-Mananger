@@ -1,4 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Customers.Support;
+﻿using MfiManager.Middleware.Data.Entities.Operations.Reasons;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
 
@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public DateTime UnlockedOn {get;set;}
         public string UnlockedBy  {get;set;}
         public long ReasonId {get;set;}
-        public Reason Reason {get;set;}
+        public GeneralReason Reason {get;set;}
         public long? PersonId  {get;set;}
         public virtual Individual Individual { get; set; }
         public long? MemberId  {get;set;}

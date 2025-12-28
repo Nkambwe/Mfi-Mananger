@@ -15,8 +15,12 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public decimal OverPayment { get; set; }
         public decimal Vat { get; set; }
         public string ProcessedBy { get; set; }
-        public long LoanId { get; set; }
-        public virtual LoanRecord Loan { get; set; }
+        public long? IndividualLoanId { get; set; }
+        public virtual IndividualLoan IndividualLoan {get;set; }
+        public long? GroupLoanId { get; set; }
+        public virtual GroupLoan GroupLoan {get;set; }
+        public long? BusinessLoanId { get; set; }
+        public virtual BusinessLoan BusinessLoan {get;set; }
         public long? SavingAccountId { get; set; }
         public virtual SavingAccount SavingAccount { get; set; }
         public virtual ICollection<GroupRepaymentBreakdown> MembersRepayments { get; set; } = [];

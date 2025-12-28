@@ -21,8 +21,10 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public long? DonorId { get; set; }
         public Donor Donor { get; set; }
         public virtual ICollection<BranchRevolvingFund> Branches { get; set; } = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
         public virtual ICollection<LoanProduct> LoanProducts { get; set; } = [];
+        public virtual ICollection<IndividualLoan> IndividualLoans {get;set; }=[];
+        public virtual ICollection<GroupLoan> GroupLoans {get;set; }=[];
+        public virtual ICollection<BusinessLoan> BusinessLoans {get;set; }=[];
 
         public override string ToString() => $"{Code.Trim()}-{Name.Trim()}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;

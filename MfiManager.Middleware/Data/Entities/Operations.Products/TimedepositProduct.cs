@@ -1,11 +1,14 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
+﻿using MfiManager.Middleware.Data.Entities.Accounts.Charges;
+using MfiManager.Middleware.Data.Entities.Accounts.Taxes;
+using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
+using MfiManager.Middleware.Data.Entities.System.Configurations;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Products {
     /// <summary>
     /// Timedeposit product record
     /// </summary>
-    public partial class TimedepositProduct : BaseEntity {
+    public partial class TimedepositProduct : ProductBase {
         public InterestWithdrawMode WithdrawMode {get;set; }
         public bool CapitalizeInterest {get;set; }
         /// <summary>
@@ -40,9 +43,16 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         /// Get/Set interest calculation methods
         /// </summary>
         public TierCalculationMethod TierMethod {get;set; }
-        public long ProductId {get;set; }
-        public virtual Product Product {get;set;}
+        public long ProductTypeId { get; set; }
+        public long? ChargeGroupId { get; set; } 
         public virtual ICollection<TimedepositAccount> TimedepositAccounts {get;set; }
         public virtual ICollection<TimedepositRate> InterestRates {get;set; }
+        public virtual ProductType ProductType { get; set; }
+        public virtual ChargeGroup ChargeGroup { get; set; }
+        public virtual ICollection<ChargeStage>  ChargeStages {get;set;}
+        public virtual ICollection<TaxableItem> TaxableItems { get; set; } = [];
+        public virtual ICollection<ChargeItem> ChargedItems { get; set; } = [];
+        public virtual ICollection<TimedepositProductParam> ProductParams { get; set; } = [];
+        public virtual ICollection<TimedepositProductTaxGroup> TaxGroups { get; set; }
     }
 }

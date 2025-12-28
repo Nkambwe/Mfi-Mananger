@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\MfiManager.App.props" />
-</Project>

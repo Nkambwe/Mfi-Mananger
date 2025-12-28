@@ -57,6 +57,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.CustomerApprovals).WithOne(e => e.Group).HasForeignKey(e => e.GroupId);
             builder.HasMany(p => p.Meetings).WithOne(e => e.Group).HasForeignKey(e => e.GroupId);
             builder.HasMany(p => p.TimedepositAccounts).WithOne(e => e.GroupClient).HasForeignKey(e => e.GroupId);
+            builder.HasMany(p => p.Rejects).WithOne(e => e.Group).HasForeignKey(e => e.GroupId);
         }
     }
 }

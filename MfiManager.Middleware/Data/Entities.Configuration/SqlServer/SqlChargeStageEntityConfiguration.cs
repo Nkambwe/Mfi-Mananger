@@ -8,7 +8,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_CHARGE_STAGE");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.ProductId).HasColumnName("product_id").IsRequired();
             builder.Property(p => p.BeforeApplication).HasColumnName("before_application");
             builder.Property(p => p.BeforeApproval).HasColumnName("before_approval");
             builder.Property(p => p.AfterApproval).HasColumnName("after_approval");
@@ -20,7 +19,16 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.HasOne(m => m.ChargeItem).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.ChargeItemId);
-            builder.HasOne(m => m.Product).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.ProductId);
+            builder.Property(p => p.TimedepositProductId).HasColumnName("td_product_id").IsRequired(false);
+            builder.Property(p => p.ShareProductId).HasColumnName("sh_product_id").IsRequired(false);
+            builder.Property(p => p.SavingProductId).HasColumnName("sv_product_id").IsRequired(false);
+            builder.Property(p => p.LoanProductId).HasColumnName("ln_product_id").IsRequired(false);
+            builder.Property(p => p.InsuranceProductId).HasColumnName("in_product_id").IsRequired(false);
+            builder.HasOne(m => m.TimedepositProduct).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.TimedepositProductId);
+            builder.HasOne(m => m.ShareProduct).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.ShareProductId);
+            builder.HasOne(m => m.SavingProduct).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.SavingProductId);
+            builder.HasOne(m => m.LoanProduct).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.LoanProductId);
+            builder.HasOne(m => m.InsuranceProduct).WithMany(o => o.ChargeStages).HasForeignKey(mp => mp.InsuranceProductId);
         }
     }
 }

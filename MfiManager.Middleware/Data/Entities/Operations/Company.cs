@@ -16,7 +16,8 @@ namespace MfiManager.Middleware.Data.Entities.Operations {
         public virtual ICollection<Branch> Branches { get; set; }
         public virtual ICollection<Department> Departments { get; set; }
         public virtual ICollection<SystemError> SystemErrors { get; set; }
-        public virtual ICollection<SystemConfiguration> SystemConfigurations { get; set; }
+        public virtual ICollection<SystemParam> SystemConfigurations { get; set; }
+        public virtual ICollection<SeriesParam> SeriesParams { get; set; }
         public override string ToString() => $"{CompanyName}";
         public override bool Equals(object obj) {
 

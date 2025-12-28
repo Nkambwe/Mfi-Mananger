@@ -38,6 +38,7 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public string Instagram  { get; set; }
         public string Twitter  { get; set; }
         public long BranchId {get;set; }
+        public virtual GroupLoanAccount LoanAccount {get; set;}
         public virtual Branch Branch { get; set; }
         public long? Filter1Id {get;set; }
         public virtual ClientFilter1 ClientFilter1 { get; set; }
@@ -62,7 +63,8 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<CustomerBlackList> BlackLists {get;set;} = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedGroup> ModifiedGroups {get;set;} = [];
-        public virtual ICollection<LoanRecord> Loans { get; set; } = [];
+        public virtual ICollection<LoanBase> Loans { get; set; } = [];
+        public virtual ICollection<RejectedCustomer> Rejects { get; set; } = [];
         public override string ToString() => $"{(string.IsNullOrEmpty(ClientCode) ? "000000" : ClientCode.Trim())}-{(string.IsNullOrEmpty(RegisteredName) ? "Group Name" : RegisteredName.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
 
