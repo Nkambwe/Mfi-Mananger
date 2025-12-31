@@ -1,9 +1,11 @@
-﻿namespace MfiManager.Middleware.Enums {
-    public enum MailMergeRecord {
+﻿using System.ComponentModel;
+
+namespace MfiManager.Middleware.Enums {
+    public enum MailMergeOption {
         /// <summary>
-        /// Undefined
+        /// Never apply mail merge
         /// </summary>
-        Undefined = 0,
+        None = 0,
         /// <summary>
         /// Mail merge at loan application
         /// </summary>

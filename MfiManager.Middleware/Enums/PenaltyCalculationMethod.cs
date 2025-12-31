@@ -3,7 +3,7 @@
         /// <summary>
         /// No penalty charges
         /// </summary>
-         NoPenalty = 0,
+         None = 0,
           /// <summary>
          /// Charge on Overdue Principal
          /// (Overdue Principal * Number of Days * Penalty rate)

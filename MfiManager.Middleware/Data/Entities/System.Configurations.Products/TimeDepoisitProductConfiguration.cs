@@ -1,98 +1,94 @@
-﻿using MfiManager.Middleware.Enums;
-
+﻿
 namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
+
     public class TimeDepoisitProductConfiguration {
         /// <summary>
-        /// Get Or Set share norminal value
+        /// Get or Set minimum amount for timedeposit product
         /// </summary>
-        public decimal NorminalValue { get; set; } = 0;
+        public decimal MinimumProductAmount {get;set;}
         /// <summary>
-        /// Get Or Set divided calculation method
+        /// Get or Set maximum amount for timedeposit product
         /// </summary>
-        public DividendCalculationMethod CalculationMethod { get; set; } = DividendCalculationMethod.None;
+        public decimal MaximumProductAmount {get;set;}
         /// <summary>
-        /// Get Or Set divided calculation period
+        /// Get or Set minimum interest rate for timedeposit product
         /// </summary>
-        public int Period { get; set; } = 0;
+        public decimal MinimumInterestRate {get;set;}
         /// <summary>
-        /// Get Or Set divided calculation period interval type
+        /// Get or Set maximum interest rate for timedeposit product
         /// </summary>
-        public Interval Interval { get; set; } = Interval.Months;
+        public decimal MaximumInterestRate {get;set;}
         /// <summary>
-        /// Get Or Set divided calculation rate
+        /// Get or Set minimum interest period for timedeposit product
         /// </summary>
-        public int Rate { get; set; }
+        public int MinimumInterestPeriod {get;set;}
         /// <summary>
-        /// Get Or Set last divided calculation date
+        /// Get or Set maximum interest period for timedeposit product
         /// </summary>
-        public DateTime? LastCalculationDate { get; set; }
+        public int MaximumInterestPeriod {get;set;}
         /// <summary>
-        ///  Get Or Set minimum share capital contribution
+        /// Get or set a fixed amount chargeable as penalty on timedeposit product
         /// </summary>
-        public decimal MinimumShareCapital { get; set; }
+        public decimal PenaltyAmount  {get;set;}
         /// <summary>
-        /// Get Or Set the number of shares that earn dividednds
+        /// Get or Set value indicating whether penalty should be calculated as a percentage rate
         /// </summary>
-        public string DividendEarningShares { get; set; } = "";
+        public bool UsePercentageBasedPenalty  {get;set;}
         /// <summary>
-        /// Get Or Set ledger account for individual shares purchased
+        /// Get or Set penalty rate for timedeposit product
         /// </summary>
-        public string LedgerForIndividualShares { get; set; } = "";
+        public decimal PenaltyRate {get;set;}
         /// <summary>
-        /// Get Or Set ledger account for dividends on individual shares
+        /// Get or Set value indicating whether interest should not be offered on premature withdraw of timedeposit product
         /// </summary>
-        public string LedgerDividendIndividuals { get; set; } = "";
+        public bool NoInterestOnPrematureWithdraw  {get;set;}
         /// <summary>
-        /// Get Or Set ledger account for accrude dividends on individual shares
+        /// Get or set interest period in days
         /// </summary>
-        public string LedgerAccruedDividendIndividuals { get; set; } = "";
+        public int InterestPeriodInDays {get;set;}     
         /// <summary>
-        /// Get Or Set ledger account for group member shares purchased
+        ///  Get or Set value indicating whether product charges witholding tax on interest earned
         /// </summary>
-        public string LedgerForGroupMembersShares { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for dividends on group member shares
-        /// </summary>
-        public string LedgerDividendGroupMembers { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for accrude dividends on groups shares
-        /// </summary>
-        public string LedgerAccruedDividendGroupMembers { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for business shares purchased
-        /// </summary>
-        public string LedgerForBusinessShares { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for dividends on business shares
-        /// </summary>
-        public string LedgerDividendBusinesses { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for accrude dividends on business shares
-        /// </summary>
-        public string LedgerAccruedDividendBusinesses { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for share redemption
-        /// </summary>
-        public string LedgerForSharesRedemption { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for share cheques
-        /// </summary>
-        public string LedgerForShareCheques { get; set; } = "";
-        /// <summary>
-        ///  Get or Set value indicating whether product charges witholding tax on dividends
-        /// </summary>
-        public bool ChargeWitholdingTaxOnDividends { get; set; } = false;
+        public bool ChargeWitholdingTaxOnInterest {get;set;} = false;
         /// <summary>
         /// Get Or Set witholding tax code attached to this product [See Witholding tax]
         /// </summary>
-        public string WitholdingTaxCode { get; set; }
+        ///public string WitholdingTaxCode {get;set;}
         /// <summary>
         /// Get Or Set ledger for Witholding Tax
         /// </summary>
-        public string LedgerForWitholdingTax { get; set; } = "";
+        public string LedgerForWitholdingTax {get;set;} = "";
+        /// <summary>
+        /// Get Or Set ledger for timedeposit amounts
+        /// </summary>
+        public string LedgerForTimedeposit {get;set;} = "";
+         /// <summary>
+        /// Get Or Set ledger for timedeposit interest
+        /// </summary>
+        public string LedgerForInterest {get;set;} = "";
+        /// <summary>
+        /// Get Or Set ledger for timedeposit interest due
+        /// </summary>
+        public string LedgerForInterestDue {get;set;} = "";
+        /// <summary>
+        /// Get Or Set ledger for penalty charged on timedeposit products
+        /// </summary>
+        public string LedgerForPenalty {get;set;} = "";    
+        /// <summary>
+        /// Get Or Set ledger for timedeposit cash difference
+        /// </summary>
+        public string LedgerForTimedepositCashDifference {get;set;} = "";
+        /// <summary>
+        /// Get Or Set ledger for accrued timedeposit interest cost
+        /// </summary>
+        public string LedgerTimedepositAccruedInterestCost {get;set;} = "";
+        /// <summary>
+        /// Get Or Set ledger for accrued timedeposit interest due
+        /// </summary>
+        public string LedgerForTimedepositAccruedInteresDue {get;set;} = "";
         /// <summary>
         /// Get Or Set ledger account for other taxes
         /// </summary>
-        public string LedgerForTax { get; set; } = "";
+        public string LedgerForTax{get;set;} = "";
     }
 }

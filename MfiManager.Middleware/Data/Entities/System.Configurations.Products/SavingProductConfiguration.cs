@@ -1,199 +1,8 @@
 ﻿using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
+
     public class SavingProductConfiguration {
-        /// <summary>
-        /// Get or Set value indicating whether product charges payment of fee for opening savings account
-        /// </summary>
-        public bool ChargeAccountOpeningFees { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product charges payment of fee for opening savings account based on a type of account [see Savings account type charges]
-        /// </summary>
-        public bool SetAccountOpeningFeesPerAccountType { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product charges payment of fee for closing savings account
-        /// </summary>
-        public bool ChargeAccountClosureFees { get; set; } = false;
-        /// <summary>
-        /// Get or Set value indicating whether product charges payment of fee for closing savings account based on a type of account [see Savings account type charges]
-        /// </summary>
-        public bool SetAccountClosingFeesPerAccountType { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product charges withdraw commission
-        /// </summary>
-        public bool ChargeWithdrawCommission { get; set; } = false;
-        /// <summary>
-        /// Get or Set value indicating whether product charges withdraw commission with in range of withdraw amounts [See withdraw commission ranges]
-        /// </summary>
-        public bool UseWithdrawCommissionRages { get; set; } = false;
-        /// <summary>
-        /// Get Or Set the official allowed number of days between two withdraws. With attracts a penalty
-        /// </summary>
-        public int WithdrawInterval { get; set; } = 0;
-        /// <summary>
-        /// Get or Set value indicating whether product charges withdraw penalty if withdraw make before official interval between withdraws
-        /// </summary>
-        public bool ChargePenaltyForWithdrawInterval { get; set; } = false;
-        /// <summary>
-        /// Get or Set value indicating whether product charges stationery fees
-        /// </summary>
-        public bool ChargeStationeryFees { get; set; } = false;
-        /// <summary>
-        /// Get Or Set required client minimum age for this product
-        /// </summary>
-        public int MinimumClientAge { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product allows multiple currency transactions
-        /// </summary>
-        public bool AllowMultiCurrency { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether currency denominations are displayed on deposit slips
-        /// </summary>
-        public bool ShowCurrencyNotesOnDepositSlips { get; set; } = false;
-        /// <summary>
-        /// Get or Set value indicating whether currency denominations are displayed on withdraw slips
-        /// </summary>
-        public bool ShowCurrencyNotesOnWithdrawSlips { get; set; } = false;
-        /// <summary>
-        /// Get Or Set value indicating whether to use commission rages at withdraw
-        /// </summary>
-        public bool UseWithdrawCommissionRange { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product charges savings transfer fees
-        /// </summary>
-        public bool ChargeSavingsTransferFees { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether product requires supervisor approvals for withdraws
-        /// </summary>
-        public bool RequireApprovalForWithdraws { get; set; } = false;
-        /// <summary>
-        /// Get or Set value indicating whether product requires supervisor approvals for withdraws above cashier limit
-        /// </summary>
-        public bool RequireApprovalForWithdrawsAboveCashierLimit { get; set; } = false;
-        /// <summary>
-        /// Get or Set list of authorities that can approve withdraws above cashier limit
-        /// </summary>
-        public List<string> AuthoritiesToWithdrawAboveCashierLimit { get; set; } = new List<string> { "Manager", "Supervisor" };
-        /// <summary>
-        /// Get or Set value indicating whether transactions are to be displayed starting with latest
-        /// </summary>
-        public bool DisplayChronologically { get; set; } = false;
-        /// <summary>
-        /// Get or Set number of days an account is active for it to be considered dormant
-        /// </summary>
-        public int ConsiderDormantAfterDaysOfInactivity { get; set; } = 365;
-        /// <summary>
-        ///  Get or Set value indicating whether product requires tracking dormant group accounts per member
-        /// </summary>
-        public bool TrackDormantGroupAccountsPerMember { get; set; } = false;
-        /// <summary>
-        ///  Get or Set value indicating whether product requires supervisor approval to activate dormant accounts
-        /// </summary>
-        public bool RequireSupervisorApprovalToActivateDormantAccounts { get; set; } = false;
-        /// <summary>
-        /// Get or Set list of authorities that can approve activation of dormant accounts
-        /// </summary>
-        public List<string> AuthoritiesToActivateOfDormantAccounts { get; set; } = new List<string> { "Manager", "Supervisor" };
-        /// <summary>
-        /// Get or Set value indicating whether individual savings are required
-        /// </summary>
-        public bool EnforceIndividualSaving { get; set; } = false;
-        /// <summary>
-        /// Get or Set ledger account for individual deposits
-        /// </summary>
-        public string LedgerForIndividualDeposits { get; set; } = "210201";
-        /// <summary>
-        /// Get or Set ledger account for interest earned on individual deposits
-        /// </summary>
-        public string LedgerForInterestOnIndividualDeposits { get; set; } = "510010";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned on individual deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedOnIndividualDeposits { get; set; } = "240010";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned cost on individual deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedCostOnIndividualDeposits { get; set; } = "511010";
-        /// <summary>
-        /// Get or set minimum withdraw balance for individual saving accounts
-        /// </summary>
-        public decimal MinimumBalanceIndividualAccounts { get; set; }
-        /// <summary>
-        /// Get or set minimum account balance that earns interest for individuals saving accounts
-        /// </summary>
-        public decimal MinimumInterestEarningBalanceIndividualAccounts { get; set; }
-        /// <summary>
-        /// Get or set minimum withdraw balance for joint saving accounts
-        /// </summary>
-        public decimal MinimumBalanceJointAccounts { get; set; }
-        /// <summary>
-        /// Get or set minimum account balance that earns interest for joint saving accounts
-        /// </summary>
-        public decimal MinimumInterestEarningBalanceJointAccounts { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether group savings are required
-        /// </summary>
-        public bool EnforceGroupSaving { get; set; } = false;
-        /// <summary>
-        /// Get or Set ledger account for groups deposits
-        /// </summary>
-        public string LedgerForGroupsDeposits { get; set; } = "210202";
-        /// <summary>
-        /// Get or Set ledger account for interest on groups deposits
-        /// </summary>
-        public string LedgerForInterestOnGroupsDeposits { get; set; } = "510020";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned on groups deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedOnGroupDeposits { get; set; } = "240020";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned cost on groups deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedCostOnGroupDeposits { get; set; } = "511020";
-        /// <summary>
-        /// Get or Set value indicating whether group accounts are broken down per member
-        /// </summary>
-        public bool BreakGroupAccountsToIndividualMemberAccounts { get; set; } = false;
-        /// <summary>
-        /// Get or set minimum withdraw balance for group saving accounts
-        /// </summary>
-        public decimal MinimumBalanceGroupAccounts { get; set; }
-        /// <summary>
-        /// Get or set minimum account balance that earns interest for group saving accounts
-        /// </summary>
-        public decimal MinimumInterestEarningBalanceGroupAccounts { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether business savings are required
-        /// </summary>
-        public bool EnforceBusinessSaving { get; set; } = false;
-        /// <summary>
-        /// Get or Set ledger account for business deposits
-        /// </summary>
-        public string LedgerForBusinessDeposits { get; set; } = "210203";
-        /// <summary>
-        /// Get or Set ledger account for interest on business deposits
-        /// </summary>
-        public string LedgerForInterestOnBusinessDeposits { get; set; } = "510030";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned on business deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedOnBusinessDeposits { get; set; } = "240030";
-        /// <summary>
-        /// Get or Set ledger account for accrued interest earned cost on business deposits
-        /// </summary>
-        public string LedgerForAccruedInterestEarnedCostOnBusinessDeposits { get; set; } = "511030";
-        /// <summary>
-        /// Get or set minimum withdraw balance for business saving accounts
-        /// </summary>
-        public decimal MinimumBalanceBusinessAccounts { get; set; }
-        /// <summary>
-        /// Get or set minimum account balance that earns interest for businesses saving accounts
-        /// </summary>
-        public decimal MinimumInterestEarningBalanceBusinessAccounts { get; set; }
-        /// <summary>
-        /// Get or Set value indicating whether savings transactions are also booked to the general ledger
-        /// </summary>
-        public bool BookSavingsToGeneralLedger { get; set; } = true;
         /// <summary>
         /// Get or Set value indicating whether product allows offering interest on savings balance
         /// </summary>
@@ -233,7 +42,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set withholding tax code attached to this product [See Withholding tax]
         /// </summary>
-        public string WithholdingTaxCode { get; set; } = "WHTAX04";
+        /// public string WithholdingTaxCode { get; set; } = "";
         /// <summary>
         /// Get Or Set ledger for Withholding Tax
         /// </summary>
@@ -393,7 +202,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set exercise duty tax code attached to this product 
         /// </summary>
-        public string ExerciseDutyTaxCode { get; set; } = "EXETAX01";
+        ///public string ExerciseDutyTaxCode { get; set; } = "EXETAX01";
         /// <summary>
         /// Get Or Set ledger for exercise duty Tax
         /// </summary>
@@ -410,15 +219,167 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// Get Or Set ledger account for other taxes
         /// </summary>
         public string LedgerForTax { get; set; } = "";
-
         /// <summary>
         /// Get Or Set default posting voucher
         /// </summary>
-        public string VoucherCode { get; set; } = "";
-
+        ///public string VoucherCode { get; set; } = "";
         /// <summary>
         /// Get Or Set default journal voucher
         /// </summary>
-        public string JournalCode { get; set; } = "";
+        ///public string JournalCode { get; set; } = "";
+        /// <summary>
+        /// Get or Set value indicating whether product charges withdraw commission
+        /// </summary>
+        public bool ChargeWithdrawCommission { get; set; } = false;
+        /// <summary>
+        /// Get or Set value indicating whether product charges withdraw commission with in range of withdraw amounts [See withdraw commission ranges]
+        /// </summary>
+        public bool UseWithdrawCommissionRages { get; set; } = false;
+        /// <summary>
+        /// Get Or Set the official allowed number of days between two withdraws. With attracts a penalty
+        /// </summary>
+        public int WithdrawInterval { get; set; } = 0;
+        /// <summary>
+        /// Get or Set value indicating whether product charges withdraw penalty if withdraw make before official interval between withdraws
+        /// </summary>
+        public bool ChargePenaltyForWithdrawInterval { get; set; } = false;
+        /// <summary>
+        /// Get or Set value indicating whether product charges stationery fees
+        /// </summary>
+        public bool ChargeStationeryFees { get; set; } = false;
+        /// <summary>
+        /// Get Or Set required client minimum age for this product
+        /// </summary>
+        public int MinimumClientAge { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether product allows multiple currency transactions
+        /// </summary>
+        public bool AllowMultiCurrency { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether currency denominations are displayed on deposit slips
+        /// </summary>
+        public bool ShowCurrencyNotesOnDepositSlips { get; set; } = false;
+        /// <summary>
+        /// Get or Set value indicating whether currency denominations are displayed on withdraw slips
+        /// </summary>
+        public bool ShowCurrencyNotesOnWithdrawSlips { get; set; } = false;
+        /// <summary>
+        /// Get Or Set value indicating whether to use commission rages at withdraw
+        /// </summary>
+        public bool UseWithdrawCommissionRange { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether product charges savings transfer fees
+        /// </summary>
+        public bool ChargeSavingsTransferFees { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether product requires supervisor approvals for withdraws
+        /// </summary>
+        public bool RequireApprovalForWithdraws { get; set; } = false;
+        /// <summary>
+        /// Get or Set number of days an account is active for it to be considered dormant
+        /// </summary>
+        public int ConsiderDormantAfterDaysOfInactivity { get; set; } = 365;
+        /// <summary>
+        ///  Get or Set value indicating whether product requires tracking dormant group accounts per member
+        /// </summary>
+        public bool TrackDormantGroupAccountsPerMember { get; set; } = false;
+        /// <summary>
+        /// Get or Set value indicating whether individual savings are required
+        /// </summary>
+        public bool EnforceIndividualSaving { get; set; } = false;
+        /// <summary>
+        /// Get or Set ledger account for individual deposits
+        /// </summary>
+        public string LedgerForIndividualDeposits { get; set; } = "210201";
+        /// <summary>
+        /// Get or Set ledger account for interest earned on individual deposits
+        /// </summary>
+        public string LedgerForInterestOnIndividualDeposits { get; set; } = "510010";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned on individual deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedOnIndividualDeposits { get; set; } = "240010";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned cost on individual deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedCostOnIndividualDeposits { get; set; } = "511010";
+        /// <summary>
+        /// Get or set minimum withdraw balance for individual saving accounts
+        /// </summary>
+        public decimal MinimumBalanceIndividualAccounts { get; set; }
+        /// <summary>
+        /// Get or set minimum account balance that earns interest for individuals saving accounts
+        /// </summary>
+        public decimal MinimumInterestEarningBalanceIndividualAccounts { get; set; }
+        /// <summary>
+        /// Get or set minimum withdraw balance for joint saving accounts
+        /// </summary>
+        public decimal MinimumBalanceJointAccounts { get; set; }
+        /// <summary>
+        /// Get or set minimum account balance that earns interest for joint saving accounts
+        /// </summary>
+        public decimal MinimumInterestEarningBalanceJointAccounts { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether group savings are required
+        /// </summary>
+        public bool EnforceGroupSaving { get; set; } = false;
+        /// <summary>
+        /// Get or Set ledger account for groups deposits
+        /// </summary>
+        public string LedgerForGroupsDeposits { get; set; } = "210202";
+        /// <summary>
+        /// Get or Set ledger account for interest on groups deposits
+        /// </summary>
+        public string LedgerForInterestOnGroupsDeposits { get; set; } = "510020";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned on groups deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedOnGroupDeposits { get; set; } = "240020";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned cost on groups deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedCostOnGroupDeposits { get; set; } = "511020";
+        /// <summary>
+        /// Get or Set value indicating whether group accounts are broken down per member
+        /// </summary>
+        public bool BreakGroupAccountsToIndividualMemberAccounts { get; set; } = false;
+        /// <summary>
+        /// Get or set minimum withdraw balance for group saving accounts
+        /// </summary>
+        public decimal MinimumBalanceGroupAccounts { get; set; }
+        /// <summary>
+        /// Get or set minimum account balance that earns interest for group saving accounts
+        /// </summary>
+        public decimal MinimumInterestEarningBalanceGroupAccounts { get; set; }
+        /// <summary>
+        /// Get or Set value indicating whether business savings are required
+        /// </summary>
+        public bool EnforceBusinessSaving { get; set; } = false;
+        /// <summary>
+        /// Get or Set ledger account for business deposits
+        /// </summary>
+        public string LedgerForBusinessDeposits { get; set; } = "210203";
+        /// <summary>
+        /// Get or Set ledger account for interest on business deposits
+        /// </summary>
+        public string LedgerForInterestOnBusinessDeposits { get; set; } = "510030";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned on business deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedOnBusinessDeposits { get; set; } = "240030";
+        /// <summary>
+        /// Get or Set ledger account for accrued interest earned cost on business deposits
+        /// </summary>
+        public string LedgerForAccruedInterestEarnedCostOnBusinessDeposits { get; set; } = "511030";
+        /// <summary>
+        /// Get or set minimum withdraw balance for business saving accounts
+        /// </summary>
+        public decimal MinimumBalanceBusinessAccounts { get; set; }
+        /// <summary>
+        /// Get or set minimum account balance that earns interest for businesses saving accounts
+        /// </summary>
+        public decimal MinimumInterestEarningBalanceBusinessAccounts { get; set; }
+        
+        
     }
 }

@@ -3,31 +3,31 @@
         /// <summary>
         /// Get Or Set the period the policy lasts eg. 1 year, 6 months etc.
         /// </summary>
-        public int Period { get; set; }
+        public int PolicyPeriod { get; set; }
         /// <summary>
         /// Get Or Set the minimum number of people or assets the policy covers
         /// </summary>
-	    public int MinimumInsured { get; set; }
+	    public int MinimumNumberInsured { get; set; }
         /// <summary>
         /// Get Or Set the maximum number of people or assets the policy covers
         /// </summary>
-        public int MaximumInsured { get; set; }
+        public int MaximumNumberInsured { get; set; }
         /// <summary>
-        /// Get Or Set the mniimum age of people or assets covered by the policy
+        /// Get Or Set the minimum age of people or assets covered by the policy
         /// </summary>
-	    public decimal MinimumAge { get; set; }
+	    public int MinimumInsurableAge { get; set; }
         /// <summary>
         /// Get Or Set the maximum age of people or assets covered by the policy
         /// </summary>
-	    public int MaximumAge { get; set; }
+	    public int MaximumInsurableAge { get; set; }
         /// <summary>
-        /// Get Or Set monly premium amount charge for the policy
+        /// Get Or Set monthly premium amount charge for the policy
         /// </summary>
 	    public decimal MonthlyPremium { get; set; }
         /// <summary>
         /// Get or set percentage of premium charged 
         /// </summary>
-	    public decimal Percentage { get; set; }
+	    public decimal PremiumPercentageCharged { get; set; }
         /// <summary>
         /// Get or set value indicating whether premium is charge as a fixed amount per insured person or asset
         /// </summary>
@@ -45,7 +45,7 @@
         /// </summary>
 	    public decimal MinimumCoverage { get; set; }
         /// <summary>
-        /// Get or set the miaximum amount that is covered by the policy
+        /// Get or set the maximum amount that is covered by the policy
         /// </summary>
 	    public decimal MaximumCoverage { get; set; }
         /// <summary>
@@ -89,7 +89,7 @@
         /// </summary>
         public bool ChargeStampDutyOnPolicies { get; set; } = false;
         /// <summary>
-        /// Get Or Set ledger for Witholding Tax
+        /// Get Or Set ledger for Stampduty
         /// </summary>
         public string LedgerForStampDuty { get; set; } = "";
 

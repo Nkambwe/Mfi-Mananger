@@ -3,28 +3,13 @@
   "WorkspaceRootPath": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\loanproductconfigurationparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\loanproductconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\timedepoisitproductconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\insuranceproductconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\installation\\iinstallationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\mfimanagerdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\shareproductconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\operations.saving\\savingaccountsignatory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\system.configurations.products\\savingproductconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\operations.saving\\savingaccountinterest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -49,9 +34,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\data\\entities\\operations.saving\\overdraftguarantee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0F2AFF5-ABF7-458C-99A5-B7EBDB8267A6}|..\\MfiManager.Middleware\\MfiManager.Middleware.csproj|c:\\projects\\mfi-manager\\mfi-mananger\\mfimanager.middleware\\installation\\iinstallationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,34 +43,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 97,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoanProductConfigurationParameter.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfigurationParameter.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfigurationParameter.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfigurationParameter.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfigurationParameter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T12:52:07.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MfiManagerDbContext.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
-              "ViewState": "AgIAANYAAAAAAAAAAAAgwOQAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T10:14:12.349Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -115,7 +71,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
+              "Title": "MfiManagerDbContext.cs",
+              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
+              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
+              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
+              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\MfiManagerDbContext.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAgwPIAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T10:14:12.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "IInstallationHelper.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Installation\\IInstallationHelper.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Installation\\IInstallationHelper.cs",
@@ -144,83 +113,12 @@
       },
       "DocumentGroups": [
         {
-          "DockedHeight": 57,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InsuranceProductConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\InsuranceProductConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\InsuranceProductConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\InsuranceProductConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\InsuranceProductConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T03:26:15.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoanProductConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\LoanProductConfiguration.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAowCsAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T03:26:19.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SavingProductConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\SavingProductConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\SavingProductConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\SavingProductConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\SavingProductConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T03:26:36.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShareProductConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\ShareProductConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\ShareProductConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\ShareProductConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\ShareProductConfiguration.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwFgAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T03:26:38.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TimeDepoisitProductConfiguration.cs",
-              "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\TimeDepoisitProductConfiguration.cs",
-              "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\TimeDepoisitProductConfiguration.cs",
-              "ToolTip": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\TimeDepoisitProductConfiguration.cs",
-              "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\System.Configurations.Products\\TimeDepoisitProductConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T03:26:39.188Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
           "DockedHeight": 11,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "SavingAccountSignatory.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccountSignatory.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccountSignatory.cs",
@@ -233,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "SavingAccountInterest.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccountInterest.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccountInterest.cs",
@@ -241,12 +139,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccountInterest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:41:30.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:41:30.985Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "StandingOrderAmendment.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrderAmendment.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrderAmendment.cs",
@@ -254,12 +151,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrderAmendment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:42:11.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:42:11.533Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "StandingOrder.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrder.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrder.cs",
@@ -267,12 +163,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\StandingOrder.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:42:03.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:42:03.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "WithdrawClass.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\WithdrawClass.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\WithdrawClass.cs",
@@ -280,12 +175,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\WithdrawClass.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:42:20.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:42:20.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "SavingAccount.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccount.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccount.cs",
@@ -293,12 +187,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\SavingAccount.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:41:23.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:41:23.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "OverdraftLoan.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftLoan.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftLoan.cs",
@@ -306,12 +199,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftLoan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:41:16.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:41:16.62Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "FrozenAccount.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\FrozenAccount.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\FrozenAccount.cs",
@@ -319,12 +211,11 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\FrozenAccount.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:40:51.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:40:51.829Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 10,
               "Title": "OverdraftGuarantee.cs",
               "DocumentMoniker": "C:\\Projects\\mfi-manager\\Mfi-Mananger\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftGuarantee.cs",
               "RelativeDocumentMoniker": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftGuarantee.cs",
@@ -332,8 +223,7 @@
               "RelativeToolTip": "..\\MfiManager.Middleware\\Data\\Entities\\Operations.Saving\\OverdraftGuarantee.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T11:41:01.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T11:41:01.428Z"
             }
           ]
         }

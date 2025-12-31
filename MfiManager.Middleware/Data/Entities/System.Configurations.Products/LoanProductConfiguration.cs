@@ -37,27 +37,27 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get or Set value indicating whether loan records should be mail merged
         /// </summary>
-        public bool MailMergeRecords { get; set; }
+        public bool MailMergeLoanRecords { get; set; }
         /// <summary>
-        /// Get Or Set mail merge option
+        /// Get Or Set mail merge option or stage
         /// </summary>
-        public MailMergeRecord MailMerge { get; set; } = MailMergeRecord.Undefined;
+        public MailMergeOption MailMergeOption { get; set; } = MailMergeOption.None;
         /// <summary>
         /// Get or Set value indicating whether loan interest must be recalculated at repayment
         /// </summary>
-        public bool RecalculateInterest { get; set; }
+        public bool ApplyRecalculateInterest { get; set; }
         /// <summary>
         /// Get or Set value indicating whether loan interest is to be recalculated only if interest is not calculated in days
         /// </summary>
-        public bool OnlyIfInterestNotCalculatedIndays { get; set; }
+        public bool ReclaculateInterestOnlyIfNotIndays { get; set; }
         /// <summary>
-        /// Get Or Set interest recalculation method
+        /// Get Or Set interest recalculation type
         /// </summary>
-        public InterestCalculation RecalculationMethod { get; set; } = InterestCalculation.Undefined;
+        public InterestCalculation RecalculationMethod { get; set; } = InterestCalculation.None;
         /// <summary>
         /// Get or Set value indicating whether unpaid interest should not be reset during reclaculation
         /// </summary>
-        public bool NoResetInterest { get; set; }
+        public bool NoInterestResetAtRecalculation { get; set; }
         /// <summary>
         /// Get or Set value indicating whether interest is frozen for loans lin arrears after a certain number of days
         /// </summary>
@@ -75,7 +75,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// </summary>
         public bool DeclassifyPrincipalInArrears { get; set; }
         /// <summary>
-        /// Get or Set value indicating whether interest is compounded at repayment for loands with interest calculated with declininh balance method
+        /// Get or Set value indicating whether interest is compounded at repayment for loans with interest calculated with declininh balance method
         /// </summary>
         public bool CompoundInterestAtRepayment { get; set; }
         /// <summary>
@@ -117,62 +117,10 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// </summary>
         public bool ChargeWitholdingTaxOnFees { get; set; } = false;
         /// <summary>
-        /// Get Or Set witholding tax code attached to this product
-        /// </summary>
-        public string WitholdingTaxCode { get; set; } 
-        /// <summary>
-        /// Get Or Set ledger for Witholding Tax
-        /// </summary>
-        public string LedgerForWitholdingTax { get; set; } = "";
-        /// <summary>
         ///  Get or Set value indicating whether product charges stamp duty product
         /// </summary>
         public bool ChargeStampDuty { get; set; } = false;
-        /// <summary>
-        /// Get Or Set stamp duty code for mortgage deeds attached to this product
-        /// </summary>
-        public string StampDutyOnMortgage { get; set; }
-        /// <summary>
-        /// Get Or Set stamp duty code for principal attached to this product
-        /// </summary>
-        public string StampDutyOnProncipal { get; set; }
-        /// <summary>
-        /// Get Or Set stamp duty code for interest attached to this product
-        /// </summary>
-        public string StampDutyOnInterest { get; set; }
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on personal loans principal
-        /// </summary>
-        public string LedgerForStampDutyOnPrincipalPersonalLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on personal loans interest
-        /// </summary>
-        public string LedgerForStampDutyOnInterestPersonalLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on group loans principal
-        /// </summary>
-        public string LedgerForStampDutyOnPrincipalGroupLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on group loans interest
-        /// </summary>
-        public string LedgerForStampDutyOnInterestGroupLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on business loans principal
-        /// </summary>
-        public string LedgerForStampDutyOnPrincipalBusinessLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger for stamp duty on business loans interest
-        /// </summary>
-        public string LedgerForStampDutyOnInterestBusinessLoans { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledger account for other taxes
-        /// </summary>
-        public string LedgerForTax { get; set; } = "";
-        /// <summary>
-        /// Get Or Set ledgercard disclaimer text
-        /// </summary>
-        public string LedgerCardDisclaimer { get; set; } = "";
-
+        
         /*individual loan*/
         /// <summary>
         /// Get Or Set minimum number of days for all individual loans of this product
@@ -181,7 +129,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default loan amount for individual loan for this product
         /// </summary>
-        public decimal LoanAmountForPersonalLoans { get; set; }
+        public decimal DefaultLoanAmountForPersonalLoans { get; set; }
         /// <summary>
         /// Get Or Set value indicating whether to enforce default amount on all individual loans for this product
         /// </summary>
@@ -258,7 +206,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default interest calculation method for individual loan for this product
         /// </summary>
-        public InterestCalculation DefaultInterestCalculationForPersonalLoans { get; set; } = InterestCalculation.Undefined;
+        public InterestCalculation DefaultInterestCalculationForPersonalLoans { get; set; } = InterestCalculation.None;
         /// <summary>
         /// Get Or Set value indicating whether to enforce default interest calculation for all individual loans for this product
         /// </summary>
@@ -333,7 +281,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// </summary>
         public bool CompoundInstallmentBasedCommissionForPersonalLoans { get; set; }
         /// <summary>
-        /// Get Or Set days along is considered to be in arrears for individual loans
+        /// Get Or Set days a loan is considered to be in arrears for individual loans
         /// </summary>
         public int DaysToArrearPersonalLoans { get; set; }
 
@@ -349,7 +297,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default loan amount for group loan for this product
         /// </summary>
-        public decimal LoanAmountForGroupLoans { get; set; }
+        public decimal DefaultLoanAmountForGroupLoans { get; set; }
         /// <summary>
         /// Get Or Set value indicating whether to enforce default amount on all group loans for this product
         /// </summary>
@@ -428,7 +376,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default interest calculation method for group loan for this product
         /// </summary>
-        public InterestCalculation DefaultInterestCalculationForGroupLoans { get; set; } = InterestCalculation.Undefined;
+        public InterestCalculation DefaultInterestCalculationForGroupLoans { get; set; } = InterestCalculation.None;
         /// <summary>
         /// Get Or Set value indicating whether to enforce default interest calculation for all group loans for this product
         /// </summary>
@@ -519,7 +467,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default loan amount for business loan for this product
         /// </summary>
-        public decimal LoanAmountForBusinessLoans { get; set; }
+        public decimal DefaultLoanAmountForBusinessLoans { get; set; }
         /// <summary>
         /// Get Or Set value indicating whether to enforce default amount on all business loans for this product
         /// </summary>
@@ -587,7 +535,7 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set default interest calculation method for business loan for this product
         /// </summary>
-        public InterestCalculation DefaultInterestCalculationForBusinessLoans { get; set; } = InterestCalculation.Undefined;
+        public InterestCalculation DefaultInterestCalculationForBusinessLoans { get; set; } = InterestCalculation.None;
         /// <summary>
         /// Get Or Set value indicating whether to enforce default interest calculation for all business loans for this product
         /// </summary>
@@ -688,11 +636,11 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
         /// <summary>
         /// Get Or Set penalty calculation type
         /// </summary>
-        public PenaltyCalculationType PenaltyCalculation { get; set; } = PenaltyCalculationType.None;
+        public PenaltyCalculationType PenaltyCalculationType { get; set; } = PenaltyCalculationType.None;
         /// <summary>
         /// Get Or Set penalty calculation method
         /// </summary>
-        public PenaltyCalculationMethod PenaltyCalculationMethod { get; set; } = PenaltyCalculationMethod.NoPenalty;
+        public PenaltyCalculationMethod PenaltyCalculationMethod { get; set; } = PenaltyCalculationMethod.None;
         /// <summary>
         /// Get Or Set whether penalty calculation is done automatically by task
         /// </summary>
@@ -878,123 +826,123 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations.Products {
 
         /*ledger accounts*/
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Principal Outstanding amount on personal loans
         /// </summary>
         public string LedgerForPrincipalOutstandingPersonalLoan { get; set; } = "";
         /// <summary>
-        ///Get Or Set ledger account for
+        ///Get Or Set ledger account for Principal Outstanding amount on group loans
         /// </summary>
         public string LedgerForPrincipalOutstandingGrouplLoan { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Principal Outstanding amount on business loans
         /// </summary>
         public string LedgerForPrincipalOutstandingBusinesslLoan { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Provision for Baddbts on personal loans
         /// </summary>
         public string LedgerForProvissionForBadDebtsPersonalLoans { get; set; } = "";
         /// <summary>
-        /// 
+        /// Get Or Set ledger account for Provision for Baddbts on group loans
         /// </summary>
         public string LedgerForProvissionForBadDebtsGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Provision for Baddbts on business loans
         /// </summary>
         public string LedgerForProvissionForBadDebtsBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Cost on Provision for Baddbts on personal loans
         /// </summary>
         public string LedgerForCostOnProvisionForBadDebtsPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Cost on Provision for Baddbts on group loans
         /// </summary>
         public string LedgerForCostOnProvisionForBadDebtsGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for Cost on Provision for Baddbts on business loans
         /// </summary>
         public string LedgerForCostOnProvisionForBadDebtsBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest on personal loans
         /// </summary>
         public string LedgerForInterestPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest on group loans
         /// </summary>
         public string LedgerForInterestGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest on business loans
         /// </summary>
         public string LedgerForInterestBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for writtenoff on personal loans
         /// </summary>
         public string LedgerForLoansWriteOffPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for writtenoff on group loans
         /// </summary>
         public string LedgerForLoansWriteOffGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for writtenoff on business loans
         /// </summary>
         public string LedgerForLoansWriteOffBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        ///  Get Or Set ledger account for accrued interest on personal loans
         /// </summary>
         public string LedgerForAccruedInterestPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued interest on group loans
         /// </summary>
         public string LedgerForAccruedInterestGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued interest on business loans
         /// </summary>
         public string LedgerForAccruedInterestBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest recieved on personal loans
         /// </summary>
         public string LedgerForInterestRecievedPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest recieved on group loans
         /// </summary>
         public string LedgerForInterestRecievedGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for interest recieved on business loans
         /// </summary>
         public string LedgerForInterestRecievedBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for refinance on personal loans
         /// </summary>
         public string LedgerForRefinancePersonLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for refinance on business loans
         /// </summary>
         public string LedgerForRefinanceBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for refinance on group loans
         /// </summary>
         public string LedgerForRefinanceGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued penalty on personal loans
         /// </summary>
         public string LedgerForAccruedPenaltyPersonalLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued penalty on group loans
         /// </summary>
         public string LedgerForAccruedPenaltyGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued penalty on business loans
         /// </summary>
         public string LedgerForAccruedPenaltyBusinessLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued loan commission on personal loans
         /// </summary>
         public string LedgerForAccruedLoanCommissionIndividualLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued loan commission on group loans
         /// </summary>
         public string LedgerForAccruedLoanCommissionGroupLoans { get; set; } = "";
         /// <summary>
-        /// Get Or Set ledger account for
+        /// Get Or Set ledger account for accrued loan commission on business loans
         /// </summary>
         public string LedgerForAccruedLoanCommissionBusinessLoans { get; set; } = "";
         /// <summary>
