@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     /// <summary>
     /// Application user settings parameters
     /// </summary>

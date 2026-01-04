@@ -1,4 +1,6 @@
 ﻿
+using MfiManager.Middleware.Data.Helpers;
+
 namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class TransactionConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "MultiBranch", description: "Check whether system is multi-branch", paramType:"bool")]

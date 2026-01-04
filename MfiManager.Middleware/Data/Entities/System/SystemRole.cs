@@ -5,8 +5,9 @@
         public string Description { get; set; }
         public bool? IsApproved { get; set; }
         public bool? IsVerified { get; set; }
-        public virtual RoleGroup Group { get; set; }
+        public virtual RoleGroup RoleGroup { get; set; }
         public virtual ICollection<SystemUser> Users { get; set; }
+        public virtual ICollection<SystemRolePermissionSet> PermissionSets { get; set; }
         public override bool Equals(object obj) {
 
             if (obj is not SystemRole)
@@ -28,4 +29,5 @@
 
         public override int GetHashCode() => ToString().GetHashCode() ^ 31;
     }
+
 }

@@ -13,7 +13,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.AppliedForAmount).HasColumnName("applied_for_amount").HasPrecision(9,2);
             builder.Property(p => p.ApprovalStage).HasColumnName("approval_stage").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.AmountApproved).HasColumnName("approved_amount").HasPrecision(9,2);
-            builder.Property(p => p.Notes).HasColumnName("approval_stage").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
+            builder.Property(p => p.Notes).HasColumnName("approval_notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();

@@ -29,6 +29,7 @@ using MfiManager.Middleware.Data.Entities.Operations.Vendors;
 using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Data.Entities.System;
 using MfiManager.Middleware.Data.Entities.System.Configurations;
+using MfiManager.Middleware.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace MfiManager.Middleware.Data {
@@ -48,6 +49,8 @@ namespace MfiManager.Middleware.Data {
         public DbSet<UserQuickAction> QuickActions { get; set; }
         public DbSet<MfiEntity> SystemEntities { get; set; }
         public DbSet<SystemParam> SystemConfigurations { get; set; }
+        public DbSet<EncryptionSetting> EncryptionSettings { get; set; }
+        public DbSet<EntityAccess> EntityAccesses { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
@@ -129,6 +132,8 @@ namespace MfiManager.Middleware.Data {
         private static void ConfigureSqlServer(ModelBuilder modelBuilder) {
             modelBuilder.HasDefaultSchema("dbo");
             SqlCompanyEntityConfiguration.Configure(modelBuilder.Entity<Company>());
+            SqlEntityAccessEntityConfiguration.Configure(modelBuilder.Entity<EntityAccess>());
+            SqlEncryptionSettingEntityConfiguration.Configure(modelBuilder.Entity<EncryptionSetting>());
             SqlRevenueCenterEntityConfiguration.Configure(modelBuilder.Entity<RevenueCenter>());
             SqlCostCenterEntityConfiguration.Configure(modelBuilder.Entity<CostCenter>());
             SqlBranchEntityConfiguration.Configure(modelBuilder.Entity<Branch>());
@@ -143,8 +148,15 @@ namespace MfiManager.Middleware.Data {
             SqlDepartmentEntityConfiguration.Configure(modelBuilder.Entity<Department>());
             SqlDeptUnitEntityConfiguration.Configure(modelBuilder.Entity<DepartmentUnit>());
             SqlUserEntityConfiguration.Configure(modelBuilder.Entity<SystemUser>());
+            SqlUserPrefferenceEntityConfiguration.Configure(modelBuilder.Entity<UserPrefference>());
+            SqlPasswordEntityConfiguration.Configure(modelBuilder.Entity<Password>());
             SqlRoleEntityConfiguration.Configure(modelBuilder.Entity<SystemRole>());
             SqlRoleGroupEntityConfiguration.Configure(modelBuilder.Entity<RoleGroup>());
+            SqlRoleGroupPermissionSetEntityConfiguration.Configure(modelBuilder.Entity<RoleGroupPermissionSet>());
+            SqlSystemRolePermissionSetEntityConfiguration.Configure(modelBuilder.Entity<SystemRolePermissionSet>());
+            SqlPermissionSetPermissionsEntityConfiguration.Configure(modelBuilder.Entity<PermissionSetPermissions>());
+            SqlPermissionSetEntityConfiguration.Configure(modelBuilder.Entity<PermissionSet>());
+            SqlDelegatePermissionEntityConfiguration.Configure(modelBuilder.Entity<DelegatePermission>());
             SqlLoginAttemptEntityConfiguration.Configure(modelBuilder.Entity<LoginAttempt>());
             SqlQuickActionEntityConfiguration.Configure(modelBuilder.Entity<UserQuickAction>());
             SqlUserActivityEntityConfiguration.Configure(modelBuilder.Entity<UserActivity>());
@@ -185,7 +197,12 @@ namespace MfiManager.Middleware.Data {
             SqlSalesOrderDefaultEntityConfiguration.Configure(modelBuilder.Entity<SalesOrderDefault>());
             SqlPurchaseOrderClassificationEntityConfiguration.Configure(modelBuilder.Entity<PurchaseOrderClassification>());
             SqlPurchaseOrderDefaultEntityConfiguration.Configure(modelBuilder.Entity<PurchaseOrderDefault>());
+            SqlPurchasingDefaultsEntityConfiguration.Configure(modelBuilder.Entity<PurchasingDefaults>());
+            SqlInvoicingDefaultEntityConfiguration.Configure(modelBuilder.Entity<InvoicingDefault>());
+            SqlDeliveryDefaultsEntityConfiguration.Configure(modelBuilder.Entity<DeliveryDefaults>());
+            SqlLabelFormatEntityConfiguration.Configure(modelBuilder.Entity<LabelFormat>());
             SqlTraderBankAccountEntityConfiguration.Configure(modelBuilder.Entity<TraderBankAccount>());
+            SqlHolidayEntityConfiguration.Configure(modelBuilder.Entity<Holiday>());
             SqlTaxEntityConfiguration.Configure(modelBuilder.Entity<Tax>());
             SqlTaxGroupEntityConfiguration.Configure(modelBuilder.Entity<TaxGroup>());
             SqlTaxableItemEntityConfiguration.Configure(modelBuilder.Entity<TaxableItem>());
@@ -223,7 +240,9 @@ namespace MfiManager.Middleware.Data {
             SqlReasonCategoryEntityConfiguration.Configure(modelBuilder.Entity<ReasonGroup>());
             SqlReasonEntityConfiguration.Configure(modelBuilder.Entity<GeneralReason>());
             SqlDefferReasonEntityConfiguration.Configure(modelBuilder.Entity<DefferReason>());
-            SqlFreeReasonEntityConfiguration.Configure(modelBuilder.Entity<FreeReason>());
+            SqlFreeReasonEntityConfiguration.Configure(modelBuilder.Entity<LoanFreezeReason>());
+            SqlLoanRefinanceReasonEntityConfiguration.Configure(modelBuilder.Entity<LoanRefinanceReason>());
+            SqlAccountFreezeReasonEntityConfiguration.Configure(modelBuilder.Entity<AccountFreezeReason>());
             SqlWriteOffReasonEntityConfiguration.Configure(modelBuilder.Entity<WriteOffReason>());
             SqlRejectReasonEntityConfiguration.Configure(modelBuilder.Entity<RejectReason>());
             SqlChargeLedgerEntityConfiguration.Configure(modelBuilder.Entity<ChargeLedger>());
@@ -298,6 +317,7 @@ namespace MfiManager.Middleware.Data {
             SqlTimedepositProductEntityConfiguration.Configure(modelBuilder.Entity<TimedepositProduct>());
             SqlTimedepositRateEntityConfiguration.Configure(modelBuilder.Entity<TimedepositRate>());
             SqlTimedepositAccountEntityConfiguration.Configure(modelBuilder.Entity<TimedepositAccount>());
+            SqlInterestTierEntityConfiguration.Configure(modelBuilder.Entity<InterestTier>());
             SqlNationalityEntityConfiguration.Configure(modelBuilder.Entity<Nationality>());
             SqlProfessionEntityConfiguration.Configure(modelBuilder.Entity<Profession>());
             SqlVillageEntityConfiguration.Configure(modelBuilder.Entity<Village>());
@@ -366,6 +386,7 @@ namespace MfiManager.Middleware.Data {
             SqlGroupLoanGuarantorEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanGuarantor>());
             SqlCollateralImageEntityConfiguration.Configure(modelBuilder.Entity<CollateralImage>());
             SqlCollateralEntityConfiguration.Configure(modelBuilder.Entity<Collateral>());
+            SqlLoanRefinanceEntityConfiguration.Configure(modelBuilder.Entity<LoanRefinance>());
             SqlIndividualLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<IndividualLoanCollateral>());
             SqlBusinessLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<BusinessLoanCollateral>());
             SqlGroupLoanCollateralEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanCollateral>());
@@ -403,6 +424,15 @@ namespace MfiManager.Middleware.Data {
             SqlLoanBreakdownFilter1EntityConfiguration.Configure(modelBuilder.Entity<LoanBreakdownFilter1>());
             SqlLoanBreakdownFilter2EntityConfiguration.Configure(modelBuilder.Entity<LoanBreakdownFilter2>());
             SqlGroupLoanBreakdownEntityConfiguration.Configure(modelBuilder.Entity<GroupLoanBreakdown>());
+            SqlSavingAccountEntityConfiguration.Configure(modelBuilder.Entity<SavingAccount>());
+            SqlFrozenAccountEntityConfiguration.Configure(modelBuilder.Entity<FrozenAccount>());
+            SqlSavingAccountSignatoryEntityConfiguration.Configure(modelBuilder.Entity<SavingAccountSignatory>());
+            SqlSavingAccountInterestEntityConfiguration.Configure(modelBuilder.Entity<SavingAccountInterest>());
+            SqlStandingOrderEntityConfiguration.Configure(modelBuilder.Entity<StandingOrder>());
+            SqlStandingOrderAmendmentEntityConfiguration.Configure(modelBuilder.Entity<StandingOrderAmendment>());
+            SqlOverdraftLoanEntityConfiguration.Configure(modelBuilder.Entity<OverdraftLoan>());
+            SqlModifiedOverdraftLoanEntityConfiguration.Configure(modelBuilder.Entity<ModifiedOverdraftLoan>());
+            SqlOverdraftGuaranteeEntityConfiguration.Configure(modelBuilder.Entity<OverdraftGuarantee>());
             SqlModifiedLedgerEntityConfiguration.Configure(modelBuilder.Entity<ModifiedLedger>());
             SqlModifiedLoanEntityConfiguration.Configure(modelBuilder.Entity<ModifiedLoan>());
             SqlDeletedLedgerEntityConfiguration.Configure(modelBuilder.Entity<DeletedLedger>());

@@ -21,5 +21,6 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Ledgers {
         public virtual ICollection<TimedepositFeeLedger> TimedepositFeeTransactions {get;set; } = [];
         public virtual ICollection<ModifiedLedger> ModifiedLedgerTransactions {get;set; } = [];
         public virtual ICollection<Disbursement> DisbursementTransactions {get;set; } = [];
+        public virtual ICollection<DefferedLoan> DefferedLoans {get;set; } = [];
     }
 }

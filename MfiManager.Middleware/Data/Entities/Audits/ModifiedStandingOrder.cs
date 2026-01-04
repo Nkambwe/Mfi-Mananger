@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         /// <summary>
         /// Get/Set record Standing Order Id
         /// </summary>
-        public long RecordId { get; set; }
+        public long StandingOrderId { get; set; }
         /// <summary>
         /// Get/Set Savings Account Id
         /// </summary>

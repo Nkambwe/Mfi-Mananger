@@ -23,10 +23,10 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(bc => bc.Individual).WithMany(p => p.Policies).HasForeignKey(bc => bc.IndividualId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(bc => bc.Member).WithMany(p => p.Policies).HasForeignKey(bc => bc.MemberId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(bc => bc.Provider).WithMany(p => p.Policies).HasForeignKey(bc => bc.ProviderId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(bc => bc.InsuranceProduct).WithMany(p => p.Policies).HasForeignKey(bc => bc.ProductId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(bc => bc.Individual).WithMany(p => p.Policies).HasForeignKey(bc => bc.IndividualId);
+            builder.HasOne(bc => bc.Member).WithMany(p => p.Policies).HasForeignKey(bc => bc.MemberId);
+            builder.HasOne(bc => bc.Provider).WithMany(p => p.Policies).HasForeignKey(bc => bc.ProviderId);
+            builder.HasOne(bc => bc.InsuranceProduct).WithMany(p => p.Policies).HasForeignKey(bc => bc.ProductId);
             builder.HasMany(bc => bc.PremiumPayments).WithOne(o => o.Policy).HasForeignKey(bc => bc.PolicyId);
             builder.HasMany(bc => bc.Beneficiaries).WithOne(o => o.Policy).HasForeignKey(bc => bc.PolicyId);
             builder.HasMany(bc => bc.Claims).WithOne(o => o.Policy).HasForeignKey(bc => bc.PolicyId);

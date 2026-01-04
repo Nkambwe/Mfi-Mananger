@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class GroupCustomerConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "MaximumNumberOfGroupMembers", description: "Maximum number of members allowed in a single group", paramType: "int")]
         public string MaximumNumberOfGroupMembers { get; set; }

@@ -16,7 +16,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Statistic).HasColumnName("statistic_number").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.Reference).HasColumnName("member_ref").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.RegisteredOn).HasColumnName("reg_date");
-            builder.Property(p => p.FirstName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
+            builder.Property(p => p.FirstName).HasColumnName("first_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.MiddleName).HasColumnName("middle_name").HasColumnType("NVARCHAR(200)").IsRequired(false);
             builder.Property(p => p.LastName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.Gender).HasColumnName("gender").IsRequired();
@@ -54,8 +54,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Filter1Id).HasColumnName("filter1_id").IsRequired(false);
             builder.Property(p => p.Filter2Id).HasColumnName("filter2_id").IsRequired(false);
             builder.Property(p => p.Filter3Id).HasColumnName("filter3_id").IsRequired(false);
-            builder.Property(p => p.MemberFilter1).HasColumnName("filter2_id").IsRequired(false);
-            builder.Property(p => p.MemberFilter2).HasColumnName("filter3_id").IsRequired(false);
+            builder.Property(p => p.MemberFilter1Id).HasColumnName("mem_filter1_id").IsRequired(false);
+            builder.Property(p => p.MemberFilter2Id).HasColumnName("mem_filter2_id").IsRequired(false);
             builder.Property(p => p.EducationId).HasColumnName("education_id").IsRequired(false);
             builder.Property(p => p.NationalityId).HasColumnName("nationality_id").IsRequired(false);
             builder.Property(p => p.GroupId).HasColumnName("group_id");

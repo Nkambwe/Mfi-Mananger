@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
 
     public class ReasonsConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "BlackListReasonsIdentifier", description: "Blacklist Reasons indentifier series indetifier")]

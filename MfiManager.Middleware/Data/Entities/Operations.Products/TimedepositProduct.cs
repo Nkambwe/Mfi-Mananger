@@ -44,12 +44,13 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         /// </summary>
         public TierCalculationMethod TierMethod {get;set; }
         public long ProductTypeId { get; set; }
-        public long? ChargeGroupId { get; set; } 
-        public virtual ICollection<TimedepositAccount> TimedepositAccounts {get;set; }
-        public virtual ICollection<TimedepositRate> InterestRates {get;set; }
         public virtual ProductType ProductType { get; set; }
+        public long? ChargeGroupId { get; set; } 
         public virtual ChargeGroup ChargeGroup { get; set; }
-        public virtual ICollection<ChargeStage>  ChargeStages {get;set;}
+        public virtual ICollection<TimedepositAccount> TimedepositAccounts {get;set; } = [];
+        public virtual ICollection<TimedepositRate> InterestRates {get;set; } = [];
+        public virtual ICollection<InterestTier> InterestTiers {get;set; } = [];
+        public virtual ICollection<ChargeStage>  ChargeStages {get;set;} = [];
         public virtual ICollection<TaxableItem> TaxableItems { get; set; } = [];
         public virtual ICollection<ChargeItem> ChargedItems { get; set; } = [];
         public virtual ICollection<TimedepositProductParam> ProductParams { get; set; } = [];

@@ -7,15 +7,14 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
     /// Standing order request record
     /// </summary>
     public class StandingOrder : BaseEntity {
-        public long AccountId { get; set; }
-        public long LedgerId { get; set; }
         /// <summary>
         /// Get/Set Standing order number
         /// </summary>
-        public string Number { get; set; }
-
+        public string OrderNumber { get; set; }
+        /// <summary>
+        /// Get/Set Standing order date
+        /// </summary>
         public DateTime OrderDate { get; set; }
-
         /// <summary>
         /// Get/Set standing order execution interval
         /// </summary>
@@ -23,7 +22,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         /// <summary>
         /// Get/Set interval type for OrderExecution custom option
         /// </summary>
-        public IntervalType FrequencyType { get; set; }
+        public IntervalType IntervalType { get; set; }
         /// <summary>
         /// Get/Set number of days, weeks, months or years for custom execution option
         /// </summary>
@@ -63,13 +62,15 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         /// <summary>
         /// Get/Set whether payments are to be made until further notice. Set to true where end date is not provided
         /// </summary>
-        public bool UntilNotice { get; set; }
+        public bool PayAtNotice { get; set; }
         public bool Cancelled { get; set; }
         public DateTime? CancelledOn { get; set; }
         public string CancelNotes { get; set; }
-        public virtual SavingAccount Account { get; set; }
-        public virtual LedgerAccount Ledger { get; set; }
+        public long SavingAccountId { get; set; }
+        public virtual SavingAccount SavingAccount { get; set; }
+        public long? LedgerAccountId { get; set; }
+        public virtual LedgerAccount LedgerAccount { get; set; }
         public virtual ICollection<ModifiedStandingOrder> Modifications { get; set; }
-        public virtual ICollection<StandingOrderAmendment> Amendments { get; set; }
+        public virtual ICollection<StandingOrderAmendment> OrderAmendments { get; set; }
     }
 }

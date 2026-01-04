@@ -26,7 +26,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.Property(b => b.ModifiedBy).HasColumnName("modified_by").HasColumnType("VARCHAR(10)").IsRequired(false);
             builder.HasOne(b => b.Company).WithMany(c => c.Branches).HasForeignKey(b => b.CompanyId);
             builder.HasMany(b => b.Holidays).WithOne(h => h.Branch).HasForeignKey(h => h.BranchId);
-            builder.HasMany(b => b.Configurations).WithOne(c => c.Branch).HasForeignKey(c => c.BranchId);
             builder.HasMany(b => b.SeriesNumbers).WithOne(s => s.Branch).HasForeignKey(s => s.BranchId);
             builder.HasMany(b => b.RecurringItems).WithOne(r => r.Branch).HasForeignKey(r => r.BranchId);
             builder.HasMany(b => b.Entities).WithOne(e => e.Branch).HasForeignKey(e => e.BranchId);

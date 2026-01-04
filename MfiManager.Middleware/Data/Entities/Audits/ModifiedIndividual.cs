@@ -50,7 +50,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public string Twitter { get; set; }
         public long BranchId {get;set; }
         public long? NationalityId { get; set; }
-        public long TitleId { get; set; }
+        public long? TitleId { get; set; }
         public long? Filter1Id { get; set; }
         public long? Filter2Id { get; set; }
         public long? Filter3Id { get; set; }

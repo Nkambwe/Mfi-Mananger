@@ -1,14 +1,22 @@
 ﻿using MfiManager.Middleware.Data.Entities.Operations;
+using MfiManager.Middleware.Data.Helpers;
 
 namespace MfiManager.Middleware.Data.Entities.System {
     public class SystemUser: BaseEntity {
         public string Username { get; set; }
+        [Encryptable("First Name")]
         public string FirstName { get; set; }
+        [Encryptable("Last Name")]
         public string LastName { get; set; }
+        [Encryptable("Other Name")]
         public string OtherName { get; set; }
+        [Encryptable("PF Number")]
         public string PFNumber { get; set; }
+        [Encryptable("Email Address")]
         public string EmailAddress { get; set; }
+        [Encryptable("Phone Number")]
         public string PhoneNumber { get; set; }
+        [Encryptable("Password")]
         public string PasswordHash { get; set; }
         public string BranchCode { get; set; }
         public string DepartmentUnit { get; set; }
@@ -31,7 +39,7 @@ namespace MfiManager.Middleware.Data.Entities.System {
         public virtual ICollection<UserPrefference> Prefferences { get; set; }
         public virtual ICollection<UserActivityLog> ActivityLogs { get; set; }
         public virtual ICollection<Password> Passwords { get; set; }
-        public virtual ICollection<DelegatePermission> Delegates {get;set;}=[];
+        public virtual ICollection<DelegatePermission> DelegatePermissions {get;set;}=[];
         public override bool Equals(object obj) {
 
             if (obj is not SystemUser)

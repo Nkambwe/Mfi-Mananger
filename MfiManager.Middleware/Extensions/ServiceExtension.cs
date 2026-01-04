@@ -2,15 +2,18 @@
 using MfiManager.Middleware.Configuration.Options;
 using MfiManager.Middleware.Cyphers;
 using MfiManager.Middleware.Data;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Data.Transaction;
 using MfiManager.Middleware.Data.Transaction.Repositories;
 using MfiManager.Middleware.Enums;
 using MfiManager.Middleware.Installation;
 using MfiManager.Middleware.Logging;
+using MfiManager.Middleware.Security;
 using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MfiManager.Middleware.Extensions {
 
@@ -88,7 +91,10 @@ namespace MfiManager.Middleware.Extensions {
                     // get provider from config
                     var dbProviderOptions = Configuration.GetSection(DatabaseProviderOptions.SectionName).Get<DatabaseProviderOptions>();
                      _logger.Log($"DATABASE PROVIDER >> {dbProviderOptions.Provider}", "Config");
-                    services.AddDbContextFactory<MfiManagerDbContext>(options => {
+                    services.AddDbContextFactory<MfiManagerDbContext>((serviceProvider, options) => {
+
+                        var interceptor = serviceProvider.GetRequiredService<EncryptionInterceptor>();
+                        options.AddInterceptors(interceptor);
                         switch (dbProviderOptions.Provider) {
                             case DatabaseProvider.SqlServer:
                                 options.UseSqlServer(decryptedString);
@@ -184,6 +190,13 @@ namespace MfiManager.Middleware.Extensions {
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IBranchService, BranchService>();
             services.AddScoped<ISystemErrorService, SystemErrorService>();
+            services.AddScoped<IRequestContext, RequestContext>();
+            services.AddScoped<IEntityResolver, EntityResolver>();
+            services.AddScoped<IEncryptionService, AesEncryptionService>();
+            services.AddScoped<IEntityMetadataService, EntityMetadataService>();
+            services.AddScoped<IEncryptionConfigProvider, EncryptionConfigProvider>();
+
+            services.AddScoped<IEntityAccessService, IEntityAccessService>();
             //services.AddScoped<IActivityLogService, ActivityLogService>();
             //services.AddScoped<IActivityTypeService, ActivityTypeService>();
             //services.AddScoped<IActivityLogSettingService, ActivityLogSettingService>();

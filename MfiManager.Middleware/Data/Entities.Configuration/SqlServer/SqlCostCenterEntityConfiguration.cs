@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
+
     public class SqlCostCenterEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<CostCenter> builder) {
@@ -23,4 +24,5 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasOne(m => m.Company).WithMany(o => o.CostCenters).HasForeignKey(mp => mp.CompanyId);
         }
     }
+
 }

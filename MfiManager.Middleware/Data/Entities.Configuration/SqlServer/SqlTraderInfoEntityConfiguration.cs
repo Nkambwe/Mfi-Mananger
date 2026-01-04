@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_VENDOR");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.Code).HasColumnName("code").HasColumnType("NVARCHAR(10)");
+            builder.Property(p => p.Series).HasColumnName("code").HasColumnType("NVARCHAR(10)");
             builder.Property(p => p.Name).HasColumnName("vendor_name").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Alias).HasColumnName("vendor_alias").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Language).HasColumnName("vendor_language").HasColumnType("NVARCHAR(100)");
@@ -34,8 +34,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(p => p.Contacts).WithOne(g => g.Vendor).HasForeignKey(bc => bc.VendorId);
             builder.HasMany(p => p.BankAccounts).WithOne(bc => bc.Vendor).HasForeignKey(bc => bc.VendorId);
             builder.HasMany(p => p.SalesOrderDefault).WithOne(p => p.Vendor).HasForeignKey(a => a.VendorId);
-            builder.HasMany(p => p.VendorPaymentDefaults).WithOne(p => p.SupplierVendor).HasForeignKey(a => a.SupplierVendorId);
-            builder.HasMany(p => p.CustomerPaymentDefaults).WithOne(p => p.CustomerVendor).HasForeignKey(a => a.CustomerVendorId);
+            builder.HasMany(p => p.VendorPaymentDefaults).WithOne(p => p.SupplierVendor).HasForeignKey(p => p.SupplierVendorId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(p => p.CustomerPaymentDefaults).WithOne(p => p.CustomerVendor).HasForeignKey(p => p.CustomerVendorId).OnDelete(DeleteBehavior.Restrict);
             builder.HasMany(p => p.PurchaseOrderDefaults).WithOne(p => p.Vendor).HasForeignKey(a => a.VendorId);
             builder.HasMany(p => p.HeldContracts).WithOne(bc => bc.Vendor).HasForeignKey(bc => bc.VendorId);
             builder.HasMany(p => p.RefereceValues).WithOne(bc => bc.Vendor).HasForeignKey(bc => bc.VendorId);

@@ -1,4 +1,5 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+
     public class BranchParameter {
         /// <summary>
         /// Branch ledger code

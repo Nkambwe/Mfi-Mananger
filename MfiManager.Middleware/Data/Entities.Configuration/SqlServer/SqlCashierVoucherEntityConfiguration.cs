@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlCashierVoucherEntityConfiguration {
         public static void Configure(EntityTypeBuilder<CashierVoucher> builder) {
-            builder.ToTable("TBL_MFI_CASHIER_JOURNAL");
+            builder.ToTable("TBL_MFI_CASHIER_VOUCHER");
             builder.HasKey(bc => new { bc.CashierId, bc.VoucherId });
             builder.Property(bc => bc.CashierId).HasColumnName("cashier_id").IsRequired();
             builder.Property(bc => bc.VoucherId).HasColumnName("voucher_id").IsRequired();

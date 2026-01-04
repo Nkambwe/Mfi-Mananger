@@ -31,7 +31,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public DateTime? ClosedOn { get; set; }
         public string Comment { get; set; }
         public string LedgerAccountId { get; set; }
-        public long MonthlyClosureId {get;set;}
+        public long? MonthlyClosureId {get;set;}
         public string Cashier { get; set; }
         public string DeletedBy { get; set; }
         public long BranchId { get; set; }

@@ -14,7 +14,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Block).HasColumnName("block_no").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.FileUrl).HasColumnName("file_url").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.Location).HasColumnName("location").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
-            builder.Property(p => p.FileType).HasColumnName("file_type").IsRequired(false);
+            builder.Property(p => p.FileType).HasColumnName("file_type").IsRequired();
             builder.Property(p => p.PersonId).HasColumnName("person_id").IsRequired(false);
             builder.Property(p => p.BusinessId).HasColumnName("business_id").IsRequired(false);
             builder.Property(p => p.GroupId).HasColumnName("group_id").IsRequired(false);

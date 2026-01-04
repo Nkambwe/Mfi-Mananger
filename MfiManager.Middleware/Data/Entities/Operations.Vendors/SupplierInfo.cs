@@ -29,5 +29,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Vendors {
         public virtual ICollection<HeldContract> HeldContracts { get; set; }=[];
         public virtual ICollection<SupplierReference> SupplierReferences { get; set; }=[];
         public virtual ICollection<SuppliedBranch> SuppliedBranches { get; set; }=[];
+        public virtual ICollection<InvoicingDefault> InvoicingDefaults { get; set; }=[];
+        public virtual ICollection<DeliveryDefaults> DeliveryDefaults { get; set; }=[];
     }
 }

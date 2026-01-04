@@ -6,7 +6,6 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
     /// Modified overdraft loan transaction
     /// </summary>
     public class ModifiedOverdraftLoan : BaseEntity {
-        public long RecordId { get; set; }
         public long SavingAccountId { get; set; }
         public DateTime RequestDate { get; set; }
         public long? TranstypeId { get; set; }
@@ -24,24 +23,7 @@ namespace MfiManager.Middleware.Data.Entities.Audits {
         public DateTime? ApprovedOn { get; set; }
         public string ApprovedBy { get; set; }
         public DateTime EntryDate { get; set; }
-        public long ModifiedRecordId { get; set; }
-        public long ModifiedSavingAccountId { get; set; }
-        public DateTime ModifiedRequestDate { get; set; }
-        public long? ModifiedTranstypeId { get; set; }
-        public string ModifiedTranscode { get; set; }
-        public string ModifiedOverdraftNumber { get; set; }
-        public string ModifiedLedgerAccount { get; set; }
-        public string ModifiedParticulars { get; set; }
-        public decimal ModifiedAmount { get; set; }
-        public decimal ModifiedInterest { get; set; }
-        public DateTime ModifiedInterestStartDate { get; set; }
-        public DateTime ModifiedSettlementDate { get; set; }
-        public OverdraftStatus ModifiedStatus { get; set; }
-        public string ModifiedNotes { get; set; }
-        public string ModifiedProcessedBy { get; set; }
-        public DateTime? ModifiedApprovedOn { get; set; }
-        public string ModifiedApprovedBy { get; set; }
-        public DateTime ModifiedEntryDate { get; set; }
+        public long OverdraftId { get; set; }
         public virtual OverdraftLoan Overdraft { get; set; }
         
     }

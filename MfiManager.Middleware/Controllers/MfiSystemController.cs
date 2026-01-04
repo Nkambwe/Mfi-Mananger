@@ -1,23 +1,32 @@
 ﻿using MfiManager.Middleware.Configurations.Providers;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Http.Requests;
 using MfiManager.Middleware.Http.Responses;
 using MfiManager.Middleware.Installation;
+using MfiManager.Middleware.Security;
+using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using System.Text.Json;
 
 namespace MfiManager.Middleware.Controllers {
 
     [ApiController]
     [Route("mfi/system")]
-    public class MfiSystemController(
-        ILogger<MfiSystemController> logger,
-        IEnvironmentProvider environment,
-        IServiceLocalization localizationService,
-        ISystemErrorService errorService,
-        ICompanyService companyService,
-        IInstallationService installationService)
-        : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
+    public class MfiSystemController(ILogger<MfiSystemController> logger,
+                                     IObjectMapper objectMapper,
+                                     IEnvironmentProvider environment,
+                                     IServiceLocalization localizationService,
+                                     ISystemErrorService errorService,
+                                     ICompanyService companyService,
+                                     IInstallationService installationService,
+                                     IEntityAccessService entityAccessService,
+                                     IEncryptionConfigProvider encryptionProvider,
+                                     IEntityResolver resolver)
+        : MfiBaseController(logger, objectMapper, environment, localizationService, errorService, 
+            companyService, entityAccessService, encryptionProvider, resolver) {
+
         private readonly ILogger<MfiSystemController> _logger = logger;
         private readonly IInstallationService _installationService = installationService;
 
@@ -47,6 +56,22 @@ namespace MfiManager.Middleware.Controllers {
                 return Ok(new HttpResponse<StatusResponse>(error));
             }
         }
+        #endregion
+
+        #region Entity Encryption
+        
+        public IEnumerable<EncryptableFieldResponse> GetEncryptableFields(string entityName) {
+            var type = EntityResolver.Resolve(entityName);
+
+            return type.GetProperties().Where(p => p.GetCustomAttribute<EncryptableAttribute>() != null)
+                    .Select(p => new EncryptableFieldResponse
+                    {
+                        EntityName = entityName,
+                        FieldName = p.Name,
+                        DisplayName = p.GetCustomAttribute<EncryptableAttribute>()!.DisplayName
+                    });
+        }
+
         #endregion
 
         #region System Errors

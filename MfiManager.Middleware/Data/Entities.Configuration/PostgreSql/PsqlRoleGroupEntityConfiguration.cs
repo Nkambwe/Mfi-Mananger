@@ -22,7 +22,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.Property(e => e.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(e => e.ModifiedBy).HasColumnName("modified_by").HasColumnType("VARCHAR(10)").IsRequired(false);
 
-            builder.HasMany(g => g.Roles).WithOne(s => s.Group).HasForeignKey(a => a.GroupId);
+            builder.HasMany(g => g.Roles).WithOne(s => s.RoleGroup).HasForeignKey(a => a.GroupId);
         }
 
     }

@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
 
     public class IndividualConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "RequireFirstName", description: "Check whether customer firstName is required", paramType:"bool")]

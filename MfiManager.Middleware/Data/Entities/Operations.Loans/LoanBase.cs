@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Audits;
-using MfiManager.Middleware.Enums;
+﻿using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
     /// <summary>

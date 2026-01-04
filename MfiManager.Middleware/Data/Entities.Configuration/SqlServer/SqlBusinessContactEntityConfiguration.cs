@@ -11,8 +11,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.ContactPerson).HasColumnName("contact_person").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.Type).HasColumnName("contact_type").IsRequired();
-            builder.Property(p => p.PhoneOrEmail).HasColumnName("contact").HasColumnType("NVARCHAR(MAX)").IsRequired();
-            builder.Property(p => p.IsPrimary).HasColumnName("created_by").IsRequired();
+            builder.Property(p => p.PhoneOrEmail).HasColumnName("contact").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
+            builder.Property(p => p.IsPrimary).HasColumnName("is_primary").IsRequired();
             builder.Property(p => p.VendorId).HasColumnName("vendor_id").IsRequired(false);
             builder.Property(p => p.SupplierId).HasColumnName("supplier_id").IsRequired(false);
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");

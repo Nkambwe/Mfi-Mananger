@@ -10,14 +10,15 @@ namespace MfiManager.Middleware.Data.Entities.Operations {
         public string ShortName { get; set; }
         public string RegistrationNumber { get; set; }
         public string SystemLanguage { get; set; }
-        public virtual ICollection<CostCenter> CostCenters { get; set; }
-        public virtual ICollection<RevenueCenter> RevenueCenters { get; set; }
-        public virtual ICollection<ProductType> ProductTypes { get; set; }
-        public virtual ICollection<Branch> Branches { get; set; }
-        public virtual ICollection<Department> Departments { get; set; }
-        public virtual ICollection<SystemError> SystemErrors { get; set; }
-        public virtual ICollection<SystemParam> SystemConfigurations { get; set; }
-        public virtual ICollection<SeriesParam> SeriesParams { get; set; }
+        public virtual ICollection<CostCenter> CostCenters { get; set; } = [];
+        public virtual ICollection<RevenueCenter> RevenueCenters { get; set; } = [];
+        public virtual ICollection<ProductType> ProductTypes { get; set; } = [];
+        public virtual ICollection<Branch> Branches { get; set; } = [];
+        public virtual ICollection<Department> Departments { get; set; } = [];
+        public virtual ICollection<SystemError> SystemErrors { get; set; } = [];
+        public virtual ICollection<SystemParam> SystemConfigurations { get; set; } = [];
+        public virtual ICollection<SeriesParam> SeriesParams { get; set; } = [];
+        public virtual ICollection<EncryptionSetting> EncryptionSettings { get; set; } = [];
         public override string ToString() => $"{CompanyName}";
         public override bool Equals(object obj) {
 

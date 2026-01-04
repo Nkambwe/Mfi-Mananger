@@ -1,11 +1,13 @@
 ﻿using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Shares {
 
     public class ShareAccount : BaseEntity {
+        [Encryptable("Account Number")]
         public string AccountNumber {get;set; }
         public DateTime OpenedOn {get;set; }
         public int Shares {get;set; }

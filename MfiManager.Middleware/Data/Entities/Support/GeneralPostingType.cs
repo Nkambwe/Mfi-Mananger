@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Vouchers;
-
+﻿
 namespace MfiManager.Middleware.Data.Entities.Support {
     /// <summary>
     /// General transaction posting groups eg.

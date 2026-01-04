@@ -15,7 +15,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
         public long? DiscountGroupId  {get;set; }
         public long? PriceGroupId  {get;set; }
         public long? BankAccountId  {get;set; }
-        public long OrderClassificationId {get;set; }
+        public long? OrderClassificationId {get;set; }
         public virtual SupplierInfo Supplier { get; set; }
         public virtual Trader Vendor { get; set; }
         public virtual SupplierGroup SupplierGroup { get; set; }

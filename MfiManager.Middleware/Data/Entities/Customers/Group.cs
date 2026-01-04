@@ -4,24 +4,36 @@ using MfiManager.Middleware.Data.Entities.Customer.Filters;
 using MfiManager.Middleware.Data.Entities.Customers.Support;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Loans;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
 
     public class Group : BaseEntity, IClient {
+        [Encryptable("Group Name")]
         public string RegisteredName {get;set; }
         public string ClientCode { get; set; }
         public string Statistic { get; set; }
         public string Reference  { get; set; }
+        [Encryptable("Permanent Address")]
         public string PermanentAddress  { get; set; }
+        [Encryptable("Mail Address")]
         public string MailAddress  { get; set; }
+        [Encryptable("Primary Line")]
         public string PrimaryLine  { get; set; }
+        [Encryptable("Secondary Line")]
         public string SecondaryLine  { get; set; }
+        [Encryptable("Mobile")]
         public string Mobile  { get; set; }
+        [Encryptable("Fax")]
         public string Fax  { get; set; }
+        [Encryptable("Email")]
         public string Email  { get; set; }
+        [Encryptable("City")]
         public string City  { get; set; }
+        [Encryptable("Town")]
         public string Town  { get; set; }
         public DateTime RegisteredOn  { get; set; }
         public ClientType ClientType  { get; set; }
@@ -31,11 +43,16 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public bool Approved { get; set; }
         public DateTime? ApprovedOn  { get; set; }
         public string ApprovedBy  { get; set; }
+        [Encryptable("Notes")]
         public string Notes  { get; set; }
         public bool Transact  { get; set; }
+        [Encryptable("Whatsapp")]
         public string WhatsApp  { get; set; }
+        [Encryptable("Facebook")]
         public string Facebook { get; set; }
+        [Encryptable("Instagram")]
         public string Instagram  { get; set; }
+        [Encryptable("Twitter")]
         public string Twitter  { get; set; }
         public long BranchId {get;set; }
         public virtual GroupLoanAccount LoanAccount {get; set;}
@@ -63,8 +80,9 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<CustomerBlackList> BlackLists {get;set;} = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedGroup> ModifiedGroups {get;set;} = [];
-        public virtual ICollection<LoanBase> Loans { get; set; } = [];
+        public virtual ICollection<GroupLoan> Loans { get; set; } = [];
         public virtual ICollection<RejectedCustomer> Rejects { get; set; } = [];
+        public virtual ICollection<SavingAccount> SavingAccounts { get; set; } = [];
         public override string ToString() => $"{(string.IsNullOrEmpty(ClientCode) ? "000000" : ClientCode.Trim())}-{(string.IsNullOrEmpty(RegisteredName) ? "Group Name" : RegisteredName.Trim())}";
         public override int GetHashCode() => ToString().GetHashCode() ^ 3;
 

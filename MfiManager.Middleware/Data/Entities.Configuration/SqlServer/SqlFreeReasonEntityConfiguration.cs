@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
+
     public class SqlFreeReasonEntityConfiguration {
-        public static void Configure(EntityTypeBuilder<FreeReason> builder) {
-            builder.ToTable("TBL_MFI_LOAN_DIFFERED_REASON");
+
+        public static void Configure(EntityTypeBuilder<LoanFreezeReason> builder) {
+            builder.ToTable("TBL_MFI_LOAN_FREEZE_REASON");
             builder.HasKey(p => p.Id );
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Series).HasColumnName("series").HasColumnType("NVARCHAR(10)").IsRequired();

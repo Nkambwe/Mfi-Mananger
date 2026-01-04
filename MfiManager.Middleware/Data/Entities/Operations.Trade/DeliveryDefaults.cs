@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
+﻿using MfiManager.Middleware.Data.Entities.Operations.Vendors;
+
+namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
 
     public class DeliveryDefaults : BaseEntity {
         /// <summary>
@@ -16,7 +18,7 @@
         /// <summary>
         /// Get/Set area where customer or vendor operates business
         /// </summary>
-        public string Area  {get;set; }
+        public string DeliveryAddress  {get;set; }
         /// <summary>
         /// Get/Set default transaction currency
         /// </summary>
@@ -24,6 +26,11 @@
         /// <summary>
         /// Get/Set delivery notes
         /// </summary>
-        public string DeliveryNotes  {get;set; }
+        public string Notes  {get;set; }
+
+        public long? SupplierId  {get;set; }
+        public virtual SupplierInfo Supplier {get;set; }
+        public long? TraderId  {get;set; }
+        public virtual Trader Trader {get;set; }
     }
 }

@@ -1,18 +1,25 @@
 ﻿using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Data.Connection;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Enums;
+using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MfiManager.Middleware.Controllers {
 
     public class MfiDatabaseInfoController(ILogger<MfiDatabaseInfoController> logger,
+                                            IObjectMapper objectMapper,
                                             IDatabaseVersionCheckerService versionChecker,
                                             IEnvironmentProvider environment,
                                             IServiceLocalization localizationService,
                                             ISystemErrorService errorService,
-                                            ICompanyService companyService)
-                                            : MfiBaseController(logger, environment, localizationService, errorService, companyService) {
+                                            ICompanyService companyService,
+                                            IEncryptionConfigProvider encryptionProvider,
+                                            IEntityAccessService entityAccessService,
+                                            IEntityResolver resolver)
+                                            : MfiBaseController(logger, objectMapper, environment, localizationService, errorService, 
+                                                companyService,entityAccessService, encryptionProvider, resolver) {
         private readonly ILogger<MfiDatabaseInfoController> _logger = logger;
         private readonly IDatabaseVersionCheckerService _versionChecker = versionChecker;
 

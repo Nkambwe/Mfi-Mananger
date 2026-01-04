@@ -4,6 +4,7 @@ using MfiManager.Middleware.Data.Entities.Archieves;
 using MfiManager.Middleware.Data.Entities.Audits;
 using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Operations.Loans;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Data.Entities.Support;
@@ -35,6 +36,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual ICollection<BranchRevenueCenter> BranchRevenueCenters { get; set; } = [];
         public virtual ICollection<LabelFormat> LabelFormats { get; set; } = [];
         public virtual ICollection<BranchParam> ConfigurationParameters { get; set; } = [];
+        public virtual ICollection<SavingAccount> SavingAccounts { get; set; } = [];
         public virtual ICollection<TimedepositAccount> TimedepositAccounts { get; set; } = [];
         public virtual ICollection<ShareAccount> ShareAccounts {get;set;} = [];
         public virtual ICollection<BranchRevolvingFund> RevolvingFunds {get;set;} = [];
@@ -52,6 +54,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Branches {
         public virtual ICollection<LoanOfficer> LoanOfficers { get; set; } = [];
         public virtual ICollection<BranchJournalType> BranchJournals { get; set; } = [];
         public virtual ICollection<BranchVoucherType> BranchVouchers { get; set; } = [];
+        public virtual ICollection<EncryptionSetting> EncryptionSettings { get; set; } = [];
         public override bool Equals(object obj) {
 
             if (obj is not Branch)

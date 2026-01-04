@@ -5,6 +5,7 @@ using MfiManager.Middleware.Data.Entities.Support;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
+
     public class Trader : TradeContact {
         public TraderType Type { get; set; }
         public bool IsSupplier { get; set; }
@@ -21,8 +22,11 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Trade {
         public virtual ICollection<BusinessContact> Contacts { get; set; } = [];
         public virtual ICollection<TraderBankAccount> BankAccounts { get; set; } = [];
         public virtual ICollection<SalesOrderDefault> SalesOrderDefault { get; set; } = [];
-        public virtual ICollection<PaymentDefault> VendorPaymentDefaults { get; set; } = [];
-        public virtual ICollection<PaymentDefault> CustomerPaymentDefaults { get; set; } = [];
+        public virtual ICollection<InvoicingDefault> InvoicingDefaults { get; set; } = [];
+        public virtual ICollection<DeliveryDefaults> DeliveryDefaults { get; set; }=[];
+        public ICollection<PaymentDefault> VendorPaymentDefaults { get; set; } = new List<PaymentDefault>();
+        public ICollection<PaymentDefault> CustomerPaymentDefaults { get; set; } = new List<PaymentDefault>();
+        public virtual ICollection<PurchasingDefaults> PurchasingDefaults { get; set; } = [];
         public virtual ICollection<PurchaseOrderDefault> PurchaseOrderDefaults { get; set; } = [];
         public virtual ICollection<HeldContract> HeldContracts { get; set; } = [];
         public virtual ICollection<TraderReference> RefereceValues { get; set; } = [];

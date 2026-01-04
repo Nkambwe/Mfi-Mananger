@@ -53,11 +53,11 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Products {
         public long? ChargeGroupId { get; set; } 
         public virtual ChargeGroup ChargeGroup { get; set; }
         public virtual ICollection<SavingProductTaxGroup>  TaxGroups {get;set;}
-        public virtual ICollection<ChargeStage>  ChargeStages {get;set;}
+        public virtual ICollection<ChargeStage>  ChargeStages {get;set;} = [];
         public virtual ICollection<TaxableItem> TaxableItems { get; set; } = [];
         public virtual ICollection<ChargeItem> ChargedItems { get; set; } = [];
         public virtual ICollection<SavingProductParam> ProductParams { get; set; } = [];
-        public virtual ICollection<WithdrawClass> WithdrawClasses {get;set;}
-        public virtual ICollection<SavingAccount> Accounts {get;set;}
+        public virtual ICollection<WithdrawClass> WithdrawClasses {get;set;} = [];
+        public virtual ICollection<SavingAccount> SavingAccounts { get; set; } = [];
     }
 }

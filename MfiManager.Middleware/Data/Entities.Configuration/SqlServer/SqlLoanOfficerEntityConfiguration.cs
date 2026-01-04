@@ -19,7 +19,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.Property(p => p.UserId).HasColumnName("user_id");
             builder.Property(p => p.LedgerAccountId).HasColumnName("ledger_id");
             builder.HasOne(bc => bc.LedgerAccount).WithMany(p => p.LoanOfficers).HasForeignKey(bc => bc.LedgerAccountId).OnDelete(DeleteBehavior.Cascade);
             builder.Property(p => p.BranchId).HasColumnName("branch_id");

@@ -1,8 +1,8 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.System {
     public class Permission : BaseEntity {
-        public string Code {get;set;}
+        public string Series {get;set;}
         public string Description {get;set; }
-        public virtual ICollection<PermissionSet> PermissionSets {get;set;}=[];
+        public virtual ICollection<PermissionSetPermissions> PermissionSets {get;set;}=[];
         public virtual ICollection<DelegatePermission> DelegatePermissions {get;set;}=[];
         /// <summary>
         /// Override equals method
@@ -23,7 +23,7 @@
 
             // ReSharper disable once PossibleNullReferenceException
             return permission.Id == Id
-                   && permission.Code.Trim().Equals(Code.Trim(), StringComparison.CurrentCultureIgnoreCase);
+                   && permission.Series.Trim().Equals(Series.Trim(), StringComparison.CurrentCultureIgnoreCase);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@
         /// Override the Permission's toString() method
         /// </summary>
         /// <returns></returns>
-        public override string ToString() => $"{Code.Trim()}-{ Description.Trim()}";
+        public override string ToString() => $"{Series.Trim()}-{ Description.Trim()}";
     }
 
 }

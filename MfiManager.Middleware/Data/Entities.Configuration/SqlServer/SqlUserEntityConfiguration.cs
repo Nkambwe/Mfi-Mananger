@@ -2,14 +2,13 @@
 using MfiManager.Middleware.Data.Entities.System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
 
     public class SqlUserEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<SystemUser> builder) {
-            builder.ToTable("TBL_MFI_USER");
+            builder.ToTable("TBL_MFI_SYSTEMUSER");
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Id).HasColumnName("id");
             builder.Property(u => u.Username).HasColumnName("username").HasColumnType("NVARCHAR(100)").IsRequired();
@@ -22,11 +21,13 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(u => u.PasswordHash).HasColumnName("password_hash").HasColumnType("NVARCHAR(MAX)").IsRequired();
             builder.Property(u => u.BranchCode).HasColumnName("branch_code").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(u => u.DepartmentUnit).HasColumnName("unit_code").HasColumnType("NVARCHAR(10)").IsRequired();
-            builder.Property(u => u.IsApproved).HasColumnName("is_approved");
-            builder.Property(u => u.IsVerified).HasColumnName("is_verified");
+            builder.Property(u => u.IsApproved).HasColumnName("is_approved").IsRequired(false);
+            builder.Property(u => u.IsVerified).HasColumnName("is_verified").IsRequired(false);
             builder.Property(u => u.IsActive).HasColumnName("is_active");
             builder.Property(u => u.IsLocked).HasColumnName("is_locked");
             builder.Property(u => u.IsLoggedIn).HasColumnName("is_logged_in");
+            builder.Property(u => u.LastLoginDate).HasColumnName("last_login_date").IsRequired(false);
+            builder.Property(u => u.LastPasswordChange).HasColumnName("last_pwd_change_date").IsRequired(false);
             builder.Property(u => u.DepartmentId).HasColumnName("department_id");
             builder.Property(u => u.RoleId).HasColumnName("role_id");
             builder.Property(u => u.IsDeleted).HasColumnName("is_deleted");
@@ -39,7 +40,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasMany(u => u.QuickActions).WithOne(q => q.User).HasForeignKey(q => q.UserId);
             builder.HasMany(u => u.ActivityLogs).WithOne(a => a.User).HasForeignKey(a => a.UserId);
             builder.HasOne(u => u.LoanOfficer).WithOne(l => l.SystemUser).HasForeignKey<LoanOfficer>(l => l.UserId).IsRequired();
-            builder.HasOne(u => u.Teller).WithOne(l => l.SystemUser).HasForeignKey<LoanOfficer>(l => l.UserId).IsRequired();
+            builder.HasOne(u => u.Teller).WithOne(l => l.SystemUser).HasForeignKey<Teller>(l => l.UserId).IsRequired();
         }
     }
 }

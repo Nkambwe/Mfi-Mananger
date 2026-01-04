@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_SUPPLIER");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.Code).HasColumnName("code").HasColumnType("NVARCHAR(10)");
+            builder.Property(p => p.Series).HasColumnName("code").HasColumnType("NVARCHAR(10)");
             builder.Property(p => p.Name).HasColumnName("supplier_name").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Alias).HasColumnName("supplier_alias").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Language).HasColumnName("supplier_language").HasColumnType("NVARCHAR(100)");

@@ -18,7 +18,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.Property(e => e.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(e => e.ModifiedBy).HasColumnName("modified_by").HasColumnType("VARCHAR(10)").IsRequired(false);
 
-            builder.HasOne(r => r.Group).WithMany(c => c.Roles).HasForeignKey(b => b.GroupId);
+            builder.HasOne(r => r.RoleGroup).WithMany(c => c.Roles).HasForeignKey(b => b.GroupId);
         }
     }
 

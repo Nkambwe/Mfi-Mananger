@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class GeneralCustomerConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "AllowManualRegistrationNumbers", description: "Check whether user can manually enter customer registration numbers", paramType: "bool")]
         public string AllowManualRegistrationNumbers { get; set; }

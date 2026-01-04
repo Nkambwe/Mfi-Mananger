@@ -20,7 +20,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(r => r.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(r => r.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
 
-            builder.HasOne(r => r.Group).WithMany(g => g.Roles).HasForeignKey(r => r.GroupId);
+            builder.HasOne(r => r.RoleGroup).WithMany(g => g.Roles).HasForeignKey(r => r.GroupId);
         }
     }
 }

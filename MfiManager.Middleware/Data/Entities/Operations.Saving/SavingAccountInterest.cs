@@ -3,59 +3,63 @@
     /// Savings account interest offered record
     /// </summary>
     public class SavingAccountInterest : BaseEntity {
-        public long AccountId { get; set; }
-        public DateTime TransDate { get; set; }
+        public long SavingAccountId { get; set; }
+
+        public DateTime CalculationDate { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of January
         /// </summary>
-        public decimal January { get; set; }
+        public decimal JanuaryInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of February
         /// </summary>
-        public decimal February { get; set; }
+        public decimal FebruaryInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of March
         /// </summary>
-        public decimal March { get; set; }
+        public decimal MarchInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of April
         /// </summary>
-        public decimal April { get; set; }
+        public decimal AprilInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of May
         /// </summary>
-        public decimal May { get; set; }
+        public decimal MayInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of June
         /// </summary>
-        public decimal June { get; set; }
+        public decimal JuneInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of July
         /// </summary>
-        public decimal July { get; set; }
+        public decimal JulyInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of August
         /// </summary>
-        public decimal August { get; set; }
+        public decimal AugustInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of September
         /// </summary>
-        public decimal September { get; set; }
+        public decimal SeptemberInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of October
         /// </summary>
-        public decimal October { get; set; }
+        public decimal OctoberInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of November
         /// </summary>
-        public decimal November { get; set; }
+        public decimal NovemberInterest { get; set; }
         /// <summary>
         /// Get/Set account balance for the month of December
         /// </summary>
-        public decimal December { get; set; }
-
+        public decimal DecemberInterest { get; set; }
+        /// <summary>
+        /// Get/Set total amount to calculated
+        /// </summary>
         public decimal TotalAmount { get; set; }
-        public virtual SavingAccount Account { get; set; }
+
+        public virtual SavingAccount SavingAccount { get; set; }
     }
 
 }

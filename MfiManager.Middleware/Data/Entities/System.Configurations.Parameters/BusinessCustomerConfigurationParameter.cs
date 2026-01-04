@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class BusinessCustomerConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "BusinessFilter1Name", description: "Custome business filter 1 name", paramType: "string")]
         public string BusinessFilter1Name { get; set; }

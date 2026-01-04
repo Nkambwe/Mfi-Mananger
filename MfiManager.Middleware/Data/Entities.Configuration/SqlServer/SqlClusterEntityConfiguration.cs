@@ -9,7 +9,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.ToTable("TBL_MFI_GROUP_CLUSTER");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
-            builder.Property(p => p.Code).HasColumnName("cluster_code").HasColumnType("NVARCHAR(10)").IsRequired();
+            builder.Property(p => p.Series).HasColumnName("cluster_code").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ClusterName).HasColumnName("cluster_name").HasColumnType("NVARCHAR(MAX)").IsRequired();
             builder.Property(p => p.AddedOn).HasColumnName("added_on");
             builder.Property(p => p.ClosedOn).HasColumnName("closed_on").IsRequired(false);

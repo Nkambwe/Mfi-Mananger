@@ -23,10 +23,8 @@
         /// <summary>
         /// Get/Set delivery notes
         /// </summary>
-        public string PurchasingNotes  {get;set; }
-
+        public string Notes  {get;set; }
         public long TraderId {get;set; }
-
         public virtual Trader Trader {get;set; }
     }
 

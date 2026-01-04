@@ -25,6 +25,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public virtual RevolvingFund RevolvingFund { get; set; }
         public long LoanAccountId { get; set; }
         public virtual GroupLoanAccount LoanAccount { get; set; }
+        public virtual ICollection<LoanRefinance> RefinancedLoans { get; set; } = [];
         public virtual ICollection<AmortizedDue> Amortization { get; set; } = [];
         public virtual ICollection<LoanApprovedAmount> ApprovedAmounts { get; set; } = [];
         public virtual ICollection<ApplicationNotes> ApprovalNotes { get; set; } = [];

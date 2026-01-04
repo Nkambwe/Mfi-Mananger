@@ -6,7 +6,7 @@
     /// <typeparam name="TCursor"></typeparam>
     public class CursorPagedResult<T, TCursor> {
         public List<T> Items { get; set; } = [];
-        public TCursor? NextCursor { get; set; }
+        public TCursor NextCursor { get; set; }
         public bool HasNextPage { get; set; }
         public int PageSize { get; set; }
 

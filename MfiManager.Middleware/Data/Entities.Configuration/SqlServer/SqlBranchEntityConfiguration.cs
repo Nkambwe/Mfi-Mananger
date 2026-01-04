@@ -23,7 +23,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(b => b.AccountsChartId).HasColumnName("accounts_chart_id");
             builder.HasOne(b => b.Company).WithMany(c => c.Branches).HasForeignKey(b => b.CompanyId);
             builder.HasMany(mp => mp.Holidays).WithOne(h => h.Branch).HasForeignKey(h => h.BranchId);
-            builder.HasMany(mp => mp.Configurations).WithOne(c => c.Branch).HasForeignKey(c => c.BranchId);
             builder.HasMany(mp => mp.SeriesNumbers).WithOne(s => s.Branch).HasForeignKey(s => s.BranchId);
             builder.HasMany(mp => mp.RecurringItems).WithOne(r => r.Branch).HasForeignKey(r => r.BranchId);
             builder.HasMany(mp => mp.Entities).WithOne(e => e.Branch).HasForeignKey(e => e.BranchId);

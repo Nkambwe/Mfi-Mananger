@@ -10,7 +10,7 @@ namespace MfiManager.Middleware.Data.Entities.System {
         public bool? IsApproved { get; set; }
         public bool? IsVerified { get; set; }
         public virtual ICollection<SystemRole> Roles { get; set; }
-        public virtual ICollection<PermissionSet> PermissionSets { get; set; }
+        public virtual ICollection<RoleGroupPermissionSet> PermissionSets { get; set; }
         public override bool Equals(object obj) {
 
             if (obj is not RoleGroup)

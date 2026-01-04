@@ -12,6 +12,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.AccountNumber).HasColumnName("account_number").HasColumnType("NVARCHAR(40)").IsRequired();
             builder.Property(p => p.OpenedOn).HasColumnName("opened_on").IsRequired();
             builder.Property(p => p.Shares).HasColumnName("shares").IsRequired();
+            builder.Property(p => p.ShareClass).HasColumnName("share_class").IsRequired();
             builder.Property(p => p.TotalValue).HasColumnName("total_values").HasPrecision(9,2).IsRequired();
             builder.Property(p => p.ClosedOn).HasColumnName("closed_on").IsRequired(false);
             builder.Property(p => p.BranchId).HasColumnName("branch_id");

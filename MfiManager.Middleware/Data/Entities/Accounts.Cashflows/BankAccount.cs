@@ -2,6 +2,7 @@
 using MfiManager.Middleware.Data.Entities.Accounts.Ledgers;
 using MfiManager.Middleware.Data.Entities.Operations.Trade;
 using MfiManager.Middleware.Data.Entities.Operations.Vendors;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
@@ -11,7 +12,9 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         /// Get/Set client or supplier code
         /// </summary>
         public string HolderCode  {get;set;}
+        [Encryptable("Account Name")]
         public string AccountName  {get;set;}
+        [Encryptable("Account Number")]
         public string AccountNumber   {get;set;}
         /// <summary>
         /// Get/Set bank IBAN number
@@ -35,6 +38,7 @@ namespace MfiManager.Middleware.Data.Entities.Accounts.Cashflows {
         public long? LedgerId  {get;set;}
         public bool HasBook  {get;set;}
         public bool Active   {get;set;}
+        [Encryptable("Credit Limit")]
         public decimal CreditLimit  {get;set;}
         public bool ExcludeBranches  {get;set;}
         public long BankBranchId   {get;set;}

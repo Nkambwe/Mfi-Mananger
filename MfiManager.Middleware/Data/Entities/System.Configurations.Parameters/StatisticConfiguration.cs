@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class StatisticConfiguration {
         [ConfigParam(name: "Individuals", description: "Individual customers statistics", paramType: "int")]
         public string Individuals { get; set; }

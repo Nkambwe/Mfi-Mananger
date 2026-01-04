@@ -2,12 +2,11 @@
 namespace MfiManager.Middleware.Data.Entities.Customers {
 
     public class Cluster : BaseEntity {
-        public string Code {get;set; }
+        public string Series {get;set; }
         public string ClusterName {get;set; }
         public DateTime AddedOn {get;set; }
-        public bool ClosedOn {get;set; }
+        public DateTime? ClosedOn {get;set; }
         public string Area {get;set; }
-        
         /// <summary>
         /// Get/Set flag to check if cluster was dissolved into another cluster
         /// </summary>

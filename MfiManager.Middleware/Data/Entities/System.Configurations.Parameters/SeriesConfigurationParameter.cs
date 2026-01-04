@@ -1,4 +1,6 @@
-﻿namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
+﻿using MfiManager.Middleware.Data.Helpers;
+
+namespace MfiManager.Middleware.Data.Entities.System.Configurations.Parameters {
     public class SeriesConfigurationParameter : IConfigurationParameter {
         [ConfigParam(name: "BranchIdentifier", description: "Branch series indetifier")]
         public string BranchIdentifier { get; set; }

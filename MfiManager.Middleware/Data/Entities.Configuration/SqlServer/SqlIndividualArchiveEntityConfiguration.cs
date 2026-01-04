@@ -17,7 +17,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Statistic).HasColumnName("statistic_number").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.Reference).HasColumnName("member_ref").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.RegisteredOn).HasColumnName("reg_date");
-            builder.Property(p => p.FirstName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
+            builder.Property(p => p.FirstName).HasColumnName("first_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.MiddleName).HasColumnName("middle_name").HasColumnType("NVARCHAR(200)").IsRequired(false);
             builder.Property(p => p.LastName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.Gender).HasColumnName("gender").IsRequired();

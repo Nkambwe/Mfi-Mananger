@@ -1,14 +1,18 @@
 ﻿using MfiManager.Middleware.Data.Entities.Operations.Branches;
 
 namespace MfiManager.Middleware.Data.Entities.System {
-    public class EntityAccess:BaseEntity {
-        public long BranchId { get; set; }
-        public long EntityId  { get; set; }
+
+    /// <summary>
+    /// _db.EntityAccess.AddRange(
+    //new EntityAccess { BranchId = 10, EntityName = "Customer", CanRead = true },
+    //new EntityAccess { BranchId = 10, EntityName = "SystemUser", CanRead = false }
+    //await _db.SaveChangesAsync();
+    /// </summary>
+    public class EntityAccess: BaseEntity {
         public string EntityName  { get; set; }
-        /// <summary>
-        /// Exclude this entity from branch access
-        /// </summary>
-        public bool Exclude {get;set; }
+        public bool CanRead {get;set; }
+        public long BranchId { get; set; }
         public virtual Branch Branch { get; set;  }
     }
+
 }

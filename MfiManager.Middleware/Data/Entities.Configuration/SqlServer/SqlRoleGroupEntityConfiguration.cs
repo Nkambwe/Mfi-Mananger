@@ -9,7 +9,6 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
         public static void Configure(EntityTypeBuilder<RoleGroup> builder) {
             builder.ToTable("TBL_MFI_ROLE_GROUP");
             builder.HasKey(g => g.Id);
-
             builder.Property(g => g.Id).HasColumnName("id");
             builder.Property(g => g.GroupName).HasColumnName("group_name").HasColumnType("NVARCHAR(100)").IsRequired();
             builder.Property(g => g.Scope).HasColumnName("group_scope").HasColumnType("INT").IsRequired();
@@ -22,8 +21,8 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(g => g.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(g => g.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(g => g.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-
-            builder.HasMany(g => g.Roles).WithOne(r => r.Group).HasForeignKey(r => r.GroupId);
+            builder.HasMany(g => g.Roles).WithOne(r => r.RoleGroup).HasForeignKey(r => r.GroupId);
+            builder.HasMany(g => g.PermissionSets).WithOne(r => r.RoleGroup).HasForeignKey(r => r.RoleGroupId);
         }
     }
 

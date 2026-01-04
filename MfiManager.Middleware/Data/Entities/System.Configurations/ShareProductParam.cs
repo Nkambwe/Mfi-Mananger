@@ -18,8 +18,8 @@ namespace MfiManager.Middleware.Data.Entities.System.Configurations {
         /// </summary>
         public string ParamDescription { get; set; }
 
-        public long SharegProductId { get; set; }
-        public virtual ShareProduct SavingProduct { get; set; }
+        public long ShareProductId { get; set; }
+        public virtual ShareProduct ShareProduct { get; set; }
         public override string ToString() => $"{(ParameterName ?? string.Empty).Trim()}";
     }
 }

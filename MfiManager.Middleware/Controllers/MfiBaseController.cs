@@ -1,7 +1,9 @@
 using MfiManager.Middleware.Configurations.Providers;
 using MfiManager.Middleware.Data.Entities.System;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Data.Services;
 using MfiManager.Middleware.Http.Responses;
+using MfiManager.Middleware.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -10,16 +12,23 @@ namespace MfiManager.Middleware.Controllers {
     [ApiController]
     [Route("mfi")]
     public class MfiBaseController(ILogger<MfiBaseController> logger, 
+                                   IObjectMapper objectMapper,
                                    IEnvironmentProvider environment,
                                    IServiceLocalization localizationService,
                                    ISystemErrorService errorService,
-                                   ICompanyService companyService) : ControllerBase {
-
+                                   ICompanyService companyService,
+                                   IEntityAccessService entityAccessService,
+                                   IEncryptionConfigProvider encryptionProvider,
+                                   IEntityResolver resolver) : ControllerBase {
         protected readonly ILogger<MfiBaseController> Logger = logger;
+        protected readonly IObjectMapper Mapper = objectMapper;
         protected readonly IEnvironmentProvider Environment = environment;
         protected readonly IServiceLocalization LocalizationService = localizationService;
         protected readonly ICompanyService ErrorService = companyService;
         protected readonly ISystemErrorService CompanyService = errorService;
+        protected readonly IEntityAccessService EntityAccessService = entityAccessService;
+        protected readonly IEncryptionConfigProvider EncryptionProvider = encryptionProvider;
+        protected readonly IEntityResolver EntityResolver = resolver;
 
         #region Private methods
 

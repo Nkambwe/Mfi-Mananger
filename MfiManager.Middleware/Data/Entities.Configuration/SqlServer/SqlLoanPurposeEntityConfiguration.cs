@@ -1,8 +1,10 @@
-﻿using MfiManager.Middleware.Data.Entities.Operations.Loans;
+﻿using MfiManager.Middleware.Data.Entities.Audits;
+using MfiManager.Middleware.Data.Entities.Operations.Loans;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
+
     public class SqlLoanPurposeEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<LoanPurpose> builder) {

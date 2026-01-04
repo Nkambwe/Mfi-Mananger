@@ -1,4 +1,5 @@
 ﻿namespace MfiManager.Middleware.Data.Entities.System {
+
     public class MfiEntity: BaseEntity {
         /// <summary>
         /// Get Or Set Entity name eg.SystemUser
@@ -11,4 +12,5 @@
 
         public virtual ICollection<UserActivityLog> Logs { get; set; }
     }
+
 }

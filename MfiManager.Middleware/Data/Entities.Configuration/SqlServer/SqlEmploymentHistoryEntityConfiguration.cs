@@ -10,7 +10,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.Employer).HasColumnName("employer_name").HasColumnType("NVARCHAR(MAX)");
-            builder.Property(p => p.Position).HasColumnName("employer_name").HasColumnType("NVARCHAR(200)");
+            builder.Property(p => p.Position).HasColumnName("position_held").HasColumnType("NVARCHAR(200)");
             builder.Property(p => p.Earning).HasColumnName("earning").HasPrecision(9,2);
             builder.Property(p => p.FromDate).HasColumnName("from_date");
             builder.Property(p => p.WorkHere).HasColumnName("work_here");

@@ -19,11 +19,9 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(u => u.SupplierInfo).WithMany(d => d.PaymentDefaults).HasForeignKey(u => u.SupplierId);
+            builder.HasOne(p => p.SupplierInfo).WithMany(s => s.PaymentDefaults).HasForeignKey(p => p.SupplierId);
             builder.HasOne(u => u.PaymentTerms).WithMany(p => p.PaymentDefaults).HasForeignKey(q => q.PaymentTermsId);
             builder.HasOne(u => u.BankAccount).WithMany(a => a.DefaultVendorPayments).HasForeignKey(u => u.BankAccountId);
-            builder.HasOne(u => u.CustomerVendor).WithMany(p => p.VendorPaymentDefaults).HasForeignKey(a => a.CustomerVendorId);
-            builder.HasOne(u => u.SupplierVendor).WithMany(p => p.CustomerPaymentDefaults).HasForeignKey(a => a.SupplierVendorId);
         }
     }
 

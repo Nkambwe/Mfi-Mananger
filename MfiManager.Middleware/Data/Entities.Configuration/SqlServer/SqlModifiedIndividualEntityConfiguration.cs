@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlModifiedIndividualEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<ModifiedIndividual> builder) {
-            builder.ToTable("TBL_MFI_INDIVIDUAL");
+            builder.ToTable("TBL_MFI_MOD_INDIVIDUAL");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.BranchId).HasColumnName("branch_id");
@@ -15,7 +15,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Statistic).HasColumnName("statistic_number").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.Reference).HasColumnName("member_ref").HasColumnType("NVARCHAR(10)").IsRequired(false);
             builder.Property(p => p.RegisteredOn).HasColumnName("reg_date");
-            builder.Property(p => p.FirstName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
+            builder.Property(p => p.FirstName).HasColumnName("first_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.MiddleName).HasColumnName("middle_name").HasColumnType("NVARCHAR(200)").IsRequired(false);
             builder.Property(p => p.LastName).HasColumnName("last_name").HasColumnType("NVARCHAR(200)").IsRequired();
             builder.Property(p => p.Gender).HasColumnName("gender").IsRequired();
@@ -67,6 +67,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.HasOne(p => p.Reason).WithMany(e => e.ModifiedIndividuals).HasForeignKey(e => e.ReasonId);
             builder.HasOne(p => p.Individual).WithMany(e => e.ModifiedRecords).HasForeignKey(e => e.PersonId);
+            
         }
     }
 }

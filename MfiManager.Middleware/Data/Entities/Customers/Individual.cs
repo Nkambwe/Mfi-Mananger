@@ -9,6 +9,7 @@ using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using MfiManager.Middleware.Data.Entities.Operations.Shares;
 using MfiManager.Middleware.Data.Entities.Operations.Timedeposit;
 using MfiManager.Middleware.Data.Entities.Support;
+using MfiManager.Middleware.Data.Helpers;
 using MfiManager.Middleware.Enums;
 
 namespace MfiManager.Middleware.Data.Entities.Customers {
@@ -17,30 +18,44 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public string ClientCode { get; set; }
         public string Statistic { get; set; }
         public string Reference { get; set; }
+        [Encryptable("First Name")]
         public string FirstName {get;set; }
+        [Encryptable("Last Name")]
         public string LastName {get;set; }
+        [Encryptable("Middle Name")]
         public string MiddleName {get;set; }
         public Gender Gender { get; set; }
         public string Photo {get;set; }
         public string Signature { get;set; }
+        [Encryptable("City")]
         public string City  { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BirthPlace { get; set; }
         public string RightThumbPrint { get; set; }
         public string LeftThumbPrint { get; set; }
         public MaritalStatus MaritalStatus  { get; set; }
+        [Encryptable("Spouse")]
         public string SpouseName { get; set; }
         public int Children  { get; set; }
         public int Dependents { get; set; }
+        [Encryptable("Mother")]
         public string Mother  { get; set; }
+        [Encryptable("Father")]
         public string Father { get; set; }
         public bool Literate  { get; set; }
+        [Encryptable("Permanent Address")]
         public string PermanentAddress { get; set; }
+        [Encryptable("Mail Address")]
         public string MailAddress { get; set; }
+        [Encryptable("Primary Line")]
         public string PrimaryLine { get; set; }
+        [Encryptable("Secondary Line")]
         public string SecondaryLine { get; set; }
+        [Encryptable("Mobile")]
         public string Mobile { get; set; }
+        [Encryptable("Fax")]
         public string Fax { get; set; }
+        [Encryptable("Email")]
         public string Email { get; set; }
         public string Town { get; set; }
         public DateTime RegisteredOn { get; set; }
@@ -51,17 +66,22 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public bool Approved { get; set; }
         public DateTime? ApprovedOn { get; set; }
         public string ApprovedBy { get; set; }
+        [Encryptable("Notes")]
         public string Notes { get; set; }
         public bool Transact { get; set; }
+        [Encryptable("Twitter")]
         public string WhatsApp { get; set; }
+        [Encryptable("Facebook")]
         public string Facebook { get; set; }
+        [Encryptable("Instagram")]
         public string Instagram { get; set; }
+        [Encryptable("Twitter")]
         public string Twitter { get; set; }
         public long BranchId {get;set; }
         public virtual Branch Branch {get;set;}
         public long? NationalityId {get;set; }
         public virtual Nationality Nationality {get;set;}
-        public long TitleId { get; set; }
+        public long? TitleId { get; set; }
         public virtual Title Title {get;set;}
         public long? Filter1Id {get; set;}
         public virtual ClientFilter1 Filter1 {get;set;}
@@ -92,10 +112,10 @@ namespace MfiManager.Middleware.Data.Entities.Customers {
         public virtual ICollection<OtherFile> Files {get;set;} = [];
         public virtual ICollection<Identification> Identifications { get; set; } = [];
         public virtual ICollection<SavingPartner> SavingPartners { get; set; } = [];
+        public virtual ICollection<SavingAccount> SavingAccounts { get; set; } = [];
         public virtual ICollection<EmploymentHistory> EmploymentHistories { get; set; } = [];
         public virtual ICollection<UnLockedCustomer> UnLockedCustomers {get;set;} = [];
         public virtual ICollection<ModifiedIndividual> ModifiedRecords {get;set;} = [];
-        public virtual ICollection<LoanBase> Loans { get; set; } = [];
         public virtual ICollection<RejectedCustomer> Rejects { get; set; } = [];
         public override bool Equals(object otherIndividual) {
 

@@ -1,9 +1,12 @@
 ﻿using MfiManager.Middleware.Data.Entities.Operations.Loans;
+using MfiManager.Middleware.Data.Entities.Operations.Saving;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
+
     public class SqlGroupLoanGuarantorEntityConfiguration {
+
         public static void Configure(EntityTypeBuilder<GroupLoanGuarantor> builder) {
             builder.ToTable("TBL_MFI_GROUP_LOAN_GUARANTOR");
             builder.HasKey(bc => new { bc.GuarantorId, bc.GroupLoanId });

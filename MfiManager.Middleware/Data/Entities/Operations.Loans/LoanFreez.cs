@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Loans {
         public DateTime? PenaltyDate { get; set; }
         public decimal Penalty { get; set; }
         public long ReasonId { get; set; }
-        public FreeReason Reason { get; set; }
+        public LoanFreezeReason Reason { get; set; }
         public long? IndividualLoanId { get; set; }
         public virtual IndividualLoan IndividualLoan {get;set; }
         public long? GroupLoanId { get; set; }

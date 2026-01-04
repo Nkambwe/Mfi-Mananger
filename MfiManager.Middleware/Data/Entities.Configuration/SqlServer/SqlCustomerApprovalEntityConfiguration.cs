@@ -13,7 +13,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.ApprovedOn).HasColumnName("approved_on");
             builder.Property(p => p.ApprovedBy).HasColumnName("approved_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.Comments).HasColumnName("comments").HasColumnType("NVARCHAR(MAX)").IsRequired();
-            builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired();
+            builder.Property(p => p.Notes).HasColumnName("notes").HasColumnType("NVARCHAR(MAX)").IsRequired(false);
             builder.Property(p => p.PersonId).HasColumnName("personal_id").IsRequired(false);
             builder.Property(p => p.GroupId).HasColumnName("group_id").IsRequired(false);
             builder.Property(p => p.BusinessId).HasColumnName("business_id").IsRequired(false);
@@ -23,7 +23,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.CreatedBy).HasColumnName("created_by").HasColumnType("NVARCHAR(10)").IsRequired();
             builder.Property(p => p.ModifiedOn).HasColumnName("modified_on").IsRequired(false);
             builder.Property(p => p.ModifiedBy).HasColumnName("modified_by").HasColumnType("NVARCHAR(10)").IsRequired(false);
-            builder.HasOne(p => p.Individual).WithMany(e => e.CustomerApprovals).HasForeignKey(e => e.Individual);
+            builder.HasOne(p => p.Individual).WithMany(e => e.CustomerApprovals).HasForeignKey(e => e.PersonId);
             builder.HasOne(p => p.Group).WithMany(e => e.CustomerApprovals).HasForeignKey(e => e.GroupId);
             builder.HasOne(p => p.Business).WithMany(e => e.CustomerApprovals).HasForeignKey(e => e.BusinessId);
             builder.HasOne(p => p.Member).WithMany(e => e.CustomerApprovals).HasForeignKey(e => e.MemberId);

@@ -2,6 +2,7 @@
 using MfiManager.Middleware.Data.Entities.Customers;
 using MfiManager.Middleware.Data.Entities.Operations.Branches;
 using MfiManager.Middleware.Data.Entities.Operations.Products;
+using MfiManager.Middleware.Data.Helpers;
 
 namespace MfiManager.Middleware.Data.Entities.Operations.Timedeposit {
     /// <summary>
@@ -14,10 +15,12 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Timedeposit {
         public long? MemberId {get;set; }
         public long? GroupId {get;set; }
         public DateTime OpenedOn {get;set; }
+        [Encryptable("Account Number")]
         public string AccountNumber {get;set; }
         /// <summary>
         /// Get/Set timedeposit amount on account
         /// </summary>
+        [Encryptable("Deposit Amount")]
         public decimal DepositAmount {get;set; }
         /// <summary>
         /// Get/Set client negotiated interest rate if different from product interest rate

@@ -1,5 +1,4 @@
-﻿using MfiManager.Middleware.Data.Entities.Accounts.Vouchers;
-
+﻿
 namespace MfiManager.Middleware.Data.Entities.Support {
     /// <summary>
     /// Transactions posted based on nature of business such as Sale of services, Sale of products, Payment, Reimbursement, Returns

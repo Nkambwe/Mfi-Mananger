@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "eMf5TUcNcajDXDJy+0UAYw3nPalk/qk9QIJp0INkrUs=",
+  "Source": "MfiManager.Middleware",
+  "BasePath": "_content/MfiManager.Middleware",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

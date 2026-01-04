@@ -14,7 +14,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
             builder.Property(p => p.TransDate).HasColumnName("trans_date").IsRequired();
             builder.Property(p => p.Particulars).HasColumnName("particulars").HasColumnType("NVARCHAR(MAX)").IsRequired();
             builder.Property(p => p.Amount).HasColumnName("trans_amount").HasPrecision(9,2).IsRequired();
-            builder.Property(p => p.Card).HasColumnName("card_id");
+            builder.Property(p => p.CardId).HasColumnName("card_id");
             builder.Property(p => p.GeneralLedgerTransactionId).HasColumnName("general_ledegr_id");
             builder.Property(p => p.IsDeleted).HasColumnName("is_deleted");
             builder.Property(p => p.CreatedOn).HasColumnName("created_on").IsRequired();

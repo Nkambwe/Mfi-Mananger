@@ -34,7 +34,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.PostgreSql {
             builder.HasOne(u => u.Department).WithMany(d => d.SystemUsers).HasForeignKey(u => u.DepartmentId);
             builder.HasOne(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId);
             builder.HasMany(u => u.QuickActions).WithOne(q => q.User).HasForeignKey(a => a.UserId);
-            builder.HasMany(u => u.Prefferences).WithOne(p => p.User).HasForeignKey(a => a.UserId);
+            builder.HasMany(u => u.Prefferences).WithOne(p => p.SystemUser).HasForeignKey(a => a.SystemUserId);
             builder.HasMany(u => u.ActivityLogs).WithOne(a => a.User).HasForeignKey(a => a.UserId);
          }
     }

@@ -6,7 +6,7 @@ namespace MfiManager.Middleware.Data.Entities.Configuration.SqlServer {
     public class SqlIdentificationEntityConfiguration {
 
         public static void Configure(EntityTypeBuilder<Identification> builder) {
-            builder.ToTable("TBL_MFI_IDENTIFICATION_TYPE");
+            builder.ToTable("TBL_MFI_IDENTIFICATION");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("id");
             builder.Property(p => p.FileUrl).HasColumnName("file_url").HasColumnType("NVARCHAR(MAX)");

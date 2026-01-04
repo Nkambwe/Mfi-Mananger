@@ -6,7 +6,6 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
     /// Savings overdraft loan application
     /// </summary>
     public class OverdraftLoan : BaseEntity {
-        public long SavingAccountId { get; set; }
         public DateTime RequestDate { get; set; }
         public long? TranstypeId { get; set; }
         public string Transcode { get; set; }
@@ -17,13 +16,14 @@ namespace MfiManager.Middleware.Data.Entities.Operations.Saving {
         public decimal Interest { get; set; }
         public DateTime InterestStartDate { get; set; }
         public DateTime SettlementDate { get; set; }
+        public OverdraftStatus Status { get; set; }
         public string Notes { get; set; }
         public string ProcessedBy { get; set; }
         public DateTime? ApprovedOn { get; set; }
         public string ApprovedBy { get; set; }
         public DateTime EntryDate { get; set; }
+        public long SavingAccountId { get; set; }
         public virtual SavingAccount SavingAccount { get; set; }
-        public OverdraftStatus Status { get; set; }
         public virtual ICollection<OverdraftGuarantee> Guarantees { get; set; }
         public virtual ICollection<ModifiedOverdraftLoan> Modifications { get; set; }
     }
